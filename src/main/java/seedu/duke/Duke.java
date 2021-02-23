@@ -7,7 +7,7 @@ public class Duke {
      * Main entry-point for the java.duke.Duke application.
      */
     public static void main(String[] args) {
-        String logo = " __  __           _   __  __     \n"
+        String logo = " __  __           _   __  __\n"
                 + "|  \\/  |         | | |  \\/  |\n"
                 + "| \\  / | ___   __| | | \\  / | __ _ _ __\n"
                 + "| |\\/| |/ _ \\ / _  | | |\\/| |/ _  |  _ \\\n"
