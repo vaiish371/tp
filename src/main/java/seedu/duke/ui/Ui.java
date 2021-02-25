@@ -10,17 +10,15 @@ public class Ui {
         in = new Scanner(System.in);
     }
 
-    private static void showLine() {
+    public static void showLine() {
         System.out.println("\t---------------------------------------------------------------------");
     }
 
-    private void showExitMessage() {
-        showLine();
+    public void showExitMessage() {
         System.out.println("\tBye. Hope to see you again soon!");
-        showLine();
     }
 
-    private void showWelcomeMessage() {
+    public void showWelcomeMessage() {
         String logo = " __  __           _   __  __\n"
                 + "|  \\/  |         | | |  \\/  |\n"
                 + "| \\  / | ___   __| | | \\  / | __ _ _ __\n"
@@ -30,12 +28,12 @@ public class Ui {
         System.out.println("Hello from\n" + logo);
     }
 
-    private String readCommand() {
+    public String readCommand() {
         String fullCommand = in.nextLine();
         return fullCommand;
     }
 
-    private void showError(String message) {
+    public void showError(String message) {
         System.out.println("\t" + exceptionGreeting + message);
     }
 }

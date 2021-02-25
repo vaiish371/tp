@@ -1,4 +1,9 @@
-package seedu.duke;
+package seedu.duke.parser;
+
+import seedu.duke.command.Command;
+import seedu.duke.command.ExitCommand;
+import seedu.duke.exception.InvalidCommandException;
+import seedu.duke.exception.ModManException;
 
 public class Parser {
 
