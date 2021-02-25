@@ -1,5 +1,11 @@
 package seedu.duke;
 
+import seedu.duke.command.Command;
+import seedu.duke.data.Data;
+import seedu.duke.exception.ModManException;
+import seedu.duke.parser.Parser;
+import seedu.duke.ui.Ui;
+
 public class Modman {
 
     private Data data;
@@ -20,13 +26,12 @@ public class Modman {
                 Command c = Parser.parse(fullCommand);
                 c.execute(data, ui);
                 isExit = c.isExit();
-            } catch (DukeException e) {
-                ui.showError(e.getMessage());
+            } catch (ModManException e) {
+                ui.showError(e.getErrorMessage());
             } finally {
-                ui.showLine;
+                ui.showLine();
             }
         }
-        ui.showExitMessage();
     }
 
     public static void main(String[] args) {
