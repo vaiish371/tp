@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 # change to script directory
