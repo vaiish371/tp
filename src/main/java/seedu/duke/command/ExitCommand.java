@@ -3,7 +3,7 @@ package seedu.duke.command;
 import seedu.duke.data.Data;
 import seedu.duke.ui.Ui;
 
-public class ExitCommand extends Command{
+public class ExitCommand extends Command {
 
     public ExitCommand() {
         this.setExit();
