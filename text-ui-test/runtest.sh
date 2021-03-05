@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 # change to script directory
@@ -21,3 +22,5 @@ else
     echo "Test failed!"
     exit 1
 fi
+
+
