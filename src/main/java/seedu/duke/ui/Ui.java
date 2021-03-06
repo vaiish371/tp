@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Ui {
     private final Scanner in;
-    private static final String exceptionGreeting = "\ud83d\ude16 OOPS!!! ";
+    private static final String exceptionGreeting = "OOPS!! ";
 
     public Ui() {
         in = new Scanner(System.in);
