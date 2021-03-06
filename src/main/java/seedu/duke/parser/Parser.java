@@ -10,7 +10,7 @@ public class Parser {
     public static Command parse(String line) throws ModManException {
         Command command = null;
         String[] words = line.split(" ");
-        switch (words[0]){
+        switch (words[0]) {
         case "bye":
             command = new ExitCommand();
             break;

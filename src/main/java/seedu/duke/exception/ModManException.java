@@ -1,6 +1,6 @@
 package seedu.duke.exception;
 
-public abstract class ModManException extends Exception{
+public abstract class ModManException extends Exception {
     protected String errorMessage;
 
     public String getErrorMessage() {
