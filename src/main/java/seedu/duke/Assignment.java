@@ -1,5 +1,5 @@
 package seedu.duke;
- 
+
 public class Assignment {
     private String name;
 //    private String deadline;
@@ -7,7 +7,7 @@ public class Assignment {
     public Assignment(String name) {
         this.name = name;
     }
- 
+
 //    public String getDeadline() {
 //        return deadline;
 //    }
@@ -23,9 +23,10 @@ public class Assignment {
 //    public void setWeightage(float weightage) {
 //        this.weightage = weightage;
 //    }
- 
+
     @Override
     public String toString() {
         return name;
     }
 }
+
