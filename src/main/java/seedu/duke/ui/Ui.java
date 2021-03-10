@@ -1,6 +1,10 @@
 package seedu.duke.ui;
 
+import seedu.duke.Assignment;
+import seedu.duke.Module;
+
 import java.util.Scanner;
+
 
 public class Ui {
     private final Scanner in;
@@ -35,5 +39,14 @@ public class Ui {
 
     public void showError(String message) {
         System.out.println("\t" + exceptionGreeting + message);
+    }
+
+    public void printNewAssignment(Module module, Assignment assignment) {
+        System.out.println("\t I have added a new assignment to " + module.getModuleCode() + ":");
+        System.out.println("\t + " + assignment);
+    }
+
+    public void printNewModule(Module module) {
+        System.out.println("\t I have added a new module: " + module.getModuleCode());
     }
 }
