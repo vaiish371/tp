@@ -3,6 +3,7 @@ package seedu.duke;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
 class ModuleTest {
@@ -28,13 +29,10 @@ class ModuleTest {
 
     @Test
     void getAssignmentAtIndex_indexNonExistent_exceptionThrown() {
-        try {
-            Module testModule = new Module("CS2113T");
-            testModule.addAssignment(new Assignment("tP"));
-            assertEquals("tP", testModule.getAssignmentAtIndex(1));
-            fail();
-        } catch (IndexOutOfBoundsException e) {
-            // Expected outcome, IndexOutOfBoundsException thrown
-        }
+        Module testModule = new Module("CS2113T");
+        testModule.addAssignment(new Assignment("tP"));
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            testModule.getAssignmentAtIndex(1);
+        });
     }
 }
