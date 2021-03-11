@@ -33,7 +33,7 @@ class ParserTest {
     }
 
     @Test
-    void testParse_bye_AddAssignmentCommand() throws ModManException {
+    void testParse_addassignment_AddAssignmentCommand() throws ModManException {
         Parser parser = new Parser();
         String inputString = "addassignment CS2113T quiz1";
         Command c = parser.parse(inputString);
