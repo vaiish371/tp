@@ -4,7 +4,7 @@ public class Assignment {
     private String name;
     //    private String deadline;
     //    private float weightage;
-    
+
     public Assignment(String name) {
         this.name = name;
     }
