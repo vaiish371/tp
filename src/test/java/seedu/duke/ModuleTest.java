@@ -11,13 +11,13 @@ class ModuleTest {
         assertEquals("CS2113T", new Module("CS2113T").getModuleCode());
     }
 
-//    @Test
-//    void testPrintAssignments() {
-//        Module testModule = new Module("CS2113T");
-//        testModule.addAssignment(new Assignment("tP"));
-//        String output = tapSystemOut(() -> {testModule.printAssignments();});
-//        assertEquals("Here are your assignments for CS2113T:\n" + "tP\n", systemOutRule.getLog());
-//    }
+    //    @Test
+    //    void testPrintAssignments() {
+    //        Module testModule = new Module("CS2113T");
+    //        testModule.addAssignment(new Assignment("tP"));
+    //        String output = tapSystemOut(() -> {testModule.printAssignments();});
+    //        assertEquals("Here are your assignments for CS2113T:\n" + "tP\n", output);
+    //    }
 
     @Test
     void testGetAssignmentAtIndex() {
