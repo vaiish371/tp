@@ -29,8 +29,10 @@ class ModuleTest {
 
     @Test
     void getAssignmentAtIndex_indexNonExistent_exceptionThrown() {
-            Module testModule = new Module("CS2113T");
-            testModule.addAssignment(new Assignment("tP"));
-            assertThrows(IndexOutOfBoundsException.class, () -> {testModule.getAssignmentAtIndex(1);});
+        Module testModule = new Module("CS2113T");
+        testModule.addAssignment(new Assignment("tP"));
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            testModule.getAssignmentAtIndex(1);
+        });
     }
 }
