@@ -19,6 +19,10 @@ public class Module {
         assignments.add(assignment);
     }
 
+    public Assignment getAssignmentAtIndex(int index) {
+        return assignments.get(index);
+    }
+
     public void printAssignments() {
         System.out.println("Here are your assignments for " + moduleCode + ":");
         for (Assignment a: assignments) {
