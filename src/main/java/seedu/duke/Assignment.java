@@ -5,6 +5,14 @@ public class Assignment {
     //    private String deadline;
     //    private float weightage;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Assignment(String name) {
         this.name = name;
     }
