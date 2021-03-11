@@ -3,9 +3,9 @@ package seedu.duke.data;
 import org.junit.jupiter.api.Test;
 import seedu.duke.Module;
 
-import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class DataTest {
 
@@ -18,13 +18,12 @@ class DataTest {
     }
 
     @Test
-    void testModuleNotFound(){
+    void testModuleNotFound() {
         Module mod =  new Module("CS2101");
         Data data = new Data();
         data.add(mod);
         assertThrows(NullPointerException.class, () -> {
             data.find("CS2113T").getModuleCode();
         });
-
     }
 }
