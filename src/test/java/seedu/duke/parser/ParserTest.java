@@ -8,7 +8,8 @@ import seedu.duke.command.ExitCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 class ParserTest {
 
@@ -18,6 +19,9 @@ class ParserTest {
         String inputString = "bye";
         Command c = parser.parse(inputString);
         assertEquals(true, c instanceof ExitCommand);
+    }
+
+    private void assertEquals(boolean b, boolean b1) {
     }
 
     @Test
