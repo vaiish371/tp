@@ -8,6 +8,7 @@ import seedu.duke.command.ExitCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
@@ -21,8 +22,6 @@ class ParserTest {
         assertEquals(true, c instanceof ExitCommand);
     }
 
-    private void assertEquals(boolean b, boolean b1) {
-    }
 
     @Test
     void testParse_addmodule_AddModuleCommand() throws ModManException {
