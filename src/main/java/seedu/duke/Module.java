@@ -6,6 +6,7 @@ public class Module {
     private String moduleCode;
     private ArrayList<Assignment> assignments;
 
+
     public Module(String moduleCode) {
         this.moduleCode = moduleCode;
         this.assignments = new ArrayList<>();
@@ -13,6 +14,10 @@ public class Module {
 
     public String getModuleCode() {
         return moduleCode;
+    }
+
+    public ArrayList<Assignment> getAssignments() {
+        return assignments;
     }
 
     public void addAssignment(Assignment assignment) {
@@ -23,11 +28,5 @@ public class Module {
         return assignments.get(index);
     }
 
-    public void printAssignments() {
-        System.out.println("Here are your assignments for " + moduleCode + ":");
-        for (Assignment a: assignments) {
-            System.out.println(a);
-        }
-    }
 }
 

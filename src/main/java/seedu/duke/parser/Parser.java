@@ -4,6 +4,7 @@ import seedu.duke.command.AddAssignmentCommand;
 import seedu.duke.command.AddModuleCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.ExitCommand;
+import seedu.duke.command.ListModuleAssignmentsCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
@@ -21,6 +22,9 @@ public class Parser {
             break;
         case "addassignment":
             command = new AddAssignmentCommand(words[1], words[2]);
+            break;
+        case "listassignment":
+            command = new ListModuleAssignmentsCommand(words[1]);
             break;
         default:
             throw new InvalidCommandException();
