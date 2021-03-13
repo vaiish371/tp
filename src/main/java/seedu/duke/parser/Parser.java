@@ -40,6 +40,7 @@ public class Parser {
             logger.log(Level.WARNING, "Invalid command entered");
             throw new InvalidCommandException();
         }
+        assert command != null : "command should not be null";
         return command;
     }
 }
