@@ -55,7 +55,7 @@ public class Ui {
         System.out.println("\t Here are the assignments in " + module.getModuleCode() + ":");
         ArrayList<Assignment> assignments = module.getAssignments();
         for (int i = 1; i <= assignments.size(); i++) {
-            System.out.println("\t " + i + ". " + assignments.get(i-1).toString());
+            System.out.println("\t " + i + ". " + assignments.get(i - 1).toString());
         }
     }
 }
