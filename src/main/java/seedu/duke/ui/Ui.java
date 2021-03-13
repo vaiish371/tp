@@ -52,10 +52,15 @@ public class Ui {
     }
 
     public void listModuleAssignments(Module module) {
-        System.out.println("\t Here are the assignments in " + module.getModuleCode() + ":");
         ArrayList<Assignment> assignments = module.getAssignments();
-        for (int i = 1; i <= assignments.size(); i++) {
-            System.out.println("\t " + i + ". " + assignments.get(i - 1).toString());
+        if (assignments.size() == 0) {
+            System.out.println("\t You have not added any assignments to " + module.getModuleCode() + " yet.");
+        } else {
+            assert assignments.size() > 0 : "size of assignments should be greater than zero";
+            System.out.println("\t Here are the assignments in " + module.getModuleCode() + ":");
+            for (int i = 1; i <= assignments.size(); i++) {
+                System.out.println("\t " + i + ". " + assignments.get(i - 1).toString());
+            }
         }
     }
 }
