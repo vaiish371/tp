@@ -19,7 +19,15 @@ public class Parser {
         logger.log(Level.FINE, "parsing user command");
         Command command = null;
         String[] args = line.split("\\s+");
-        switch (args[0].toLowerCase()) {
+        String commandType;
+        try{
+            commandType = args[0].toLowerCase();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "no parameters were entered");
+            throw new InvalidCommandException();
+        }
+        assert commandType != null : "user input is empty";
+        switch (commandType) {
         case "bye":
             logger.log(Level.INFO, "bye command entered");
             command = new ExitCommand();
