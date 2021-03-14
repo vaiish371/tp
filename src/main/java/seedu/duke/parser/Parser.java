@@ -20,7 +20,7 @@ public class Parser {
         Command command = null;
         String[] args = line.split("\\s+");
         String commandType;
-        try{
+        try {
             commandType = args[0].toLowerCase();
         } catch (ArrayIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "no parameters were entered");
