@@ -12,8 +12,8 @@ public class Assignment {
         this.name = name;
         this.studentGrades = new HashMap<>();
 
-        assert this.name != null: "Assignment name cannot be null";
-        assert this.studentGrades != null: "studentGrades cannot be null";
+        assert this.name != null : "Assignment name cannot be null";
+        assert this.studentGrades != null : "studentGrades cannot be null";
     }
 
     public HashMap<String, Float> getStudentGrades() {
