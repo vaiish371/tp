@@ -26,7 +26,7 @@ class ParserTest {
     @Test
     void testParse_addmodule_AddModuleCommand() throws ModManException {
         Parser parser = new Parser();
-        String inputString = "addmodule CS2113T";
+        String inputString = "add module CS2113T";
         Command c = parser.parse(inputString);
         assertEquals(true, c instanceof AddModuleCommand);
     }
@@ -34,7 +34,7 @@ class ParserTest {
     @Test
     void testParse_addassignment_AddAssignmentCommand() throws ModManException {
         Parser parser = new Parser();
-        String inputString = "addassignment CS2113T quiz1";
+        String inputString = "add assignment /m CS2113T /a quiz1";
         Command c = parser.parse(inputString);
         assertEquals(true, c instanceof AddAssignmentCommand);
     }
