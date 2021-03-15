@@ -1,5 +1,6 @@
 package seedu.duke.parser;
 
+import seedu.duke.command.ListStudentsDetailsCommand;
 import seedu.duke.command.AddTimetableCommand;
 import seedu.duke.command.AddAssignmentCommand;
 import seedu.duke.command.AddModuleCommand;
@@ -64,7 +65,7 @@ public class Parser {
             }
         case "addstudent":
             logger.log(Level.INFO, "addstudent command entered");
-            command = new AddStudentCommand(args[1], args[2], args[3]);
+            command = new AddStudentCommand(args[1], args[2], args[3], args[4], args[5]);
             break;
         case "liststudent":
             logger.log(Level.INFO, "liststudent command entered");
@@ -73,6 +74,10 @@ public class Parser {
         case "addtimetable":
             String[] times = args[4].split("-");
             command = new AddTimetableCommand(args[1], args[2], args[3], times[0], times[1], times[2]);
+            break;
+        case "listStudentDetails": //list details of students in a module
+            logger.log(Level.INFO, "listStudentDetails command entered");
+            command = new ListStudentsDetailsCommand(args[1]);
             break;
         default:
             logger.log(Level.WARNING, "invalid command entered");
