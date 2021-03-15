@@ -47,6 +47,16 @@ public class Ui {
         System.out.println("\t + " + assignment);
     }
 
+    public void printNewAssignmentMCQ(Module module, Assignment assignment) {
+        System.out.println("\t I have added a new MCQ assignment to " + module.getModuleCode() + ":");
+        System.out.println("\t + " + assignment);
+    }
+
+    public void printAnswerAdded(Module module, Assignment assignment) {
+        System.out.println("\t I have added the answers to the MCQ assignment " + module.getModuleCode() + ":");
+        System.out.println("\t + " + assignment);
+    }
+
     public void printNewModule(Module module) {
         System.out.println("\t I have added a new module: " + module.getModuleCode());
     }

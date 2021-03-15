@@ -1,13 +1,10 @@
 package seedu.duke.parser;
 
-import seedu.duke.command.AddAssignmentCommand;
-import seedu.duke.command.AddModuleCommand;
-import seedu.duke.command.Command;
-import seedu.duke.command.ExitCommand;
-import seedu.duke.command.ListModuleAssignmentsCommand;
+import seedu.duke.command.*;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
@@ -31,6 +28,15 @@ public class Parser {
         case "addassignment":
             logger.log(Level.INFO, "addassignment command entered");
             command = new AddAssignmentCommand(words[1], words[2]);
+            break;
+        case "addassignmentmcq":
+            logger.log(Level.INFO, "addassignmentmcq command entered");
+            command = new AddAssignmentMCQCommand(words[1], words[2], words[3]);
+            break;
+        case "addanswers":
+            logger.log(Level.INFO, "addanswers command entered");
+            String[] answers = Arrays.copyOfRange(words, 3, words.length);
+            command = new AddAnswerCommand(words[1], words[2], answers);
             break;
         case "listassignment":
             logger.log(Level.INFO, "listassignment command entered");

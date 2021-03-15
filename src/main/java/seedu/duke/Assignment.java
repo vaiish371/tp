@@ -1,9 +1,12 @@
 package seedu.duke;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Assignment {
-    private String name;
-    //    private String deadline;
-    //    private float weightage;
+    protected String name;
+    protected String deadline; // Optional field, null can be thrown
+    protected float percentageOfOverallGrade; // Optional field, null can be thrown
 
     public String getName() {
         return name;
@@ -17,21 +20,21 @@ public class Assignment {
         this.name = name;
     }
 
-    //    public String getDeadline() {
-    //        return deadline;
-    //    }
-    //
-    //    public void setDeadline(String deadline) {
-    //        this.deadline = deadline;
-    //    }
-    //
-    //    public float getWeightage() {
-    //        return weightage;
-    //    }
-    //
-    //    public void setWeightage(float weightage) {
-    //        this.weightage = weightage;
-    //    }
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
+
+    public float getPercentage() {
+        return percentageOfOverallGrade;
+    }
+
+    public void setPercentage(float percentage) {
+        this.percentageOfOverallGrade = percentage;
+    }
 
     @Override
     public String toString() {
