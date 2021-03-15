@@ -1,5 +1,5 @@
-addmodule CS2113T
-addassignment CS2113T quiz1
-addassignment CS2113T quiz2
-listassignment CS2113T
+add module CS2113T
+add assignment /m CS2113T /a quiz1
+add assignment /m CS2113T /a quiz2
+list assignment CS2113T
 blah

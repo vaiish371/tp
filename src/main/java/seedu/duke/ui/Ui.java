@@ -1,7 +1,9 @@
 package seedu.duke.ui;
 
 import seedu.duke.Assignment;
+import seedu.duke.Lesson;
 import seedu.duke.Module;
+import seedu.duke.Student;
 
 import java.util.*;
 
@@ -43,7 +45,12 @@ public class Ui {
 
     public void printNewAssignment(Module module, Assignment assignment) {
         System.out.println("\t I have added a new assignment to " + module.getModuleCode() + ":");
-        System.out.println("\t + " + assignment);
+        System.out.println("\t " + assignment);
+    }
+
+    public void printNewStudent(Module module, Student student) {
+        System.out.println("\t I have assigned a new student to " + module.getModuleCode() + ":");
+        System.out.println("\t " + student);
     }
 
     public void printEditAssignment(Module module, String oldName, String newName) {
@@ -57,11 +64,48 @@ public class Ui {
         System.out.println("\t I have added a new module: " + module.getModuleCode());
     }
 
+    public void printNewTimetable(String moduleCode, Lesson lesson) {
+        System.out.println("Success! I have added the following timetable for the module - " + moduleCode);
+        System.out.println("\t" + lesson.getLessonType() + ": " + lesson.toString() 
+                           + " (" + lesson.getVenue() + ")");
+    }
+  
     public void listModuleAssignments(Module module) {
-        System.out.println("\t Here are the assignments in " + module.getModuleCode() + ":");
         ArrayList<Assignment> assignments = module.getAssignments();
-        for (int i = 1; i <= assignments.size(); i++) {
-            System.out.println("\t " + i + ". " + assignments.get(i - 1).toString());
+        if (assignments.size() == 0) {
+            System.out.println("\t You have not added any assignments to " + module.getModuleCode() + " yet.");
+        } else {
+            assert assignments.size() > 0 : "size of assignments should be greater than zero";
+            System.out.println("\t Here are the assignments in " + module.getModuleCode() + ":");
+            for (int i = 1; i <= assignments.size(); i++) {
+                System.out.println("\t " + i + ". " + assignments.get(i - 1).toString());
+            }
+        }
+    }
+
+    public void listModuleStudents(Module module) {
+        ArrayList<Student> students = module.getStudents();
+        if (students.size() == 0) {
+            System.out.println("\t You have not added any students to " + module.getModuleCode() + " yet.");
+        } else {
+            assert students.size() > 0 : "size of students should be greater than zero";
+            System.out.println("\t Here are the students in " + module.getModuleCode() + ":");
+            for (int i = 1; i <= students.size(); i++) {
+                System.out.println("\t " + i + ". " + students.get(i - 1).getName());
+            }
+        }
+    }
+
+    public void listModuleStudentsDetails(Module module) {
+        ArrayList<Student> students = module.getStudents();
+        if (students.size() == 0) {
+            System.out.println("\t Here are the details of all students enrolled in "
+                    + module.getModuleCode() + ":");
+        } else {
+            assert students.size() > 0 : "size of students should be greater than zero";
+            for (int i = 1; i <= students.size(); i++) {
+                System.out.println("\t " + i + ". " + students.get(i - 1).toString());
+            }
         }
     }
 
