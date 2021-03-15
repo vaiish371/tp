@@ -77,7 +77,7 @@ public class Parser {
             break;
         case "listStudentDetails": //list details of students in a module
             logger.log(Level.INFO, "listStudentDetails command entered");
-            command = new ListStudentsDetailsCommand(words[1]);
+            command = new ListStudentsDetailsCommand(args[1]);
             break;
         default:
             logger.log(Level.WARNING, "invalid command entered");
