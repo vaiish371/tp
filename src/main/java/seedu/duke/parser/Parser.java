@@ -36,25 +36,6 @@ public class Parser {
             logger.log(Level.INFO, "bye command entered");
             command = new ExitCommand();
             break;
-        case "addModule":
-            logger.log(Level.INFO, "addModule command entered");
-            command = new AddModuleCommand(words[1]);
-            break;
-        case "addAssignment":
-            logger.log(Level.INFO, "addAssignment command entered");
-            command = new AddAssignmentCommand(words[1], words[2]);
-            break;
-        case "addStudent":
-            logger.log(Level.INFO, "addStudent command entered");
-            command = new AddStudentCommand(words[1], words[2], words[3], words[4], words[5]);
-            break;
-        case "listAssignment":
-            logger.log(Level.INFO, "listAssignment command entered");
-            command = new ListModuleAssignmentsCommand(words[1]);
-            break;
-        case "listStudents":  //lists only the names of students in a module
-            logger.log(Level.INFO, "listStudents command entered");
-            command = new ListModuleStudentsCommand(words[1]);
         case "addmodule":
             try {
                 logger.log(Level.INFO, "addmodule command entered");
