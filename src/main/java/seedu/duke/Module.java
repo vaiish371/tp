@@ -6,19 +6,33 @@ public class Module {
     private String moduleCode;
     private ArrayList<Assignment> assignments;
     private ArrayList<Lesson> lessons;
+    private ArrayList<Student> students;
 
     public Module(String moduleCode) {
         this.moduleCode = moduleCode;
         this.assignments = new ArrayList<>();
         this.lessons = new ArrayList<>();
+        this.students = new ArrayList<>();
     }
 
     public String getModuleCode() {
         return moduleCode;
     }
 
+    public ArrayList<Assignment> getAssignments() {
+        return assignments;
+    }
+
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
     public void addAssignment(Assignment assignment) {
         assignments.add(assignment);
+    }
+
+    public void addStudent(Student student) {
+        students.add(student);
     }
 
     public Assignment getAssignmentAtIndex(int index) {
@@ -39,5 +53,10 @@ public class Module {
             System.out.println(a);
         }
     }
+      
+    public Student getStudentAtIndex(int index) {
+        return students.get(index);
+    }
+
 }
 
