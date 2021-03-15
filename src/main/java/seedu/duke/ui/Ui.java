@@ -81,4 +81,16 @@ public class Ui {
             System.out.println("\t " + i + ". " + students.get(i - 1).toString());
         }
     }
+
+    public void findStudentDetails (Module module, String studentName) {
+        System.out.println("\t Finding details of ~ "+ studentName + " ~ in "+
+                module.getModuleCode() + ": ");
+        ArrayList<Student> students = module.getStudents();
+        for (Student student: students) {
+            if(student.getName().contains(studentName)) {
+                System.out.println("\t >>" + student.toString());
+            }
+        }
+
+    }
 }

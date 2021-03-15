@@ -44,6 +44,10 @@ public class Parser {
             logger.log(Level.INFO, "listStudentDetails command entered");
             command = new ListStudentsDetailsCommand(words[1]);
             break;
+        case "findStudentDetails":  //finds details of a student, given any part of their name and module
+            logger.log(Level.INFO, "findStudentDetails command entered");
+            command = new findStudentDetailsCommand(words[1], words[2]);
+            break;
         default:
             logger.log(Level.WARNING, "Invalid command entered");
             throw new InvalidCommandException();
