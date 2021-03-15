@@ -18,36 +18,59 @@ public class Parser {
 
     public static Command parse(String line) throws ModManException {
         logger.setLevel(Level.INFO);
-        logger.log(Level.FINE, "Parsing user command");
+        logger.log(Level.FINE, "parsing user command");
         Command command = null;
-        String[] words = line.split(" ");
-        switch (words[0]) {
+        String[] args = line.split("\\s+");
+        String commandType;
+        try {
+            commandType = args[0].toLowerCase();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "no parameters were entered");
+            throw new InvalidCommandException();
+        }
+        assert commandType != null : "user input is empty";
+        switch (commandType) {
         case "bye":
             logger.log(Level.INFO, "bye command entered");
             command = new ExitCommand();
             break;
         case "addmodule":
-            logger.log(Level.INFO, "addmodule command entered");
-            command = new AddModuleCommand(words[1]);
-            break;
+            try {
+                logger.log(Level.INFO, "addmodule command entered");
+                command = new AddModuleCommand(args[1]);
+                break;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                logger.log(Level.WARNING, "not enough parameters for addmodule command");
+                throw new InvalidCommandException();
+            }
         case "addassignment":
-            logger.log(Level.INFO, "addassignment command entered");
-            command = new AddAssignmentCommand(words[1], words[2]);
-            break;
+            try {
+                logger.log(Level.INFO, "addassignment command entered");
+                command = new AddAssignmentCommand(args[1], args[2]);
+                break;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                logger.log(Level.WARNING, "not enough parameters for addassignment command");
+                throw new InvalidCommandException();
+            }
+        case "listassignment":
+            try {
+                logger.log(Level.INFO, "listassignment command entered");
+                command = new ListModuleAssignmentsCommand(args[1]);
+                break;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                logger.log(Level.WARNING, "not enough parameters for addassignment command");
+                throw new InvalidCommandException();
+            }
         case "addstudent":
             logger.log(Level.INFO, "addstudent command entered");
-            command = new AddStudentCommand(words[1], words[2], words[3]);
-            break;
-        case "listassignment":
-            logger.log(Level.INFO, "listassignment command entered");
-            command = new ListModuleAssignmentsCommand(words[1]);
+            command = new AddStudentCommand(args[1], args[2], args[3]);
             break;
         case "liststudent":
             logger.log(Level.INFO, "liststudent command entered");
-            command = new ListModuleStudentsCommand(words[1]);
+            command = new ListModuleStudentsCommand(args[1]);
             break;
         default:
-            logger.log(Level.WARNING, "Invalid command entered");
+            logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
         }
         assert command != null : "command should not be null";
