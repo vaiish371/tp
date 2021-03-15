@@ -1,12 +1,6 @@
 package seedu.duke.parser;
 
-import seedu.duke.command.AddAssignmentCommand;
-import seedu.duke.command.AddModuleCommand;
-import seedu.duke.command.AddStudentCommand;
-import seedu.duke.command.Command;
-import seedu.duke.command.ExitCommand;
-import seedu.duke.command.ListModuleAssignmentsCommand;
-import seedu.duke.command.ListModuleStudentsCommand;
+import seedu.duke.command.*;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
@@ -26,25 +20,29 @@ public class Parser {
             logger.log(Level.INFO, "bye command entered");
             command = new ExitCommand();
             break;
-        case "addmodule":
-            logger.log(Level.INFO, "addmodule command entered");
+        case "addModule":
+            logger.log(Level.INFO, "addModule command entered");
             command = new AddModuleCommand(words[1]);
             break;
-        case "addassignment":
-            logger.log(Level.INFO, "addassignment command entered");
+        case "addAssignment":
+            logger.log(Level.INFO, "addAssignment command entered");
             command = new AddAssignmentCommand(words[1], words[2]);
             break;
-        case "addstudent":
-            logger.log(Level.INFO, "addstudent command entered");
-            command = new AddStudentCommand(words[1], words[2], words[3]);
+        case "addStudent":
+            logger.log(Level.INFO, "addStudent command entered");
+            command = new AddStudentCommand(words[1], words[2], words[3], words[4], words[5]);
             break;
-        case "listassignment":
-            logger.log(Level.INFO, "listassignment command entered");
+        case "listAssignment":
+            logger.log(Level.INFO, "listAssignment command entered");
             command = new ListModuleAssignmentsCommand(words[1]);
             break;
-        case "liststudent":
-            logger.log(Level.INFO, "liststudent command entered");
+        case "listStudents":  //lists only the names of students in a module
+            logger.log(Level.INFO, "listStudents command entered");
             command = new ListModuleStudentsCommand(words[1]);
+            break;
+        case "listStudentDetails": //list details of students in a module
+            logger.log(Level.INFO, "listStudentDetails command entered");
+            command = new ListStudentsDetailsCommand(words[1]);
             break;
         default:
             logger.log(Level.WARNING, "Invalid command entered");
