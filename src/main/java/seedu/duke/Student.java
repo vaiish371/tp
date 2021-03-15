@@ -18,7 +18,7 @@ public class Student {
         return email;
     }
 
-    private String getContactNumber () {
+    private String getContactNumber() {
         return contactNumber;
     }
 
@@ -37,6 +37,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return (getName() + ", " + getStudentNumber() +", " + getContactNumber() +", " + getEmail());
+        return (getName() + ", " + getStudentNumber() + ", " + getContactNumber() + ", " + getEmail());
     }
 }
