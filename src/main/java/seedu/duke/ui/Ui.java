@@ -78,19 +78,28 @@ public class Ui {
     }
 
     public void listModuleStudents(Module module) {
-        System.out.println("\t Here are the students in " + module.getModuleCode() + ":");
         ArrayList<Student> students = module.getStudents();
-        for (int i = 1; i <= students.size(); i++) {
-            System.out.println("\t " + i + ". " + students.get(i - 1).getName());
+        if (students.size() == 0) {
+            System.out.println("\t You have not added any students to " + module.getModuleCode() + " yet.");
+        } else {
+            assert students.size() > 0 : "size of students should be greater than zero";
+            System.out.println("\t Here are the students in " + module.getModuleCode() + ":");
+            for (int i = 1; i <= students.size(); i++) {
+                System.out.println("\t " + i + ". " + students.get(i - 1).getName());
+            }
         }
     }
 
     public void listModuleStudentsDetails(Module module) {
-        System.out.println("\t Here are the details of all students enrolled in "
-                           + module.getModuleCode() + ":");
         ArrayList<Student> students = module.getStudents();
-        for (int i = 1; i <= students.size(); i++) {
-            System.out.println("\t " + i + ". " + students.get(i - 1).toString());
+        if (students.size() == 0) {
+            System.out.println("\t Here are the details of all students enrolled in "
+                    + module.getModuleCode() + ":");
+        } else {
+            assert students.size() > 0 : "size of students should be greater than zero";
+            for (int i = 1; i <= students.size(); i++) {
+                System.out.println("\t " + i + ". " + students.get(i - 1).toString());
+            }
         }
     }
 }
