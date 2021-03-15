@@ -63,11 +63,11 @@ public class Parser {
             }
         case "addstudent":
             logger.log(Level.INFO, "addstudent command entered");
-            command = new AddStudentCommand(words[1], words[2], words[3]);
+            command = new AddStudentCommand(args[1], args[2], args[3]);
             break;
         case "liststudent":
             logger.log(Level.INFO, "liststudent command entered");
-            command = new ListModuleStudentsCommand(words[1]);
+            command = new ListModuleStudentsCommand(args[1]);
             break;
         default:
             logger.log(Level.WARNING, "invalid command entered");
