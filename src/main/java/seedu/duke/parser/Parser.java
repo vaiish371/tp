@@ -8,21 +8,21 @@ public class Parser {
 
     public static Command parse(String line) throws ModManException {
         Command command = null;
-        String[] words = line.split(" ");
-        switch (words[0]) {
+        String[] args = line.split(" ");
+        switch (args[0]) {
         case "bye":
             command = new ExitCommand();
             break;
         case "addmodule":
-            command = new AddModuleCommand(words[1]);
+            command = new AddModuleCommand(args[1]);
             break;
         case "addassignment":
-            command = new AddAssignmentCommand(words[1], words[2]);
+            command = new AddAssignmentCommand(args[1], args[2]);
             break;
         case "addtimetable":
             //Module Time Venue Lesson_Type
-            String[] times = words[4].split("-");
-            command = new AddTimetableCommand(words[1], words[2], words[3], times[0], times[1], times[2]);
+            String[] times = args[4].split("-");
+            command = new AddTimetableCommand(args[1], args[2], args[3], times[0], times[1], times[2]);
             break;
         default:
             throw new InvalidCommandException();
