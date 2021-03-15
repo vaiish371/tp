@@ -51,12 +51,12 @@ public class Parser {
         } else if (line.startsWith("add assignment ")) {
             try {
                 logger.log(Level.INFO, "add assignment command entered");
-                String module_seperator = "/m";
-                String assignment_seperator = "/a";
-                int module_index = line.indexOf(module_seperator);
-                int assignment_index = line.indexOf(assignment_seperator);
-                String moduleCode = line.substring(module_index + M_LENGTH, assignment_index - 1);
-                String assignmentName = line.substring(assignment_index + A_LENGTH).trim();
+                String moduleSeperator = "/m";
+                String assignmentSeperator = "/a";
+                int moduleIndex = line.indexOf(moduleSeperator);
+                int assignmentIndex = line.indexOf(assignmentSeperator);
+                String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
+                String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
                 command = new AddAssignmentCommand(moduleCode, assignmentName);
             } catch (ArrayIndexOutOfBoundsException e) {
                 logger.log(Level.WARNING, "not enough parameters for add assignment command");
