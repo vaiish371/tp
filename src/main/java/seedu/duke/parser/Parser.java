@@ -65,7 +65,7 @@ public class Parser {
             }
         case "addstudent":
             logger.log(Level.INFO, "addstudent command entered");
-            command = new AddStudentCommand(args[1], args[2], args[3]);
+            command = new AddStudentCommand(args[1], args[2], args[3], args[4], args[5]);
             break;
         case "liststudent":
             logger.log(Level.INFO, "liststudent command entered");
