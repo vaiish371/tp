@@ -16,7 +16,7 @@ public class AddTimetableCommand extends Command {
     private LocalTime endTime;
     private String venue;
     private String lessonType;
-    private final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HHMM");
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHMM");
     private static Logger logger = Logger.getLogger("AddTimetableCommand");
 
     public AddTimetableCommand(String moduleCode, String lessonType, String venue,
@@ -24,8 +24,8 @@ public class AddTimetableCommand extends Command {
         logger.log(Level.INFO, "start initialising AddTimeTableCommand");
         this.moduleCode = moduleCode;
         this.day = day;
-        this.startTime = LocalTime.parse(startTime, FORMATTER);
-        this.endTime = LocalTime.parse(endTime, FORMATTER);
+        this.startTime = LocalTime.parse(startTime, formatter);
+        this.endTime = LocalTime.parse(endTime, formatter);
         this.venue = venue;
         this.lessonType = lessonType;
         logger.log(Level.INFO, "AddTimeTableCommand initialised");
