@@ -29,15 +29,6 @@ public class Parser {
             logger.log(Level.INFO, "addassignment command entered");
             command = new AddAssignmentCommand(words[1], words[2]);
             break;
-        case "addassignmentmcq":
-            logger.log(Level.INFO, "addassignmentmcq command entered");
-            command = new AddAssignmentMCQCommand(words[1], words[2], words[3]);
-            break;
-        case "addanswers":
-            logger.log(Level.INFO, "addanswers command entered");
-            String[] answers = Arrays.copyOfRange(words, 3, words.length);
-            command = new AddAnswerCommand(words[1], words[2], answers);
-            break;
         case "listassignment":
             logger.log(Level.INFO, "listassignment command entered");
             command = new ListModuleAssignmentsCommand(words[1]);
