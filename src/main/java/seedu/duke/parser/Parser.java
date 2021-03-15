@@ -40,80 +40,19 @@ public class Parser {
             logger.log(Level.INFO, "bye command entered");
             command = new ExitCommand();
         } else if (line.startsWith("add module ")) {
-            try {
-                logger.log(Level.INFO, "add module command entered");
-                String moduleCode = line.substring(ADD_MODULE_LENGTH);
-                command = new AddModuleCommand(moduleCode);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                logger.log(Level.WARNING, "not enough parameters for add module command");
-                throw new InvalidCommandException();
-            }
+            command = getAddModuleCommand(line);
         } else if (line.startsWith("add assignment ")) {
-            try {
-                logger.log(Level.INFO, "add assignment command entered");
-                String moduleSeperator = "/m";
-                String assignmentSeperator = "/a";
-                int moduleIndex = line.indexOf(moduleSeperator);
-                int assignmentIndex = line.indexOf(assignmentSeperator);
-                String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
-                String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
-                command = new AddAssignmentCommand(moduleCode, assignmentName);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                logger.log(Level.WARNING, "not enough parameters for add assignment command");
-                throw new InvalidCommandException();
-            }
+            command = getAddAssignmentCommand(line);
         } else if (line.startsWith("list assignment ")) {
-            try {
-                logger.log(Level.INFO, "list assignment command entered");
-                String moduleCode = line.substring(LIST_ASSIGNMENT_LENGTH);
-                command = new ListModuleAssignmentsCommand(moduleCode);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                logger.log(Level.WARNING, "not enough parameters for list assignment command");
-                throw new InvalidCommandException();
-            }
+            command = getListAssignmentCommand(line);
         } else if (line.startsWith("add student ")) {
-            logger.log(Level.INFO, "add student command entered");
-            String moduleSeperator = "/m";
-            String nameSeperator = "/s";
-            String numberSeperator = "/#";
-            String emailSeperator = "/e";
-            int moduleIndex = line.indexOf(moduleSeperator);
-            int nameIndex = line.indexOf(nameSeperator);
-            int numberIndex = line.indexOf(numberSeperator);
-            int emailIndex = line.indexOf(emailSeperator);
-            String moduleCode = line.substring(moduleIndex + M_LENGTH, nameIndex - 1);
-            String studentName = line.substring(nameIndex + S_LENGTH, numberIndex - 1);
-            String studentNumber = line.substring(numberIndex + HASH_LENGTH, emailIndex - 1);
-            String email = line.substring(emailIndex + E_LENGTH).trim();
-            command = new AddStudentCommand(moduleCode, studentName, studentNumber, email);
+            command = getAddStudentCommand(line);
         } else if (line.startsWith("list student ")) {
-            logger.log(Level.INFO, "list student command entered");
-            String moduleCode = line.substring(LIST_STUDENT_LENGTH);
-            command = new ListModuleStudentsCommand(moduleCode);
+            command = getListStudentCommand(line);
         } else if (line.startsWith("add timetable ")) {
-            String moduleSeperator = "/m";
-            String typeSeperator = "/t";
-            String venueSeperator = "/v";
-            String daySeperator = "/d";
-            String startSeperator = "/s";
-            String endSeperator = "/e";
-            int moduleIndex = line.indexOf(moduleSeperator);
-            int typeIndex = line.indexOf(typeSeperator);
-            int venueIndex = line.indexOf(venueSeperator);
-            int dayIndex = line.indexOf(daySeperator);
-            int startIndex = line.indexOf(startSeperator);
-            int endIndex = line.indexOf(endSeperator);
-            String moduleCode = line.substring(moduleIndex + M_LENGTH, typeIndex - 1);
-            String type = line.substring(typeIndex + T_LENGTH, venueIndex - 1);
-            String venue = line.substring(venueIndex + V_LENGTH, dayIndex - 1);
-            String day = line.substring(dayIndex + D_LENGTH, startIndex - 1);
-            String start = line.substring(startIndex + S_LENGTH, endIndex - 1);
-            String end = line.substring(endIndex + E_LENGTH).trim();
-            command = new AddTimetableCommand(moduleCode, type, venue, day, start, end);
+            command = getAddTimetableCommand(line);
         } else if (line.startsWith("list student details ")) {
-            logger.log(Level.INFO, "listStudentDetails command entered");
-            String moduleCode = line.substring(LIST_STUDENT_DETAILS_LENGTH);
-            command = new ListStudentsDetailsCommand(moduleCode);
+            command = getListStudentDetailsCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
@@ -122,6 +61,108 @@ public class Parser {
         return command;
     }
 
+    private static Command getListStudentDetailsCommand(String line) {
+        Command command;
+        logger.log(Level.INFO, "listStudentDetails command entered");
+        String moduleCode = line.substring(LIST_STUDENT_DETAILS_LENGTH);
+        command = new ListStudentsDetailsCommand(moduleCode);
+        return command;
+    }
+
+    private static Command getAddTimetableCommand(String line) {
+        Command command;
+        String moduleSeperator = "/m";
+        String typeSeperator = "/t";
+        String venueSeperator = "/v";
+        String daySeperator = "/d";
+        String startSeperator = "/s";
+        String endSeperator = "/e";
+        int moduleIndex = line.indexOf(moduleSeperator);
+        int typeIndex = line.indexOf(typeSeperator);
+        int venueIndex = line.indexOf(venueSeperator);
+        int dayIndex = line.indexOf(daySeperator);
+        int startIndex = line.indexOf(startSeperator);
+        int endIndex = line.indexOf(endSeperator);
+        String moduleCode = line.substring(moduleIndex + M_LENGTH, typeIndex - 1);
+        String type = line.substring(typeIndex + T_LENGTH, venueIndex - 1);
+        String venue = line.substring(venueIndex + V_LENGTH, dayIndex - 1);
+        String day = line.substring(dayIndex + D_LENGTH, startIndex - 1);
+        String start = line.substring(startIndex + S_LENGTH, endIndex - 1);
+        String end = line.substring(endIndex + E_LENGTH).trim();
+        command = new AddTimetableCommand(moduleCode, type, venue, day, start, end);
+        return command;
+    }
+
+    private static Command getListStudentCommand(String line) {
+        Command command;
+        logger.log(Level.INFO, "list student command entered");
+        String moduleCode = line.substring(LIST_STUDENT_LENGTH);
+        command = new ListModuleStudentsCommand(moduleCode);
+        return command;
+    }
+
+    private static Command getAddStudentCommand(String line) {
+        Command command;
+        logger.log(Level.INFO, "add student command entered");
+        String moduleSeperator = "/m";
+        String nameSeperator = "/s";
+        String numberSeperator = "/#";
+        String emailSeperator = "/e";
+        int moduleIndex = line.indexOf(moduleSeperator);
+        int nameIndex = line.indexOf(nameSeperator);
+        int numberIndex = line.indexOf(numberSeperator);
+        int emailIndex = line.indexOf(emailSeperator);
+        String moduleCode = line.substring(moduleIndex + M_LENGTH, nameIndex - 1);
+        String studentName = line.substring(nameIndex + S_LENGTH, numberIndex - 1);
+        String studentNumber = line.substring(numberIndex + HASH_LENGTH, emailIndex - 1);
+        String email = line.substring(emailIndex + E_LENGTH).trim();
+        command = new AddStudentCommand(moduleCode, studentName, studentNumber, email);
+        return command;
+    }
+
+    private static Command getListAssignmentCommand(String line) throws InvalidCommandException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "list assignment command entered");
+            String moduleCode = line.substring(LIST_ASSIGNMENT_LENGTH);
+            command = new ListModuleAssignmentsCommand(moduleCode);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for list assignment command");
+            throw new InvalidCommandException();
+        }
+        return command;
+    }
+
+    private static Command getAddAssignmentCommand(String line) throws InvalidCommandException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "add assignment command entered");
+            String moduleSeperator = "/m";
+            String assignmentSeperator = "/a";
+            int moduleIndex = line.indexOf(moduleSeperator);
+            int assignmentIndex = line.indexOf(assignmentSeperator);
+            String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
+            command = new AddAssignmentCommand(moduleCode, assignmentName);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for add assignment command");
+            throw new InvalidCommandException();
+        }
+        return command;
+    }
+
+    private static Command getAddModuleCommand(String line) throws InvalidCommandException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "add module command entered");
+            String moduleCode = line.substring(ADD_MODULE_LENGTH);
+            command = new AddModuleCommand(moduleCode);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for add module command");
+            throw new InvalidCommandException();
+        }
+        return command;
+    }
 
 
 }
