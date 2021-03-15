@@ -155,8 +155,8 @@ public class Parser {
         }
         return command;
     }
-  
-      private static Command getListStudentAssignmentGradesCommand(String line) throws InvalidCommandException {
+    
+    private static Command getListStudentAssignmentGradesCommand(String line) throws InvalidCommandException {
         Command command;
         try {
             // logger.log(Level.INFO, "list student assignment grades command entered");
