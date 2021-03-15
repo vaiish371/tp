@@ -2,9 +2,11 @@ package seedu.duke.parser;
 
 import seedu.duke.command.AddAssignmentCommand;
 import seedu.duke.command.AddModuleCommand;
+import seedu.duke.command.AddStudentCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.ExitCommand;
 import seedu.duke.command.ListModuleAssignmentsCommand;
+import seedu.duke.command.ListModuleStudentsCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
@@ -32,9 +34,17 @@ public class Parser {
             logger.log(Level.INFO, "addassignment command entered");
             command = new AddAssignmentCommand(words[1], words[2]);
             break;
+        case "addstudent":
+            logger.log(Level.INFO, "addstudent command entered");
+            command = new AddStudentCommand(words[1], words[2], words[3]);
+            break;
         case "listassignment":
             logger.log(Level.INFO, "listassignment command entered");
             command = new ListModuleAssignmentsCommand(words[1]);
+            break;
+        case "liststudent":
+            logger.log(Level.INFO, "liststudent command entered");
+            command = new ListModuleStudentsCommand(words[1]);
             break;
         default:
             logger.log(Level.WARNING, "Invalid command entered");

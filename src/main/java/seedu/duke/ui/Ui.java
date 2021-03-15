@@ -2,6 +2,7 @@ package seedu.duke.ui;
 
 import seedu.duke.Assignment;
 import seedu.duke.Module;
+import seedu.duke.Student;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -44,7 +45,12 @@ public class Ui {
 
     public void printNewAssignment(Module module, Assignment assignment) {
         System.out.println("\t I have added a new assignment to " + module.getModuleCode() + ":");
-        System.out.println("\t + " + assignment);
+        System.out.println("\t " + assignment);
+    }
+
+    public void printNewStudent(Module module, Student student) {
+        System.out.println("\t I have assigned a new student to " + module.getModuleCode() + ":");
+        System.out.println("\t " + student);
     }
 
     public void printNewModule(Module module) {
@@ -56,6 +62,14 @@ public class Ui {
         ArrayList<Assignment> assignments = module.getAssignments();
         for (int i = 1; i <= assignments.size(); i++) {
             System.out.println("\t " + i + ". " + assignments.get(i - 1).toString());
+        }
+    }
+
+    public void listModuleStudents(Module module) {
+        System.out.println("\t Here are the students in " + module.getModuleCode() + ":");
+        ArrayList<Student> students = module.getStudents();
+        for (int i = 1; i <= students.size(); i++) {
+            System.out.println("\t " + i + ". " + students.get(i - 1).toString());
         }
     }
 }
