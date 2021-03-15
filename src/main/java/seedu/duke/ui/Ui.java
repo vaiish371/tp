@@ -5,8 +5,8 @@ import seedu.duke.Lesson;
 import seedu.duke.Module;
 import seedu.duke.Student;
 
-import java.util.*;
-
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Ui {
     private final Scanner in;
