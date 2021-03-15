@@ -1,6 +1,7 @@
 package seedu.duke.ui;
 
 import seedu.duke.Assignment;
+import seedu.duke.Lesson;
 import seedu.duke.Module;
 import seedu.duke.Student;
 
@@ -57,6 +58,12 @@ public class Ui {
         System.out.println("\t I have added a new module: " + module.getModuleCode());
     }
 
+    public void printNewTimetable(String moduleCode, Lesson lesson) {
+        System.out.println("Success! I have added the following timetable for the module - " + moduleCode);
+        System.out.println("\t" + lesson.getLessonType() + ": " + lesson.toString() 
+                           + " (" + lesson.getVenue() + ")");
+    }
+  
     public void listModuleAssignments(Module module) {
         ArrayList<Assignment> assignments = module.getAssignments();
         if (assignments.size() == 0) {

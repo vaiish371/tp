@@ -1,6 +1,5 @@
 package seedu.duke.data;
 
-import seedu.duke.Assignment;
 import seedu.duke.Module;
 
 import java.util.ArrayList;
@@ -16,12 +15,11 @@ public class Data {
     }
 
     public Module find(String moduleCode) {
-        Module mod = null;
-        for (Module m: modules) {
-            if (m.getModuleCode().equals(moduleCode)) {
-                mod = m;
+        for (Module module: modules) {
+            if (module.getModuleCode().equals(moduleCode)) {
+                return module;
             }
         }
-        return mod;
+        return null;
     }
 }
