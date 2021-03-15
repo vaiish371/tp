@@ -5,7 +5,7 @@ import seedu.duke.Module;
 import seedu.duke.data.Data;
 import seedu.duke.ui.Ui;
 
-public class EditAssignmentNameCommand extends Command{
+public class EditAssignmentNameCommand extends Command {
     private String moduleCode;
     private String oldName;
     private String newName;
