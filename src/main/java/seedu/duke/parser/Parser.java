@@ -1,6 +1,6 @@
 package seedu.duke.parser;
 
-import seedu.duke.command.*;
+import seedu.duke.command.ListStudentsDetailsCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
