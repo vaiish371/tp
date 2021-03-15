@@ -60,8 +60,8 @@ public class Ui {
 
     public void printNewTimetable(String moduleCode, Lesson lesson) {
         System.out.println("Success! I have added the following timetable for the module - " + moduleCode);
-        System.out.println("\t" + lesson.getLessonType() + ": " + lesson.toString() + " (" +
-                lesson.getVenue() + ")");
+        System.out.println("\t" + lesson.getLessonType() + ": " + lesson.toString() 
+                           + " (" + lesson.getVenue() + ")");
     }
   
     public void listModuleAssignments(Module module) {
