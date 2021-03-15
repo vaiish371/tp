@@ -1,5 +1,6 @@
 package seedu.duke.parser;
 
+import seedu.duke.command.ListStudentGradesForAssignmentCommand;
 import seedu.duke.command.ListStudentsDetailsCommand;
 import seedu.duke.command.AddTimetableCommand;
 import seedu.duke.command.AddAssignmentCommand;
@@ -9,9 +10,11 @@ import seedu.duke.command.Command;
 import seedu.duke.command.ExitCommand;
 import seedu.duke.command.ListModuleAssignmentsCommand;
 import seedu.duke.command.ListModuleStudentsCommand;
+
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
@@ -53,6 +56,8 @@ public class Parser {
             command = getAddTimetableCommand(line);
         } else if (line.startsWith("list student details ")) {
             command = getListStudentDetailsCommand(line);
+        } else if (line.startsWith("list student assignment grades ")) {
+            command = getListStudentAssignmentGradesCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
@@ -150,6 +155,24 @@ public class Parser {
         }
         return command;
     }
+    
+    private static Command getListStudentAssignmentGradesCommand(String line) throws InvalidCommandException {
+        Command command;
+        try {
+            // logger.log(Level.INFO, "list student assignment grades command entered");
+            String moduleSeperator = "/m";
+            String assignmentSeperator = "/a";
+            int moduleIndex = line.indexOf(moduleSeperator);
+            int assignmentIndex = line.indexOf(assignmentSeperator);
+            String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
+            command = new ListStudentGradesForAssignmentCommand(moduleCode, assignmentName);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            // logger.log(Level.WARNING, "not enough parameters for add assignment command");
+            throw new InvalidCommandException();
+        }
+        return command;
+    }
 
     private static Command getAddModuleCommand(String line) throws InvalidCommandException {
         Command command;
@@ -163,6 +186,4 @@ public class Parser {
         }
         return command;
     }
-
-
 }

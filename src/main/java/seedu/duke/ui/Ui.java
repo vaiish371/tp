@@ -7,7 +7,8 @@ import seedu.duke.Student;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Ui {
     private final Scanner in;
@@ -52,6 +53,13 @@ public class Ui {
     public void printNewStudent(Module module, Student student) {
         System.out.println("\t I have assigned a new student to " + module.getModuleCode() + ":");
         System.out.println("\t " + student);
+    }
+
+    public void printEditAssignment(Module module, String oldName, String newName) {
+        System.out.println("\t I have edited your assignment in " + module.getModuleCode() + " from:");
+        System.out.println("\t - " + oldName);
+        System.out.println("\t to");
+        System.out.println("\t + " + newName);
     }
 
     public void printNewModule(Module module) {
@@ -100,6 +108,18 @@ public class Ui {
             for (int i = 1; i <= students.size(); i++) {
                 System.out.println("\t " + i + ". " + students.get(i - 1).toString());
             }
+        }
+    }
+
+    public void listAssignmentStudentGrades(Assignment assignment) {
+        System.out.println("\t Here are the students' grades for the " + assignment.toString() + " assignment:");
+        HashMap<String, Float> studentGrades = assignment.getStudentGrades();
+        Iterator it = studentGrades.entrySet().iterator();
+        int index = 1;
+        while (it.hasNext()) {
+            HashMap.Entry pair = (HashMap.Entry)it.next();
+            System.out.println("\t " + index + ". " + pair.getKey() + " - " + pair.getValue());
+            index++;
         }
     }
 }
