@@ -1,1 +1,5 @@
-Jianning
+addmodule CS2113T
+addassignment CS2113T quiz1
+addassignment CS2113T quiz2
+listassignment CS2113T
+blah
