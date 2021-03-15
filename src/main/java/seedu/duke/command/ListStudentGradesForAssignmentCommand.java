@@ -7,7 +7,7 @@ import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
 
-public class ListStudentGradesForAssignmentCommand {
+public class ListStudentGradesForAssignmentCommand extends Command {
     public String moduleCode;
     public String assignmentName;
 
