@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class Module {
     private String moduleCode;
     private ArrayList<Assignment> assignments;
+    private ArrayList<Lesson> lessons;
 
     public Module(String moduleCode) {
         this.moduleCode = moduleCode;
         this.assignments = new ArrayList<>();
+        this.lessons = new ArrayList<>();
     }
 
     public String getModuleCode() {
@@ -21,6 +23,14 @@ public class Module {
 
     public Assignment getAssignmentAtIndex(int index) {
         return assignments.get(index);
+    }
+
+    public void addLesson(Lesson lesson) {
+        lessons.add(lesson);
+    }
+
+    public ArrayList<Lesson> getLessons() {
+        return lessons;
     }
 
     public void printAssignments() {

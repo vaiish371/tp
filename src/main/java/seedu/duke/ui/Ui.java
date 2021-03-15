@@ -1,6 +1,7 @@
 package seedu.duke.ui;
 
 import seedu.duke.Assignment;
+import seedu.duke.Lesson;
 import seedu.duke.Module;
 
 import java.util.Scanner;
@@ -48,5 +49,11 @@ public class Ui {
 
     public void printNewModule(Module module) {
         System.out.println("\t I have added a new module: " + module.getModuleCode());
+    }
+
+    public void printNewTimetable(String moduleCode, Lesson lesson) {
+        System.out.println("Success! I have added the following timetable for the module - " + moduleCode);
+        System.out.println("\t" + lesson.getLessonType() + ": " + lesson.toString() + " (" +
+                lesson.getVenue() + ")");
     }
 }

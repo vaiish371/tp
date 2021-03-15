@@ -1,9 +1,6 @@
 package seedu.duke.parser;
 
-import seedu.duke.command.AddAssignmentCommand;
-import seedu.duke.command.AddModuleCommand;
-import seedu.duke.command.Command;
-import seedu.duke.command.ExitCommand;
+import seedu.duke.command.*;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
@@ -21,6 +18,11 @@ public class Parser {
             break;
         case "addassignment":
             command = new AddAssignmentCommand(words[1], words[2]);
+            break;
+        case "addtimetable":
+            //Module Time Venue Lesson_Type
+            String[] times = words[4].split("-");
+            command = new AddTimetableCommand(words[1], words[2], words[3], times[0], times[1], times[2]);
             break;
         default:
             throw new InvalidCommandException();
