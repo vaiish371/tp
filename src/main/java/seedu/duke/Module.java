@@ -47,12 +47,28 @@ public class Module {
         return lessons;
     }
 
-    public void printAssignments() {
-        System.out.println("Here are your assignments for " + moduleCode + ":");
-        for (Assignment a: assignments) {
-            System.out.println(a);
+    public Assignment findAssignment(String assignmentName) {
+        Assignment assignmentToBeQueried = null;
+        for (Assignment assignment : assignments) {
+            if (assignment.getName().equals(assignmentName)) {
+                assignmentToBeQueried = assignment;
+                break;
+            }
         }
+        return assignmentToBeQueried;
     }
+
+    public Student findStudent(String studentName) {
+        Student studentToBeFound = null;
+        for (Student student : students) {
+            if (student.getName().equals(studentName)) {
+                studentToBeFound = student;
+                break;
+            }
+        }
+        return studentToBeFound;
+    }
+
       
     public Student getStudentAtIndex(int index) {
         return students.get(index);
