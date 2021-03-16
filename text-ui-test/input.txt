@@ -3,7 +3,9 @@ add assignment /m CS2113T /a quiz1
 add assignment /m CS2113T /a quiz2
 list assignment CS2113T
 add student /m CS2113T /s Jianning /# A0214561M /e e0527277@u.nus.edu
+add student /m CS2113T /s Bryan /# A0215114X /e e05XXXXX@u.nus.edu
 set assignment grade /m CS2113T /a quiz1 /s Jianning /g 100.0
+set assignment grade /m CS2113T /a quiz1 /s Bryan /g 101.0
 list student assignment grades /m CS2113T /a quiz1
 list student assignment grades /m CS2113T /a quiz3
 blah

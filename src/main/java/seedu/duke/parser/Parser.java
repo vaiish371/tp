@@ -71,6 +71,7 @@ public class Parser {
 
     private static Command getSetAssignmentGradeCommand(String line) {
         Command command;
+        logger.log(Level.INFO, "setAssignmentGrade command entered");
         String moduleSeperator = "/m";
         String assignmentSeperator = "/a";
         String studentSeperator = "/s";
@@ -84,6 +85,7 @@ public class Parser {
         String studentName = line.substring(studentIndex + S_LENGTH, gradeIndex - 1);
         String grade = line.substring(gradeIndex + G_LENGTH).trim();
         command = new SetAssignmentGradeCommand(moduleCode, assignmentName, studentName, grade);
+        assert command != null : "command should not be null";
         return command;
     }
 
