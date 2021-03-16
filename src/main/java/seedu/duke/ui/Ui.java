@@ -129,7 +129,7 @@ public class Ui {
 
     public void printSetAssignmentGrade(String moduleCode, String assignmentName,
                                         String studentName, String grade) {
-        System.out.println("\t " + "I have set " + studentName + "'s grade to " + grade +
-                " for assignment " + assignmentName + " in " + moduleCode);
+        System.out.println("\t " + "I have set " + studentName + "'s grade to " + grade
+                + " for assignment " + assignmentName + " in " + moduleCode);
     }
 }
