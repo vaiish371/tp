@@ -18,16 +18,9 @@ public class ListStudentGradesForAssignmentCommand extends Command {
 
     public void execute(Data data, Ui ui) {
         Module module = data.find(moduleCode);
-        ArrayList<Assignment> assignments = module.getAssignments();
-        Assignment assignmentToBeQueried = null;
-        for (Assignment assignment : assignments) {
-            if (assignment.getName().equals(assignmentName)) {
-                assignmentToBeQueried = assignment;
-                break;
-            }
-        }
+        Assignment assignmentToBeQueried = module.findAssignment(assignmentName);
         if (assignmentToBeQueried == null) {
-            System.out.println("Assignment not found!");
+            ui.assignmentNotFoundMessage(assignmentName, moduleCode);
         } else {
             ui.listAssignmentStudentGrades(assignmentToBeQueried);
         }

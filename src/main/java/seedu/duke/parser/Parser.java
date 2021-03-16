@@ -11,10 +11,10 @@ import seedu.duke.command.ExitCommand;
 import seedu.duke.command.ListModuleAssignmentsCommand;
 import seedu.duke.command.ListModuleStudentsCommand;
 
+import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
-import java.util.Arrays;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
@@ -31,6 +31,7 @@ public class Parser {
     private static final int T_LENGTH = 3;
     private static final int V_LENGTH = 3;
     private static final int D_LENGTH = 3;
+    private static final int G_LENGTH = 3;
     private static final int HASH_LENGTH = 3;
     private static final int LIST_STUDENT_LENGTH = 13;
     private static final int LIST_STUDENT_DETAILS_LENGTH = 21;
@@ -47,7 +48,7 @@ public class Parser {
         } else if (line.startsWith("add assignment ")) {
             command = getAddAssignmentCommand(line);
         } else if (line.startsWith("list assignment ")) {
-            command = getListAssignmentCommand(line);
+            command = getListModuleAssignmentCommand(line);
         } else if (line.startsWith("add student ")) {
             command = getAddStudentCommand(line);
         } else if (line.startsWith("list student details ")) {
@@ -58,10 +59,32 @@ public class Parser {
             command = getListStudentCommand(line);
         } else if (line.startsWith("add timetable ")) {
             command = getAddTimetableCommand(line);
+        } else if (line.startsWith("set assignment grade ")) {
+            command = getSetAssignmentGradeCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
         }
+        assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getSetAssignmentGradeCommand(String line) {
+        Command command;
+        logger.log(Level.INFO, "setAssignmentGrade command entered");
+        String moduleSeperator = "/m";
+        String assignmentSeperator = "/a";
+        String studentSeperator = "/s";
+        String gradeSeparator = "/g";
+        int moduleIndex = line.indexOf(moduleSeperator);
+        int assignmentIndex = line.indexOf(assignmentSeperator);
+        int studentIndex = line.indexOf(studentSeperator);
+        int gradeIndex = line.indexOf(gradeSeparator);
+        String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
+        String assignmentName = line.substring(assignmentIndex + A_LENGTH, studentIndex - 1);
+        String studentName = line.substring(studentIndex + S_LENGTH, gradeIndex - 1);
+        String grade = line.substring(gradeIndex + G_LENGTH).trim();
+        command = new SetAssignmentGradeCommand(moduleCode, assignmentName, studentName, grade);
         assert command != null : "command should not be null";
         return command;
     }
@@ -125,7 +148,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getListAssignmentCommand(String line) throws InvalidCommandException {
+    private static Command getListModuleAssignmentCommand(String line) throws InvalidCommandException {
         Command command;
         try {
             logger.log(Level.INFO, "list assignment command entered");

@@ -20,6 +20,12 @@ public class Assignment {
         return studentGrades;
     }
 
+    public void setStudentGrade(Student student, String grade) {
+        String studentNumber = student.getStudentNumber();
+        Float gradeFloat = Float.parseFloat(grade);
+        studentGrades.put(studentNumber, gradeFloat);
+    }
+
     public String getName() {
         return name;
     }

@@ -42,7 +42,7 @@ public class Ui {
     }
 
     public void showError(String message) {
-        System.out.println("\t" + exceptionGreeting + message);
+        System.out.println("\t " + exceptionGreeting + message);
     }
 
     public void printNewAssignment(Module module, Assignment assignment) {
@@ -121,5 +121,15 @@ public class Ui {
             System.out.println("\t " + index + ". " + pair.getKey() + " - " + pair.getValue());
             index++;
         }
+    }
+
+    public void assignmentNotFoundMessage(String assignmentName, String moduleCode) {
+        System.out.println("\t " + assignmentName + " not found in " + moduleCode);
+    }
+
+    public void printSetAssignmentGrade(String moduleCode, String assignmentName,
+                                        String studentName, String grade) {
+        System.out.println("\t " + "I have set " + studentName + "'s grade to " + grade
+                + " for assignment " + assignmentName + " in " + moduleCode);
     }
 }
