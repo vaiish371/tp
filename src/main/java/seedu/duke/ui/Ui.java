@@ -140,7 +140,7 @@ public class Ui {
     }
 
     public void moduleNotFound(String moduleCode) {
-        System.out.println("Module "moduleCode + " not found.");
+        System.out.println("Module " + moduleCode + " not found.");
     }
 
     public void assignmentNotFoundMessage(String assignmentName, String moduleCode) {
