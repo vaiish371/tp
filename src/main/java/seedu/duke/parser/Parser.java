@@ -1,6 +1,14 @@
 package seedu.duke.parser;
 
-import seedu.duke.command.*;
+import seedu.duke.command.AddAssignmentCommand;
+import seedu.duke.command.AddModuleCommand;
+import seedu.duke.command.AddStudentCommand;
+import seedu.duke.command.Command;
+import seedu.duke.command.ExitCommand;
+import seedu.duke.command.FindStudentDetailsCommand;
+import seedu.duke.command.ListModuleAssignmentsCommand;
+import seedu.duke.command.ListModuleStudentsCommand;
+import seedu.duke.command.ListStudentsDetailsCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
@@ -46,7 +54,7 @@ public class Parser {
             break;
         case "findStudentDetails":  //finds details of a student, given any part of their name and module
             logger.log(Level.INFO, "findStudentDetails command entered");
-            command = new findStudentDetailsCommand(words[1], words[2]);
+            command = new FindStudentDetailsCommand(words[1], words[2]);
             break;
         default:
             logger.log(Level.WARNING, "Invalid command entered");

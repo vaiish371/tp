@@ -73,21 +73,21 @@ public class Ui {
         }
     }
 
-    public void listModuleStudentsDetails (Module module) {
-        System.out.println("\t Here are the details of all students enrolled in " +
-                module.getModuleCode() + ":");
+    public void listModuleStudentsDetails(Module module) {
+        System.out.println("\t Here are the details of all students enrolled in "
+                + module.getModuleCode() + ":");
         ArrayList<Student> students = module.getStudents();
         for (int i = 1; i <= students.size(); i++) {
             System.out.println("\t " + i + ". " + students.get(i - 1).toString());
         }
     }
 
-    public void findStudentDetails (Module module, String studentName) {
-        System.out.println("\t Finding details of ~ "+ studentName + " ~ in "+
-                module.getModuleCode() + ": ");
+    public void findStudentDetails(Module module, String studentName) {
+        System.out.println("\t Finding details of ~ " + studentName + " ~ in "
+                + module.getModuleCode() + ": ");
         ArrayList<Student> students = module.getStudents();
         for (Student student: students) {
-            if(student.getName().contains(studentName)) {
+            if (student.getName().contains(studentName)) {
                 System.out.println("\t >>" + student.toString());
             }
         }
