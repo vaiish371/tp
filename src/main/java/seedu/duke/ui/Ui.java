@@ -123,6 +123,26 @@ public class Ui {
         }
     }
 
+    public void listModuleTimetable(Module module) {
+        ArrayList<Lesson> lessons = module.getLessons();
+        Lesson lesson;
+        if (lessons.size() == 0) {
+            System.out.println("\t You have not added any lessons to " + module.getModuleCode() + " yet.");
+        } else {
+            assert lessons.size() > 0 : "size of lessons should be greater than zero";
+            System.out.println("\t Here are the lessons in " + module.getModuleCode() + ":");
+            for (int i = 1; i <= lessons.size(); i++) {
+                lesson = lessons.get(i - 1);
+                System.out.println("\t " + i + ". " + lesson.getLessonType() + ": " + lesson.toString()
+                        + " (" + lesson.getVenue() + ")");
+            }
+        }
+    }
+
+    public void moduleNotFound(String moduleCode) {
+        System.out.println("Module " + moduleCode + " not found.");
+    }
+
     public void assignmentNotFoundMessage(String assignmentName, String moduleCode) {
         System.out.println("\t " + assignmentName + " not found in " + moduleCode);
     }
