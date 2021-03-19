@@ -12,6 +12,7 @@ import seedu.duke.command.ListModuleStudentsCommand;
 import seedu.duke.command.ListModuleTimetableCommand;
 import seedu.duke.command.ListStudentGradesForAssignmentCommand;
 import seedu.duke.command.ListStudentsDetailsCommand;
+import seedu.duke.command.SetAssignmentDeadlineCommand;
 import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
@@ -61,14 +62,33 @@ public class Parser {
             command = getListStudentCommand(line);
         } else if (line.startsWith("add timetable ")) {
             command = getAddTimetableCommand(line);
-        } else if (line.startsWith("list timetable")) {
+        } else if (line.startsWith("list timetable ")) {
             command = getListModuleTimetableCommand(line);
         } else if (line.startsWith("set assignment grade ")) {
             command = getSetAssignmentGradeCommand(line);
+        } else if (line.startsWith("set deadline ")) {
+            command = getSetAssignmentDeadlineCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
         }
+        assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getSetAssignmentDeadlineCommand(String line) {
+        Command command;
+        logger.log(Level.INFO, "setAssignmentDeadline command entered");
+        String moduleSeparator = "/m";
+        String assignmentSeparator = "/a";
+        String deadlineSeparator = "/d";
+        int moduleIndex = line.indexOf(moduleSeparator);
+        int assignmentIndex = line.indexOf(assignmentSeparator);
+        int deadlineIndex = line.indexOf(deadlineSeparator);
+        String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
+        String assignmentName = line.substring(assignmentIndex + A_LENGTH, deadlineIndex - 1);
+        String deadline = line.substring(deadlineIndex + D_LENGTH).trim();
+        command = new SetAssignmentDeadlineCommand(moduleCode, assignmentName, deadline);
         assert command != null : "command should not be null";
         return command;
     }

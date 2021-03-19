@@ -1,10 +1,11 @@
 package seedu.duke;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 
 public class Assignment {
     protected String name;
-    protected String deadline; // Optional field, null can be thrown
+    protected LocalDate deadline; // Optional field, null can be thrown
     protected float percentageOfOverallGrade; // Optional field, null can be thrown
     protected HashMap<String, Float> studentGrades;
 
@@ -34,11 +35,11 @@ public class Assignment {
         this.name = name;
     }
 
-    public String getDeadline() {
+    public LocalDate getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(String deadline) {
+    public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
     }
 

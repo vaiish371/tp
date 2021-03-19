@@ -11,4 +11,5 @@ list student assignment grades /m CS2113T /a quiz3
 add timetable /m CS2113T /t Lecture /v Zoom /d Fri /s 1400 /e 1600
 add timetable /m CS2113T /t Tutorial /v SR3 /d Fri /s 0800 /e 0900
 list timetable CS2113T
+set deadline /m CS2113T /a quiz1 /d 16 08 2021
 blah
