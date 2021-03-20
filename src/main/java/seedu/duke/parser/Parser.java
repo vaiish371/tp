@@ -12,6 +12,7 @@ import seedu.duke.command.ListModuleStudentsCommand;
 import seedu.duke.command.ListModuleTimetableCommand;
 import seedu.duke.command.ListStudentGradesForAssignmentCommand;
 import seedu.duke.command.ListStudentsDetailsCommand;
+import seedu.duke.command.SetAssignmentDeadlineCommand;
 import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
@@ -61,15 +62,38 @@ public class Parser {
             command = getListStudentCommand(line);
         } else if (line.startsWith("add timetable ")) {
             command = getAddTimetableCommand(line);
-        } else if (line.startsWith("list timetable")) {
+        } else if (line.startsWith("list timetable ")) {
             command = getListModuleTimetableCommand(line);
         } else if (line.startsWith("set assignment grade ")) {
             command = getSetAssignmentGradeCommand(line);
+        } else if (line.startsWith("set deadline ")) {
+            command = getSetAssignmentDeadlineCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
         }
         assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getSetAssignmentDeadlineCommand(String line) throws InvalidCommandException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "setAssignmentDeadline command entered");
+            String moduleSeparator = "/m";
+            String assignmentSeparator = "/a";
+            String deadlineSeparator = "/d";
+            int moduleIndex = line.indexOf(moduleSeparator);
+            int assignmentIndex = line.indexOf(assignmentSeparator);
+            int deadlineIndex = line.indexOf(deadlineSeparator);
+            String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH, deadlineIndex - 1);
+            String deadline = line.substring(deadlineIndex + D_LENGTH).trim();
+            command = new SetAssignmentDeadlineCommand(moduleCode, assignmentName, deadline);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
+            throw new InvalidCommandException();
+        }
         return command;
     }
 
@@ -167,14 +191,13 @@ public class Parser {
 
     private static Command getListModuleAssignmentCommand(String line) throws InvalidCommandException {
         Command command;
-        try {
-            logger.log(Level.INFO, "list assignment command entered");
-            String moduleCode = line.substring(LIST_ASSIGNMENT_LENGTH);
-            command = new ListModuleAssignmentsCommand(moduleCode);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        logger.log(Level.INFO, "list assignment command entered");
+        String moduleCode = line.substring(LIST_ASSIGNMENT_LENGTH).trim();
+        if (moduleCode.equals("")) {
             logger.log(Level.WARNING, "not enough parameters for list assignment command");
             throw new InvalidCommandException();
         }
+        command = new ListModuleAssignmentsCommand(moduleCode);
         return command;
     }
 
@@ -188,8 +211,12 @@ public class Parser {
             int assignmentIndex = line.indexOf(assignmentSeparator);
             String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
             String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
+            if (assignmentName.equals("")) {
+                logger.log(Level.WARNING, "assignment name cannot be empty");
+                throw new InvalidCommandException();
+            }
             command = new AddAssignmentCommand(moduleCode, assignmentName);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add assignment command");
             throw new InvalidCommandException();
         }
@@ -215,15 +242,14 @@ public class Parser {
     }
 
     private static Command getAddModuleCommand(String line) throws InvalidCommandException {
-        Command command;
-        try {
-            logger.log(Level.INFO, "add module command entered");
-            String moduleCode = line.substring(ADD_MODULE_LENGTH);
-            command = new AddModuleCommand(moduleCode);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        logger.log(Level.INFO, "add module command entered");
+        String moduleCode = line.substring(ADD_MODULE_LENGTH).trim();
+        if (moduleCode.equals("")) {
             logger.log(Level.WARNING, "not enough parameters for add module command");
             throw new InvalidCommandException();
         }
+        assert moduleCode.length() != 0 : "moduleCode should not be empty";
+        Command command = new AddModuleCommand(moduleCode);
         return command;
     }
 }

@@ -5,6 +5,8 @@ import seedu.duke.Lesson;
 import seedu.duke.Module;
 import seedu.duke.Student;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
@@ -151,5 +153,10 @@ public class Ui {
                                         String studentName, String grade) {
         System.out.println("\t " + "I have set " + studentName + "'s grade to " + grade
                 + " for assignment " + assignmentName + " in " + moduleCode);
+    }
+
+    public void printSetAssignmentDeadline(String moduleCode, String assignmentName, LocalDate deadline) {
+        System.out.println("\t " + "I have set " + assignmentName + "'s deadline to "
+                + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + " in " + moduleCode);
     }
 }
