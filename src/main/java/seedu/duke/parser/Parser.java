@@ -207,6 +207,10 @@ public class Parser {
             int assignmentIndex = line.indexOf(assignmentSeparator);
             String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
             String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
+            if (assignmentName.equals("")) {
+                logger.log(Level.WARNING, "assignment name cannot be empty");
+                throw new InvalidCommandException();
+            }
             command = new AddAssignmentCommand(moduleCode, assignmentName);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add assignment command");
@@ -241,6 +245,7 @@ public class Parser {
             logger.log(Level.WARNING, "not enough parameters for add module command");
             throw new InvalidCommandException();
         }
+        assert moduleCode.length() != 0 : "moduleCode should not be empty";
         command = new AddModuleCommand(moduleCode);
         return command;
     }

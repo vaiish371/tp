@@ -15,6 +15,7 @@ public class AddAssignmentCommand extends Command {
         this.assignmentName = assignmentName;
     }
 
+    @Override
     public void execute(Data data, Ui ui) throws ModuleNotFoundException {
         Module module = data.find(moduleCode);
         if (module == null) {
