@@ -187,14 +187,13 @@ public class Parser {
 
     private static Command getListModuleAssignmentCommand(String line) throws InvalidCommandException {
         Command command;
-        try {
-            logger.log(Level.INFO, "list assignment command entered");
-            String moduleCode = line.substring(LIST_ASSIGNMENT_LENGTH);
-            command = new ListModuleAssignmentsCommand(moduleCode);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        logger.log(Level.INFO, "list assignment command entered");
+        String moduleCode = line.substring(LIST_ASSIGNMENT_LENGTH).trim();
+        if (moduleCode.equals("")) {
             logger.log(Level.WARNING, "not enough parameters for list assignment command");
             throw new InvalidCommandException();
         }
+        command = new ListModuleAssignmentsCommand(moduleCode);
         return command;
     }
 
@@ -209,7 +208,7 @@ public class Parser {
             String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
             String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
             command = new AddAssignmentCommand(moduleCode, assignmentName);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add assignment command");
             throw new InvalidCommandException();
         }
@@ -236,14 +235,13 @@ public class Parser {
 
     private static Command getAddModuleCommand(String line) throws InvalidCommandException {
         Command command;
-        try {
-            logger.log(Level.INFO, "add module command entered");
-            String moduleCode = line.substring(ADD_MODULE_LENGTH);
-            command = new AddModuleCommand(moduleCode);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        logger.log(Level.INFO, "add module command entered");
+        String moduleCode = line.substring(ADD_MODULE_LENGTH).trim();
+        if (moduleCode.equals("")) {
             logger.log(Level.WARNING, "not enough parameters for add module command");
             throw new InvalidCommandException();
         }
+        command = new AddModuleCommand(moduleCode);
         return command;
     }
 }
