@@ -1,6 +1,7 @@
 package seedu.duke;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Module {
     private String moduleCode;
@@ -72,6 +73,10 @@ public class Module {
       
     public Student getStudentAtIndex(int index) {
         return students.get(index);
+    }
+
+    public void sortAssignments() {
+        Collections.sort(assignments);
     }
 
 }

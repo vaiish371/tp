@@ -14,6 +14,7 @@ import seedu.duke.command.ListStudentGradesForAssignmentCommand;
 import seedu.duke.command.ListStudentsDetailsCommand;
 import seedu.duke.command.SetAssignmentDeadlineCommand;
 import seedu.duke.command.SetAssignmentGradeCommand;
+import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
@@ -38,6 +39,7 @@ public class Parser {
     private static final int LIST_STUDENT_LENGTH = 13;
     private static final int LIST_STUDENT_DETAILS_LENGTH = 21;
     private static final int LIST_TIMETABLE_LENGTH = 15;
+    private static final int SORT_BY_DEADLINE_LENGTH = 17;
 
     public static Command parse(String line) throws ModManException {
         logger.setLevel(Level.INFO);
@@ -68,11 +70,25 @@ public class Parser {
             command = getSetAssignmentGradeCommand(line);
         } else if (line.startsWith("set deadline ")) {
             command = getSetAssignmentDeadlineCommand(line);
+        } else if (line.startsWith("sort by deadline ")) {
+            command = getSortAssignmentByDeadlineCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
         }
         assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getSortAssignmentByDeadlineCommand(String line) throws InvalidCommandException {
+        logger.log(Level.INFO, "sort by deadline command entered");
+        String moduleCode = line.substring(SORT_BY_DEADLINE_LENGTH).trim();
+        if (moduleCode.equals("")) {
+            logger.log(Level.WARNING, "not enough parameters for sort by deadline command");
+            throw new InvalidCommandException();
+        }
+        assert moduleCode.length() != 0 : "moduleCode should not be empty";
+        Command command = new SortAssignmentByDeadlineCommand(moduleCode);
         return command;
     }
 

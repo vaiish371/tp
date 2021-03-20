@@ -49,7 +49,7 @@ public class Ui {
 
     public void printNewAssignment(Module module, Assignment assignment) {
         System.out.println("\t I have added a new assignment to " + module.getModuleCode() + ":");
-        System.out.println("\t " + assignment);
+        System.out.println("\t " + assignment.getName());
     }
 
     public void printNewStudent(Module module, Student student) {
@@ -114,7 +114,7 @@ public class Ui {
     }
 
     public void listAssignmentStudentGrades(Assignment assignment) {
-        System.out.println("\t Here are the students' grades for the " + assignment.toString() + " assignment:");
+        System.out.println("\t Here are the students' grades for the " + assignment.getName() + " assignment:");
         HashMap<String, Float> studentGrades = assignment.getStudentGrades();
         Iterator it = studentGrades.entrySet().iterator();
         int index = 1;

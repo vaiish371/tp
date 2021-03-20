@@ -1,9 +1,10 @@
 package seedu.duke;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
-public class Assignment {
+public class Assignment implements Comparable<Assignment> {
     protected String name;
     protected LocalDate deadline; // Optional field, null can be thrown
     protected float percentageOfOverallGrade; // Optional field, null can be thrown
@@ -52,8 +53,16 @@ public class Assignment {
     }
 
     @Override
+    public int compareTo(Assignment a) {
+        return this.getDeadline().compareTo(a.getDeadline());
+    }
+
+    @Override
     public String toString() {
-        return name;
+        if (deadline == null) {
+            return name;
+        }
+        return name + " (due by: " + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
     }
 }
 
