@@ -6,6 +6,7 @@ import seedu.duke.command.AddModuleCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.ExitCommand;
 import seedu.duke.command.ListModuleAssignmentsCommand;
+import seedu.duke.command.SetAssignmentDeadlineCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
@@ -79,6 +80,23 @@ class ParserTest {
     void testParse_listAssignmentMissingParam_InvalidCommandException() {
         Parser parser = new Parser();
         String inputString = "list assignment     ";
+        assertThrows(InvalidCommandException.class, () -> {
+            parser.parse(inputString);
+        });
+    }
+
+    @Test
+    void testParse_setAssignmentDeadlineValid_SetAssignmentDeadlineCommand() throws ModManException {
+        Parser parser = new Parser();
+        String inputString = "set deadline /m CS2113T /a quiz1 /d 16 08 2021";
+        Command c = parser.parse(inputString);
+        assertEquals(true, c instanceof SetAssignmentDeadlineCommand);
+    }
+
+    @Test
+    void testParse_setAssignmentDeadlineMissingParam_InvalidCommandException() {
+        Parser parser = new Parser();
+        String inputString = "set deadline /m CS2113T /a quiz1 ";
         assertThrows(InvalidCommandException.class, () -> {
             parser.parse(inputString);
         });

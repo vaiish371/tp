@@ -35,4 +35,23 @@ class ModuleTest {
             testModule.getAssignmentAtIndex(1);
         });
     }
+
+    @Test
+    void testFindAssignment_AssignmentExists_AssignmentFound() {
+        String moduleCode = "CS2113T";
+        String assignmentName = "quiz1";
+        Module testModule = new Module(moduleCode);
+        testModule.addAssignment(new Assignment(assignmentName));
+        assertEquals("quiz1", testModule.findAssignment(assignmentName).getName());
+    }
+
+    @Test
+    void testFindAssignment_AssignmentDoesNotExists_AssignmentNull() {
+        String moduleCode = "CS2113T";
+        String assignmentName = "quiz1";
+        String assignmentToBeFound = "quiz2";
+        Module testModule = new Module(moduleCode);
+        testModule.addAssignment(new Assignment(assignmentName));
+        assertEquals(null, testModule.findAssignment(assignmentToBeFound));
+    }
 }

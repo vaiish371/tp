@@ -76,20 +76,24 @@ public class Parser {
         return command;
     }
 
-    private static Command getSetAssignmentDeadlineCommand(String line) {
+    private static Command getSetAssignmentDeadlineCommand(String line) throws InvalidCommandException {
         Command command;
-        logger.log(Level.INFO, "setAssignmentDeadline command entered");
-        String moduleSeparator = "/m";
-        String assignmentSeparator = "/a";
-        String deadlineSeparator = "/d";
-        int moduleIndex = line.indexOf(moduleSeparator);
-        int assignmentIndex = line.indexOf(assignmentSeparator);
-        int deadlineIndex = line.indexOf(deadlineSeparator);
-        String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
-        String assignmentName = line.substring(assignmentIndex + A_LENGTH, deadlineIndex - 1);
-        String deadline = line.substring(deadlineIndex + D_LENGTH).trim();
-        command = new SetAssignmentDeadlineCommand(moduleCode, assignmentName, deadline);
-        assert command != null : "command should not be null";
+        try {
+            logger.log(Level.INFO, "setAssignmentDeadline command entered");
+            String moduleSeparator = "/m";
+            String assignmentSeparator = "/a";
+            String deadlineSeparator = "/d";
+            int moduleIndex = line.indexOf(moduleSeparator);
+            int assignmentIndex = line.indexOf(assignmentSeparator);
+            int deadlineIndex = line.indexOf(deadlineSeparator);
+            String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH, deadlineIndex - 1);
+            String deadline = line.substring(deadlineIndex + D_LENGTH).trim();
+            command = new SetAssignmentDeadlineCommand(moduleCode, assignmentName, deadline);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
+            throw new InvalidCommandException();
+        }
         return command;
     }
 
