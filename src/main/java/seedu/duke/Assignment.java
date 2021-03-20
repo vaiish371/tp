@@ -54,6 +54,12 @@ public class Assignment implements Comparable<Assignment> {
 
     @Override
     public int compareTo(Assignment a) {
+        if (this.getDeadline() == null) {
+            return 1;
+        }
+        else if (a.getDeadline() == null) {
+            return -1;
+        }
         return this.getDeadline().compareTo(a.getDeadline());
     }
 
