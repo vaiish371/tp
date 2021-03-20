@@ -238,7 +238,6 @@ public class Parser {
     }
 
     private static Command getAddModuleCommand(String line) throws InvalidCommandException {
-        Command command;
         logger.log(Level.INFO, "add module command entered");
         String moduleCode = line.substring(ADD_MODULE_LENGTH).trim();
         if (moduleCode.equals("")) {
@@ -246,7 +245,7 @@ public class Parser {
             throw new InvalidCommandException();
         }
         assert moduleCode.length() != 0 : "moduleCode should not be empty";
-        command = new AddModuleCommand(moduleCode);
+        Command command = new AddModuleCommand(moduleCode);
         return command;
     }
 }
