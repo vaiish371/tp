@@ -16,12 +16,14 @@
 | :information_source: | Inputs in `UPPER_CASE` are parameters to be supplied by the user. |
 |----------------------|-------------------------------------|
 
-### Setting Assignment Deadline : `set deadline`
+### Setting Assignment Deadline : `set deadline` (Jianning)
 
 Sets the deadline the assignment has to be graded by. 
 If a deadline had previously been set, it will be updated by the new deadline.
 
 Format: `set deadline /a ASSIGNMENT_NAME /d DEADLINE`
+
+The DEADLINE must be in the format dd MM yyyy eg. 16 08 2021.
 
 Examples:
 * `set deadline /a quiz1 /d 17 08 2021`
@@ -37,7 +39,7 @@ Here are the assignments in CS2113T:
 ```
 
 
-### Listing Module Assignments : `list`
+### Listing Module Assignments : `list assignments` (Jianning)
 
 Lists out all assignments in the module along with the due date if the deadline was set.
 
@@ -53,7 +55,7 @@ Here are the assignments in CS2113T:
 ---------------------------------------------------------------------
 ```
 
-### Sorting Module Assignments : `sort`
+### Sorting Module Assignments : `sort assignments` (Jianning)
 
 Sorts all assignments in the module by their deadline. 
 If no deadline was set, the assignment will be sorted after those with deadlines.
@@ -70,23 +72,43 @@ Here are the assignments in CS2113T:
 ---------------------------------------------------------------------
 ```
 
-### Setting Assignment Deadline : `set deadline`
+### Listing Student Grades : `list grades` (Jianning)
 
-Sets the deadline the assignment has to be graded by.
-If a deadline had previously been set, it will be updated by the new deadline.
+Lists the students' grades for a particular assignment.
+The students listed are sorted by grades.
 
-Format: `set deadline /a ASSIGNMENT_NAME /d DEADLINE`
+Format: `list student assignment grades /a ASSIGNMENT_NAME`
 
 Examples:
-* `set deadline /a quiz1 /d 17 08 2021`
-* `set deadline /a quiz2 /d 16 08 2021`
+* `list student assignment grades /a quiz1`
+* `list student assignment grades /a quiz3`
 
 Expected Outcome:
 ```
 ---------------------------------------------------------------------
-Here are the assignments in CS2113T:
-1. quiz1 (due by: Aug 17 2021)
-2. quiz2 (due by: Aug 16 2021)
+Here are the students' grades for the quiz1 assignment:
+1. A0214561M - 100.0
+2. A0215114X - 101.0
+---------------------------------------------------------------------
+```
+
+
+### Auto-Grading Assignments : `autograde` (Jianning)
+
+Auto-grades all student scripts for a particular assignment by comparing against solutions.
+Automatically updates student's grades for that assignment.
+
+Format: `autograde /a ASSIGNMENT_NAME`
+
+Examples:
+* `autograde /a quiz1`
+
+Expected Outcome:
+```
+---------------------------------------------------------------------
+Here are the students' grades for the quiz1 assignment:
+1. A0214561M - 100.0
+2. A0215114X - 101.0
 ---------------------------------------------------------------------
 ```
 
