@@ -3,7 +3,7 @@ package seedu.duke.command;
 import seedu.duke.assignment.Assignment;
 import seedu.duke.Module;
 import seedu.duke.assignment.LongAnswerAssignment;
-import seedu.duke.assignment.MCQAssignment;
+import seedu.duke.assignment.McqAssignment;
 import seedu.duke.assignment.ShortAnswerAssignment;
 import seedu.duke.data.Data;
 import seedu.duke.exception.ModuleNotFoundException;
@@ -32,7 +32,7 @@ public class AddAssignmentCommand extends Command {
         } else if (assignmentType.equals("sa")) {
             assignment = new ShortAnswerAssignment(assignmentName);
         } else if (assignmentType.equals("mcq")) {
-            assignment = new MCQAssignment(assignmentName);
+            assignment = new McqAssignment(assignmentName);
         }
         assert module != null : "module should not be null";
         assert assignment != null : "module should not be null";

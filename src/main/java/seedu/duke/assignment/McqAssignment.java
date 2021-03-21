@@ -2,11 +2,11 @@ package seedu.duke.assignment;
 
 import seedu.duke.exception.NumbersMisalignException;
 
-public class MCQAssignment extends Assignment {
+public class McqAssignment extends Assignment {
 
     private Answer answer;
 
-    public MCQAssignment(String name) {
+    public McqAssignment(String name) {
         super(name);
     }
 

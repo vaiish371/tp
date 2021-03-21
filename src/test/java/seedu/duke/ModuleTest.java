@@ -2,6 +2,9 @@ package seedu.duke;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.assignment.Assignment;
+import seedu.duke.assignment.LongAnswerAssignment;
+import seedu.duke.assignment.McqAssignment;
+import seedu.duke.assignment.ShortAnswerAssignment;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -24,14 +27,14 @@ class ModuleTest {
     @Test
     void testGetAssignmentAtIndex() {
         Module testModule = new Module("CS2113T");
-        testModule.addAssignment(new Assignment("tP"));
+        testModule.addAssignment(new McqAssignment("tP"));
         assertEquals("tP", testModule.getAssignmentAtIndex(0).toString());
     }
 
     @Test
     void getAssignmentAtIndex_indexNonExistent_exceptionThrown() {
         Module testModule = new Module("CS2113T");
-        testModule.addAssignment(new Assignment("tP"));
+        testModule.addAssignment(new LongAnswerAssignment("tP"));
         assertThrows(IndexOutOfBoundsException.class, () -> {
             testModule.getAssignmentAtIndex(1);
         });
@@ -42,7 +45,7 @@ class ModuleTest {
         String moduleCode = "CS2113T";
         String assignmentName = "quiz1";
         Module testModule = new Module(moduleCode);
-        testModule.addAssignment(new Assignment(assignmentName));
+        testModule.addAssignment(new ShortAnswerAssignment(assignmentName));
         assertEquals("quiz1", testModule.findAssignment(assignmentName).getName());
     }
 
@@ -52,7 +55,7 @@ class ModuleTest {
         String assignmentName = "quiz1";
         String assignmentToBeFound = "quiz2";
         Module testModule = new Module(moduleCode);
-        testModule.addAssignment(new Assignment(assignmentName));
+        testModule.addAssignment(new McqAssignment(assignmentName));
         assertEquals(null, testModule.findAssignment(assignmentToBeFound));
     }
 }
