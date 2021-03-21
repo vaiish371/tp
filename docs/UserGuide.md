@@ -13,21 +13,104 @@
 
 ## Features 
 
-{Give detailed description of each feature}
+| :information_source: | Inputs in `UPPER_CASE` are parameters to be supplied by the user. |
+|----------------------|-------------------------------------|
 
-### Adding a todo: `todo`
-Adds a new item to the list of todo items.
+### Setting Assignment Deadline : `set deadline` (Jianning)
 
-Format: `todo n/TODO_NAME d/DEADLINE`
+Sets the deadline the assignment has to be graded by. 
+If a deadline had previously been set, it will be updated by the new deadline.
 
-* The `DEADLINE` can be in a natural language format.
-* The `TODO_NAME` cannot contain punctuation.  
+Format: `set deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
-Example of usage: 
+The DEADLINE must be in the format dd MM yyyy eg. 16 08 2021.
 
-`todo n/Write the rest of the User Guide d/next week`
+Examples:
+* `set deadline /a quiz1 /d 17 08 2021`
+* `set deadline /a quiz2 /d 16 08 2021`
 
-`todo n/Refactor the User Guide to remove passive voice d/13/04/2020`
+Expected Outcome:
+```
+---------------------------------------------------------------------
+Here are the assignments in CS2113T:
+1. quiz1 (due by: Aug 17 2021)
+2. quiz2 (due by: Aug 16 2021)
+---------------------------------------------------------------------
+```
+
+
+### Listing Module Assignments : `list assignments` (Jianning)
+
+Lists out all assignments in the module along with the due date if the deadline was set.
+
+Format: `list assignment`
+
+Expected Outcome:
+```
+---------------------------------------------------------------------
+Here are the assignments in CS2113T:
+1. quiz1 (due by: Aug 17 2021)
+2. quiz2 (due by: Aug 16 2021)
+3. quiz3 (due by: Aug 20 2021)
+---------------------------------------------------------------------
+```
+
+### Sorting Module Assignments : `sort assignments` (Jianning)
+
+Sorts all assignments in the module by their deadline. 
+If no deadline was set, the assignment will be sorted after those with deadlines.
+
+Format: `sort by deadline`
+
+Expected Outcome:
+```
+---------------------------------------------------------------------
+Here are the assignments in CS2113T:
+1. quiz2 (due by: Aug 16 2021)
+2. quiz1 (due by: Aug 17 2021)
+3. quiz3 (due by: Aug 20 2021)
+---------------------------------------------------------------------
+```
+
+### Listing Student Grades : `list grades` (Jianning)
+
+Lists the students' grades for a particular assignment.
+The students listed are sorted by grades.
+
+Format: `list student assignment grades /a ASSIGNMENT_NAME`
+
+Examples:
+* `list student assignment grades /a quiz1`
+* `list student assignment grades /a quiz3`
+
+Expected Outcome:
+```
+---------------------------------------------------------------------
+Here are the students' grades for the quiz1 assignment:
+1. A0214561M - 100.0
+2. A0215114X - 101.0
+---------------------------------------------------------------------
+```
+
+
+### Auto-Grading Assignments : `autograde` (Jianning)
+
+Auto-grades all student scripts for a particular assignment by comparing against solutions.
+Automatically updates student's grades for that assignment.
+
+Format: `autograde /a ASSIGNMENT_NAME`
+
+Examples:
+* `autograde /a quiz1`
+
+Expected Outcome:
+```
+---------------------------------------------------------------------
+Here are the students' grades for the quiz1 assignment:
+1. A0214561M - 100.0
+2. A0215114X - 101.0
+---------------------------------------------------------------------
+```
 
 ## FAQ
 
