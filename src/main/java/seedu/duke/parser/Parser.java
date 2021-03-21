@@ -228,7 +228,7 @@ public class Parser {
             String assignmentSeparator = "/a";
             int assignmentTypeIndex = line.indexOf(assignmentTypeSeparator);
             int assignmentIndex = line.indexOf(assignmentSeparator);
-            String assignmentType = line.substring(assignmentTypeIndex + T_LENGTH, moduleIndex - 1).trim();
+            String assignmentType = line.substring(assignmentTypeIndex + T_LENGTH, assignmentIndex - 1).trim();
             String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
             if (assignmentName.equals("")) {
                 logger.log(Level.WARNING, "assignment name cannot be empty");
