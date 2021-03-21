@@ -15,7 +15,7 @@
 
 {Give detailed description of each feature}
 
-### Adding a lesson: `add timetable`
+### Adding a lesson: `add timetable` (Zihan)
 Adds a new lesson to the list (timetable) of lessons for the module you have selected.
 
 Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
@@ -35,7 +35,7 @@ Lecture: Fri, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
 
-### Listing the timetable: `list timetable`
+### Listing the timetable: `list timetable` (Zihan)
 Lists the lessons in the timetable for the module you have selected.
 
 Format: `list timetable`
