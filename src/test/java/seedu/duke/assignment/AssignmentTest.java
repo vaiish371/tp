@@ -9,12 +9,12 @@ class AssignmentTest {
 
     @Test
     void testAssignment_AssignmentOne_convertedToString() {
-        assertEquals("AssignmentOne", new Assignment("AssignmentOne").toString());
+        assertEquals("AssignmentOne", new McqAssignment("AssignmentOne").toString());
     }
 
     @Test
     void testAssignment_AssignmentOne_falseAsserted() {
-        Assignment assignmentCheck = new Assignment("Assignment One");
+        Assignment assignmentCheck = new LongAnswerAssignment("Assignment One");
         assertFalse("AssignmentOne" == assignmentCheck.toString());
     }
 
