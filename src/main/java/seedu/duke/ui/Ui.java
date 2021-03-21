@@ -71,9 +71,9 @@ public class Ui {
     public void printNewTimetable(String moduleCode, Lesson lesson) {
         System.out.println("\t Success! I have added the following timetable for the module - " + moduleCode);
         System.out.println("\t " + lesson.getLessonType() + ": " + lesson.toString()
-                           + " (" + lesson.getVenue() + ")");
+                + " (" + lesson.getVenue() + ")");
     }
-  
+
     public void listModuleAssignments(Module module) {
         ArrayList<Assignment> assignments = module.getAssignments();
         if (assignments.size() == 0) {
@@ -119,7 +119,7 @@ public class Ui {
         Iterator it = studentGrades.entrySet().iterator();
         int index = 1;
         while (it.hasNext()) {
-            HashMap.Entry pair = (HashMap.Entry)it.next();
+            HashMap.Entry pair = (HashMap.Entry) it.next();
             System.out.println("\t " + index + ". " + pair.getKey() + " - " + pair.getValue());
             index++;
         }
@@ -158,5 +158,9 @@ public class Ui {
     public void printSetAssignmentDeadline(String moduleCode, String assignmentName, LocalDate deadline) {
         System.out.println("\t " + "I have set " + assignmentName + "'s deadline to "
                 + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + " in " + moduleCode);
+    }
+
+    public void selectModuleMessage(String moduleCode) {
+        System.out.println("\t Success! You are now working in: " + moduleCode);
     }
 }
