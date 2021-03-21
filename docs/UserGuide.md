@@ -15,20 +15,41 @@
 
 {Give detailed description of each feature}
 
-### Adding a todo: `todo`
-Adds a new item to the list of todo items.
+### Adding a lesson: `add timetable`
+Adds a new lesson to the list (timetable) of lessons for the module you have selected.
 
-Format: `todo n/TODO_NAME d/DEADLINE`
+Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
-* The `DEADLINE` can be in a natural language format.
-* The `TODO_NAME` cannot contain punctuation.  
+* The `TYPE`, `VENUE` and `DAY` can be in a natural language format.
+* The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800`.  
 
 Example of usage: 
 
-`todo n/Write the rest of the User Guide d/next week`
+`add timetable /t Lecture /v Zoom /d Fri /s 1600 /e 1800`
 
-`todo n/Refactor the User Guide to remove passive voice d/13/04/2020`
+Expected output:
+```
+---------------------------------------------------------------------
+Success! I have added the following timetable for the module - CS2113T
+Lecture: Fri, 16:00-18:00 (Zoom)
+---------------------------------------------------------------------
+```
 
+### Listing the timetable: `list timetable`
+Lists the lessons in the timetable for the module you have selected.
+
+Format: `list timetable`
+
+* The `START_TIME` and `END_TIME` will be listed in the format `HH:mm` eg. `18:00`.
+
+Expected output:
+```
+---------------------------------------------------------------------
+Here are the lessons in CS2113T:
+1. Lecture: Fri, 16:00-18:00 (Zoom)
+2. Tutorial: Fri, 08:00-09:00 (Zoom)
+---------------------------------------------------------------------
+```
 ## FAQ
 
 **Q**: How do I transfer my data to another computer? 
