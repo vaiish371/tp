@@ -1,6 +1,6 @@
 package seedu.duke.ui;
 
-import seedu.duke.Assignment;
+import seedu.duke.assignment.Assignment;
 import seedu.duke.Lesson;
 import seedu.duke.Module;
 import seedu.duke.Student;

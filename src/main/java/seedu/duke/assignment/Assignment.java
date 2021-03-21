@@ -1,10 +1,12 @@
-package seedu.duke;
+package seedu.duke.assignment;
+
+import seedu.duke.Student;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
-public class Assignment implements Comparable<Assignment> {
+public abstract class Assignment implements Comparable<Assignment> {
     protected String name;
     protected LocalDate deadline; // Optional field, null can be thrown
     protected float percentageOfOverallGrade; // Optional field, null can be thrown
