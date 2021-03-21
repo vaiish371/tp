@@ -84,7 +84,7 @@ class ParserTest {
     //             parser.parse(inputString);
     //         });
     //     }
-    
+
     @Test
     void testParse_setAssignmentDeadlineValid_SetAssignmentDeadlineCommand() throws ModManException {
         Parser parser = new Parser();
