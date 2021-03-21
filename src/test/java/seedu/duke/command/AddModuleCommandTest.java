@@ -2,8 +2,7 @@ package seedu.duke.command;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.data.Data;
-import seedu.duke.exception.AssignmentNotFoundException;
-import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.ModManException;
 import seedu.duke.ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
