@@ -1,6 +1,6 @@
 package seedu.duke.command;
 
-import seedu.duke.Assignment;
+import seedu.duke.assignment.Assignment;
 import seedu.duke.Module;
 import seedu.duke.data.Data;
 import seedu.duke.ui.Ui;

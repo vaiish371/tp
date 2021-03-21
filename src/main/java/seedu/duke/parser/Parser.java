@@ -45,6 +45,7 @@ public class Parser {
         logger.setLevel(Level.INFO);
         logger.log(Level.FINE, "parsing user command");
         Command command;
+        line = line.trim();
         if (line.equals("bye")) {
             logger.log(Level.INFO, "bye command entered");
             command = new ExitCommand();
@@ -221,17 +222,25 @@ public class Parser {
         Command command;
         try {
             logger.log(Level.INFO, "add assignment command entered");
+            String assignmentTypeSeparator = "/t";
             String moduleSeparator = "/m";
             String assignmentSeparator = "/a";
+            int assignmentTypeIndex = line.indexOf(assignmentTypeSeparator);
             int moduleIndex = line.indexOf(moduleSeparator);
             int assignmentIndex = line.indexOf(assignmentSeparator);
+            String assignmentType = line.substring(assignmentTypeIndex + T_LENGTH, moduleIndex - 1).trim();
             String moduleCode = line.substring(moduleIndex + M_LENGTH, assignmentIndex - 1);
             String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
             if (assignmentName.equals("")) {
                 logger.log(Level.WARNING, "assignment name cannot be empty");
                 throw new InvalidCommandException();
             }
-            command = new AddAssignmentCommand(moduleCode, assignmentName);
+            if ((assignmentType.equals("la")) && (assignmentType.equals("sa")) && (assignmentType.equals("mcq"))) {
+                System.out.println(assignmentType);
+                logger.log(Level.WARNING, "assignment type must be either la, sa or mcq");
+                throw new InvalidCommandException();
+            }
+            command = new AddAssignmentCommand(assignmentType, moduleCode, assignmentName);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add assignment command");
             throw new InvalidCommandException();
