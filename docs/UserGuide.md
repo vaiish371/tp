@@ -15,6 +15,49 @@
 
 {Give detailed description of each feature}
 
+### Adding a Module: `add module`
+
+Adds a new module to the list of modules.
+
+Format: `add module MODULE_NAME`
+
+Example of usage:
+
+`add module CS2113T`
+
+`add module CS2101`
+
+Expected outcome:
+
+```` 
+> add module CS2113T
+--------------------------------------------------------------------------
+    I have added a new module: CS2113T
+-------------------------------------------------------------------------- 
+````
+
+### List Students Details: `list student details`
+
+Lists the details of all students enrolled in a particular module.
+
+Format: `list student details MODULE_NAME`
+
+Example of usage:
+
+`list student details CS2113T`
+
+`list student details CS2101`
+
+Expected outcome:
+
+```` 
+> list student details CS2113T
+--------------------------------------------------------------------------
+    Here are the students of all students enrolled in CS2113T:
+    1. Vaishnavi, A0208551J, vaiish371@gmail.com
+    2. Emily, A0888888J, emily@gmail.com
+-------------------------------------------------------------------------- 
+````
 ### Adding a todo: `todo`
 Adds a new item to the list of todo items.
 

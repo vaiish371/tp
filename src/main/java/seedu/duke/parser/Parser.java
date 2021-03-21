@@ -135,7 +135,7 @@ public class Parser {
 
     private static Command getListStudentDetailsCommand(String line) {
         Command command;
-        logger.log(Level.INFO, "listStudentDetails command entered");
+        logger.log(Level.INFO, "list student details command entered");
         String moduleCode = line.substring(LIST_STUDENT_DETAILS_LENGTH);
         command = new ListStudentsDetailsCommand(moduleCode);
         return command;
