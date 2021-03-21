@@ -74,7 +74,7 @@ class ParserTest {
 //         String inputString = "list assignment CS2113T";
 //         Command c = parser.parse(inputString);
 //         assertEquals(true, c instanceof ListModuleAssignmentsCommand);
-//     }
+    //     }
 
     @Test
     void testParse_listAssignmentMissingParam_InvalidCommandException() {
