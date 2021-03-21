@@ -32,6 +32,50 @@ It is optimized for use via a Command Line Interface (CLI). Mod Man helps to tra
 | :information_source: | Inputs in `UPPER_CASE` are parameters to be supplied by the user. |
 |----------------------|-------------------------------------|
 
+### Adding a Module: `add module`
+
+Adds a new module to the list of modules.
+
+Format: `add module MODULE_NAME`
+
+Example of usage:
+
+`add module CS2113T`
+
+`add module CS2101`
+
+Expected outcome:
+
+```` 
+> add module CS2113T
+--------------------------------------------------------------------------
+    I have added a new module: CS2113T
+-------------------------------------------------------------------------- 
+````
+
+### List Students Details: `list student details`
+
+Lists the details of all students enrolled in a particular module.
+
+Format: `list student details MODULE_NAME`
+
+Example of usage:
+
+`list student details CS2113T`
+
+`list student details CS2101`
+
+Expected outcome:
+
+```` 
+> list student details CS2113T
+--------------------------------------------------------------------------
+    Here are the students of all students enrolled in CS2113T:
+    1. Vaishnavi, A0208551J, vaiish371@gmail.com
+    2. Emily, A0888888J, emily@gmail.com
+-------------------------------------------------------------------------- 
+````
+
 ### Adding a student: `add student`
 Assigns a new student to the current module you have selected.
 
