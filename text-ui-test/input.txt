@@ -1,6 +1,6 @@
 add module CS2113T
-add assignment /m CS2113T /a quiz1
-add assignment /m CS2113T /a quiz2
+add assignment /t la /m CS2113T /a quiz1
+add assignment /t la /m CS2113T /a quiz2
 list assignment CS2113T
 add student /m CS2113T /s Jianning /# A0214561M /e e0527277@u.nus.edu
 add student /m CS2113T /s Bryan /# A0215114X /e e05XXXXX@u.nus.edu
@@ -11,7 +11,7 @@ list student assignment grades /m CS2113T /a quiz3
 add timetable /m CS2113T /t Lecture /v Zoom /d Fri /s 1400 /e 1600
 add timetable /m CS2113T /t Tutorial /v SR3 /d Fri /s 0800 /e 0900
 list timetable CS2113T
-add assignment /m CS2113T /a quiz3
+add assignment /t la /m CS2113T /a quiz3
 set deadline /m CS2113T /a quiz1 /d 17 08 2021
 set deadline /m CS2113T /a quiz2 /d 16 08 2021
 set deadline /m CS2113T /a quiz3 /d 20 08 2021
