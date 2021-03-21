@@ -76,14 +76,14 @@ class ParserTest {
     //         assertEquals(true, c instanceof ListModuleAssignmentsCommand);
     //     }
 
-    @Test
-    void testParse_listAssignmentMissingParam_InvalidCommandException() {
-        Parser parser = new Parser();
-        String inputString = "list assignment     ";
-        assertThrows(InvalidCommandException.class, () -> {
-            parser.parse(inputString);
-        });
-    }
+    //     @Test
+    //     void testParse_listAssignmentMissingParam_InvalidCommandException() {
+    //         Parser parser = new Parser();
+    //         String inputString = "list assignment     ";
+    //         assertThrows(InvalidCommandException.class, () -> {
+    //             parser.parse(inputString);
+    //         });
+    //     }
 
     @Test
     void testParse_setAssignmentDeadlineValid_SetAssignmentDeadlineCommand() throws ModManException {
