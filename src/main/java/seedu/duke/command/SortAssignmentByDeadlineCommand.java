@@ -1,6 +1,5 @@
 package seedu.duke.command;
 
-import seedu.duke.Assignment;
 import seedu.duke.Module;
 import seedu.duke.data.Data;
 import seedu.duke.exception.ModuleNotFoundException;
