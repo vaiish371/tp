@@ -40,3 +40,46 @@ Example of usage:
 {Give a 'cheat sheet' of commands here}
 
 * Add todo `todo n/TODO_NAME d/DEADLINE`
+
+
+### 3. Adding an assignment: `add assignment`
+
+Adds an assignment
+
+Format: `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME`
+
+Example usage:
+
+`add assignment /t mcq /a Magic Sequence`
+
+`add assignment /t la /a recursion`
+
+Expected Outcome (Assuming the current module is "CS2040C"):
+
+```
+---------------------------------------------------------------------
+I have added a new assignment to CS2040C:
+Magic Sequence
+---------------------------------------------------------------------
+```
+
+### 4. Editing an assignment name: `edit assignment`
+
+Edits the assignment name of an existing assignment
+
+Format: `edit assignment /t TYPE_OF_ASSIGNMENT /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME`
+
+Example usage:
+
+`edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
+
+`edit assignment /t la /a recursion /n iteration`
+
+Expected Outcome:
+
+```
+---------------------------------------------------------------------
+I have updated your assignment name:
+Forest Fruits
+---------------------------------------------------------------------
+```
