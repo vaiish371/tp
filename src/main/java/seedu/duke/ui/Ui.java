@@ -174,4 +174,8 @@ public class Ui {
             }
         }
     }
+
+    public void removeModuleMessage(String moduleCode) {
+        System.out.println("\t You have successfully removed module: " + moduleCode);
+    }
 }

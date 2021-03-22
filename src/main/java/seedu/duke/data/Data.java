@@ -26,4 +26,13 @@ public class Data {
         }
         return null;
     }
+
+    public void remove(String moduleCode) {
+        for (Module module : modules) {
+            if (module.getModuleCode().equals(moduleCode)) {
+                modules.remove(module);
+                return;
+            }
+        }
+    }
 }

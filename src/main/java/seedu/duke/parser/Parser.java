@@ -13,6 +13,7 @@ import seedu.duke.command.ListModuleStudentsCommand;
 import seedu.duke.command.ListModuleTimetableCommand;
 import seedu.duke.command.ListStudentGradesForAssignmentCommand;
 import seedu.duke.command.ListStudentsDetailsCommand;
+import seedu.duke.command.RemoveModuleCommand;
 import seedu.duke.command.SelectModuleCommand;
 import seedu.duke.command.SetAssignmentDeadlineCommand;
 import seedu.duke.command.SetAssignmentGradeCommand;
@@ -27,6 +28,7 @@ import java.util.logging.Logger;
 public class Parser {
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
     private static final int ADD_MODULE_LENGTH = 11;
+    private static final int REMOVE_MODULE_LENGTH = 14;
     private static final int A_LENGTH = 3;
     private static final int S_LENGTH = 3;
     private static final int E_LENGTH = 3;
@@ -74,11 +76,22 @@ public class Parser {
             command = getSetAssignmentDeadlineCommand(line);
         } else if (line.startsWith("sort by deadline ")) {
             command = getSortAssignmentByDeadlineCommand();
+        } else if (line.startsWith("remove module ")) {
+            command = getRemoveModuleCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
         }
         assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getRemoveModuleCommand(String line) {
+        logger.log(Level.INFO, "select module command entered");
+        Command command;
+        String moduleCode = line.substring(REMOVE_MODULE_LENGTH);
+        assert moduleCode.length() != 0 : "moduleCode should not be empty";
+        command = new RemoveModuleCommand(moduleCode);
         return command;
     }
 
@@ -100,6 +113,14 @@ public class Parser {
 
     public static void setCurrentModule(String currentModule) {
         Parser.currentModule = currentModule;
+    }
+
+    public static String getCurrentModule() {
+        if (currentModule == null) {
+            return "null";
+        } else {
+            return currentModule;
+        }
     }
 
     private static Command getSortAssignmentByDeadlineCommand() throws InvalidCommandException {
