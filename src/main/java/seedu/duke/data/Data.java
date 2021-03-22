@@ -14,8 +14,12 @@ public class Data {
         modules.add(module);
     }
 
+    public ArrayList<Module> getModules() {
+        return modules;
+    }
+
     public Module find(String moduleCode) {
-        for (Module module: modules) {
+        for (Module module : modules) {
             if (module.getModuleCode().equals(moduleCode)) {
                 return module;
             }

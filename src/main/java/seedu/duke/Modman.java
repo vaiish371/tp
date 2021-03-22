@@ -18,18 +18,19 @@ public class Modman {
 
     public void run() {
         ui.showWelcomeMessage();
+        ui.printModules(data.getModules());
         boolean isExit = false;
         while (!isExit) {
             try {
                 String fullCommand = ui.readCommand();
-                ui.showLine();
+                Ui.showLine();
                 Command c = Parser.parse(fullCommand);
                 c.execute(data, ui);
                 isExit = c.isExit();
             } catch (ModManException e) {
                 ui.showError(e.getErrorMessage());
             } finally {
-                ui.showLine();
+                Ui.showLine();
             }
         }
     }

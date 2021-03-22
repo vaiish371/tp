@@ -1,9 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.data.Data;
-import seedu.duke.exception.AssignmentNotFoundException;
 import seedu.duke.exception.ModManException;
-import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.ui.Ui;
 
 public abstract class Command {

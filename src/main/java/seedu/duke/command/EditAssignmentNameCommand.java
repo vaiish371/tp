@@ -1,14 +1,14 @@
 package seedu.duke.command;
 
-import seedu.duke.assignment.Assignment;
 import seedu.duke.Module;
+import seedu.duke.assignment.Assignment;
 import seedu.duke.data.Data;
 import seedu.duke.ui.Ui;
 
 public class EditAssignmentNameCommand extends Command {
-    private String moduleCode;
-    private String oldName;
-    private String newName;
+    private final String moduleCode;
+    private final String oldName;
+    private final String newName;
 
     public EditAssignmentNameCommand(String moduleCode, String oldName, String newName) {
         this.moduleCode = moduleCode;
