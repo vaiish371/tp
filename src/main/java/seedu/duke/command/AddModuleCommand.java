@@ -1,8 +1,8 @@
 package seedu.duke.command;
 
 
-import seedu.duke.data.Data;
 import seedu.duke.Module;
+import seedu.duke.data.Data;
 import seedu.duke.ui.Ui;
 
 public class AddModuleCommand extends Command {

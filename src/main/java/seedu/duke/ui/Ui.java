@@ -1,16 +1,16 @@
 package seedu.duke.ui;
 
-import seedu.duke.assignment.Assignment;
 import seedu.duke.Lesson;
 import seedu.duke.Module;
 import seedu.duke.Student;
+import seedu.duke.assignment.Assignment;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class Ui {
     private final Scanner in;
@@ -162,5 +162,16 @@ public class Ui {
 
     public void selectModuleMessage(String moduleCode) {
         System.out.println("\t Success! You are now working in: " + moduleCode);
+    }
+
+    public void printModules(ArrayList<Module> modules) {
+        if (modules.size() == 0) {
+            System.out.println("\t You have not added any modules to ModMan yet!");
+        } else {
+            System.out.println("\t Here are your modules: ");
+            for (int i = 1; i <= modules.size(); i++) {
+                System.out.println("\t " + i + ". " + modules.get(i - 1).getModuleCode());
+            }
+        }
     }
 }

@@ -8,6 +8,7 @@ import seedu.duke.command.AddTimetableCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.ExitCommand;
 import seedu.duke.command.ListModuleAssignmentsCommand;
+import seedu.duke.command.ListModuleCommand;
 import seedu.duke.command.ListModuleStudentsCommand;
 import seedu.duke.command.ListModuleTimetableCommand;
 import seedu.duke.command.ListStudentGradesForAssignmentCommand;
@@ -19,17 +20,13 @@ import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
-import java.util.logging.Logger;
 import java.util.logging.Level;
-
+import java.util.logging.Logger;
 
 
 public class Parser {
-    private static Logger logger = Logger.getLogger(Parser.class.getName());
+    private static final Logger logger = Logger.getLogger(Parser.class.getName());
     private static final int ADD_MODULE_LENGTH = 11;
-    private static final int ADD_ASSIGNMENT_LENGTH = 15;
-    private static final int LIST_ASSIGNMENT_LENGTH = 16;
-    private static final int M_LENGTH = 3;
     private static final int A_LENGTH = 3;
     private static final int S_LENGTH = 3;
     private static final int E_LENGTH = 3;
@@ -39,10 +36,6 @@ public class Parser {
     private static final int G_LENGTH = 3;
     private static final int HASH_LENGTH = 3;
     private static final int SELECT_LENGTH = 7;
-    private static final int LIST_STUDENT_LENGTH = 13;
-    private static final int LIST_STUDENT_DETAILS_LENGTH = 21;
-    private static final int LIST_TIMETABLE_LENGTH = 15;
-    private static final int SORT_BY_DEADLINE_LENGTH = 17;
     private static String currentModule = null;
 
     public static Command parse(String line) throws ModManException {
@@ -55,30 +48,32 @@ public class Parser {
             command = new ExitCommand();
         } else if (line.startsWith("select ")) {
             command = getSelectModuleCommand(line);
+        } else if (line.equals("list module")) {
+            command = getListModuleCommand();
         } else if (line.startsWith("add module ")) {
             command = getAddModuleCommand(line);
         } else if (line.startsWith("add assignment ")) {
             command = getAddAssignmentCommand(line);
         } else if (line.equals("list assignment")) {
-            command = getListModuleAssignmentCommand(line);
+            command = getListModuleAssignmentCommand();
         } else if (line.startsWith("add student ")) {
             command = getAddStudentCommand(line);
         } else if (line.equals("list student details")) {
-            command = getListStudentDetailsCommand(line);
+            command = getListStudentDetailsCommand();
         } else if (line.startsWith("list student assignment grades ")) {
             command = getListStudentAssignmentGradesCommand(line);
         } else if (line.equals("list student")) {
-            command = getListStudentCommand(line);
+            command = getListStudentCommand();
         } else if (line.startsWith("add timetable ")) {
             command = getAddTimetableCommand(line);
         } else if (line.equals("list timetable")) {
-            command = getListModuleTimetableCommand(line);
+            command = getListModuleTimetableCommand();
         } else if (line.startsWith("set assignment grade ")) {
             command = getSetAssignmentGradeCommand(line);
         } else if (line.startsWith("set deadline ")) {
             command = getSetAssignmentDeadlineCommand(line);
         } else if (line.startsWith("sort by deadline ")) {
-            command = getSortAssignmentByDeadlineCommand(line);
+            command = getSortAssignmentByDeadlineCommand();
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
@@ -96,19 +91,25 @@ public class Parser {
         return command;
     }
 
+    private static Command getListModuleCommand() {
+        logger.log(Level.INFO, "list module command entered");
+        Command command;
+        command = new ListModuleCommand();
+        return command;
+    }
+
     public static void setCurrentModule(String currentModule) {
         Parser.currentModule = currentModule;
     }
 
-    private static Command getSortAssignmentByDeadlineCommand(String line) throws InvalidCommandException {
+    private static Command getSortAssignmentByDeadlineCommand() throws InvalidCommandException {
         logger.log(Level.INFO, "sort by deadline command entered");
         if (currentModule.equals("")) {
             logger.log(Level.WARNING, "not enough parameters for sort by deadline command");
             throw new InvalidCommandException();
         }
         assert currentModule.length() != 0 : "currentModule should not be empty";
-        Command command = new SortAssignmentByDeadlineCommand(currentModule);
-        return command;
+        return new SortAssignmentByDeadlineCommand(currentModule);
     }
 
     private static Command getSetAssignmentDeadlineCommand(String line) throws InvalidCommandException {
@@ -146,7 +147,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getListStudentDetailsCommand(String line) {
+    private static Command getListStudentDetailsCommand() {
         Command command;
         logger.log(Level.INFO, "listStudentDetails command entered");
         command = new ListStudentsDetailsCommand(currentModule);
@@ -174,14 +175,14 @@ public class Parser {
         return command;
     }
 
-    private static Command getListModuleTimetableCommand(String line) {
+    private static Command getListModuleTimetableCommand() {
         Command command;
         logger.log(Level.INFO, "list timetable command entered");
         command = new ListModuleTimetableCommand(currentModule);
         return command;
     }
 
-    private static Command getListStudentCommand(String line) throws InvalidCommandException {
+    private static Command getListStudentCommand() throws InvalidCommandException {
         Command command;
         try {
             logger.log(Level.INFO, "list student command entered");
@@ -209,7 +210,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getListModuleAssignmentCommand(String line) throws InvalidCommandException {
+    private static Command getListModuleAssignmentCommand() throws InvalidCommandException {
         Command command;
         logger.log(Level.INFO, "list assignment command entered");
         if (currentModule.equals("")) {
@@ -246,7 +247,7 @@ public class Parser {
         }
         return command;
     }
-    
+
     private static Command getListStudentAssignmentGradesCommand(String line) throws InvalidCommandException {
         Command command;
         try {
@@ -270,7 +271,6 @@ public class Parser {
             throw new InvalidCommandException();
         }
         assert moduleCode.length() != 0 : "moduleCode should not be empty";
-        Command command = new AddModuleCommand(moduleCode);
-        return command;
+        return new AddModuleCommand(moduleCode);
     }
 }

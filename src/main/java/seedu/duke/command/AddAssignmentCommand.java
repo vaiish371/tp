@@ -1,7 +1,7 @@
 package seedu.duke.command;
 
-import seedu.duke.assignment.Assignment;
 import seedu.duke.Module;
+import seedu.duke.assignment.Assignment;
 import seedu.duke.assignment.LongAnswerAssignment;
 import seedu.duke.assignment.McqAssignment;
 import seedu.duke.assignment.ShortAnswerAssignment;

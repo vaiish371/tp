@@ -10,14 +10,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AddTimetableCommand extends Command {
-    private String moduleCode;
-    private String day;
-    private LocalTime startTime;
-    private LocalTime endTime;
-    private String venue;
-    private String lessonType;
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHmm");
-    private static Logger logger = Logger.getLogger("AddTimetableCommand");
+    private final String moduleCode;
+    private final String day;
+    private final LocalTime startTime;
+    private final LocalTime endTime;
+    private final String venue;
+    private final String lessonType;
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHmm");
+    private static final Logger logger = Logger.getLogger("AddTimetableCommand");
 
     public AddTimetableCommand(String moduleCode, String lessonType, String venue,
                                String day, String startTime, String endTime) {

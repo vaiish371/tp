@@ -11,7 +11,7 @@ public class AddStudentCommand extends Command {
     public String studentNumber;
     public String email;
 
-    public AddStudentCommand(String moduleCode, String studentName, 
+    public AddStudentCommand(String moduleCode, String studentName,
                              String studentNumber, String email) {
         this.moduleCode = moduleCode;
         this.studentName = studentName;
