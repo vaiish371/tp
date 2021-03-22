@@ -8,6 +8,7 @@ import seedu.duke.ui.Ui;
 
 public class CurrentModuleCommand extends Command {
     public String moduleCode;
+    
     public CurrentModuleCommand() {
         moduleCode = Parser.getCurrentModule();
         assert this.moduleCode != null : "Module code cannot be null";
