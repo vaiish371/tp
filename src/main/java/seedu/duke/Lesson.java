@@ -17,6 +17,10 @@ public class Lesson {
         this.lessonType = lessonType;
     }
 
+    public void setDay(String day) {
+        this.day = day;
+    }
+
     public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
