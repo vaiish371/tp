@@ -1,24 +1,7 @@
 package seedu.duke.parser;
 
 
-import seedu.duke.command.AddAssignmentCommand;
-import seedu.duke.command.AddModuleCommand;
-import seedu.duke.command.AddStudentCommand;
-import seedu.duke.command.AddTimetableCommand;
-import seedu.duke.command.Command;
-import seedu.duke.command.CurrentModuleCommand;
-import seedu.duke.command.ExitCommand;
-import seedu.duke.command.ListModuleAssignmentsCommand;
-import seedu.duke.command.ListModuleCommand;
-import seedu.duke.command.ListModuleStudentsCommand;
-import seedu.duke.command.ListModuleTimetableCommand;
-import seedu.duke.command.ListStudentGradesForAssignmentCommand;
-import seedu.duke.command.ListStudentsDetailsCommand;
-import seedu.duke.command.RemoveModuleCommand;
-import seedu.duke.command.SelectModuleCommand;
-import seedu.duke.command.SetAssignmentDeadlineCommand;
-import seedu.duke.command.SetAssignmentGradeCommand;
-import seedu.duke.command.SortAssignmentByDeadlineCommand;
+import seedu.duke.command.*;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
@@ -30,6 +13,7 @@ public class Parser {
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
     private static final int ADD_MODULE_LENGTH = 11;
     private static final int REMOVE_MODULE_LENGTH = 14;
+    private static final int DELETE_TIMETABLE_LENGTH = 17;
     private static final int A_LENGTH = 3;
     private static final int S_LENGTH = 3;
     private static final int E_LENGTH = 3;
@@ -71,6 +55,8 @@ public class Parser {
             command = getAddTimetableCommand(line);
         } else if (line.equals("list timetable")) {
             command = getListModuleTimetableCommand();
+        } else if (line.startsWith("delete timetable")) {
+            command = getDeleteModuleTimetableCommand(line);
         } else if (line.startsWith("set assignment grade ")) {
             command = getSetAssignmentGradeCommand(line);
         } else if (line.startsWith("set deadline ")) {
@@ -209,6 +195,19 @@ public class Parser {
         Command command;
         logger.log(Level.INFO, "list timetable command entered");
         command = new ListModuleTimetableCommand(currentModule);
+        return command;
+    }
+
+    private static Command getDeleteModuleTimetableCommand(String line) throws InvalidCommandException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "delete student command entered");
+            String lessonIndex = line.substring(DELETE_TIMETABLE_LENGTH);
+            command = new DeleteModuleTimetableCommand(lessonIndex, currentModule);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for list assignment command");
+            throw new InvalidCommandException();
+        }
         return command;
     }
 
