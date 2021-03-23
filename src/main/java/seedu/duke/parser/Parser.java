@@ -1,7 +1,25 @@
 package seedu.duke.parser;
 
 
-import seedu.duke.command.*;
+import seedu.duke.command.AddAssignmentCommand;
+import seedu.duke.command.AddModuleCommand;
+import seedu.duke.command.AddStudentCommand;
+import seedu.duke.command.AddTimetableCommand;
+import seedu.duke.command.Command;
+import seedu.duke.command.CurrentModuleCommand;
+import seedu.duke.command.DeleteModuleTimetableCommand;
+import seedu.duke.command.ExitCommand;
+import seedu.duke.command.ListModuleAssignmentsCommand;
+import seedu.duke.command.ListModuleCommand;
+import seedu.duke.command.ListModuleStudentsCommand;
+import seedu.duke.command.ListModuleTimetableCommand;
+import seedu.duke.command.ListStudentGradesForAssignmentCommand;
+import seedu.duke.command.ListStudentsDetailsCommand;
+import seedu.duke.command.RemoveModuleCommand;
+import seedu.duke.command.SelectModuleCommand;
+import seedu.duke.command.SetAssignmentDeadlineCommand;
+import seedu.duke.command.SetAssignmentGradeCommand;
+import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
