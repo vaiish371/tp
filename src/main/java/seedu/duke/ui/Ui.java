@@ -187,4 +187,8 @@ public class Ui {
     public void printModuleInfo(Module module) {
         System.out.println("\t You are currently working in: " + module.getModuleCode());
     }
+
+    public void deleteModuleTimetable(String moduleCode, Lesson lesson) {
+        System.out.println("\t You have successfully removed lesson: " + lesson.toString() + " from " + moduleCode);
+    }
 }
