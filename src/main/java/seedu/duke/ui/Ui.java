@@ -178,4 +178,13 @@ public class Ui {
     public void removeModuleMessage(String moduleCode) {
         System.out.println("\t You have successfully removed module: " + moduleCode);
     }
+
+    public void printModuleInfo() {
+        System.out.println("\t You are not currently working in any module!");
+        System.out.println("\t Please select a module by using the select command");
+    }
+
+    public void printModuleInfo(Module module) {
+        System.out.println("\t You are currently working in: " + module.getModuleCode());
+    }
 }

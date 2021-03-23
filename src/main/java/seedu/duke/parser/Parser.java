@@ -6,6 +6,7 @@ import seedu.duke.command.AddModuleCommand;
 import seedu.duke.command.AddStudentCommand;
 import seedu.duke.command.AddTimetableCommand;
 import seedu.duke.command.Command;
+import seedu.duke.command.CurrentModuleCommand;
 import seedu.duke.command.ExitCommand;
 import seedu.duke.command.ListModuleAssignmentsCommand;
 import seedu.duke.command.ListModuleCommand;
@@ -78,11 +79,19 @@ public class Parser {
             command = getSortAssignmentByDeadlineCommand();
         } else if (line.startsWith("remove module ")) {
             command = getRemoveModuleCommand(line);
+        } else if (line.equals("current")) {
+            command = getCurrentModuleCommand();
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
         }
         assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getCurrentModuleCommand() {
+        logger.log(Level.INFO, "current command entered");
+        Command command = new CurrentModuleCommand();
         return command;
     }
 
