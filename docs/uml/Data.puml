@@ -1,0 +1,35 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+
+Interface Storable <<interface>>
+package Data {
+
+  package "Module" {
+      [Modules] o--> [Module]
+      [Module] *--> [moduleCode]
+      package "Assignment" {
+        [Module] --> [assignments]
+        [assignments] o--> [Assignment]
+      }
+      package "Lesson" {
+        [Module] --> [lessons]
+        [lessons] o--> [Lesson]
+      }
+      package "Student" {
+        [Module] --> [students]
+        [students] o--> [Student]
+      }
+      [Assignment] ..> Storable
+      [Lesson] ..> Storable
+      [Student] ..> Storable
+  }
+}
+
+
+
+
+
+
+
+@enduml
