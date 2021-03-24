@@ -42,6 +42,10 @@ The sequence diagram also acts as a reference frame for `getCommand`.
 
 ### Sorting Assignments by Deadline (Jianning)
 
+Given below is the sequence diagram for the sort assignments by deadline command.
+
+![sortCommand](uml/SortAssignmentByDeadlineCommand.png)
+
 Given below is an example usage scenario and how the sorting mechanism behaves.
 
 Step 1. The user launches the application. The CS2113T module has an assignment quiz1 due on 17 Aug 2021.
