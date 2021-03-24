@@ -9,14 +9,14 @@ import seedu.duke.ui.Ui;
 
 public class Modman {
 
-//    private Storage storage;
+    //    private Storage storage;
     private Data data;
     private Ui ui;
 
     public Modman() {
         ui = new Ui();
         data = new Data();
-//        storage = new Storage(ui);
+        //        storage = new Storage(ui);
 
     }
 
