@@ -5,9 +5,14 @@ import seedu.duke.Module;
 import java.util.ArrayList;
 
 public class Data {
-    public ArrayList<Module> modules = new ArrayList<>();
+    public ArrayList<Module> modules;
 
     public Data() {
+        this.modules = new ArrayList<>();
+    }
+
+    public Data(ArrayList<Module> modules) {
+        this.modules = modules;
     }
 
     public void add(Module module) {

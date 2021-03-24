@@ -1,0 +1,40 @@
+@startuml
+
+participant ":Parser" as Parser
+participant ":SortAssignmentByDeadlineCommand" as Command
+participant ":Data" as Data
+participant ":Module" as Module
+
+
+[-> Parser : parse("sort by deadline")
+activate Parser
+
+ref over Parser, Command : getCommand
+
+[<-- Parser : sortCommand
+deactivate Parser
+
+[->Command : execute()
+activate Command
+
+Command -> Data : find(moduleCode)
+activate Data
+
+Data --> Command : module
+
+Command -> Module : sortAssignments()
+activate Module
+
+Module --> Command
+deactivate Module
+
+Command -> Ui : listModuleAssignments(module)
+activate Ui
+
+Ui --> Command
+deactivate Ui
+
+[<-- Command
+deactivate Command
+
+@enduml

@@ -8,6 +8,7 @@ import seedu.duke.command.AddTimetableCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.CurrentModuleCommand;
 import seedu.duke.command.DeleteModuleTimetableCommand;
+import seedu.duke.command.EditModuleTimetableCommand;
 import seedu.duke.command.ExitCommand;
 import seedu.duke.command.ListModuleAssignmentsCommand;
 import seedu.duke.command.ListModuleCommand;
@@ -32,6 +33,7 @@ public class Parser {
     private static final int ADD_MODULE_LENGTH = 11;
     private static final int REMOVE_MODULE_LENGTH = 14;
     private static final int DELETE_TIMETABLE_LENGTH = 17;
+    private static final int EDIT_TIMETABLE_LENGTH = 15;
     private static final int A_LENGTH = 3;
     private static final int S_LENGTH = 3;
     private static final int E_LENGTH = 3;
@@ -73,7 +75,9 @@ public class Parser {
             command = getAddTimetableCommand(line);
         } else if (line.equals("list timetable")) {
             command = getListModuleTimetableCommand();
-        } else if (line.startsWith("delete timetable")) {
+        } else if (line.startsWith("edit timetable ")) {
+            command = getEditModuleTimetableCommand(line);
+        } else if (line.startsWith("delete timetable ")) {
             command = getDeleteModuleTimetableCommand(line);
         } else if (line.startsWith("set assignment grade ")) {
             command = getSetAssignmentGradeCommand(line);
@@ -213,6 +217,34 @@ public class Parser {
         Command command;
         logger.log(Level.INFO, "list timetable command entered");
         command = new ListModuleTimetableCommand(currentModule);
+        return command;
+    }
+
+    private static Command getEditModuleTimetableCommand(String line) throws InvalidCommandException {
+        logger.log(Level.INFO, "edit timetable command entered");
+        Command command;
+        String typeSeparator = "/t";
+        String venueSeparator = "/v";
+        String daySeparator = "/d";
+        String startSeparator = "/s";
+        String endSeparator = "/e";
+        try {
+            int typeIndex = line.indexOf(typeSeparator);
+            int venueIndex = line.indexOf(venueSeparator);
+            int dayIndex = line.indexOf(daySeparator);
+            int startIndex = line.indexOf(startSeparator);
+            int endIndex = line.indexOf(endSeparator);
+            String lessonIndex = line.substring(EDIT_TIMETABLE_LENGTH, typeIndex - 1);
+            String type = line.substring(typeIndex + T_LENGTH, venueIndex - 1);
+            String venue = line.substring(venueIndex + V_LENGTH, dayIndex - 1);
+            String day = line.substring(dayIndex + D_LENGTH, startIndex - 1);
+            String start = line.substring(startIndex + S_LENGTH, endIndex - 1);
+            String end = line.substring(endIndex + E_LENGTH).trim();
+            command = new EditModuleTimetableCommand(lessonIndex, currentModule, type, venue, day, start, end);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for list assignment command");
+            throw new InvalidCommandException();
+        }
         return command;
     }
 

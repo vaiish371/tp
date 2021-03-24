@@ -9,6 +9,9 @@ It is optimized for use via a Command Line Interface (CLI). Mod Man helps to tra
 1. [Quick start](#quick-start)
 1. [Features](#features)
     1. [`add module` - Adding a Module](#Adding-a-Module)
+    1. [`remove module` - Removing a Module](#Removing-a-Module)
+    1. [`select` - Selecting a Module](#Selecting-a-Module)
+    1. [`current` - Viewing current Module](#Viewing-current-Module)
     1. [`add student` - Adding a Student](#Adding-a-Student)
     1. [`add assignment` - Adding an Assignment](#Adding-an-Assignment)
     1. [`add timetable` - Adding a Lesson](#Adding-a-Lesson)
@@ -55,13 +58,63 @@ Example of usage:
 > Expected outcome:
 
 ```` 
-> add module CS2113T
 --------------------------------------------------------------------------
     I have added a new module: CS2113T
 -------------------------------------------------------------------------- 
 ````
 ***
-### ii. Adding a Student: `add student`
+### ii. Removing a Module: `remove module`
+
+Removes a module from the list of modules.
+
+Format: `remove module MODULE_NAME`
+
+Example of usage:
+
+`remove module CS2113T`
+
+Expected outcome:
+
+```` 
+--------------------------------------------------------------------------
+    You have successfully removed module: CS2113T
+-------------------------------------------------------------------------- 
+````
+***
+### iii. Selecting a Module: `select`
+
+Select the module you want to currently work in.
+
+Format: `select MODULE_NAME`
+
+Example of usage:
+
+`select CS2113T`
+
+Expected outcome:
+
+```` 
+--------------------------------------------------------------------------
+    Success! You are now working in: CS2113T
+-------------------------------------------------------------------------- 
+````
+***
+### iv. Viewing current Module: `current`
+
+View the current module you are working in.
+
+Format: `current`
+
+Expected outcome:
+
+```` 
+--------------------------------------------------------------------------
+    You are currently working in: CS2113T
+-------------------------------------------------------------------------- 
+````
+***
+### v. Adding a student: `add student`
+
 Assigns a new student to the current module you have selected.
 
 Format: `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL`
@@ -78,7 +131,7 @@ John Doe, A0123456Y, e0123456@u.nus.edu
 ---------------------------------------------------------------------
 ```
 ***
-### iii. Adding an Assignment: `add assignment`
+### vi. Adding an Assignment: `add assignment`
 
 Adds an assignment
 
@@ -99,7 +152,7 @@ Magic Sequence
 ---------------------------------------------------------------------
 ```
 ***
-### iv. Adding a Lesson: `add timetable` 
+### vii. Adding a Lesson: `add timetable` 
 Adds a new lesson to the list (timetable) of lessons for the module you have selected.
 
 Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
@@ -119,7 +172,7 @@ Lecture: Fri, 16:00-18:00 (Zoom)
 ```
 ***
 
-### v. Listing Students Details: `list student details`
+### vii. Listing Students Details: `list student details`
 
 Lists the details of all students enrolled in a particular module.
 
@@ -134,7 +187,6 @@ Example of usage:
 > Expected outcome :
 
 ```` 
-> list student details CS2113T
 --------------------------------------------------------------------------
     Here are the students of all students enrolled in CS2113T:
     1. Vaishnavi, A0208551J, vaiish371@gmail.com
@@ -143,7 +195,7 @@ Example of usage:
 ````
 ***
 
-### vi. Listing Students in Module: `list student `
+### ix. Listing Students in Module: `list student `
 Lists the names of students assigned to the current module you have selected.
 
 Format: `list student`
@@ -161,7 +213,7 @@ Example of usage:
 ```
 ***
 
-### vii. Listing Timetable Lessons: `list timetable`
+### x. Listing Timetable Lessons: `list timetable`
 Lists the lessons in the timetable for the module you have selected.
 
 Format: `list timetable`
@@ -178,7 +230,7 @@ Here are the lessons in CS2113T:
 ```
 ***
 
-### viii. Listing Module Assignments : `list assignments` 
+### xi. Listing Module Assignments : `list assignments` 
 
 Lists out all assignments in the module along with the due date if the deadline was set.
 
@@ -195,9 +247,9 @@ Here are the assignments in CS2113T:
 ```
 ***
 
-### ix. Sorting Module Assignments : `sort assignments` 
+### xii. Sorting Module Assignments : `sort assignments` 
 
-Sorts all assignments in the module by their deadline.
+Sorts all assignments in the module by their deadline. <br/>
 If no deadline was set, the assignment will be sorted after those with deadlines.
 
 Format: `sort by deadline`
@@ -214,7 +266,7 @@ Here are the assignments in CS2113T:
 
 ***
 
-### x. Editing an Assignment Name: `edit assignment`
+### xiii. Editing an Assignment Name: `edit assignment`
 
 Edits the assignment name of an existing assignment
 
@@ -237,7 +289,7 @@ Forest Fruits
 
 ***
 
-### xi. Setting Assignment Deadline : `set deadline` 
+### xiv. Setting Assignment Deadline : `set deadline` 
 
 Sets the deadline the assignment has to be graded by. 
 If a deadline had previously been set, it will be updated by the new deadline.
@@ -260,7 +312,7 @@ Here are the assignments in CS2113T:
 ```
 ***
 
-### xii. Listing Assignment Grades : `list grades` 
+### xv. Listing Assignment Grades : `list grades` 
 
 Lists the students' grades for a particular assignment.
 The students listed are sorted by grades.
@@ -281,7 +333,7 @@ Here are the students' grades for the quiz1 assignment:
 ```
 ***
 
-### xiii. Auto-Grading Assignments : `autograde` 
+### xvi. Auto-Grading Assignments : `autograde` 
 
 Auto-grades all student scripts for a particular assignment by comparing against solutions.
 Automatically updates student's grades for that assignment.
@@ -311,6 +363,9 @@ Here are the students' grades for the quiz1 assignment:
 Action | Format, Examples
 ------ | ----------------
 add module | `add module MODULE_NAME` <br> e.g. `add module CS2113T`
+remove module | `remove module MODULE_NAME` <br> e.g. `remove module CS2113T`
+select module | `select MODULE_NAME` <br> e.g. `select CS2113T`
+view current module | `current` <br>
 add student | `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL` <br> e.g. `add student /s John Doe /# A0123456Y /e e0123456@u.nus.edu`
 add assignment | `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME` <br> e.g. `add assignment /t mcq /a Magic Sequence`
 add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `add timetable /t Lecture /v Zoom /d Fri /s 1600 /e 1800`

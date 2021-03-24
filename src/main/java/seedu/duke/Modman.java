@@ -4,16 +4,20 @@ import seedu.duke.command.Command;
 import seedu.duke.data.Data;
 import seedu.duke.exception.ModManException;
 import seedu.duke.parser.Parser;
+//import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 
 public class Modman {
 
+    //    private Storage storage;
     private Data data;
     private Ui ui;
 
     public Modman() {
         ui = new Ui();
         data = new Data();
+        //        storage = new Storage(ui);
+
     }
 
     public void run() {
