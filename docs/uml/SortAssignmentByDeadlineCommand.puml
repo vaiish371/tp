@@ -28,7 +28,7 @@ activate Module
 Module --> Command
 deactivate Module
 
-Command -> Ui : listModuleAssignments()
+Command -> Ui : listModuleAssignments(module)
 activate Ui
 
 Ui --> Command
