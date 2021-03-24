@@ -53,6 +53,60 @@ Expected outcome:
 -------------------------------------------------------------------------- 
 ````
 
+### Removing a Module: `remove module`
+
+Removes a module from the list of modules.
+
+Format: `remove module MODULE_NAME`
+
+Example of usage:
+
+`remove module CS2113T`
+
+Expected outcome:
+
+```` 
+> remove module CS2113T
+--------------------------------------------------------------------------
+    You have successfully removed module: CS2113T
+-------------------------------------------------------------------------- 
+````
+### Selecting a Module: `select`
+
+Select the module you want to currently work in.
+
+Format: `select MODULE_NAME`
+
+Example of usage:
+
+`select CS2113T`
+
+Expected outcome:
+
+```` 
+> select CS2113T
+--------------------------------------------------------------------------
+    Success! You are now working in: CS2113T
+-------------------------------------------------------------------------- 
+````
+
+### Viewing current Module: `current`
+
+View the current module you are working in.
+
+Format: `current`
+
+Expected outcome:
+
+```` 
+> current
+--------------------------------------------------------------------------
+    You are currently working in: CS2113T
+-------------------------------------------------------------------------- 
+````
+
+
+
 ### List Students Details: `list student details`
 
 Lists the details of all students enrolled in a particular module.
