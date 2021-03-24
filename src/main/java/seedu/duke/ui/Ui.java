@@ -191,4 +191,10 @@ public class Ui {
     public void deleteModuleTimetable(String moduleCode, Lesson lesson) {
         System.out.println("\t You have successfully removed lesson: " + lesson.toString() + " from " + moduleCode);
     }
+
+    public void editModuleTimetable(String moduleCode, Lesson lesson) {
+        System.out.println("\t You have successfully edited the lesson to:");
+        System.out.println("\t " + lesson.getLessonType() + ": " + lesson.toString()
+                + " (" + lesson.getVenue() + ")");
+    }
 }
