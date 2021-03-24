@@ -1,1 +1,23 @@
+add module CS2113T
+select CS2113T
+current
+add assignment /t la /a quiz1
+add assignment /t la /a quiz2
+list assignment
+add student /s Jianning /# A0214561M /e e0527277@u.nus.edu
+add student /s Bryan /# A0215114X /e e05XXXXX@u.nus.edu
+set assignment grade /a quiz1 /s Jianning /g 100.0
+set assignment grade /a quiz1 /s Bryan /g 101.0
+list student assignment grades /a quiz1
+list student assignment grades /a quiz3
+add timetable /t Lecture /v Zoom /d Fri /s 1400 /e 1600
+add timetable /t Tutorial /v SR3 /d Fri /s 0800 /e 0900
+list timetable
+add assignment /t la /a quiz3
+set deadline /a quiz1 /d 17 08 2021
+set deadline /a quiz2 /d 16 08 2021
+set deadline /a quiz3 /d 20 08 2021
+list assignment
+sort by deadline
+blah
 bye
