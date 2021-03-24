@@ -41,6 +41,20 @@ The sequence diagram also acts as a reference frame for `getCommand`.
 ![getCommand](uml/getCommand.png)
 
 ## UI Component
+The UI Component consists of one class - `Ui` which provides all the functions
+required to print different kinds of messages on te console.
+
+1. `Ui` is class with a `Scanner` object that reads input from console.
+1. `Modman` has `Ui` object as an attribute which is instantiated
+   when we enter the program.
+1. `Ui` object reads input from screen and returns it which will then be passed to the Parser so that it can
+   parse the command.
+1. Depending on the parsed command, the corresponding
+   `execute()` function of the  `Command` abstract class
+   runs. It accepts `Ui` object as a parameter and calls the relevant `Ui` methods
+   that prints the messages.
+   <br>
+   <br>
 
 Given below is the Sequence Diagram for the Storage class. The storage class interacts with the database file, storing our data into the database or loading our data from the database. </br>
 ## Storage Component (Bryan)
