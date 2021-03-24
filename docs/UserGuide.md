@@ -6,28 +6,28 @@ ModMan, short for Module Manager, is a desktop app designed to help teaching ass
 It is optimized for use via a Command Line Interface (CLI). Mod Man helps to track module details as well as students’ progress and data, all in one platform. It can also perform autograding for MCQ assignments.
 
 ## Table of contents
-1. [Quick start](#quick-start)
-1. [Features](#features)
-    1. [`add module` - Adding a Module](#Adding-a-Module)
-    1. [`remove module` - Removing a Module](#Removing-a-Module)
-    1. [`select` - Selecting a Module](#Selecting-a-Module)
-    1. [`current` - Viewing current Module](#Viewing-current-Module)
-    1. [`add student` - Adding a Student](#Adding-a-Student)
-    1. [`add assignment` - Adding an Assignment](#Adding-an-Assignment)
-    1. [`add timetable` - Adding a Lesson](#Adding-a-Lesson)
-    1. [`list student details` - Listing Students Details](#Listing-Students-Details)
-    1. [`list student` - Listing Students in Module](#Listing-Students-in-Module)
-    1. [`list timetable` - Listing Timetable Lessons](#Listing-Timetable-Lessons)
-    1. [`list assignments` - Listing Module Assignments](#Listing-Module-Assignments)
-    1. [`sort assignments` - Sorting Module Assignments](#Sorting-Module-Assignments)
-    1. [`edit assignment` - Editing an Assignment Name](#Editing-an-Assignment-Name) 
-    1. [`set deadline` - Setting Assignment Deadline](#Setting-Assignment-Deadline)
-    1. [`list grades` - Listing Assignment Grades](#Listing-Assignment-Grades)
-    1. [`autograde` - Auto-Grading Assignments](#Auto-Grading-Assignments)
+1. [Quick start](#1-quick-start)
+1. [Features](#2-features)
+    1. [`add module` - Adding a Module](#i-adding-a-module-add-module)
+    1. [`remove module` - Removing a Module](#ii-removing-a-module-remove-module)
+    1. [`select` - Selecting a Module](#iii-selecting-a-module-select)
+    1. [`current` - Viewing current Module](#iv-viewing-current-module-current)
+    1. [`add student` - Adding a Student](#v-adding-a-student-add-student)
+    1. [`add assignment` - Adding an Assignment](#vi-adding-an-assignment-add-assignment)
+    1. [`add timetable` - Adding a Lesson](#vii-adding-a-lesson-add-timetable)
+    1. [`list student details` - Listing Students Details](#vii-listing-students-details-list-student-details)
+    1. [`list student` - Listing Students in Module](#ix-listing-students-in-module-list-student-)
+    1. [`list timetable` - Listing Timetable Lessons](#x-listing-timetable-lessons-list-timetable)
+    1. [`list assignments` - Listing Module Assignments](#xi-listing-module-assignments--list-assignments)
+    1. [`sort assignments` - Sorting Module Assignments](#xii-sorting-module-assignments--sort-assignments)
+    1. [`edit assignment` - Editing an Assignment Name](#xiii-editing-an-assignment-name-edit-assignment) 
+    1. [`set deadline` - Setting Assignment Deadline](#xiv-setting-assignment-deadline--set-deadline)
+    1. [`list grades` - Listing Assignment Grades](#xv-listing-assignment-grades--list-grades)
+    1. [`autograde` - Auto-Grading Assignments](#xvi-auto-grading-assignments--autograde)
  
   
-3. [FAQ](#faq)
-4. [Command summary](#command-summary)
+3. [FAQ](#3-faq)
+4. [Command summary](#4-command-summary)
 
 ## 1. Quick Start
 
