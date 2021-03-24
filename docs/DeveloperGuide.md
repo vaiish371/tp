@@ -34,14 +34,20 @@ The sequence diagram also acts as a reference frame for `getCommand`.
 
 ## Assignment Component
 
+## Data Component
 
+![Data](uml/Data.png)
 
+The `Data`,
+* stores an `ArrayList` of `Module` objects that represents the modules.
+* Each `Module` object contains `ArrayLists` of `Assignment`, `Lesson`, and `Student` objects.
 
 ## Implementation
 
 
 ### Sorting Assignments by Deadline
 
+### Adding Lesson to Module Timetable
 
 
 
