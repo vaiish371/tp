@@ -10,15 +10,22 @@ Given below is a quick overview of each component. </br>
 `Modman` is the main class of the application, and handles the app launch, 
 initializing the appropriate classes to be used. </br>
 
-The rest of the app consists of IDKHOWMANY components:
+The rest of the app consists of four components:
 
-*
-*
-*
+* Logic
+* UI
+* Storage
+* Data
+
+**How the four architecture components interact with each other and the ModMan class**
+
+The *Sequence diagram* below shows the interaction between components for when the user issues the command `add module CS2113T`
+
+![](uml/ArchitectureSequenceDiagram.png)
 
 The sections below give more details of each component.
 
-## Parser and Command Component
+## Parser Component
 
 ![ParserAndCommand](uml/ParserAndCommand.png)
 
@@ -32,7 +39,13 @@ The sequence diagram also acts as a reference frame for `getCommand`.
 
 ![getCommand](uml/getCommand.png)
 
-## Assignment Component
+## Command Component
+
+
+## UI Component
+
+## Storage Component
+
 
 
 
@@ -46,13 +59,23 @@ The sequence diagram also acts as a reference frame for `getCommand`.
 
 
 ## Product scope
-### Target user profile
-
+### Target user profile:
+* Teaching assistants who: 
+    * have a need to manage their module(s), students and assignments
+    * are comfortable using CLI apps
 {Describe the target user profile}
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+Just to keep track of all informaiton pertaining to a module teaching assistants (at NUS) have to make use of multiple platforms:
+* LumiNUS
+* NUSMods 
+* Module websites 
+* Spreadsheets 
+
+With the help of ModMan, users will be able to add, edit, and store all information on one platform, simplifying the process. In addition, features such as autograding and saving comments for assignments will free up time, allowing TAs to focus on teaching!
+
+
 
 ## User Stories
 
@@ -63,7 +86,11 @@ The sequence diagram also acts as a reference frame for `getCommand`.
 
 ## Non-Functional Requirements
 
-{Give non-functional requirements}
+1. The application should work on any *mainstream* operating system (e.g. Windows, Linux, macOS) 
+   with `Java 11` installed.
+1. The application should be responsive and users should not face any sluggish performance.
+1. Users who are above average in typing speed (in English) should be able to easily issue commands faster than using a mouse.
+
 
 ## Glossary
 

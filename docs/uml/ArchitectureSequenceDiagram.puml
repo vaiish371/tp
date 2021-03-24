@@ -1,0 +1,32 @@
+@startuml
+
+Actor User as user #000000
+Participant ":UI" as ui #83E769
+Participant ":Logic" as logic #C8C8FA
+Participant ":Data" as data #F97181
+Participant ":Storage" as storage #EDC520
+
+user -[#000000]> ui : "add module CS2113T"
+activate ui #83E769
+
+ui -[#83E769]> logic : execute("add module CS2113T")
+activate logic #C8C8FA
+
+logic -[#C8C8FA]> data : add(new Module("CS2113T"))
+activate data #F97181
+
+data -[#F97181]-> logic
+deactivate data
+
+logic -[#C8C8FA]> storage : saveToFile(data)
+activate storage #EDC520
+
+storage --[#EDC520]> logic
+deactivate storage
+
+logic --[#C8C8FA]> ui
+deactivate logic
+
+ui--[#83E769]> user
+deactivate ui
+@enduml
