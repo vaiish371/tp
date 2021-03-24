@@ -1,0 +1,24 @@
+@startuml
+
+hide member
+
+
+package parser {
+    Class Parser
+
+}
+
+package command {
+    Class "{abstract}\nCommand" as Command
+    Class XYZCommand
+}
+
+
+XYZCommand -u-|> Command
+
+
+Parser ..> XYZCommand : creates >
+
+
+
+@enduml

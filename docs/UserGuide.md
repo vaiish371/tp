@@ -146,7 +146,7 @@ Here are the lessons in CS2113T:
 
 ### Setting Assignment Deadline : `set deadline` (Jianning)
 
-Sets the deadline the assignment has to be graded by. 
+Sets the deadline the assignment has to be graded by. <br/>
 If a deadline had previously been set, it will be updated by the new deadline.
 
 Format: `set deadline /a ASSIGNMENT_NAME /d DEADLINE`
@@ -185,7 +185,7 @@ Here are the assignments in CS2113T:
 
 ### Sorting Module Assignments : `sort assignments` (Jianning)
 
-Sorts all assignments in the module by their deadline. 
+Sorts all assignments in the module by their deadline. <br/>
 If no deadline was set, the assignment will be sorted after those with deadlines.
 
 Format: `sort by deadline`
@@ -202,7 +202,7 @@ Here are the assignments in CS2113T:
 
 ### Listing Student Grades : `list grades` (Jianning)
 
-Lists the students' grades for a particular assignment.
+Lists the students' grades for a particular assignment. <br/>
 The students listed are sorted by grades.
 
 Format: `list student assignment grades /a ASSIGNMENT_NAME`
@@ -223,7 +223,7 @@ Here are the students' grades for the quiz1 assignment:
 
 ### Auto-Grading Assignments : `autograde` (Jianning)
 
-Auto-grades all student scripts for a particular assignment by comparing against solutions.
+Auto-grades all student scripts for a particular assignment by comparing against solutions. <br/>
 Automatically updates student's grades for that assignment.
 
 Format: `autograde /a ASSIGNMENT_NAME`

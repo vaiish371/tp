@@ -13,5 +13,4 @@ public class Answer {
     public String[] getAnswers() {
         return answers;
     }
-
 }
