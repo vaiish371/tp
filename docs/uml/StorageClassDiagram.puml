@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Storage {
+filePath
+loadData()
+saveData()
+}
+interface "<<interface>>\n Storable" as Storable {
+toStorage()
+}
+class Module {
+toStorage()
+}
+class Assignment {
+toStorage()
+}
+class Student {
+toStorage()
+}
+
+Storage ..> Storable
+Module ..|> Storable
+Student ..|> Storable
+Assignment ..|> Storable
+Module o--> Student
+Module o--> Assignment
+
+@enduml
