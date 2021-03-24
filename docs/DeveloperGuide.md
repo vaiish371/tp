@@ -40,13 +40,16 @@ The sequence diagram also acts as a reference frame for `getCommand`.
 
 ![getCommand](uml/getCommand.png)
 
-## Command Component
-
-
 ## UI Component
 
-## Storage Component
+Given below is the Sequence Diagram for the Storage class. The storage class interacts with the database file, storing our data into the database or loading our data from the database. </br>
+## Storage Component (Bryan)
+![Storage](uml/StorageClassDiagram.png)
 
+1. The `Storage` class is used to interact with the database.txt file by calling loadData() at the start of the program and calling saveData() at the end of the program.
+2. The `Storage` class will collect the data of all classes that implements the Storable interface so that these data can be saved to the database.
+3. The `toStorage()` method of the Storable interface will return a string representing the object instance's data. 
+4. This string will then be appended to the database.txt file.
 
 ## Data Component
 
