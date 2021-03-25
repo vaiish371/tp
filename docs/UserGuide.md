@@ -11,13 +11,13 @@ It is optimized for use via a Command Line Interface (CLI). Mod Man helps to tra
     1. [`add module` - Adding a Module](#i-adding-a-module-add-module)
     1. [`remove module` - Removing a Module](#ii-removing-a-module-remove-module)
     1. [`select` - Selecting a Module](#iii-selecting-a-module-select)
-    1. [`current` - Viewing current Module](#iv-viewing-current-module-current)
+    1. [`current` - Viewing Current Module](#iv-viewing-current-module-current)
     1. [`add student` - Adding a Student](#v-adding-a-student-add-student)
-    1. [`add assignment` - Adding an Assignment](#vi-adding-an-assignment-add-assignment)
-    1. [`add timetable` - Adding a Lesson](#vii-adding-a-lesson-add-timetable)
     1. [`list student details` - Listing Students Details](#vii-listing-students-details-list-student-details)
-    1. [`list student` - Listing Students in Module](#ix-listing-students-in-module-list-student-)
-    1. [`list timetable` - Listing Timetable Lessons](#x-listing-timetable-lessons-list-timetable)
+    1. [`list student` - Listing Students in Module](#ix-listing-students-in-module-list-student-)    
+    1. [`add timetable` - Adding a Lesson](#vii-adding-a-lesson-add-timetable)
+    1. [`list timetable` - Listing Timetable Lessons](#x-listing-timetable-lessons-list-timetable)    
+    1. [`add assignment` - Adding an Assignment](#vi-adding-an-assignment-add-assignment)
     1. [`list assignments` - Listing Module Assignments](#xi-listing-module-assignments--list-assignments)
     1. [`sort assignments` - Sorting Module Assignments](#xii-sorting-module-assignments--sort-assignments)
     1. [`edit assignment` - Editing an Assignment Name](#xiii-editing-an-assignment-name-edit-assignment) 
@@ -73,7 +73,7 @@ Example of usage:
 
 `remove module CS2113T`
 
-Expected outcome:
+> Expected outcome:
 
 ```` 
 --------------------------------------------------------------------------
@@ -91,7 +91,7 @@ Example of usage:
 
 `select CS2113T`
 
-Expected outcome:
+> Expected outcome:
 
 ```` 
 --------------------------------------------------------------------------
@@ -99,13 +99,13 @@ Expected outcome:
 -------------------------------------------------------------------------- 
 ````
 ***
-### iv. Viewing current Module: `current`
+### iv. Viewing Current Module: `current`
 
 View the current module you are working in.
 
 Format: `current`
 
-Expected outcome:
+> Expected outcome:
 
 ```` 
 --------------------------------------------------------------------------
@@ -131,48 +131,8 @@ John Doe, A0123456Y, e0123456@u.nus.edu
 ---------------------------------------------------------------------
 ```
 ***
-### vi. Adding an Assignment: `add assignment`
 
-Adds an assignment
-
-Format: `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME`
-
-Example usage:
-
-`add assignment /t mcq /a Magic Sequence`
-
-`add assignment /t la /a recursion`
-
-> Expected Outcome (assuming the current module is "CS2040C") :
-
-```
----------------------------------------------------------------------
-I have added a new assignment to CS2040C:
-Magic Sequence
----------------------------------------------------------------------
-```
-***
-### vii. Adding a Lesson: `add timetable` 
-Adds a new lesson to the list (timetable) of lessons for the module you have selected.
-
-Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
-
-* The `TYPE`, `VENUE` and `DAY` can be in a natural language format.
-* The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800`.
-
-Examples:
-* `add timetable /t Lecture /v Zoom /d Fri /s 1600 /e 1800`
-
-> Expected output :
-```
----------------------------------------------------------------------
-Success! I have added the following timetable for the module - CS2113T
-Lecture: Fri, 16:00-18:00 (Zoom)
----------------------------------------------------------------------
-```
-***
-
-### vii. Listing Students Details: `list student details`
+### vi. Listing Students Details: `list student details`
 
 Lists the details of all students enrolled in a particular module.
 
@@ -195,7 +155,7 @@ Example of usage:
 ````
 ***
 
-### ix. Listing Students in Module: `list student `
+### vii. Listing Students in Module: `list student `
 Lists the names of students assigned to the current module you have selected.
 
 Format: `list student`
@@ -213,7 +173,27 @@ Example of usage:
 ```
 ***
 
-### x. Listing Timetable Lessons: `list timetable`
+### viii. Adding a Lesson: `add timetable`
+Adds a new lesson to the list (timetable) of lessons for the module you have selected.
+
+Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
+
+* The `TYPE`, `VENUE` and `DAY` can be in a natural language format.
+* The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800`.
+
+Examples:
+* `add timetable /t Lecture /v Zoom /d Fri /s 1600 /e 1800`
+
+> Expected output :
+```
+---------------------------------------------------------------------
+Success! I have added the following timetable for the module - CS2113T
+Lecture: Fri, 16:00-18:00 (Zoom)
+---------------------------------------------------------------------
+```
+***
+
+### ix. Listing Timetable Lessons: `list timetable`
 Lists the lessons in the timetable for the module you have selected.
 
 Format: `list timetable`
@@ -226,6 +206,28 @@ Format: `list timetable`
 Here are the lessons in CS2113T:
 1. Lecture: Fri, 16:00-18:00 (Zoom)
 2. Tutorial: Fri, 08:00-09:00 (Zoom)
+---------------------------------------------------------------------
+```
+***
+
+### x. Adding an Assignment: `add assignment`
+
+Adds an assignment
+
+Format: `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME`
+
+Example usage:
+
+`add assignment /t mcq /a Magic Sequence`
+
+`add assignment /t la /a recursion`
+
+> Expected Outcome (assuming the current module is "CS2040C") :
+
+```
+---------------------------------------------------------------------
+I have added a new assignment to CS2040C:
+Magic Sequence
 ---------------------------------------------------------------------
 ```
 ***
@@ -367,11 +369,11 @@ remove module | `remove module MODULE_NAME` <br> e.g. `remove module CS2113T`
 select module | `select MODULE_NAME` <br> e.g. `select CS2113T`
 view current module | `current` <br>
 add student | `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL` <br> e.g. `add student /s John Doe /# A0123456Y /e e0123456@u.nus.edu`
-add assignment | `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME` <br> e.g. `add assignment /t mcq /a Magic Sequence`
-add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `add timetable /t Lecture /v Zoom /d Fri /s 1600 /e 1800`
 list student details | `list student details MODULE_NAME` <br> e.g. `list student details CS2113T`
 list student | `list student` <br> e.g. `list student` assuming current module is : CS2113T
+add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `add timetable /t Lecture /v Zoom /d Fri /s 1600 /e 1800`
 list timetable | `list timetable` <br> e.g. `list timetable`
+add assignment | `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME` <br> e.g. `add assignment /t mcq /a Magic Sequence`
 list assignments | `list assignment` <br> e.g. `list assignment`
 sort assignments | `sort by deadline` <br> e.g. `sort by deadline`
 edit assignment | `edit assignment /t TYPE_OF_ASSIGNMENT /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
