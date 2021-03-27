@@ -1,5 +1,6 @@
 package seedu.duke;
 
+import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.exception.DataFileNotFoundException;
 import seedu.duke.exception.NumbersMisalignException;
 
@@ -9,6 +10,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Storage {
 
@@ -19,8 +22,11 @@ public class Storage {
     private static final int DIVIDER_LENGTH = 2;
     private static final String UNDERSCORE = "_";
     private static final String TXTFILE = ".txt";
+    private static Logger logger = Logger.getLogger(Storage.class.getName());
 
     public Storage() {
+        logger.setLevel(Level.INFO);
+        logger.log(Level.INFO, "current directory: " + ROOT);
         File answerDirectory = new File(ANSWER_DIR_PATH.toString());
         if (!answerDirectory.exists()) {
             answerDirectory.mkdir();
@@ -30,6 +36,7 @@ public class Storage {
     public ArrayList<String> loadAnswer(String assignmentName, String moduleCode) throws DataFileNotFoundException, NumbersMisalignException {
         ArrayList<String> answersArray = new ArrayList<>();
         try {
+            logger.log(Level.INFO, "current directory: " + ROOT);
             String fileName = moduleCode + UNDERSCORE + assignmentName + TXTFILE;
             Path filePath = Paths.get(ROOT, "answers", fileName);
             File answerFile = new File(filePath.toString());

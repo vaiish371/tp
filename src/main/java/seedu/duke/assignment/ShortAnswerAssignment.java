@@ -1,5 +1,7 @@
 package seedu.duke.assignment;
 
+import java.util.ArrayList;
+
 public class ShortAnswerAssignment extends Assignment {
 
     private Answer answer;
@@ -8,7 +10,8 @@ public class ShortAnswerAssignment extends Assignment {
         super(name);
     }
 
-    public void setAnswers(String[] answers, int numberOfQuestions) {
-        answer = new Answer(answers, numberOfQuestions);
+    @Override
+    public void setAnswers(ArrayList<String> answers) {
+        this.answer = new Answer(answers, answers.size());
     }
 }
