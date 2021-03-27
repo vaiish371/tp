@@ -16,7 +16,7 @@ class AddModuleCommandTest {
     @Test
     void addmodule_CS2113T_success() throws ModManException {
         Command c = new AddModuleCommand("CS2113T");
-        c.execute(data, ui);
+        c.execute(data, ui, storage);
         assertEquals("CS2113T", data.find("CS2113T").getModuleCode());
     }
 

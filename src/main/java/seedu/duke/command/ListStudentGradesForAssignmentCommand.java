@@ -1,5 +1,6 @@
 package seedu.duke.command;
 
+import seedu.duke.Storage;
 import seedu.duke.assignment.Assignment;
 import seedu.duke.Module;
 import seedu.duke.data.Data;
@@ -14,7 +15,7 @@ public class ListStudentGradesForAssignmentCommand extends Command {
         this.assignmentName = assignmentName;
     }
 
-    public void execute(Data data, Ui ui) {
+    public void execute(Data data, Ui ui, Storage storage) {
         Module module = data.find(moduleCode);
         Assignment assignmentToBeQueried = module.findAssignment(assignmentName);
         if (assignmentToBeQueried == null) {

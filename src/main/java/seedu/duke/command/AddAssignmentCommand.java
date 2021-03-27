@@ -1,6 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.Module;
+import seedu.duke.Storage;
 import seedu.duke.assignment.Assignment;
 import seedu.duke.assignment.LongAnswerAssignment;
 import seedu.duke.assignment.McqAssignment;
@@ -21,7 +22,7 @@ public class AddAssignmentCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui) throws ModuleNotFoundException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
         Module module = data.find(moduleCode);
         Assignment assignment = null;
         if (module == null) {
