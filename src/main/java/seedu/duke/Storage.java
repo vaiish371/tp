@@ -33,7 +33,8 @@ public class Storage {
         }
     }
 
-    public ArrayList<String> loadAnswer(String assignmentName, String moduleCode) throws DataFileNotFoundException, NumbersMisalignException {
+    public ArrayList<String> loadAnswer(String assignmentName, String moduleCode) throws DataFileNotFoundException,
+            NumbersMisalignException {
         ArrayList<String> answersArray = new ArrayList<>();
         try {
             logger.log(Level.INFO, "current directory: " + ROOT);

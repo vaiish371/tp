@@ -25,7 +25,8 @@ public class ViewAnswersCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException, AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
+            AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
