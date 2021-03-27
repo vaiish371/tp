@@ -208,4 +208,15 @@ public class Ui {
             }
         }
     }
+
+    public void printScript(ArrayList<String> script, String assignmentName, String studentName, String studentNumber) {
+        if (script.size() == 0) {
+            System.out.println("\t Script is blank!");
+        } else {
+            System.out.println("\t " + studentName + "[" + studentNumber + "]'s script for " + assignmentName);
+            for (int i = 1; i <= script.size(); i++) {
+                System.out.println("\t " + i + ". " + script.get(i - 1));
+            }
+        }
+    }
 }

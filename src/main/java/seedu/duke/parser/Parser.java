@@ -22,6 +22,7 @@ import seedu.duke.command.SetAssignmentDeadlineCommand;
 import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
+import seedu.duke.command.ViewScriptCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
@@ -92,11 +93,31 @@ public class Parser {
             command = getCurrentModuleCommand();
         } else if (line.startsWith("view answers ")) {
             command = getViewAnswersCommand(line);
+        } else if (line.startsWith("view script ")) {
+            command = getViewScriptCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
         }
         assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getViewScriptCommand(String line) throws InvalidCommandException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "view script command entered");
+            String assignmentSeparator = "/a";
+            String studentSeparator = "/s";
+            int assignmentIndex = line.indexOf(assignmentSeparator);
+            int studentIndex = line.indexOf(studentSeparator);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH, studentIndex - 1);
+            String studentName = line.substring(studentIndex + S_LENGTH).trim();
+            command = new ViewScriptCommand(currentModule, assignmentName, studentName);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for view answers command");
+            throw new InvalidCommandException();
+        }
         return command;
     }
 
@@ -108,7 +129,7 @@ public class Parser {
             int assignmentIndex = line.indexOf(assignmentSeparator);
             String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
             command = new ViewAnswersCommand(currentModule, assignmentName);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for view answers command");
             throw new InvalidCommandException();
         }
@@ -353,7 +374,7 @@ public class Parser {
             int assignmentIndex = line.indexOf(assignmentSeparator);
             String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
             command = new ListStudentGradesForAssignmentCommand(currentModule, assignmentName);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add assignment command");
             throw new InvalidCommandException();
         }
