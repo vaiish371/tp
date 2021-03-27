@@ -24,7 +24,7 @@ public class DeleteModuleTimetableCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException{
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException("Module directory not selected.");
@@ -35,7 +35,7 @@ public class DeleteModuleTimetableCommand extends Command {
             Lesson lesson = lessons.get(lessonIndex);
             lessons.remove(lessonIndex);
             ui.deleteModuleTimetable(moduleCode, lesson);
-        } catch (IndexOutOfBoundsException|NullPointerException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
             System.out.println("No such lesson found.");
         }
     }

@@ -23,7 +23,10 @@ import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
-import seedu.duke.exception.*;
+import seedu.duke.exception.IndexNotFoundException;
+import seedu.duke.exception.InvalidCommandException;
+import seedu.duke.exception.ModManException;
+import seedu.duke.exception.WrongFormatException;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -103,7 +106,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getViewScriptCommand(String line) throws InvalidCommandException, StudentNotFoundException {
+    private static Command getViewScriptCommand(String line) throws WrongFormatException {
         Command command;
         try {
             logger.log(Level.INFO, "view script command entered");
@@ -116,12 +119,12 @@ public class Parser {
             command = new ViewScriptCommand(currentModule, assignmentName, studentName);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for view answers command");
-            throw new StudentNotFoundException();
+            throw new WrongFormatException();
         }
         return command;
     }
 
-    private static Command getViewAnswersCommand(String line) throws InvalidCommandException {
+    private static Command getViewAnswersCommand(String line) throws WrongFormatException {
         Command command;
         try {
             logger.log(Level.INFO, "view answers command entered");
@@ -131,7 +134,7 @@ public class Parser {
             command = new ViewAnswersCommand(currentModule, assignmentName);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for view answers command");
-            throw new InvalidCommandException();
+            throw new WrongFormatException();
         }
         return command;
     }
@@ -187,7 +190,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getSetAssignmentDeadlineCommand(String line) throws InvalidCommandException {
+    private static Command getSetAssignmentDeadlineCommand(String line) throws WrongFormatException {
         Command command;
         try {
             logger.log(Level.INFO, "set deadline command entered");
@@ -200,12 +203,12 @@ public class Parser {
             command = new SetAssignmentDeadlineCommand(currentModule, assignmentName, deadline);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
-            throw new InvalidCommandException();
+            throw new WrongFormatException();
         }
         return command;
     }
 
-    private static Command getSetAssignmentGradeCommand(String line) throws InvalidCommandException {
+    private static Command getSetAssignmentGradeCommand(String line) throws WrongFormatException {
         Command command;
         try {
             logger.log(Level.INFO, "set assignment grade command entered");
@@ -221,7 +224,7 @@ public class Parser {
             command = new SetAssignmentGradeCommand(currentModule, assignmentName, studentName, grade);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
-            throw new InvalidCommandException();
+            throw new WrongFormatException();
         }
         return command;
     }

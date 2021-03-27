@@ -21,7 +21,7 @@ public class CurrentModuleCommand extends Command {
             assert moduleCode != null : "module code should not be null";
         } else {
             Module currentModule = data.find(moduleCode);
-            if(currentModule == null) {
+            if (currentModule == null) {
                 throw new ModuleNotFoundException();
             }
             assert currentModule != null : "module not found";
