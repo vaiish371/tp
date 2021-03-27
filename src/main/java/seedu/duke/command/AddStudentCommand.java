@@ -4,6 +4,7 @@ import seedu.duke.Module;
 import seedu.duke.Storage;
 import seedu.duke.Student;
 import seedu.duke.data.Data;
+import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.ui.Ui;
 
 public class AddStudentCommand extends Command {
@@ -26,8 +27,11 @@ public class AddStudentCommand extends Command {
 
     }
 
-    public void execute(Data data, Ui ui, Storage storage) {
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
         Module module = data.find(moduleCode);
+        if (module == null) {
+            throw new ModuleNotFoundException();
+        }
         Student student = new Student(studentName, studentNumber, email);
         module.addStudent(student);
         ui.printNewStudent(module, student);
