@@ -1,8 +1,8 @@
 package seedu.duke.command;
 
 import seedu.duke.Module;
+import seedu.duke.Storage;
 import seedu.duke.data.Data;
-import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.ui.Ui;
 
 public class ListModuleTimetableCommand extends Command {
@@ -15,7 +15,7 @@ public class ListModuleTimetableCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui) {
+    public void execute(Data data, Ui ui, Storage storage) {
         Module module = data.find(moduleCode);
         if (module == null) {
             ui.moduleNotFound(moduleCode);

@@ -9,14 +9,14 @@ import seedu.duke.ui.Ui;
 
 public class Modman {
 
-    //    private Storage storage;
+    private Storage storage;
     private Data data;
     private Ui ui;
 
     public Modman() {
         ui = new Ui();
         data = new Data();
-        //        storage = new Storage(ui);
+        storage = new Storage();
 
     }
 
@@ -29,7 +29,7 @@ public class Modman {
                 String fullCommand = ui.readCommand();
                 Ui.showLine();
                 Command c = Parser.parse(fullCommand);
-                c.execute(data, ui);
+                c.execute(data, ui, storage);
                 isExit = c.isExit();
             } catch (ModManException e) {
                 ui.showError(e.getErrorMessage());

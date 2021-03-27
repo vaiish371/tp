@@ -4,6 +4,7 @@ import seedu.duke.Student;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Assignment implements Comparable<Assignment> {
@@ -71,5 +72,7 @@ public abstract class Assignment implements Comparable<Assignment> {
         }
         return name + " (due by: " + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
     }
+
+    public abstract void setAnswers(ArrayList<String> answers);
 }
 

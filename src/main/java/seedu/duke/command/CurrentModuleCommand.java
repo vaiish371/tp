@@ -1,6 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.Module;
+import seedu.duke.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.parser.Parser;
@@ -14,7 +15,7 @@ public class CurrentModuleCommand extends Command {
         assert this.moduleCode != null : "Module code cannot be null";
     }
 
-    public void execute(Data data, Ui ui) throws ModuleNotFoundException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
         if (moduleCode.equals("null")) {
             ui.printModuleInfo();
         } else {

@@ -1,6 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.Module;
+import seedu.duke.Storage;
 import seedu.duke.assignment.Assignment;
 import seedu.duke.data.Data;
 import seedu.duke.ui.Ui;
@@ -16,7 +17,7 @@ public class EditAssignmentNameCommand extends Command {
         this.newName = newName;
     }
 
-    public void execute(Data data, Ui ui) {
+    public void execute(Data data, Ui ui, Storage storage) {
         Module module = data.find(moduleCode);
         Assignment assignmentToBeEdited = null;
         for (Assignment assignment : module.getAssignments()) {
