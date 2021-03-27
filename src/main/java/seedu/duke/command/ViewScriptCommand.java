@@ -15,7 +15,7 @@ import seedu.duke.ui.Ui;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
-public class ViewScriptCommand extends Command{
+public class ViewScriptCommand extends Command {
 
     private String moduleCode;
     private String assignmentName;
