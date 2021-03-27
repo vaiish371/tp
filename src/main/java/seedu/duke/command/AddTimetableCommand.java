@@ -1,6 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.Lesson;
+import seedu.duke.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.ui.Ui;
 
@@ -32,7 +33,7 @@ public class AddTimetableCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui) {
+    public void execute(Data data, Ui ui, Storage storage) {
         assert startTime != null : "startTime must be initialised";
         Lesson lesson = new Lesson(day, startTime, endTime, venue, lessonType);
         data.find(moduleCode).addLesson(lesson);

@@ -1,5 +1,6 @@
 package seedu.duke.command;
 
+import seedu.duke.Storage;
 import seedu.duke.assignment.Assignment;
 import seedu.duke.Module;
 import seedu.duke.Student;
@@ -20,7 +21,7 @@ public class SetAssignmentGradeCommand extends Command {
         this.grade = grade;
     }
 
-    public void execute(Data data, Ui ui) {
+    public void execute(Data data, Ui ui, Storage storage) {
         Module module = data.find(moduleCode);
         Student student = module.findStudent(studentName);
         Assignment assignment = module.findAssignment(assignmentName);

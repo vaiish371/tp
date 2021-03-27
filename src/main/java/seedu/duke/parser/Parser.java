@@ -21,6 +21,7 @@ import seedu.duke.command.SelectModuleCommand;
 import seedu.duke.command.SetAssignmentDeadlineCommand;
 import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
+import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
 
@@ -89,11 +90,28 @@ public class Parser {
             command = getRemoveModuleCommand(line);
         } else if (line.equals("current")) {
             command = getCurrentModuleCommand();
+        } else if (line.startsWith("view answers ")) {
+            command = getViewAnswersCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
         }
         assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getViewAnswersCommand(String line) throws InvalidCommandException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "view answers command entered");
+            String assignmentSeparator = "/a";
+            int assignmentIndex = line.indexOf(assignmentSeparator);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
+            command = new ViewAnswersCommand(currentModule, assignmentName);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for view answers command");
+            throw new InvalidCommandException();
+        }
         return command;
     }
 

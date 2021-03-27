@@ -197,4 +197,15 @@ public class Ui {
         System.out.println("\t " + lesson.getLessonType() + ": " + lesson.toString()
                 + " (" + lesson.getVenue() + ")");
     }
+
+    public void printAnswers(ArrayList<String> answers, String assignmentName) {
+        if (answers.size() == 0) {
+            System.out.println("\t Answer key is empty!");
+        } else {
+            System.out.println("\t Answer key for " + assignmentName);
+            for (int i = 1; i <= answers.size(); i++) {
+                System.out.println("\t " + i + ". " + answers.get(i - 1));
+            }
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.Lesson;
+import seedu.duke.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.IndexNotFoundException;
 import seedu.duke.exception.ModManException;
@@ -32,7 +33,7 @@ public class EditModuleTimetableCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui) throws ModManException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModManException {
         ArrayList<Lesson> lessons = data.find(moduleCode).getLessons();
         try {
             Lesson lesson = lessons.get(lessonIndex);

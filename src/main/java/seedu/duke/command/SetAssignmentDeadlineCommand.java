@@ -1,5 +1,6 @@
 package seedu.duke.command;
 
+import seedu.duke.Storage;
 import seedu.duke.assignment.Assignment;
 import seedu.duke.Module;
 import seedu.duke.data.Data;
@@ -25,7 +26,7 @@ public class SetAssignmentDeadlineCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui) throws ModuleNotFoundException, AssignmentNotFoundException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException, AssignmentNotFoundException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
