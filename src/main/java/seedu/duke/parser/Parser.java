@@ -23,9 +23,9 @@ import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
-import seedu.duke.exception.InvalidCommandException;
-import seedu.duke.exception.ModManException;
+import seedu.duke.exception.*;
 
+import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -103,7 +103,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getViewScriptCommand(String line) throws InvalidCommandException {
+    private static Command getViewScriptCommand(String line) throws InvalidCommandException, StudentNotFoundException {
         Command command;
         try {
             logger.log(Level.INFO, "view script command entered");
@@ -116,7 +116,7 @@ public class Parser {
             command = new ViewScriptCommand(currentModule, assignmentName, studentName);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for view answers command");
-            throw new InvalidCommandException();
+            throw new StudentNotFoundException();
         }
         return command;
     }
@@ -142,8 +142,8 @@ public class Parser {
         return command;
     }
 
-    private static Command getRemoveModuleCommand(String line) {
-        logger.log(Level.INFO, "select module command entered");
+    private static Command getRemoveModuleCommand(String line) throws InvalidCommandException {
+        logger.log(Level.INFO, "remove module command entered");
         Command command;
         String moduleCode = line.substring(REMOVE_MODULE_LENGTH);
         assert moduleCode.length() != 0 : "moduleCode should not be empty";
@@ -173,26 +173,24 @@ public class Parser {
 
     public static String getCurrentModule() {
         if (currentModule == null) {
-            return "null";
+            return null;
         } else {
             return currentModule;
         }
     }
 
     private static Command getSortAssignmentByDeadlineCommand() throws InvalidCommandException {
+        Command command;
         logger.log(Level.INFO, "sort by deadline command entered");
-        if (currentModule.equals("")) {
-            logger.log(Level.WARNING, "not enough parameters for sort by deadline command");
-            throw new InvalidCommandException();
-        }
         assert currentModule.length() != 0 : "currentModule should not be empty";
-        return new SortAssignmentByDeadlineCommand(currentModule);
+        command = new SortAssignmentByDeadlineCommand(currentModule);
+        return command;
     }
 
     private static Command getSetAssignmentDeadlineCommand(String line) throws InvalidCommandException {
         Command command;
         try {
-            logger.log(Level.INFO, "setAssignmentDeadline command entered");
+            logger.log(Level.INFO, "set deadline command entered");
             String assignmentSeparator = "/a";
             String deadlineSeparator = "/d";
             int assignmentIndex = line.indexOf(assignmentSeparator);
@@ -207,48 +205,61 @@ public class Parser {
         return command;
     }
 
-    private static Command getSetAssignmentGradeCommand(String line) {
+    private static Command getSetAssignmentGradeCommand(String line) throws InvalidCommandException {
         Command command;
-        logger.log(Level.INFO, "setAssignmentGrade command entered");
-        String assignmentSeparator = "/a";
-        String studentSeparator = "/s";
-        String gradeSeparator = "/g";
-        int assignmentIndex = line.indexOf(assignmentSeparator);
-        int studentIndex = line.indexOf(studentSeparator);
-        int gradeIndex = line.indexOf(gradeSeparator);
-        String assignmentName = line.substring(assignmentIndex + A_LENGTH, studentIndex - 1);
-        String studentName = line.substring(studentIndex + S_LENGTH, gradeIndex - 1);
-        String grade = line.substring(gradeIndex + G_LENGTH).trim();
-        command = new SetAssignmentGradeCommand(currentModule, assignmentName, studentName, grade);
-        assert command != null : "command should not be null";
+        try {
+            logger.log(Level.INFO, "set assignment grade command entered");
+            String assignmentSeparator = "/a";
+            String studentSeparator = "/s";
+            String gradeSeparator = "/g";
+            int assignmentIndex = line.indexOf(assignmentSeparator);
+            int studentIndex = line.indexOf(studentSeparator);
+            int gradeIndex = line.indexOf(gradeSeparator);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH, studentIndex - 1);
+            String studentName = line.substring(studentIndex + S_LENGTH, gradeIndex - 1);
+            String grade = line.substring(gradeIndex + G_LENGTH).trim();
+            command = new SetAssignmentGradeCommand(currentModule, assignmentName, studentName, grade);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
+            throw new InvalidCommandException();
+        }
         return command;
     }
 
     private static Command getListStudentDetailsCommand() {
         Command command;
-        logger.log(Level.INFO, "listStudentDetails command entered");
+        logger.log(Level.INFO, "list student details command entered");
         command = new ListStudentsDetailsCommand(currentModule);
         return command;
     }
 
-    private static Command getAddTimetableCommand(String line) {
+    private static Command getAddTimetableCommand(String line) throws WrongFormatException {
         Command command;
         String typeSeparator = "/t";
         String venueSeparator = "/v";
         String daySeparator = "/d";
         String startSeparator = "/s";
         String endSeparator = "/e";
-        int typeIndex = line.indexOf(typeSeparator);
-        int venueIndex = line.indexOf(venueSeparator);
-        int dayIndex = line.indexOf(daySeparator);
-        int startIndex = line.indexOf(startSeparator);
-        int endIndex = line.indexOf(endSeparator);
-        String type = line.substring(typeIndex + T_LENGTH, venueIndex - 1);
-        String venue = line.substring(venueIndex + V_LENGTH, dayIndex - 1);
-        String day = line.substring(dayIndex + D_LENGTH, startIndex - 1);
-        String start = line.substring(startIndex + S_LENGTH, endIndex - 1);
-        String end = line.substring(endIndex + E_LENGTH).trim();
-        command = new AddTimetableCommand(currentModule, type, venue, day, start, end);
+        try {
+            logger.log(Level.INFO, "add timetable command entered");
+            int typeIndex = line.indexOf(typeSeparator);
+            int venueIndex = line.indexOf(venueSeparator);
+            int dayIndex = line.indexOf(daySeparator);
+            int startIndex = line.indexOf(startSeparator);
+            int endIndex = line.indexOf(endSeparator);
+            String type = line.substring(typeIndex + T_LENGTH, venueIndex - 1);
+            String venue = line.substring(venueIndex + V_LENGTH, dayIndex - 1);
+            String day = line.substring(dayIndex + D_LENGTH, startIndex - 1);
+            String start = line.substring(startIndex + S_LENGTH, endIndex - 1);
+            String end = line.substring(endIndex + E_LENGTH).trim();
+            command = new AddTimetableCommand(currentModule, type, venue, day, start, end);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
+            throw new WrongFormatException();
+        } catch (DateTimeParseException e) {
+            logger.log(Level.WARNING, "Start/End time format is wrong.");
+            throw new WrongFormatException("Start/End time format is wrong. Enter again.");
+        }
         return command;
     }
 
@@ -280,22 +291,23 @@ public class Parser {
             String start = line.substring(startIndex + S_LENGTH, endIndex - 1);
             String end = line.substring(endIndex + E_LENGTH).trim();
             command = new EditModuleTimetableCommand(lessonIndex, currentModule, type, venue, day, start, end);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for list assignment command");
             throw new InvalidCommandException();
         }
         return command;
     }
 
-    private static Command getDeleteModuleTimetableCommand(String line) throws InvalidCommandException {
+    private static Command getDeleteModuleTimetableCommand(String line) throws IndexNotFoundException {
         Command command;
         try {
-            logger.log(Level.INFO, "delete student command entered");
+            logger.log(Level.INFO, "delete timetable command entered");
             String lessonIndex = line.substring(DELETE_TIMETABLE_LENGTH);
-            command = new DeleteModuleTimetableCommand(lessonIndex, currentModule);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            logger.log(Level.WARNING, "not enough parameters for list assignment command");
-            throw new InvalidCommandException();
+            int lessonIndexAsNumber = Integer.parseInt(lessonIndex) - 1;
+            command = new DeleteModuleTimetableCommand(lessonIndexAsNumber, currentModule);
+        } catch (NumberFormatException e) {
+            logger.log(Level.WARNING, "Lesson index wrong format.");
+            throw new IndexNotFoundException();
         }
         return command;
     }

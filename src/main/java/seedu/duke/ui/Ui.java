@@ -185,6 +185,7 @@ public class Ui {
     }
 
     public void printModuleInfo(Module module) {
+
         System.out.println("\t You are currently working in: " + module.getModuleCode());
     }
 

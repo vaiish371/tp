@@ -12,14 +12,19 @@ public class CurrentModuleCommand extends Command {
     
     public CurrentModuleCommand() {
         moduleCode = Parser.getCurrentModule();
-        assert this.moduleCode != null : "Module code cannot be null";
     }
 
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
-        if (moduleCode.equals("null")) {
-            ui.printModuleInfo();
+        if (moduleCode == null) {
+            System.out.println("\t You are not currently working in any module!");
+            System.out.println("\t Please select a module by using the select command");
+            assert moduleCode != null : "module code should not be null";
         } else {
             Module currentModule = data.find(moduleCode);
+            if(currentModule == null) {
+                throw new ModuleNotFoundException();
+            }
+            assert currentModule != null : "module not found";
             ui.printModuleInfo(currentModule);
         }
     }
