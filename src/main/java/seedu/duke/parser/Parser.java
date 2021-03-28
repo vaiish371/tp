@@ -1,7 +1,29 @@
 package seedu.duke.parser;
 
-
-import seedu.duke.command.*;
+import seedu.duke.command.AddAssignmentCommand;
+import seedu.duke.command.AddModuleCommand;
+import seedu.duke.command.AddStudentCommand;
+import seedu.duke.command.AddTimetableCommand;
+import seedu.duke.command.AutogradeAssignmentCommand;
+import seedu.duke.command.Command;
+import seedu.duke.command.CurrentModuleCommand;
+import seedu.duke.command.DeleteModuleTimetableCommand;
+import seedu.duke.command.EditModuleTimetableCommand;
+import seedu.duke.command.ExitCommand;
+import seedu.duke.command.ListModuleAssignmentsCommand;
+import seedu.duke.command.ListModuleCommand;
+import seedu.duke.command.ListModuleStudentsCommand;
+import seedu.duke.command.ListModuleTimetableCommand;
+import seedu.duke.command.ListStudentGradesForAssignmentCommand;
+import seedu.duke.command.ListStudentsDetailsCommand;
+import seedu.duke.command.RemoveModuleCommand;
+import seedu.duke.command.SelectModuleCommand;
+import seedu.duke.command.SetAssignmentDeadlineCommand;
+import seedu.duke.command.SetAssignmentPercentageCommand;
+import seedu.duke.command.SetAssignmentGradeCommand;
+import seedu.duke.command.SortAssignmentByDeadlineCommand;
+import seedu.duke.command.ViewAnswersCommand;
+import seedu.duke.command.ViewScriptCommand;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModManException;
@@ -77,6 +99,8 @@ public class Parser {
             command = getViewAnswersCommand(line);
         } else if (line.startsWith("view script ")) {
             command = getViewScriptCommand(line);
+        } else if (line.startsWith("autograde assignment ")) {
+            command = getAutogradeAssignentCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
@@ -84,6 +108,22 @@ public class Parser {
         assert command != null : "command should not be null";
         return command;
     }
+
+    private static Command getAutogradeAssignentCommand(String line) throws InvalidCommandException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "autograde assignment command entered");
+            String assignmentSeparator = "/a";
+            int assignmentIndex = line.indexOf(assignmentSeparator);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
+            command = new AutogradeAssignmentCommand(currentModule, assignmentName);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for view script command");
+            throw new InvalidCommandException();
+        }
+        return command;
+    }
+
 
     private static Command getViewScriptCommand(String line) throws InvalidCommandException {
         Command command;
@@ -97,7 +137,7 @@ public class Parser {
             String studentName = line.substring(studentIndex + S_LENGTH).trim();
             command = new ViewScriptCommand(currentModule, assignmentName, studentName);
         } catch (StringIndexOutOfBoundsException e) {
-            logger.log(Level.WARNING, "not enough parameters for view answers command");
+            logger.log(Level.WARNING, "not enough parameters for view script command");
             throw new InvalidCommandException();
         }
         return command;
