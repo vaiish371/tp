@@ -7,7 +7,7 @@ import seedu.duke.exception.NumbersMisalignException;
 
 import java.util.ArrayList;
 
-public class McqAssignment extends Assignment implements Autogradable{
+public class McqAssignment extends Assignment implements Autogradable {
 
     private Answer answer;
 
