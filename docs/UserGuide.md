@@ -231,7 +231,7 @@ Magic Sequence
 ---------------------------------------------------------------------
 ```
 ***
-
+//@@author jianningzhuang
 ### xi. Listing Module Assignments : `list assignments` 
 
 Lists out all assignments in the module along with the due date if the deadline was set.
@@ -248,7 +248,6 @@ Here are the assignments in CS2113T:
 ---------------------------------------------------------------------
 ```
 ***
-
 ### xii. Sorting Module Assignments : `sort assignments` 
 
 Sorts all assignments in the module by their deadline. <br/>
@@ -267,6 +266,7 @@ Here are the assignments in CS2113T:
 ```
 
 ***
+//@@author
 
 ### xiii. Editing an Assignment Name: `edit assignment`
 
@@ -290,7 +290,7 @@ Forest Fruits
 ```
 
 ***
-
+//@@author jianningzhuang
 ### xiv. Setting Assignment Deadline : `set deadline` 
 
 Sets the deadline the assignment has to be graded by. 
@@ -354,6 +354,8 @@ Here are the students' grades for the quiz1 assignment:
 ---------------------------------------------------------------------
 ```
 ***
+
+//@@author
 ## 3. FAQ
 
 **Q**: How do I delete a particular module/assignment? 
