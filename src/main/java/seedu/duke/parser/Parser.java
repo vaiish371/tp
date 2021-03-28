@@ -5,6 +5,7 @@ import seedu.duke.command.AddAssignmentCommand;
 import seedu.duke.command.AddModuleCommand;
 import seedu.duke.command.AddStudentCommand;
 import seedu.duke.command.AddTimetableCommand;
+import seedu.duke.command.AutogradeAssignmentCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.CurrentModuleCommand;
 import seedu.duke.command.DeleteModuleTimetableCommand;
@@ -95,6 +96,8 @@ public class Parser {
             command = getViewAnswersCommand(line);
         } else if (line.startsWith("view script ")) {
             command = getViewScriptCommand(line);
+        } else if (line.startsWith("autograde assignment ")) {
+            command = getAutogradeAssignentCommand(line);
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
@@ -102,6 +105,22 @@ public class Parser {
         assert command != null : "command should not be null";
         return command;
     }
+
+    private static Command getAutogradeAssignentCommand(String line) throws InvalidCommandException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "autograde assignment command entered");
+            String assignmentSeparator = "/a";
+            int assignmentIndex = line.indexOf(assignmentSeparator);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
+            command = new AutogradeAssignmentCommand(currentModule, assignmentName);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for view script command");
+            throw new InvalidCommandException();
+        }
+        return command;
+    }
+
 
     private static Command getViewScriptCommand(String line) throws InvalidCommandException {
         Command command;
@@ -115,7 +134,7 @@ public class Parser {
             String studentName = line.substring(studentIndex + S_LENGTH).trim();
             command = new ViewScriptCommand(currentModule, assignmentName, studentName);
         } catch (StringIndexOutOfBoundsException e) {
-            logger.log(Level.WARNING, "not enough parameters for view answers command");
+            logger.log(Level.WARNING, "not enough parameters for view script command");
             throw new InvalidCommandException();
         }
         return command;

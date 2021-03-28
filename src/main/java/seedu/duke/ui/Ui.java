@@ -3,6 +3,7 @@ package seedu.duke.ui;
 import seedu.duke.Lesson;
 import seedu.duke.Module;
 import seedu.duke.Student;
+import seedu.duke.assignment.Answer;
 import seedu.duke.assignment.Assignment;
 
 import java.time.LocalDate;
@@ -198,13 +199,13 @@ public class Ui {
                 + " (" + lesson.getVenue() + ")");
     }
 
-    public void printAnswers(ArrayList<String> answers, String assignmentName) {
-        if (answers.size() == 0) {
+    public void printAnswers(Answer answer, String assignmentName) {
+        if (answer.getAnswers().size() == 0) {
             System.out.println("\t Answer key is empty!");
         } else {
             System.out.println("\t Answer key for " + assignmentName);
-            for (int i = 1; i <= answers.size(); i++) {
-                System.out.println("\t " + i + ". " + answers.get(i - 1));
+            for (int i = 1; i <= answer.getAnswers().size(); i++) {
+                System.out.println("\t " + i + ". " + answer.getAnswers().get(i - 1));
             }
         }
     }

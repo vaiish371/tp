@@ -1,7 +1,9 @@
 package seedu.duke;
 
+import seedu.duke.assignment.Answer;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.exception.DataFileNotFoundException;
+import seedu.duke.exception.FileFormatException;
 import seedu.duke.exception.NumbersMisalignException;
 
 import java.io.File;
@@ -38,9 +40,11 @@ public class Storage {
         }
     }
 
-    public ArrayList<String> loadAnswer(String assignmentName, String moduleCode) throws DataFileNotFoundException,
-            NumbersMisalignException {
+    public Answer loadAnswer(String assignmentName, String moduleCode) throws DataFileNotFoundException,
+            NumbersMisalignException, FileFormatException {
+        Answer answerKey;
         ArrayList<String> answersArray = new ArrayList<>();
+        ArrayList<Integer> marksArray = new ArrayList<>();
         try {
             logger.log(Level.INFO, "current directory: " + ROOT);
             String fileName = moduleCode + UNDERSCORE + assignmentName + TXTFILE;
@@ -52,16 +56,28 @@ public class Storage {
                 int answerDividerIndex = line.indexOf(ANSWER_DIVIDER);
                 String questionNumberString = line.substring(LINE_START, answerDividerIndex).trim();
                 int questionNumber = Integer.parseInt(questionNumberString);
-                String answer = line.substring(answerDividerIndex + DIVIDER_LENGTH).trim();
+                String answerAndMarks = line.substring(answerDividerIndex + DIVIDER_LENGTH);
+                int marksDividerIndex = answerDividerIndex + DIVIDER_LENGTH + answerAndMarks.indexOf(ANSWER_DIVIDER);
+                String answer = line.substring(answerDividerIndex + DIVIDER_LENGTH, marksDividerIndex).trim();
+                String marksString = line.substring(marksDividerIndex + DIVIDER_LENGTH).trim();
                 answersArray.add(answer);
+                if (marksString.equals("")) {
+                    marksArray.add(0);
+                } else {
+                    Integer marks = Integer.valueOf(marksString);
+                    marksArray.add(marks);
+                }
                 if (questionNumber != answersArray.size()) {
                     throw new NumbersMisalignException();
                 }
             }
         } catch (FileNotFoundException e) {
             throw new DataFileNotFoundException();
+        } catch (StringIndexOutOfBoundsException e) {
+            throw new FileFormatException();
         }
-        return answersArray;
+        answerKey = new Answer(answersArray, marksArray, answersArray.size());
+        return answerKey;
     }
 
     public ArrayList<String> loadScript(String assignmentName, String moduleCode, String studentNumber) throws
@@ -88,5 +104,13 @@ public class Storage {
             throw new DataFileNotFoundException();
         }
         return answersArray;
+    }
+
+    public boolean findStudentScript(String assignmentName, String moduleCode, String studentNumber) {
+        String fileName = moduleCode + UNDERSCORE + assignmentName + UNDERSCORE + studentNumber + TXTFILE;
+        Path filePath = Paths.get(ROOT, "scripts", fileName);
+        File scriptFile = new File(filePath.toString());
+        boolean exists = scriptFile.exists();
+        return exists;
     }
 }

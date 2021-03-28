@@ -31,6 +31,12 @@ public abstract class Assignment implements Comparable<Assignment> {
         studentGrades.put(studentNumber, gradeFloat);
     }
 
+    public void setStudentGrade(Student student, float grade) {
+        String studentNumber = student.getStudentNumber();
+        Float gradeFloat = Float.valueOf(grade);
+        studentGrades.put(studentNumber, gradeFloat);
+    }
+
     public String getName() {
         return name;
     }
@@ -73,6 +79,8 @@ public abstract class Assignment implements Comparable<Assignment> {
         return name + " (due by: " + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
     }
 
-    public abstract void setAnswers(ArrayList<String> answers);
+    public abstract Answer getAnswers();
+
+    public abstract void setAnswers(Answer answers);
 }
 
