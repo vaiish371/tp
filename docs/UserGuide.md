@@ -13,11 +13,11 @@ It is optimized for use via a Command Line Interface (CLI). Mod Man helps to tra
     1. [`select` - Selecting a Module](#iii-selecting-a-module-select)
     1. [`current` - Viewing Current Module](#iv-viewing-current-module-current)
     1. [`add student` - Adding a Student](#v-adding-a-student-add-student)
-    1. [`list student details` - Listing Students Details](#vii-listing-students-details-list-student-details)
-    1. [`list student` - Listing Students in Module](#ix-listing-students-in-module-list-student-)    
-    1. [`add timetable` - Adding a Lesson](#vii-adding-a-lesson-add-timetable)
-    1. [`list timetable` - Listing Timetable Lessons](#x-listing-timetable-lessons-list-timetable)    
-    1. [`add assignment` - Adding an Assignment](#vi-adding-an-assignment-add-assignment)
+    1. [`list student details` - Listing Students Details](#vi-listing-students-details-list-student-details)
+    1. [`list student` - Listing Students in Module](#vii-listing-students-in-module-list-student-)    
+    1. [`add timetable` - Adding a Lesson](#viii-adding-a-lesson-add-timetable)
+    1. [`list timetable` - Listing Timetable Lessons](#ix-listing-timetable-lessons-list-timetable)    
+    1. [`add assignment` - Adding an Assignment](#x-adding-an-assignment-add-assignment)
     1. [`list assignments` - Listing Module Assignments](#xi-listing-module-assignments--list-assignments)
     1. [`sort assignments` - Sorting Module Assignments](#xii-sorting-module-assignments--sort-assignments)
     1. [`edit assignment` - Editing an Assignment Name](#xiii-editing-an-assignment-name-edit-assignment) 
@@ -372,12 +372,12 @@ select module | `select MODULE_NAME` <br> e.g. `select CS2113T`
 view current module | `current` <br>
 add student | `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL` <br> e.g. `add student /s John Doe /# A0123456Y /e e0123456@u.nus.edu`
 list student details | `list student details MODULE_NAME` <br> e.g. `list student details CS2113T`
-list student | `list student` <br> e.g. `list student` assuming current module is : CS2113T
+list student | `list student` <br> 
 add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `add timetable /t Lecture /v Zoom /d Fri /s 1600 /e 1800`
-list timetable | `list timetable` <br> e.g. `list timetable`
+list timetable | `list timetable` <br> 
 add assignment | `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME` <br> e.g. `add assignment /t mcq /a Magic Sequence`
-list assignments | `list assignment` <br> e.g. `list assignment`
-sort assignments | `sort by deadline` <br> e.g. `sort by deadline`
+list assignments | `list assignment` <br>
+sort assignments | `sort by deadline` <br>
 edit assignment | `edit assignment /t TYPE_OF_ASSIGNMENT /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
 set deadline | `set deadline /a ASSIGNMENT_NAME /d DEADLINE` <br> e.g. `set deadline /a quiz1 /d 17 08 2021`
 list grades | `list student assignment grades /a ASSIGNMENT_NAME` <br> e.g. `list student assignment grades /a quiz1`
