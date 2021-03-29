@@ -2,8 +2,13 @@
 
 ## Introduction
 
-ModMan, short for Module Manager, is a desktop app designed to help teaching assistants manage their module(s). 
-It is optimized for use via a Command Line Interface (CLI). Mod Man helps to track module details as well as students’ progress and data, all in one platform. It can also perform autograding for MCQ assignments.
+ModMan, short for Module Manager, is a desktop app designed to help Teaching Assistants (TAs) manage their module(s).
+It is optimized for use via a Command Line Interface (CLI). ModMan helps to track module details as well as students’ progress and data, all in one platform. It can also perform autograding for MCQ assignments.
+
+### What is a CLI?
+A command line interface (CLI) is a text-based user interface used to view and manage computer files.
+
+These include Operating system CLIs like the Command Prompt on Windows, which can be used to run and interact with the ModMan application.
 
 ## Table of contents
 1. [Quick start](#1-quick-start)
@@ -16,23 +21,31 @@ It is optimized for use via a Command Line Interface (CLI). Mod Man helps to tra
     1. [`list student details` - Listing Students Details](#vi-listing-students-details-list-student-details)
     1. [`list student` - Listing Students in Module](#vii-listing-students-in-module-list-student-)    
     1. [`add timetable` - Adding a Lesson](#viii-adding-a-lesson-add-timetable)
-    1. [`list timetable` - Listing Timetable Lessons](#ix-listing-timetable-lessons-list-timetable)    
-    1. [`add assignment` - Adding an Assignment](#x-adding-an-assignment-add-assignment)
-    1. [`list assignments` - Listing Module Assignments](#xi-listing-module-assignments--list-assignments)
-    1. [`sort assignments` - Sorting Module Assignments](#xii-sorting-module-assignments--sort-assignments)
-    1. [`edit assignment` - Editing an Assignment Name](#xiii-editing-an-assignment-name-edit-assignment) 
-    1. [`set deadline` - Setting Assignment Deadline](#xiv-setting-assignment-deadline--set-deadline)
-    1. [`list grades` - Listing Assignment Grades](#xv-listing-assignment-grades--list-grades)
-    1. [`autograde` - Auto-Grading Assignments](#xvi-auto-grading-assignments--autograde)
+    1. [`list timetable` - Listing Timetable Lessons](#ix-listing-timetable-lessons-list-timetable)
+    1. [`delete timetable` - Removing Timetable Lessons](#x-removing-timetable-lessons-delete-timetable)
+    1. [`edit timetable` - Editing a Timetable Lesson](#xi-editing-timetable-lessons-edit-timetable)
+    1. [`add assignment` - Adding an Assignment](#xii-adding-an-assignment-add-assignment)
+    1. [`list assignments` - Listing Module Assignments](#xiii-listing-module-assignments--list-assignments)
+    1. [`sort assignments` - Sorting Module Assignments](#xiv-sorting-module-assignments--sort-assignments)
+    1. [`edit assignment` - Editing an Assignment Name](#xv-editing-an-assignment-name-edit-assignment) 
+    1. [`set deadline` - Setting Assignment Deadline](#xvi-setting-assignment-deadline--set-deadline)
+    1. [`list grades` - Listing Assignment Grades](#xvii-listing-assignment-grades--list-grades)
+    1. [`autograde` - Auto-Grading Assignments](#xviii-auto-grading-assignments--autograde)
  
   
 3. [FAQ](#3-faq)
 4. [Command summary](#4-command-summary)
 
+## Legend
+Icon | Purpose
+------ | ----------------
+| :information_source: | Explainers on how to use and interpret the User Guide |
+| :warning: | Warnings on usage of ModMan |
+
 ## 1. Quick Start
 
-1. Ensure you have Java `11` installed on your computer.
-1. Download the latest `ModMan.jar` from [here]()
+1. Ensure you have Java 11 installed on your computer or install it from [here](https://www.oracle.com/sg/java/technologies/javase-jdk11-downloads.html).
+1. Download the latest `ModMan.jar` release from [here](https://github.com/AY2021S2-CS2113T-F08-1/tp/releases/tag/v1.0).
 1. Open a command window in the folder containing the `.jar` file.
 1. Run the command `java -jar {filename}.jar` <br> If you haven't changed the filename, run the command `java -jar ModMan.jar`
 
@@ -210,7 +223,45 @@ Here are the lessons in CS2113T:
 ```
 ***
 
-### x. Adding an Assignment: `add assignment`
+### x. Removing Timetable Lessons: `delete timetable`
+Deletes the lessons in the timetable corresponding to the index for the module you have selected.
+
+Format: `delete timetable LESSON_INDEX`
+
+Example usage:
+
+`delete timetable 1`
+
+> Expected output :
+```
+---------------------------------------------------------------------
+You have successfully removed lesson: Fri, 16:00-18:00 from CS2113T
+---------------------------------------------------------------------
+```
+***
+
+### xi. Editing Timetable Lessons: `edit timetable`
+Edits the lessons in the timetable corresponding to the index for the module you have selected.
+
+Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
+
+* You may enter `-` for the field(s) you do not wish to change.
+* The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800` if specified.
+
+Example usage:
+
+Changing the day to Monday: `edit timetable 1 /t - /v - /d Mon /s - /e -`
+
+> Expected output :
+```
+---------------------------------------------------------------------
+You have successfully edited the lesson to:
+Lecture: Mon, 16:00-18:00 (Zoom)
+---------------------------------------------------------------------
+```
+***
+
+### xii. Adding an Assignment: `add assignment`
 
 Adds an assignment
 
@@ -232,7 +283,7 @@ Magic Sequence
 ```
 ***
 //@@author jianningzhuang
-### xi. Listing Module Assignments : `list assignments` 
+### xiii. Listing Module Assignments : `list assignments` 
 
 Lists out all assignments in the module along with the due date if the deadline was set.
 
@@ -248,7 +299,7 @@ Here are the assignments in CS2113T:
 ---------------------------------------------------------------------
 ```
 ***
-### xii. Sorting Module Assignments : `sort assignments` 
+### xiv. Sorting Module Assignments : `sort assignments` 
 
 Sorts all assignments in the module by their deadline. <br/>
 If no deadline was set, the assignment will be sorted after those with deadlines.
@@ -268,7 +319,7 @@ Here are the assignments in CS2113T:
 ***
 //@@author
 
-### xiii. Editing an Assignment Name: `edit assignment`
+### xv. Editing an Assignment Name: `edit assignment`
 
 Edits the assignment name of an existing assignment
 
@@ -291,7 +342,7 @@ Forest Fruits
 
 ***
 //@@author jianningzhuang
-### xiv. Setting Assignment Deadline : `set deadline` 
+### xvi. Setting Assignment Deadline : `set deadline` 
 
 Sets the deadline the assignment has to be graded by. 
 If a deadline had previously been set, it will be updated by the new deadline.
@@ -314,7 +365,7 @@ Here are the assignments in CS2113T:
 ```
 ***
 
-### xv. Listing Assignment Grades : `list grades` 
+### xvii. Listing Assignment Grades : `list grades` 
 
 Lists the students' grades for a particular assignment.
 The students listed are sorted by grades.
@@ -335,7 +386,7 @@ Here are the students' grades for the quiz1 assignment:
 ```
 ***
 
-### xvi. Auto-Grading Assignments : `autograde` 
+### xviii. Auto-Grading Assignments : `autograde` 
 
 Auto-grades all student scripts for a particular assignment by comparing against solutions.
 Automatically updates student's grades for that assignment.
