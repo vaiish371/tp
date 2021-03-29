@@ -156,6 +156,11 @@ public class Ui {
                 + " for assignment " + assignmentName + " in " + moduleCode);
     }
 
+    public void printSetAssignmentPercentage(String moduleCode, String assignmentName, float percentage) {
+        System.out.println("\t " + "I have set " + assignmentName + "'s percentage to "
+                + percentage + " in " + moduleCode);
+    }
+
     public void printSetAssignmentDeadline(String moduleCode, String assignmentName, LocalDate deadline) {
         System.out.println("\t " + "I have set " + assignmentName + "'s deadline to "
                 + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + " in " + moduleCode);

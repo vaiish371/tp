@@ -1,6 +1,5 @@
 package seedu.duke.parser;
 
-
 import seedu.duke.command.AddAssignmentCommand;
 import seedu.duke.command.AddModuleCommand;
 import seedu.duke.command.AddStudentCommand;
@@ -20,11 +19,13 @@ import seedu.duke.command.ListStudentsDetailsCommand;
 import seedu.duke.command.RemoveModuleCommand;
 import seedu.duke.command.SelectModuleCommand;
 import seedu.duke.command.SetAssignmentDeadlineCommand;
+import seedu.duke.command.SetAssignmentPercentageCommand;
 import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
 import seedu.duke.exception.InvalidCommandException;
+import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModManException;
 
 import java.util.logging.Level;
@@ -84,6 +85,8 @@ public class Parser {
             command = getDeleteModuleTimetableCommand(line);
         } else if (line.startsWith("set assignment grade ")) {
             command = getSetAssignmentGradeCommand(line);
+        } else if (line.startsWith("set assignment percentage ")) {
+            command = getSetAssignmentPercentageCommand(line);
         } else if (line.startsWith("set deadline ")) {
             command = getSetAssignmentDeadlineCommand(line);
         } else if (line.startsWith("sort by deadline ")) {
@@ -240,6 +243,27 @@ public class Parser {
         String grade = line.substring(gradeIndex + G_LENGTH).trim();
         command = new SetAssignmentGradeCommand(currentModule, assignmentName, studentName, grade);
         assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getSetAssignmentPercentageCommand(String line) throws InvalidCommandException,
+            InvalidPercentageException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "setAssignmentPercentage command entered");
+            String assignmentSeparator = "/a";
+            String percentageSeparator = "/p";
+            int assignmentIndex = line.indexOf(assignmentSeparator);
+            int percentageIndex = line.indexOf(percentageSeparator);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH, percentageIndex - 1);
+            String percentage = line.substring(percentageIndex + D_LENGTH).trim();
+            command = new SetAssignmentPercentageCommand(currentModule, assignmentName, percentage);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for set assignment percentage command");
+            throw new InvalidCommandException();
+        } catch (InvalidPercentageException error) {
+            throw error;
+        }
         return command;
     }
 
