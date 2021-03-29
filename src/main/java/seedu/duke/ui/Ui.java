@@ -220,4 +220,15 @@ public class Ui {
             }
         }
     }
+
+    public void listUngradedStudents(ArrayList<Student> ungraded) {
+        if (ungraded.size() == 0) {
+            System.out.println("\t All scripts have been graded!");
+        } else {
+            System.out.println("\t These are the students who have not submitted their assignments:");
+            for (int i = 1; i <= ungraded.size(); i++) {
+                System.out.println("\t " + i + ". " + ungraded.get(i - 1).toString());
+            }
+        }
+    }
 }

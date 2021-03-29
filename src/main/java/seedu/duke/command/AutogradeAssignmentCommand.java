@@ -58,6 +58,8 @@ public class AutogradeAssignmentCommand extends Command {
         } else {
             throw new NotAutogradableException();
         }
+        ArrayList<Student> ungraded = assignment.getUngraded(students);
         ui.listAssignmentStudentGrades(assignment);
+        ui.listUngradedStudents(ungraded);
     }
 }

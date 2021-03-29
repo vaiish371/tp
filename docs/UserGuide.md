@@ -238,7 +238,7 @@ Lists out all assignments in the module along with the due date if the deadline 
 
 Format: `list assignment`
 
-> Expected Outcome :
+Expected Outcome:
 ```
 ---------------------------------------------------------------------
 Here are the assignments in CS2113T:
@@ -255,7 +255,7 @@ If no deadline was set, the assignment will be sorted after those with deadlines
 
 Format: `sort by deadline`
 
-> Expected Outcome :
+Expected Outcome:
 ```
 ---------------------------------------------------------------------
 Here are the assignments in CS2113T:
@@ -304,7 +304,7 @@ Examples:
 * `set deadline /a quiz1 /d 17 08 2021`
 * `set deadline /a quiz2 /d 16 08 2021`
 
-> Expected Outcome :
+Expected Outcome:
 ```
 ---------------------------------------------------------------------
 Here are the assignments in CS2113T:
@@ -325,7 +325,7 @@ Examples:
 * `list student assignment grades /a quiz1`
 * `list student assignment grades /a quiz3`
 
-> Expected Outcome :
+Expected Outcome:
 ```
 ---------------------------------------------------------------------
 Here are the students' grades for the quiz1 assignment:
@@ -345,7 +345,7 @@ Format: `autograde /a ASSIGNMENT_NAME`
 Examples:
 * `autograde /a quiz1`
 
-> Expected Outcome :
+Expected Outcome:
 ```
 ---------------------------------------------------------------------
 Here are the students' grades for the quiz1 assignment:

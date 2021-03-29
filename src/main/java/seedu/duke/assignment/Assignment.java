@@ -82,5 +82,16 @@ public abstract class Assignment implements Comparable<Assignment> {
     public abstract Answer getAnswers();
 
     public abstract void setAnswers(Answer answers);
+
+    public ArrayList<Student> getUngraded(ArrayList<Student> students) {
+        ArrayList<Student> ungraded = new ArrayList<>();
+        for (Student student : students) {
+            String studentNumber = student.getStudentNumber();
+            if (studentGrades.get(studentNumber) == null) {
+                ungraded.add(student);
+            }
+        }
+        return ungraded;
+    }
 }
 
