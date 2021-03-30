@@ -23,7 +23,11 @@ import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
-import seedu.duke.exception.*;
+import seedu.duke.exception.DateTimeFormatException;
+import seedu.duke.exception.IndexNotFoundException;
+import seedu.duke.exception.InsufficientParametersException;
+import seedu.duke.exception.InvalidCommandException;
+import seedu.duke.exception.ModManException;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
