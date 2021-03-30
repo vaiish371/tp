@@ -23,10 +23,7 @@ import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
-import seedu.duke.exception.IndexNotFoundException;
-import seedu.duke.exception.InvalidCommandException;
-import seedu.duke.exception.ModManException;
-import seedu.duke.exception.WrongFormatException;
+import seedu.duke.exception.*;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -106,7 +103,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getViewScriptCommand(String line) throws WrongFormatException {
+    private static Command getViewScriptCommand(String line) throws InsufficientParametersException {
         Command command;
         try {
             logger.log(Level.INFO, "view script command entered");
@@ -119,12 +116,12 @@ public class Parser {
             command = new ViewScriptCommand(currentModule, assignmentName, studentName);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for view answers command");
-            throw new WrongFormatException();
+            throw new InsufficientParametersException();
         }
         return command;
     }
 
-    private static Command getViewAnswersCommand(String line) throws WrongFormatException {
+    private static Command getViewAnswersCommand(String line) throws InsufficientParametersException {
         Command command;
         try {
             logger.log(Level.INFO, "view answers command entered");
@@ -134,7 +131,7 @@ public class Parser {
             command = new ViewAnswersCommand(currentModule, assignmentName);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for view answers command");
-            throw new WrongFormatException();
+            throw new InsufficientParametersException();
         }
         return command;
     }
@@ -145,7 +142,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getRemoveModuleCommand(String line) throws InvalidCommandException {
+    private static Command getRemoveModuleCommand(String line) {
         logger.log(Level.INFO, "remove module command entered");
         Command command;
         String moduleCode = line.substring(REMOVE_MODULE_LENGTH);
@@ -190,7 +187,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getSetAssignmentDeadlineCommand(String line) throws WrongFormatException {
+    private static Command getSetAssignmentDeadlineCommand(String line) throws InsufficientParametersException {
         Command command;
         try {
             logger.log(Level.INFO, "set deadline command entered");
@@ -203,12 +200,12 @@ public class Parser {
             command = new SetAssignmentDeadlineCommand(currentModule, assignmentName, deadline);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
-            throw new WrongFormatException();
+            throw new InsufficientParametersException();
         }
         return command;
     }
 
-    private static Command getSetAssignmentGradeCommand(String line) throws WrongFormatException {
+    private static Command getSetAssignmentGradeCommand(String line) throws InsufficientParametersException {
         Command command;
         try {
             logger.log(Level.INFO, "set assignment grade command entered");
@@ -224,7 +221,7 @@ public class Parser {
             command = new SetAssignmentGradeCommand(currentModule, assignmentName, studentName, grade);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
-            throw new WrongFormatException();
+            throw new InsufficientParametersException();
         }
         return command;
     }
@@ -236,7 +233,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getAddTimetableCommand(String line) throws WrongFormatException {
+    private static Command getAddTimetableCommand(String line) throws InsufficientParametersException, DateTimeFormatException {
         Command command;
         String typeSeparator = "/t";
         String venueSeparator = "/v";
@@ -258,10 +255,10 @@ public class Parser {
             command = new AddTimetableCommand(currentModule, type, venue, day, start, end);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
-            throw new WrongFormatException();
+            throw new InsufficientParametersException();
         } catch (DateTimeParseException e) {
             logger.log(Level.WARNING, "Start/End time format is wrong.");
-            throw new WrongFormatException("Start/End time format is wrong. Enter again.");
+            throw new DateTimeFormatException();
         }
         return command;
     }
@@ -273,7 +270,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getEditModuleTimetableCommand(String line) throws InvalidCommandException {
+    private static Command getEditModuleTimetableCommand(String line) throws InsufficientParametersException {
         logger.log(Level.INFO, "edit timetable command entered");
         Command command;
         String typeSeparator = "/t";
@@ -296,7 +293,7 @@ public class Parser {
             command = new EditModuleTimetableCommand(lessonIndex, currentModule, type, venue, day, start, end);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for list assignment command");
-            throw new InvalidCommandException();
+            throw new InsufficientParametersException();
         }
         return command;
     }
@@ -354,7 +351,7 @@ public class Parser {
         return command;
     }
 
-    private static Command getAddAssignmentCommand(String line) throws InvalidCommandException {
+    private static Command getAddAssignmentCommand(String line) throws InvalidCommandException, InsufficientParametersException {
         Command command;
         try {
             logger.log(Level.INFO, "add assignment command entered");
@@ -376,12 +373,12 @@ public class Parser {
             command = new AddAssignmentCommand(assignmentType, currentModule, assignmentName);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add assignment command");
-            throw new InvalidCommandException();
+            throw new InsufficientParametersException();
         }
         return command;
     }
 
-    private static Command getListStudentAssignmentGradesCommand(String line) throws InvalidCommandException {
+    private static Command getListStudentAssignmentGradesCommand(String line) throws InsufficientParametersException {
         Command command;
         try {
             logger.log(Level.INFO, "list student assignment grades command entered");
@@ -391,17 +388,17 @@ public class Parser {
             command = new ListStudentGradesForAssignmentCommand(currentModule, assignmentName);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add assignment command");
-            throw new InvalidCommandException();
+            throw new InsufficientParametersException();
         }
         return command;
     }
 
-    private static Command getAddModuleCommand(String line) throws InvalidCommandException {
+    private static Command getAddModuleCommand(String line) throws InsufficientParametersException {
         logger.log(Level.INFO, "add module command entered");
         String moduleCode = line.substring(ADD_MODULE_LENGTH);
         if (moduleCode.equals("")) {
             logger.log(Level.WARNING, "not enough parameters for add module command");
-            throw new InvalidCommandException();
+            throw new InsufficientParametersException();
         }
         assert moduleCode.length() != 0 : "moduleCode should not be empty";
         return new AddModuleCommand(moduleCode);

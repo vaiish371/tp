@@ -5,6 +5,7 @@ import seedu.duke.Module;
 import seedu.duke.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.IndexNotFoundException;
+import seedu.duke.exception.LessonNotFoundException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.parser.Parser;
@@ -25,7 +26,7 @@ public class DeleteModuleTimetableCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException, LessonNotFoundException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException("Module directory not selected.");
@@ -37,7 +38,7 @@ public class DeleteModuleTimetableCommand extends Command {
             lessons.remove(lessonIndex);
             ui.deleteModuleTimetable(moduleCode, lesson);
         } catch (IndexOutOfBoundsException | NullPointerException e) {
-            System.out.println("No such lesson found.");
+            throw new LessonNotFoundException();
         }
     }
 }

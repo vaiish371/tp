@@ -5,7 +5,7 @@ public class ModuleNotFoundException extends ModManException {
         this.errorMessage = "Module is not found.";
     }
 
-    public ModuleNotFoundException(String s) {
-        this.errorMessage = s;
+    public ModuleNotFoundException(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 }

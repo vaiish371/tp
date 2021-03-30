@@ -5,11 +5,10 @@ import seedu.duke.command.AddAssignmentCommand;
 import seedu.duke.command.AddModuleCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.ExitCommand;
-import seedu.duke.command.ListModuleAssignmentsCommand;
 import seedu.duke.command.SetAssignmentDeadlineCommand;
+import seedu.duke.exception.InsufficientParametersException;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModManException;
-import seedu.duke.exception.WrongFormatException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -98,7 +97,7 @@ class ParserTest {
     void testParse_setAssignmentDeadlineMissingParam_InvalidCommandException() {
         Parser parser = new Parser();
         String inputString = "set deadline /m CS2113T /a quiz1 ";
-        assertThrows(WrongFormatException.class, () -> {
+        assertThrows(InsufficientParametersException.class, () -> {
             parser.parse(inputString);
         });
     }
