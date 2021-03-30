@@ -11,7 +11,11 @@ public class LongAnswerAssignment extends Assignment {
     }
 
     @Override
-    public void setAnswers(ArrayList<String> answers) {
-        this.answer = new Answer(answers, answers.size());
+    public void setAnswers(Answer answer) {
+        this.answer = answer;
+    }
+
+    public Answer getAnswers() {
+        return this.answer;
     }
 }

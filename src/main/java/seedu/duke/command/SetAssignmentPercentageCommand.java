@@ -2,33 +2,35 @@ package seedu.duke.command;
 
 import seedu.duke.Module;
 import seedu.duke.Storage;
-import seedu.duke.assignment.Answer;
 import seedu.duke.assignment.Assignment;
 import seedu.duke.data.Data;
 import seedu.duke.exception.AssignmentNotFoundException;
-import seedu.duke.exception.DataFileNotFoundException;
-import seedu.duke.exception.FileFormatException;
+import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotFoundException;
-import seedu.duke.exception.NumbersMisalignException;
+import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.ui.Ui;
 
-import java.util.ArrayList;
-import java.util.logging.Logger;
-
-public class ViewAnswersCommand extends Command {
-
+public class SetAssignmentPercentageCommand extends Command {
     private String moduleCode;
     private String assignmentName;
-    private static Logger logger = Logger.getLogger(ViewAnswersCommand.class.getName());
+    private float percentage;
 
-    public ViewAnswersCommand(String moduleCode, String assignmentName) {
+    public SetAssignmentPercentageCommand(String moduleCode, String assignmentName, String percentage)
+            throws InvalidPercentageException {
         this.moduleCode = moduleCode;
         this.assignmentName = assignmentName;
+        try {
+            this.percentage = Float.parseFloat(percentage);
+        } catch (NumberFormatException error) {
+            throw new InvalidPercentageException();
+        }
+        if (this.percentage < 0.0 || this.percentage > 100.0) {
+            throw new InvalidPercentageException();
+        }
     }
 
     @Override
-    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
-            AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException, FileFormatException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModManException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
@@ -39,9 +41,7 @@ public class ViewAnswersCommand extends Command {
             throw new AssignmentNotFoundException();
         }
         assert assignment != null : "assignment should not be null";
-        Answer answer = storage.loadAnswer(assignmentName, moduleCode);
-        assignment.setAnswers(answer);
-        ui.printAnswers(answer, assignmentName);
+        assignment.setPercentage(this.percentage);
+        ui.printSetAssignmentPercentage(moduleCode, assignmentName, this.percentage);
     }
-
 }

@@ -3,6 +3,7 @@ package seedu.duke.ui;
 import seedu.duke.Lesson;
 import seedu.duke.Module;
 import seedu.duke.Student;
+import seedu.duke.assignment.Answer;
 import seedu.duke.assignment.Assignment;
 
 import java.time.LocalDate;
@@ -155,6 +156,11 @@ public class Ui {
                 + " for assignment " + assignmentName + " in " + moduleCode);
     }
 
+    public void printSetAssignmentPercentage(String moduleCode, String assignmentName, float percentage) {
+        System.out.println("\t " + "I have set " + assignmentName + "'s percentage to "
+                + percentage + " in " + moduleCode);
+    }
+
     public void printSetAssignmentDeadline(String moduleCode, String assignmentName, LocalDate deadline) {
         System.out.println("\t " + "I have set " + assignmentName + "'s deadline to "
                 + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + " in " + moduleCode);
@@ -199,13 +205,13 @@ public class Ui {
                 + " (" + lesson.getVenue() + ")");
     }
 
-    public void printAnswers(ArrayList<String> answers, String assignmentName) {
-        if (answers.size() == 0) {
+    public void printAnswers(Answer answer, String assignmentName) {
+        if (answer.getAnswers().size() == 0) {
             System.out.println("\t Answer key is empty!");
         } else {
             System.out.println("\t Answer key for " + assignmentName);
-            for (int i = 1; i <= answers.size(); i++) {
-                System.out.println("\t " + i + ". " + answers.get(i - 1));
+            for (int i = 1; i <= answer.getAnswers().size(); i++) {
+                System.out.println("\t " + i + ". " + answer.getAnswers().get(i - 1));
             }
         }
     }
@@ -217,6 +223,17 @@ public class Ui {
             System.out.println("\t " + studentName + "[" + studentNumber + "]'s script for " + assignmentName);
             for (int i = 1; i <= script.size(); i++) {
                 System.out.println("\t " + i + ". " + script.get(i - 1));
+            }
+        }
+    }
+
+    public void listUngradedStudents(ArrayList<Student> ungraded) {
+        if (ungraded.size() == 0) {
+            System.out.println("\t All scripts have been graded!");
+        } else {
+            System.out.println("\t These are the students who have not submitted their assignments:");
+            for (int i = 1; i <= ungraded.size(); i++) {
+                System.out.println("\t " + i + ". " + ungraded.get(i - 1).toString());
             }
         }
     }
