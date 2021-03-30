@@ -281,7 +281,8 @@ public class Parser {
         return command;
     }
 
-    private static Command getAddTimetableCommand(String line) throws InsufficientParametersException, DateTimeFormatException {
+    private static Command getAddTimetableCommand(String line) throws InsufficientParametersException,
+            DateTimeFormatException {
         Command command;
         String typeSeparator = "/t";
         String venueSeparator = "/v";
@@ -360,14 +361,14 @@ public class Parser {
         return command;
     }
 
-    private static Command getListStudentCommand() throws InvalidCommandException {
+    private static Command getListStudentCommand() throws InsufficientParametersException {
         Command command;
         try {
             logger.log(Level.INFO, "list student command entered");
             command = new ListModuleStudentsCommand(currentModule);
         } catch (ArrayIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for list assignment command");
-            throw new InvalidCommandException();
+            throw new InsufficientParametersException();
         }
         return command;
     }
@@ -399,7 +400,8 @@ public class Parser {
         return command;
     }
 
-    private static Command getAddAssignmentCommand(String line) throws InvalidCommandException, InsufficientParametersException {
+    private static Command getAddAssignmentCommand(String line) throws InvalidCommandException,
+            InsufficientParametersException {
         Command command;
         try {
             logger.log(Level.INFO, "add assignment command entered");
