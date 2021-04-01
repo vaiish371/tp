@@ -135,6 +135,12 @@ public class Storage {
                     String rawPercentage = assignmentScan.next().trim();
                     float percentage = Float.parseFloat(rawPercentage);
                     assignment.setPercentage(percentage);
+                    String comments = assignmentScan.next().trim();
+                    if (comments.equals("null")) {
+                        assignment.setComments(null);
+                    } else {
+                        assignment.setComments(comments);
+                    }
                     String rawNumberOfStudentGrades = assignmentScan.next().trim();
                     int numberOfStudentGrades = Integer.parseInt(rawNumberOfStudentGrades);
                     for (int k = 0; k < numberOfStudentGrades; k++) {

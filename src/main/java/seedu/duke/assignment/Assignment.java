@@ -15,7 +15,16 @@ public abstract class Assignment implements Comparable<Assignment>, Storable {
     protected String typeOfAssignment;
     protected LocalDate deadline; // Optional field, null can be thrown
     protected float percentageOfOverallGrade; // Optional field, null can be thrown
+    protected String comments;
     protected HashMap<String, Float> studentGrades;
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
 
     public Assignment(String name) {
         this.name = name;
@@ -93,6 +102,8 @@ public abstract class Assignment implements Comparable<Assignment>, Storable {
         storageString += this.deadline;
         storageString += " | ";
         storageString += this.percentageOfOverallGrade;
+        storageString += " | ";
+        storageString += this.comments;
         storageString += " | ";
         storageString += this.studentGrades.size();
         Iterator it = this.studentGrades.entrySet().iterator();
