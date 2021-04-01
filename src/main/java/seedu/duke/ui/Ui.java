@@ -101,6 +101,20 @@ public class Ui {
         }
     }
 
+    public void printSetAssignmentComments(String moduleCode, String assignmentName, String comments) {
+        System.out.println("\t " + "I have set " + assignmentName + "'s comments to:\n\t\t"
+                + comments + "\n\tin " + moduleCode);
+    }
+
+    public void printGetAssignmentComments(String assignmentName, String comments) {
+        if (comments == null) {
+            System.out.println("\tYou do not have any comments for this assignment previously!");
+        } else {
+            System.out.println("\t " + "Your previous comments for " + assignmentName + " is as follows:\n\t\t"
+                    + comments);
+        }
+    }
+
     public void listModuleStudentsDetails(Module module) {
         ArrayList<Student> students = module.getStudents();
         if (students.size() == 0) {
