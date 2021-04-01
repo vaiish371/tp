@@ -1,11 +1,17 @@
 package seedu.duke;
 
-import seedu.duke.assignment.*;
+import seedu.duke.assignment.Assignment;
+import seedu.duke.assignment.LongAnswerAssignment;
+import seedu.duke.assignment.ShortAnswerAssignment;
+import seedu.duke.assignment.McqAssignment;
+import seedu.duke.assignment.Answer;
 import seedu.duke.data.Data;
+import seedu.duke.exception.DataFileCorruptedException;
 import seedu.duke.exception.DataFileNotFoundException;
-import seedu.duke.exception.FileFormatException;
 import seedu.duke.exception.FileNotSavedException;
+import seedu.duke.exception.FileFormatException;
 import seedu.duke.exception.NumbersMisalignException;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -73,7 +79,7 @@ public class Storage {
         }
     }
 
-    public Data loadData() throws DataFileNotFoundException, FileFormatException {
+    public Data loadData() throws DataFileNotFoundException, FileFormatException, DataFileCorruptedException {
         ArrayList<Module> modules = new ArrayList<>();
         try {
             logger.log(Level.INFO, "current directory: " + ROOT);
@@ -103,7 +109,6 @@ public class Storage {
                     String typeOfAssignment = assignmentScan.next().trim();
                     String rawDeadline = assignmentScan.next().trim();
                     String rawPercentage = assignmentScan.next().trim();
-                    float percentage = Float.parseFloat(rawPercentage);
                     Assignment assignment = null;
                     switch (typeOfAssignment) {
                     case "McqAssignment": {
@@ -117,6 +122,9 @@ public class Storage {
                     case "ShortAnswerAssignment": {
                         assignment = new ShortAnswerAssignment(assignmentName);
                         break;
+                    }
+                    default: {
+                        throw new DataFileCorruptedException();
                     }
                     }
                     String rawNumberOfStudentGrades = assignmentScan.next().trim();
@@ -136,6 +144,7 @@ public class Storage {
                         LocalDate deadline = LocalDate.parse(rawDeadline);
                         assignment.setDeadline(deadline);
                     }
+                    float percentage = Float.parseFloat(rawPercentage);
                     assignment.setPercentage(percentage);
                     module.addAssignment(assignment);
                 }

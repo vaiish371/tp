@@ -21,14 +21,10 @@ public class Modman {
         storage = new Storage();
         try {
             data = storage.loadData();
-        } catch (DataFileNotFoundException e) {
-            System.out.println("here1");
-            data = new Data();
-        } catch (FileFormatException e) {
-            System.out.println("here2");
+        } catch (ModManException e) {
+            System.out.println(e.getErrorMessage());
             data = new Data();
         }
-
     }
 
     public void run() {
