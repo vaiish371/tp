@@ -3,6 +3,7 @@ package seedu.duke.assignment;
 import seedu.duke.Storage;
 import seedu.duke.Student;
 import seedu.duke.exception.DataFileNotFoundException;
+import seedu.duke.exception.FileFormatException;
 import seedu.duke.exception.InvalidMcqOption;
 import seedu.duke.exception.NumbersMisalignException;
 
@@ -43,7 +44,7 @@ public class McqAssignment extends Assignment implements Autogradable {
     }
 
     public void autogradeAssignment(ArrayList<Student> students, String moduleCode, Storage storage)
-            throws DataFileNotFoundException, NumbersMisalignException {
+            throws DataFileNotFoundException, NumbersMisalignException, FileFormatException {
         int score = 0;
         for (Student student : students) {
             String studentNumber = student.getStudentNumber();
