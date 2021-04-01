@@ -107,8 +107,6 @@ public class Storage {
                     assignmentScan.useDelimiter("\\|");
                     String assignmentName = assignmentScan.next().trim();
                     String typeOfAssignment = assignmentScan.next().trim();
-                    String rawDeadline = assignmentScan.next().trim();
-                    String rawPercentage = assignmentScan.next().trim();
                     Assignment assignment = null;
                     switch (typeOfAssignment) {
                     case "McqAssignment": {
@@ -127,6 +125,16 @@ public class Storage {
                         throw new DataFileCorruptedException();
                     }
                     }
+                    String rawDeadline = assignmentScan.next().trim();
+                    if (rawDeadline.equals("null")) {
+                        assignment.setDeadline(null);
+                    } else {
+                        LocalDate deadline = LocalDate.parse(rawDeadline);
+                        assignment.setDeadline(deadline);
+                    }
+                    String rawPercentage = assignmentScan.next().trim();
+                    float percentage = Float.parseFloat(rawPercentage);
+                    assignment.setPercentage(percentage);
                     String rawNumberOfStudentGrades = assignmentScan.next().trim();
                     int numberOfStudentGrades = Integer.parseInt(rawNumberOfStudentGrades);
                     for (int k = 0; k < numberOfStudentGrades; k++) {
@@ -138,14 +146,6 @@ public class Storage {
                         float studentGrade = Float.parseFloat(rawStudentGrade);
                         assignment.getStudentGrades().put(studentNumber, studentGrade);
                     }
-                    if (rawDeadline.equals("null")) {
-                        assignment.setDeadline(null);
-                    } else {
-                        LocalDate deadline = LocalDate.parse(rawDeadline);
-                        assignment.setDeadline(deadline);
-                    }
-                    float percentage = Float.parseFloat(rawPercentage);
-                    assignment.setPercentage(percentage);
                     module.addAssignment(assignment);
                 }
                 for (int j = 0; j < numberOfLessons; j++) {
