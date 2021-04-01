@@ -325,7 +325,6 @@ public class Parser {
 
     private static Command getEditModuleTimetableCommand(String line) throws InsufficientParametersException,
             IndexNotFoundException {
-        logger.log(Level.INFO, "edit timetable command entered");
         Command command;
         String typeSeparator = "/t";
         String venueSeparator = "/v";
@@ -333,6 +332,7 @@ public class Parser {
         String startSeparator = "/s";
         String endSeparator = "/e";
         try {
+            logger.log(Level.INFO, "edit timetable command entered");
             int typeIndex = line.indexOf(typeSeparator);
             int venueIndex = line.indexOf(venueSeparator);
             int dayIndex = line.indexOf(daySeparator);
@@ -371,39 +371,35 @@ public class Parser {
 
     private static Command getListStudentCommand() throws InsufficientParametersException {
         Command command;
-        try {
-            logger.log(Level.INFO, "list student command entered");
-            command = new ListModuleStudentsCommand(currentModule);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            logger.log(Level.WARNING, "not enough parameters for list assignment command");
-            throw new InsufficientParametersException();
-        }
+        logger.log(Level.INFO, "list student command entered");
+        command = new ListModuleStudentsCommand(currentModule);
         return command;
     }
 
-    private static Command getAddStudentCommand(String line) {
+    private static Command getAddStudentCommand(String line) throws InsufficientParametersException {
         Command command;
-        logger.log(Level.INFO, "add student command entered");
-        String nameSeparator = "/s";
-        String numberSeparator = "/#";
-        String emailSeparator = "/e";
-        int nameIndex = line.indexOf(nameSeparator);
-        int numberIndex = line.indexOf(numberSeparator);
-        int emailIndex = line.indexOf(emailSeparator);
-        String studentName = line.substring(nameIndex + S_LENGTH, numberIndex - 1);
-        String studentNumber = line.substring(numberIndex + HASH_LENGTH, emailIndex - 1);
-        String email = line.substring(emailIndex + E_LENGTH).trim();
-        command = new AddStudentCommand(currentModule, studentName, studentNumber, email);
+        try {
+            logger.log(Level.INFO, "add student command entered");
+            String nameSeparator = "/s";
+            String numberSeparator = "/#";
+            String emailSeparator = "/e";
+            int nameIndex = line.indexOf(nameSeparator);
+            int numberIndex = line.indexOf(numberSeparator);
+            int emailIndex = line.indexOf(emailSeparator);
+            String studentName = line.substring(nameIndex + S_LENGTH, numberIndex - 1);
+            String studentNumber = line.substring(numberIndex + HASH_LENGTH, emailIndex - 1);
+            String email = line.substring(emailIndex + E_LENGTH).trim();
+            command = new AddStudentCommand(currentModule, studentName, studentNumber, email);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for edit timetable command");
+            throw new InsufficientParametersException();
+        }
         return command;
     }
 
     private static Command getListModuleAssignmentCommand() throws InvalidCommandException {
         Command command;
         logger.log(Level.INFO, "list assignment command entered");
-        if (currentModule.equals("")) {
-            logger.log(Level.WARNING, "not enough parameters for list assignment command");
-            throw new InvalidCommandException();
-        }
         command = new ListModuleAssignmentsCommand(currentModule);
         return command;
     }
@@ -419,15 +415,6 @@ public class Parser {
             int assignmentIndex = line.indexOf(assignmentSeparator);
             String assignmentType = line.substring(assignmentTypeIndex + T_LENGTH, assignmentIndex - 1).trim();
             String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
-            if (assignmentName.equals("")) {
-                logger.log(Level.WARNING, "assignment name cannot be empty");
-                throw new InvalidCommandException();
-            }
-            if ((assignmentType.equals("la")) && (assignmentType.equals("sa")) && (assignmentType.equals("mcq"))) {
-                System.out.println(assignmentType);
-                logger.log(Level.WARNING, "assignment type must be either la, sa or mcq");
-                throw new InvalidCommandException();
-            }
             command = new AddAssignmentCommand(assignmentType, currentModule, assignmentName);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add assignment command");
@@ -452,13 +439,15 @@ public class Parser {
     }
 
     private static Command getAddModuleCommand(String line) throws InsufficientParametersException {
+        Command command;
         logger.log(Level.INFO, "add module command entered");
         String moduleCode = line.substring(ADD_MODULE_LENGTH);
         if (moduleCode.equals("")) {
             logger.log(Level.WARNING, "not enough parameters for add module command");
             throw new InsufficientParametersException();
         }
+        command = new AddModuleCommand(moduleCode);
         assert moduleCode.length() != 0 : "moduleCode should not be empty";
-        return new AddModuleCommand(moduleCode);
+        return command;
     }
 }

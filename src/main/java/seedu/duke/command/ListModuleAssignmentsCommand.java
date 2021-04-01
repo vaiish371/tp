@@ -13,6 +13,7 @@ public class ListModuleAssignmentsCommand extends Command {
 
     public ListModuleAssignmentsCommand(String moduleCode) {
         this.moduleCode = moduleCode;
+        assert this.moduleCode != null : "module directory needs to be selected!";
     }
 
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {

@@ -11,7 +11,7 @@ public class ListStudentsDetailsCommand extends Command {
 
     public ListStudentsDetailsCommand(String moduleCode) {
         this.moduleCode = moduleCode;
-        assert this.moduleCode != null : "Module code cannot be null";
+        assert this.moduleCode != null : "module directory needs to be selected!";
     }
 
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {

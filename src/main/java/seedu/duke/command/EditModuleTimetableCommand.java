@@ -8,12 +8,15 @@ import seedu.duke.exception.DateTimeFormatException;
 import seedu.duke.exception.IndexNotFoundException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.parser.Parser;
 import seedu.duke.ui.Ui;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EditModuleTimetableCommand extends Command {
     private final int lessonIndex;
@@ -24,6 +27,7 @@ public class EditModuleTimetableCommand extends Command {
     private final String venue;
     private final String lessonType;
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHmm");
+    private static final Logger logger = Logger.getLogger(Parser.class.getName());
 
     public EditModuleTimetableCommand(String lessonIndex, String moduleCode, String lessonType, String venue,
                                String day, String startTime, String endTime) throws NumberFormatException {
@@ -65,8 +69,10 @@ public class EditModuleTimetableCommand extends Command {
             }
             ui.editModuleTimetable(moduleCode, lesson);
         } catch (IndexOutOfBoundsException | NullPointerException e) {
+            logger.log(Level.WARNING, "lesson index not found or no lessons added yet");
             throw new IndexNotFoundException();
         } catch (DateTimeParseException error) {
+            logger.log(Level.WARNING, "Start/End date format wrong");
             throw new DateTimeFormatException();
         }
     }
