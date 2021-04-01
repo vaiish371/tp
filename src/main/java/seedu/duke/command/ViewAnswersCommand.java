@@ -14,6 +14,7 @@ import seedu.duke.exception.NumbersMisalignException;
 import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ViewAnswersCommand extends Command {
@@ -33,11 +34,13 @@ public class ViewAnswersCommand extends Command {
             InvalidMcqOption {
         Module module = data.find(moduleCode);
         if (module == null) {
+            logger.log(Level.WARNING, "module not found in the list");
             throw new ModuleNotFoundException();
         }
         assert module != null : "module should not be null";
         Assignment assignment = module.findAssignment(assignmentName);
         if (assignment == null) {
+            logger.log(Level.WARNING, "assignment not found in the list");
             throw new AssignmentNotFoundException();
         }
         assert assignment != null : "assignment should not be null";

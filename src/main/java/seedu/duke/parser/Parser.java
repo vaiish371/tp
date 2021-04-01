@@ -93,7 +93,7 @@ public class Parser {
             command = getSetAssignmentPercentageCommand(line);
         } else if (line.startsWith("set deadline ")) {
             command = getSetAssignmentDeadlineCommand(line);
-        } else if (line.startsWith("sort by deadline ")) {
+        } else if (line.equals("sort assignments by deadline")) {
             command = getSortAssignmentByDeadlineCommand();
         } else if (line.startsWith("remove module ")) {
             command = getRemoveModuleCommand(line);
@@ -206,15 +206,16 @@ public class Parser {
         }
     }
 
-    private static Command getSortAssignmentByDeadlineCommand() throws InvalidCommandException {
+    private static Command getSortAssignmentByDeadlineCommand() {
         Command command;
-        logger.log(Level.INFO, "sort by deadline command entered");
+        logger.log(Level.INFO, "sort assignments by deadline command entered");
         assert currentModule.length() != 0 : "currentModule should not be empty";
         command = new SortAssignmentByDeadlineCommand(currentModule);
         return command;
     }
 
-    private static Command getSetAssignmentDeadlineCommand(String line) throws InsufficientParametersException {
+    private static Command getSetAssignmentDeadlineCommand(String line) throws InsufficientParametersException,
+            DateTimeFormatException {
         Command command;
         try {
             logger.log(Level.INFO, "set deadline command entered");
@@ -228,6 +229,9 @@ public class Parser {
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
             throw new InsufficientParametersException();
+        }  catch (DateTimeParseException e) {
+            logger.log(Level.WARNING, "Deadline format is wrong.");
+            throw new DateTimeFormatException();
         }
         return command;
     }
@@ -268,7 +272,7 @@ public class Parser {
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment percentage command");
             throw new InvalidCommandException();
-        } catch (InvalidPercentageException error) {
+        } catch (NumberFormatException | InvalidPercentageException error) {
             throw error;
         }
         return command;
@@ -319,7 +323,8 @@ public class Parser {
         return command;
     }
 
-    private static Command getEditModuleTimetableCommand(String line) throws InsufficientParametersException {
+    private static Command getEditModuleTimetableCommand(String line) throws InsufficientParametersException,
+            IndexNotFoundException {
         logger.log(Level.INFO, "edit timetable command entered");
         Command command;
         String typeSeparator = "/t";
@@ -341,8 +346,11 @@ public class Parser {
             String end = line.substring(endIndex + E_LENGTH).trim();
             command = new EditModuleTimetableCommand(lessonIndex, currentModule, type, venue, day, start, end);
         } catch (StringIndexOutOfBoundsException e) {
-            logger.log(Level.WARNING, "not enough parameters for list assignment command");
+            logger.log(Level.WARNING, "not enough parameters for edit timetable command");
             throw new InsufficientParametersException();
+        } catch (NumberFormatException e) {
+            logger.log(Level.WARNING, "lesson index not found");
+            throw new IndexNotFoundException();
         }
         return command;
     }

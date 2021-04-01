@@ -1,14 +1,18 @@
 package seedu.duke.command;
 
 import seedu.duke.Lesson;
+import seedu.duke.Module;
 import seedu.duke.Storage;
 import seedu.duke.data.Data;
+import seedu.duke.exception.DateTimeFormatException;
 import seedu.duke.exception.IndexNotFoundException;
 import seedu.duke.exception.ModManException;
+import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.ui.Ui;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 public class EditModuleTimetableCommand extends Command {
@@ -22,7 +26,7 @@ public class EditModuleTimetableCommand extends Command {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHmm");
 
     public EditModuleTimetableCommand(String lessonIndex, String moduleCode, String lessonType, String venue,
-                               String day, String startTime, String endTime) {
+                               String day, String startTime, String endTime) throws NumberFormatException {
         this.lessonIndex = Integer.parseInt(lessonIndex) - 1;
         this.moduleCode = moduleCode;
         this.day = day;
@@ -33,9 +37,16 @@ public class EditModuleTimetableCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui, Storage storage) throws ModManException {
-        ArrayList<Lesson> lessons = data.find(moduleCode).getLessons();
+    public void execute(Data data, Ui ui, Storage storage) throws IndexNotFoundException, DateTimeFormatException,
+            ModuleNotFoundException {
+        Module module = data.find(moduleCode);
+        if (module == null) {
+            throw new ModuleNotFoundException();
+        }
+        assert module != null : "module should not be null";
+
         try {
+            ArrayList<Lesson> lessons = module.getLessons();
             Lesson lesson = lessons.get(lessonIndex);
             if (!lessonType.equals("-")) {
                 lesson.setLessonType(lessonType);
@@ -53,8 +64,10 @@ public class EditModuleTimetableCommand extends Command {
                 lesson.setEndTime(LocalTime.parse(endTime, formatter));
             }
             ui.editModuleTimetable(moduleCode, lesson);
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
             throw new IndexNotFoundException();
+        } catch (DateTimeParseException error) {
+            throw new DateTimeFormatException();
         }
     }
 }
