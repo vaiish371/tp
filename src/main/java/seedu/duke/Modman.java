@@ -22,7 +22,6 @@ public class Modman {
         try {
             data = storage.loadData();
         } catch (ModManException e) {
-            System.out.println(e.getErrorMessage());
             data = new Data();
         }
     }
