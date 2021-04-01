@@ -11,6 +11,7 @@ import seedu.duke.data.Data;
 import seedu.duke.exception.AssignmentNotFoundException;
 import seedu.duke.exception.DataFileNotFoundException;
 import seedu.duke.exception.FileFormatException;
+import seedu.duke.exception.InvalidMcqOption;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.NotAutogradableException;
 import seedu.duke.exception.NumbersMisalignException;
@@ -33,7 +34,7 @@ public class AutogradeAssignmentCommand extends Command {
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException,
-            NotAutogradableException, FileFormatException {
+            NotAutogradableException, FileFormatException, InvalidMcqOption {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
@@ -45,9 +46,7 @@ public class AutogradeAssignmentCommand extends Command {
         }
         assert assignment != null : "assignment should not be null";
         Answer answer = storage.loadAnswer(assignmentName, moduleCode);
-        if (assignment.getAnswers() == null) {
-            assignment.setAnswers(answer);
-        }
+        assignment.setAnswers(answer);
         ArrayList<Student> students = module.getStudents();
         if (assignment instanceof McqAssignment) {
             McqAssignment mcqAssignment = (McqAssignment) assignment;
