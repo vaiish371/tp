@@ -2,7 +2,7 @@ package seedu.duke;
 
 import java.time.LocalTime;
 
-public class Lesson {
+public class Lesson implements Storable {
     private String day;
     private LocalTime startTime;
     private LocalTime endTime;
@@ -56,5 +56,21 @@ public class Lesson {
     @Override
     public String toString() {
         return day + ", " + startTime.toString() + "-" + endTime.toString();
+    }
+
+    @Override
+    public String toStorage() {
+        String storageString = "";
+        storageString += this.day;
+        storageString += " | ";
+        storageString += this.startTime.toString();
+        storageString += " | ";
+        storageString += this.endTime.toString();
+        storageString += " | ";
+        storageString += this.venue;
+        storageString += " | ";
+        storageString += this.lessonType;
+        storageString += "\n";
+        return storageString;
     }
 }

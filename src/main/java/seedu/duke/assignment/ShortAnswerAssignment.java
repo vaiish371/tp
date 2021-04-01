@@ -13,6 +13,7 @@ public class ShortAnswerAssignment extends Assignment {
 
     public ShortAnswerAssignment(String name) {
         super(name);
+        this.typeOfAssignment = "ShortAnswerAssignment";
     }
 
     @Override

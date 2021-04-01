@@ -1,5 +1,6 @@
 package seedu.duke.assignment;
 
+import seedu.duke.Storable;
 import seedu.duke.Student;
 import seedu.duke.exception.InvalidMcqOption;
 
@@ -7,9 +8,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
-public abstract class Assignment implements Comparable<Assignment> {
+public abstract class Assignment implements Comparable<Assignment>, Storable {
     protected String name;
+    protected String typeOfAssignment;
     protected LocalDate deadline; // Optional field, null can be thrown
     protected float percentageOfOverallGrade; // Optional field, null can be thrown
     protected HashMap<String, Float> studentGrades;
@@ -79,6 +82,32 @@ public abstract class Assignment implements Comparable<Assignment> {
         }
         return name + " (due by: " + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
     }
+
+    @Override
+    public String toStorage() {
+        String storageString = "";
+        storageString += this.name;
+        storageString += " | ";
+        storageString += this.typeOfAssignment;
+        storageString += " | ";
+        storageString += this.deadline;
+        storageString += " | ";
+        storageString += this.percentageOfOverallGrade;
+        storageString += " | ";
+        storageString += this.studentGrades.size();
+        Iterator it = this.studentGrades.entrySet().iterator();
+        while (it.hasNext()) {
+            HashMap.Entry pair = (HashMap.Entry)it.next();
+            storageString += "\n";
+            storageString += pair.getKey();
+            storageString += " | ";
+            storageString += pair.getValue();
+            it.remove();
+        }
+        storageString += "\n";
+        return storageString;
+    }
+
 
     public abstract Answer getAnswers();
 

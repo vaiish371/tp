@@ -1,6 +1,6 @@
 package seedu.duke;
 
-public class Student {
+public class Student implements Storable {
     private String name;
     private String studentNumber;
     private String email;
@@ -31,5 +31,17 @@ public class Student {
     @Override
     public String toString() {
         return (getName() + ", " + getStudentNumber() + ", " + getEmail());
+    }
+
+    @Override
+    public String toStorage() {
+        String storageString = "";
+        storageString += this.name;
+        storageString += " | ";
+        storageString += this.studentNumber;
+        storageString += " | ";
+        storageString += this.email;
+        storageString += "\n";
+        return storageString;
     }
 }

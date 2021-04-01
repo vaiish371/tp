@@ -2,6 +2,9 @@ package seedu.duke;
 
 import seedu.duke.command.Command;
 import seedu.duke.data.Data;
+import seedu.duke.exception.DataFileNotFoundException;
+import seedu.duke.exception.FileFormatException;
+import seedu.duke.exception.FileNotSavedException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.parser.Parser;
 //import seedu.duke.storage.Storage;
@@ -15,8 +18,16 @@ public class Modman {
 
     public Modman() {
         ui = new Ui();
-        data = new Data();
         storage = new Storage();
+        try {
+            data = storage.loadData();
+        } catch (DataFileNotFoundException e) {
+            System.out.println("here1");
+            data = new Data();
+        } catch (FileFormatException e) {
+            System.out.println("here2");
+            data = new Data();
+        }
 
     }
 
@@ -36,6 +47,11 @@ public class Modman {
             } finally {
                 Ui.showLine();
             }
+        }
+        try {
+            storage.saveData(data);
+        } catch (FileNotSavedException e) {
+            ui.showError(e.getErrorMessage());
         }
     }
 
