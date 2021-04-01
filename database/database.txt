@@ -1,15 +1,1 @@
-2
-CS2113T | 1 | 1 | 1
-midterms | McqAssignment | 2021-08-17 | 0.0 | 0
-wednesday | 16:00 | 00:00 | utown | lab
-Bryan | A0215114X | bryanwhl1999@gmail.com
-CS2101 | 1 | 0 | 0
-finals | LongAnswerAssignment | null | 0.0 | 0
 
-2
-CS2113T | 1 | 1 | 1
-midterms | McqAssignment | 2021-08-17 | 0.0 | 0
-wednesday | 16:00 | 00:00 | utown | lab
-Bryan | A0215114X | bryanwhl1999@gmail.com
-CS2101 | 1 | 0 | 0
-finals | LongAnswerAssignment | null | 0.0 | 0
