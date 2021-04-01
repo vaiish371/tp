@@ -15,6 +15,7 @@ public class McqAssignment extends Assignment implements Autogradable {
 
     public McqAssignment(String name) {
         super(name);
+        this.typeOfAssignment = "McqAssignment";
     }
 
     public void setAnswers(Answer answer) throws InvalidMcqOption {
