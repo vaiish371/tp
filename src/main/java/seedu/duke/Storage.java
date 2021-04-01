@@ -75,13 +75,15 @@ public class Storage {
             throw new DataFileNotFoundException();
         } catch (StringIndexOutOfBoundsException e) {
             throw new FileFormatException();
+        } catch (NumberFormatException e) {
+            throw new FileFormatException();
         }
         answerKey = new Answer(answersArray, marksArray, answersArray.size());
         return answerKey;
     }
 
     public ArrayList<String> loadScript(String assignmentName, String moduleCode, String studentNumber) throws
-            DataFileNotFoundException, NumbersMisalignException {
+            DataFileNotFoundException, NumbersMisalignException, FileFormatException {
         ArrayList<String> answersArray = new ArrayList<>();
         try {
             logger.log(Level.INFO, "current directory: " + ROOT);
@@ -102,6 +104,8 @@ public class Storage {
             }
         } catch (FileNotFoundException e) {
             throw new DataFileNotFoundException();
+        } catch (StringIndexOutOfBoundsException e) {
+            throw new FileFormatException();
         }
         return answersArray;
     }

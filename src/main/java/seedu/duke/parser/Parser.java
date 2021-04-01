@@ -93,7 +93,7 @@ public class Parser {
             command = getSetAssignmentPercentageCommand(line);
         } else if (line.startsWith("set deadline ")) {
             command = getSetAssignmentDeadlineCommand(line);
-        } else if (line.startsWith("sort by deadline ")) {
+        } else if (line.equals("sort by deadline")) {
             command = getSortAssignmentByDeadlineCommand();
         } else if (line.startsWith("remove module ")) {
             command = getRemoveModuleCommand(line);
@@ -206,7 +206,7 @@ public class Parser {
         }
     }
 
-    private static Command getSortAssignmentByDeadlineCommand() throws InvalidCommandException {
+    private static Command getSortAssignmentByDeadlineCommand() {
         Command command;
         logger.log(Level.INFO, "sort by deadline command entered");
         assert currentModule.length() != 0 : "currentModule should not be empty";
@@ -214,7 +214,8 @@ public class Parser {
         return command;
     }
 
-    private static Command getSetAssignmentDeadlineCommand(String line) throws InsufficientParametersException {
+    private static Command getSetAssignmentDeadlineCommand(String line) throws InsufficientParametersException,
+            DateTimeFormatException {
         Command command;
         try {
             logger.log(Level.INFO, "set deadline command entered");
@@ -228,6 +229,9 @@ public class Parser {
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
             throw new InsufficientParametersException();
+        } catch (DateTimeParseException e) {
+            logger.log(Level.WARNING, "Deadline format is wrong.");
+            throw new DateTimeFormatException();
         }
         return command;
     }
