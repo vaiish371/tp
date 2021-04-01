@@ -19,8 +19,9 @@ public class McqAssignment extends Assignment implements Autogradable {
     public void setAnswers(Answer answer) throws InvalidMcqOption {
         ArrayList<String> answersArray = answer.getAnswers();
         for (String ans : answersArray) {
-            if (!ans.equals("A") && !ans.equals("B") && !ans.equals("C") && !ans.equals("D") && !ans.equals("E") &&
-            !ans.equals("1") && !ans.equals("2") && !ans.equals("3") && !ans.equals("4") && !ans.equals("5")) {
+            if (!ans.equals("A") && !ans.equals("B") && !ans.equals("C") && !ans.equals("D") && !ans.equals("E")
+                    && !ans.equals("1") && !ans.equals("2") && !ans.equals("3")
+                    && !ans.equals("4") && !ans.equals("5")) {
                 throw new InvalidMcqOption();
             }
         }
