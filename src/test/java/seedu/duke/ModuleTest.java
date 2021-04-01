@@ -7,6 +7,7 @@ import seedu.duke.assignment.McqAssignment;
 import seedu.duke.assignment.ShortAnswerAssignment;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -56,6 +57,31 @@ class ModuleTest {
         String assignmentToBeFound = "quiz2";
         Module testModule = new Module(moduleCode);
         testModule.addAssignment(new McqAssignment(assignmentName));
-        assertEquals(null, testModule.findAssignment(assignmentToBeFound));
+        assertNull(testModule.findAssignment(assignmentToBeFound));
+    }
+
+    @Test
+    void testFindStudent_StudentExists_StudentFound() {
+        String moduleCode = "CS2113T";
+        String studentName = "Bryan";
+        String studentNumber = "A0123456X";
+        String email = "hello@u.nus.edu";
+        Module testModule = new Module(moduleCode);
+        Student testStudent = new Student(studentName, studentNumber, email);
+        testModule.addStudent(testStudent);
+        assertEquals(testStudent, testModule.findStudent(studentName));
+    }
+
+    @Test
+    void testFindStudent_StudentDoesNotExists_StudentNull() {
+        String moduleCode = "CS2113T";
+        String studentName = "Bryan";
+        String studentNumber = "A0123456X";
+        String email = "hello@u.nus.edu";
+        String studentToBeFound = "Jianning";
+        Module testModule = new Module(moduleCode);
+        Student testStudent = new Student(studentName, studentNumber, email);
+        testModule.addStudent(testStudent);
+        assertNull(testModule.findStudent(studentToBeFound));
     }
 }
