@@ -5,7 +5,7 @@ import seedu.duke.assignment.Assignment;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Module {
+public class Module implements Storable {
     private String moduleCode;
     private ArrayList<Assignment> assignments;
     private ArrayList<Lesson> lessons;
@@ -81,5 +81,30 @@ public class Module {
         Collections.sort(assignments);
     }
 
+    @Override
+    public String toStorage() {
+        String storageString = "";
+        storageString += moduleCode;
+        storageString += " | ";
+        storageString += this.assignments.size();
+        storageString += " | ";
+        storageString += this.lessons.size();
+        storageString += " | ";
+        storageString += this.students.size();
+        storageString += "\n";
+        for (int i = 0; i < this.assignments.size(); i++) {
+            Assignment assignment = this.assignments.get(i);
+            storageString += assignment.toStorage();
+        }
+        for (int i = 0; i < this.lessons.size(); i++) {
+            Lesson lesson = this.lessons.get(i);
+            storageString += lesson.toStorage();
+        }
+        for (int i = 0; i < this.students.size(); i++) {
+            Student student = this.students.get(i);
+            storageString += student.toStorage();
+        }
+        return storageString;
+    }
 }
 

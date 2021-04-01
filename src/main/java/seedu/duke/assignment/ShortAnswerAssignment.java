@@ -3,6 +3,7 @@ package seedu.duke.assignment;
 import seedu.duke.Storage;
 import seedu.duke.Student;
 import seedu.duke.exception.DataFileNotFoundException;
+import seedu.duke.exception.FileFormatException;
 import seedu.duke.exception.NumbersMisalignException;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class ShortAnswerAssignment extends Assignment {
 
     public ShortAnswerAssignment(String name) {
         super(name);
+        this.typeOfAssignment = "ShortAnswerAssignment";
     }
 
     @Override
@@ -34,7 +36,7 @@ public class ShortAnswerAssignment extends Assignment {
     }
 
     public void autogradeAssignment(ArrayList<Student> students, String moduleCode, Storage storage)
-            throws DataFileNotFoundException, NumbersMisalignException {
+            throws DataFileNotFoundException, NumbersMisalignException, FileFormatException {
         int score = 0;
         for (Student student : students) {
             String studentNumber = student.getStudentNumber();
