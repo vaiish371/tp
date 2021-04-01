@@ -3,10 +3,12 @@ package seedu.duke.command;
 import seedu.duke.Lesson;
 import seedu.duke.Storage;
 import seedu.duke.data.Data;
+import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.ui.Ui;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,7 +23,7 @@ public class AddTimetableCommand extends Command {
     private static final Logger logger = Logger.getLogger("AddTimetableCommand");
 
     public AddTimetableCommand(String moduleCode, String lessonType, String venue,
-                               String day, String startTime, String endTime) {
+                               String day, String startTime, String endTime) throws DateTimeParseException {
         logger.log(Level.INFO, "start initialising AddTimeTableCommand");
         this.moduleCode = moduleCode;
         this.day = day;
