@@ -8,6 +8,7 @@ import seedu.duke.data.Data;
 import seedu.duke.exception.AssignmentNotFoundException;
 import seedu.duke.exception.DataFileNotFoundException;
 import seedu.duke.exception.FileFormatException;
+import seedu.duke.exception.InvalidMcqOption;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.NumbersMisalignException;
 import seedu.duke.ui.Ui;
@@ -28,7 +29,8 @@ public class ViewAnswersCommand extends Command {
 
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
-            AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException, FileFormatException {
+            AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException, FileFormatException,
+            InvalidMcqOption {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();

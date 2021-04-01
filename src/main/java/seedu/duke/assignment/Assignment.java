@@ -1,6 +1,7 @@
 package seedu.duke.assignment;
 
 import seedu.duke.Student;
+import seedu.duke.exception.InvalidMcqOption;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -81,7 +82,7 @@ public abstract class Assignment implements Comparable<Assignment> {
 
     public abstract Answer getAnswers();
 
-    public abstract void setAnswers(Answer answers);
+    public abstract void setAnswers(Answer answers) throws InvalidMcqOption;
 
     public ArrayList<Student> getUngraded(ArrayList<Student> students) {
         ArrayList<Student> ungraded = new ArrayList<>();
