@@ -10,6 +10,8 @@ import seedu.duke.parser.Parser;
 //import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 
+import java.util.logging.LogManager;
+
 public class Modman {
 
     private Storage storage;
@@ -51,6 +53,7 @@ public class Modman {
     }
 
     public static void main(String[] args) {
+        LogManager.getLogManager().reset();
         new Modman().run();
     }
 }
