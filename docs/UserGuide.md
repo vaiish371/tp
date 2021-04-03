@@ -316,6 +316,14 @@ Here are the assignments in CS2113T:
 ---------------------------------------------------------------------
 ```
 
+Given below is an example usage scenario and how the sorting mechanism behaves.
+
+Step 1. The user launches the application. The CS2113T module has an assignment quiz1 due on 17 Aug 2021.
+Step 2. The user adds 2 more assignments quiz2 and quiz3
+Step 3. The user only sets the deadline for quiz3 to be 16 Aug 2021.
+Step 4. The user executes `sort by deadline` which reorders the assignments in CS2113T to be quiz3, quiz1 and quiz2.
+Assignments with null as deadline are sorted behind assignments with deadlines.
+
 ***
 //@@author bryanwhl
 

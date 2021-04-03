@@ -11,7 +11,7 @@ activate Parser
 
 ref over Parser, Command : getCommand
 
-[<-- Parser : sortCommand
+[<-- Parser : sortAssignmentsByDeadlineCommand
 deactivate Parser
 
 [->Command : execute()
@@ -21,6 +21,7 @@ Command -> Data : find(moduleCode)
 activate Data
 
 Data --> Command : module
+deactivate Data
 
 Command -> Module : sortAssignments()
 activate Module
