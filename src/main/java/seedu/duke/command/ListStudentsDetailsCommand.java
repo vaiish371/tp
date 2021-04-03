@@ -9,9 +9,11 @@ import seedu.duke.ui.Ui;
 public class ListStudentsDetailsCommand extends Command {
     public String moduleCode;
 
-    public ListStudentsDetailsCommand(String moduleCode) {
+    public ListStudentsDetailsCommand(String moduleCode) throws ModuleNotFoundException {
+        if (moduleCode == null) {
+            throw new ModuleNotFoundException();
+        }
         this.moduleCode = moduleCode;
-        assert this.moduleCode != null : "module directory needs to be selected!";
     }
 
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {

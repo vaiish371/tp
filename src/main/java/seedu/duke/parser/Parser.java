@@ -24,12 +24,7 @@ import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
-import seedu.duke.exception.DateTimeFormatException;
-import seedu.duke.exception.IndexNotFoundException;
-import seedu.duke.exception.InsufficientParametersException;
-import seedu.duke.exception.InvalidCommandException;
-import seedu.duke.exception.InvalidPercentageException;
-import seedu.duke.exception.ModManException;
+import seedu.duke.exception.*;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -278,10 +273,15 @@ public class Parser {
         return command;
     }
 
-    private static Command getListStudentDetailsCommand() {
+    private static Command getListStudentDetailsCommand() throws ModuleNotSelectedException {
         Command command;
-        logger.log(Level.INFO, "list student details command entered");
-        command = new ListStudentsDetailsCommand(currentModule);
+        try {
+            logger.log(Level.INFO, "list student details command entered");
+            command = new ListStudentsDetailsCommand(currentModule);
+        } catch (ModuleNotFoundException e) {
+            logger.log(Level.WARNING, "module directory not selected");
+            throw new ModuleNotSelectedException();
+        }
         return command;
     }
 
@@ -397,10 +397,15 @@ public class Parser {
         return command;
     }
 
-    private static Command getListModuleAssignmentCommand() throws InvalidCommandException {
+    private static Command getListModuleAssignmentCommand() throws InvalidCommandException, ModuleNotSelectedException {
         Command command;
-        logger.log(Level.INFO, "list assignment command entered");
-        command = new ListModuleAssignmentsCommand(currentModule);
+        try {
+            logger.log(Level.INFO, "list assignment command entered");
+            command = new ListModuleAssignmentsCommand(currentModule);
+        } catch (ModuleNotFoundException e) {
+            logger.log(Level.WARNING, "module directory not selected");
+            throw new ModuleNotSelectedException();
+        }
         return command;
     }
 
