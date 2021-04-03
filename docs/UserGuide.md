@@ -304,7 +304,7 @@ Here are the assignments in CS2113T:
 Sorts all assignments in the module by their deadline. <br/>
 If no deadline was set, the assignment will be sorted after those with deadlines.
 
-Format: `sort by deadline`
+Format: `sort assignments by deadline`
 
 Expected Outcome:
 ```

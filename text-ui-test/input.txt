@@ -18,7 +18,7 @@ set deadline /a quiz1 /d 17 08 2021
 set deadline /a quiz2 /d 16 08 2021
 set deadline /a quiz3 /d 20 08 2021
 list assignment
-sort by deadline
+sort assignments by deadline
 view answers /a quiz1
 autograde assignment /a quiz1
 blah

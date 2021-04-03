@@ -100,7 +100,7 @@ public class Parser {
             command = getSetAssignmentPercentageCommand(line);
         } else if (line.startsWith("set deadline ")) {
             command = getSetAssignmentDeadlineCommand(line);
-        } else if (line.equals("sort by deadline")) {
+        } else if (line.equals("sort assignments by deadline")) {
             command = getSortAssignmentByDeadlineCommand();
         } else if (line.startsWith("remove module ")) {
             command = getRemoveModuleCommand(line);
@@ -215,7 +215,7 @@ public class Parser {
 
     private static Command getSortAssignmentByDeadlineCommand() {
         Command command;
-        logger.log(Level.INFO, "sort by deadline command entered");
+        logger.log(Level.INFO, "sort assignments by deadline command entered");
         assert currentModule.length() != 0 : "currentModule should not be empty";
         command = new SortAssignmentByDeadlineCommand(currentModule);
         return command;
