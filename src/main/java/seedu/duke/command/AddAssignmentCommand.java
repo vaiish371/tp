@@ -8,6 +8,7 @@ import seedu.duke.assignment.McqAssignment;
 import seedu.duke.assignment.ShortAnswerAssignment;
 import seedu.duke.data.Data;
 import seedu.duke.exception.InvalidAssignmentException;
+import seedu.duke.exception.DuplicateAssignmentException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.parser.Parser;
 import seedu.duke.ui.Ui;
@@ -30,7 +31,7 @@ public class AddAssignmentCommand extends Command {
 
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
-            InvalidAssignmentException {
+            InvalidAssignmentException, DuplicateAssignmentException {
         Module module = data.find(moduleCode);
         Assignment assignment = null;
         if (module == null) {
@@ -48,6 +49,12 @@ public class AddAssignmentCommand extends Command {
         }
         assert module != null : "module should not be null";
         assert assignment != null : "assignment should not be null";
+        for (int i = 0; i < module.getAssignments().size(); i++) {
+            Assignment currentAssignment = module.getAssignments().get(i);
+            if (currentAssignment.getName().equals(assignmentName)) {
+                throw new DuplicateAssignmentException();
+            }
+        }
         module.addAssignment(assignment);
         ui.printNewAssignment(module, assignment);
     }

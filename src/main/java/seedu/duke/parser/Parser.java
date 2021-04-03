@@ -24,7 +24,16 @@ import seedu.duke.command.SetAssignmentGradeCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
-import seedu.duke.exception.*;
+import seedu.duke.exception.DateTimeFormatException;
+import seedu.duke.exception.IndexNotFoundException;
+import seedu.duke.exception.InsufficientParametersException;
+import seedu.duke.exception.InvalidCommandException;
+import seedu.duke.exception.InvalidPercentageException;
+import seedu.duke.exception.ModManException;
+import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.ModuleNotSelectedException;
+import seedu.duke.command.SetAssignmentCommentsCommand;
+import seedu.duke.command.GetAssignmentCommentsCommand;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -38,6 +47,7 @@ public class Parser {
     private static final int DELETE_TIMETABLE_LENGTH = 17;
     private static final int EDIT_TIMETABLE_LENGTH = 15;
     private static final int A_LENGTH = 3;
+    private static final int C_LENGTH = 3;
     private static final int S_LENGTH = 3;
     private static final int E_LENGTH = 3;
     private static final int T_LENGTH = 3;
@@ -84,6 +94,10 @@ public class Parser {
             command = getDeleteModuleTimetableCommand(line);
         } else if (line.startsWith("set assignment grade ")) {
             command = getSetAssignmentGradeCommand(line);
+        } else if (line.startsWith("set assignment comments ")) {
+            command = getSetAssignmentCommentsCommand(line);
+        } else if (line.startsWith("get assignment comments ")) {
+            command = getGetAssignmentCommentsCommand(line);
         } else if (line.startsWith("set assignment percentage ")) {
             command = getSetAssignmentPercentageCommand(line);
         } else if (line.startsWith("set deadline ")) {
@@ -227,6 +241,39 @@ public class Parser {
         }  catch (DateTimeParseException e) {
             logger.log(Level.WARNING, "Deadline format is wrong.");
             throw new DateTimeFormatException();
+        } 
+        return command;
+    }
+
+    private static Command getSetAssignmentCommentsCommand(String line) throws InsufficientParametersException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "set comments command entered");
+            String assignmentSeparator = "/a";
+            String commentSeparator = "/c";
+            int assignmentIndex = line.indexOf(assignmentSeparator);
+            int commentsIndex = line.indexOf(commentSeparator);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH, commentsIndex - 1);
+            String comments = line.substring(commentsIndex + C_LENGTH).trim();
+            command = new SetAssignmentCommentsCommand(currentModule, assignmentName, comments);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
+            throw new InsufficientParametersException();
+        }
+        return command;
+    }
+
+    private static Command getGetAssignmentCommentsCommand(String line) throws InsufficientParametersException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "set comments command entered");
+            String assignmentSeparator = "/a";
+            int assignmentIndex = line.indexOf(assignmentSeparator);
+            String assignmentName = line.substring(assignmentIndex + A_LENGTH);
+            command = new GetAssignmentCommentsCommand(currentModule, assignmentName);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
+            throw new InsufficientParametersException();
         }
         return command;
     }

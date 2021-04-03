@@ -260,7 +260,7 @@ Lecture: Mon, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
 ***
-
+//@@author bryanwhl
 ### xii. Adding an Assignment: `add assignment`
 
 Adds an assignment
@@ -317,7 +317,7 @@ Here are the assignments in CS2113T:
 ```
 
 ***
-//@@author
+//@@author bryanwhl
 
 ### xv. Editing an Assignment Name: `edit assignment`
 
@@ -364,7 +364,7 @@ Here are the assignments in CS2113T:
 ---------------------------------------------------------------------
 ```
 ***
-
+//@@author bryanwhl
 ### xvii. Listing Assignment Grades : `list grades` 
 
 Lists the students' grades for a particular assignment.
