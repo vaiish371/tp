@@ -20,15 +20,16 @@ public class SetAssignmentDeadlineCommand extends Command {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
     private static Logger logger = Logger.getLogger(SetAssignmentDeadlineCommand.class.getName());
 
-    public SetAssignmentDeadlineCommand(String moduleCode, String assignmentName, String deadline) throws
-            DateTimeParseException {
+    public SetAssignmentDeadlineCommand(String moduleCode, String assignmentName,
+                                        String deadline) throws DateTimeParseException {
         this.moduleCode = moduleCode;
         this.assignmentName = assignmentName;
         this.deadline = LocalDate.parse(deadline, formatter);
     }
 
     @Override
-    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException, AssignmentNotFoundException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
+            AssignmentNotFoundException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();

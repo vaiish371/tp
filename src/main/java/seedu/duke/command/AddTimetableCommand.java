@@ -1,9 +1,11 @@
 package seedu.duke.command;
 
 import seedu.duke.Lesson;
+import seedu.duke.Module;
 import seedu.duke.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.InvalidCommandException;
+import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.ui.Ui;
 
 import java.time.LocalTime;
@@ -35,10 +37,14 @@ public class AddTimetableCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui, Storage storage) {
-        assert startTime != null : "startTime must be initialised";
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
+        Module module = data.find(moduleCode);
+        if (module == null) {
+            throw new ModuleNotFoundException();
+        }
+        assert module != null : "module should not be null";
         Lesson lesson = new Lesson(day, startTime, endTime, venue, lessonType);
-        data.find(moduleCode).addLesson(lesson);
+        module.addLesson(lesson);
         ui.printNewTimetable(moduleCode, lesson);
     }
 }
