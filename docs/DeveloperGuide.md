@@ -127,7 +127,7 @@ The sorting is also stable, and will retain the initial order of when the `Assig
 The code snippet for the compareTo() function which allows `Assignment` to implement the `Comparable` interface is as follows:
 
 ````
-@Override
+    @Override
     public int compareTo(Assignment other) {
         if (this.getDeadline() == null && other.getDeadline() == null) {
             return 0;
@@ -151,7 +151,16 @@ Given below is the sequence diagram for the `SortAssignmentsByDeadlineCommand`:
 ### Listing Student Grades for  (Jianning)
 
 
-### [Coming Soon] Autograding (Jianning)
+### Autograding Assignments (Jianning)
+
+The `AutogradeAssignmentCommand` is used to automatically grade all current students' scripts and save the grades </br>
+Also used to keep track of which students have not submitted assignments
+
+![AutogradeCommand](uml/Autograde.png)
+
+
+[Coming soon] Get statistics from Autograde
+
 
 
 ### Adding Lesson to Module Timetable
