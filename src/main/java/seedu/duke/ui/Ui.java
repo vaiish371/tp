@@ -101,17 +101,21 @@ public class Ui {
         }
     }
 
-    public void printSetAssignmentComments(String moduleCode, String assignmentName, String comments) {
-        System.out.println("\t " + "I have set " + assignmentName + "'s comments to:\n\t\t"
-                + comments + "\n\tin " + moduleCode);
+    public void printSetAssignmentComments(String moduleCode, String assignmentName, String comment) {
+        System.out.println("\t " + "I have added a comment to  " + assignmentName + ":\n\t\t"
+                + comment + "\n\tin " + moduleCode);
     }
 
-    public void printGetAssignmentComments(String assignmentName, String comments) {
+    public void printGetAssignmentComments(String assignmentName, ArrayList<String> comments) {
+        int commentCounter = 1;
         if (comments == null) {
             System.out.println("\tYou do not have any comments for this assignment previously!");
         } else {
-            System.out.println("\t " + "Your previous comments for " + assignmentName + " is as follows:\n\t\t"
-                    + comments);
+            System.out.println("\t " + "Your previous comments for " + assignmentName + " is as follows:\n");
+            for (String comment : comments) {
+                System.out.println("\t\t" + commentCounter + ". " + comment);
+                commentCounter++;
+            }
         }
     }
 
