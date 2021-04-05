@@ -1,1 +1,4 @@
-0
+1
+CS2113 | 1 | 0 | 1
+Magic Sequence | McqAssignment | null | 0.0 | [] | 0
+John Doe | A0123456Y | e0123456@u.nus.edu

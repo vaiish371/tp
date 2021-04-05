@@ -20,7 +20,11 @@ public class RemoveModuleCommand extends Command {
         if (module == null) {
             throw new ModuleNotFoundException();
         } else {
-            if (Parser.getCurrentModule().equals(moduleCode)) {
+            String currentModuleCode = Parser.getCurrentModule();
+            if (currentModuleCode == null) {
+                // Avoiding NullPointerException
+            }
+            else if (currentModuleCode.equals(moduleCode)) {
                 Parser.setCurrentModule(null);
             }
             data.remove(moduleCode);
