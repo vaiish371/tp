@@ -1,23 +1,45 @@
 @startuml
 
+hide circle
+skinparam classAttributeIconSize 0
+
 hide member
 
+package Logic {
 
-package parser {
+package Parser {
     Class Parser
 
 }
 
-package command {
+package Command {
     Class "{abstract}\nCommand" as Command
     Class XYZCommand
 }
+}
 
+package Data {
+
+}
+
+package Storage {
+
+}
+
+package Ui {
+
+}
 
 XYZCommand -u-|> Command
 
 
 Parser ..> XYZCommand : creates >
+
+Command ..> Data
+Command ..> Storage
+Command ..> Ui
+
+note left of XYZCommand: XYZCommand = AddModuleCommand, \nAutogradeAssignmentCommand, etc
 
 
 

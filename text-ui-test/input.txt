@@ -14,12 +14,14 @@ add timetable /t Lecture /v Zoom /d Fri /s 1400 /e 1600
 add timetable /t Tutorial /v SR3 /d Fri /s 0800 /e 0900
 list timetable
 add assignment /t la /a quiz3
-set deadline /a quiz1 /d 17 08 2021
 set deadline /a quiz2 /d 16 08 2021
-set deadline /a quiz3 /d 20 08 2021
+set deadline /a quiz1 /d 17 08 2021
 list assignment
 sort assignments by deadline
 view answers /a quiz1
 autograde assignment /a quiz1
 blah
 bye
+set deadline /a quiz1 /d 16 08 2021
+set deadline /a quiz2 /d 16 08 2021
+set deadline /a quiz3 /d 20 08 2021

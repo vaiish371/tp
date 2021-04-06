@@ -26,19 +26,21 @@ The *Sequence diagram* below shows the interaction between components for when t
 The sections below give more details of each component.
 
 
-## Logic Component (Jianning)
+## Logic Component 
 
-![logic](uml/ParserAndCommand.png)
+![logic](uml/ParserAndCommandComponent.png)
 
-1. The `Parser` class is used to parse the user command.
-2. This returns a `Command` object which is executed in `Modman`.
-3. The command execution can affect the state of other components e.g. the sort command changes the order of assignments in `Module`.
+1. `Logic` uses the `Parser` class to parse the user command.
+2. This creates a `Command` object which is executed in `Modman`.
+3. The command execution can affect the state of the `Data` and `Storage` components. For example, the `AddModuleCommand` adds a new `Module` object in `Data`.
 4. The `Command` object can also instruct the `Ui` to list and display information to the user.
 
-Given below is the Sequence Diagram for creating the corresponding `Command` object from user input via `Parser`. </br>
-The sequence diagram also acts as a reference frame for `getCommand`.
+Given below is the sequence diagram for creating the corresponding `Command` object from user input via `Parser`. </br>
+The sequence diagram also acts as a reference frame for `getCommand` which is common across most `Command` objects.
 
 ![getCommand](uml/getCommand.png)
+
+If a `Command` does not use the reference frame, another sequence diagram would be used to describe how the `Command` object was created.
 
 ## UI Component
 The UI Component consists of one class - `Ui` which provides all the functions
@@ -75,22 +77,90 @@ The `Data`,
 
 ## Implementation
 
+### Editing Assignment Information (Jianning and Bryan)
+
+This section provides details on the implementation of the various commands that modify the `Assignment` object.
+
+There are 4 attributes of the `Assignment` object in which the User can interact with:
+
+1. Deadline - `LocalDate` representing the date which assignment should be graded by.
+2. Percentage - `float` of the percentage of the overall grade which the assignment carries.
+3. Students' Grades - `HashMap<String, Float>` of the students' grades for the assignment, where the key is the Student/Matric Number and the value is the Grade out of 100%.
+4. Comments - `String` representing comments for particular questions and/or the overall assignment.
+
+### `SetAssignmentDeadlineCommand`
+
+The `SetAssignmentDeadlineCommand` is used to set or update the deadline which the `Assignment` has to be graded by. 
+The deadline can then be used to sort the assignments based on the urgency of the grading.
+
+Given below is the sequence diagram for the `SetAssignmentDeadlineCommand`:
+
+![DeadlineCommand](uml/SetDeadline.png)
+
+| :information_source: |  deadline passed into the setDeadline() function is of type `LocalDate` |
+|----------------------|-------------------------------------|
+
+Implementation considerations for using `LocalDate` for deadline attribute in `Assignment`:
+
+* `LocalDate` is an immutable class that represents dates with a default format of yyyy-MM-dd
+* `LocalDate` allows for standardisation of format and representation of deadlines
+* `LocalDate` has a built in compareTo() method that allows us to compare two dates
+* `LocalDate` allows us to easily sort `Assignment` objects by the deadline attribute
+
+### `SetAssignmentGradeCommand`
+
+The `SetAssignmentGradeCommand` is used to 
+
+Given below is the sequence diagram for the `SetAssignmentGradeCommand`:
+
+Implementation considerations for using `HashMap<String, Float>` to store students'grades:
+
 
 ### Sorting Assignments by Deadline (Jianning)
 
-Given below is the sequence diagram for the sort assignments by deadline command.
+The `SortAssignmentByDeadlineCommand` is used to reorder the ArrayList of `Assignment` objects stored in the current `Module`. </br>
 
-![sortCommand](uml/SortAssignmentByDeadlineCommand.png)
+The `Assignment` objects will be sorted based on their deadline attribute, which is of type `LocalDate`. 
+The deadline of an `Assignment` object can be `null`, in which case the `Assignment` will be sorted after other `Assignment` objects with valid `LocalDate` deadlines.
+The sorting is also stable, and will retain the initial order of when the `Assignment` was added to the `Module`. </br> 
 
-Given below is an example usage scenario and how the sorting mechanism behaves.
+The code snippet for the compareTo() function which allows `Assignment` to implement the `Comparable` interface is as follows:
 
-Step 1. The user launches the application. The CS2113T module has an assignment quiz1 due on 17 Aug 2021.
-Step 2. The user adds 2 more assignments quiz2 and quiz3
-Step 3. The user only sets the deadline for quiz3 to be 16 Aug 2021.
-Step 4. The user executes `sort by deadline` which reorders the assignments in CS2113T to be quiz3, quiz1 and quiz2.
-Assignments with null as deadline are sorted behind assignments with deadlines.
+````
+    @Override
+    public int compareTo(Assignment other) {
+        if (this.getDeadline() == null && other.getDeadline() == null) {
+            return 0;
+        } else if (this.getDeadline() == null) {
+            return 1;
+        } else if (other.getDeadline() == null) {
+            return -1;
+        }
+        return this.getDeadline().compareTo(other.getDeadline());
+    }
+````
+| :information_source: | Modifying the compareTo() function allows you to easily change the natural ordering of the objects of the `Assignment` Class. </br> Other attributes can also be added to `Assignment`objects in the future to be used for comparing. |
+|----------------------|-------------------------------------|
 
-### [Coming Soon] Autograding (Jianning)
+
+Given below is the sequence diagram for the `SortAssignmentsByDeadlineCommand`:
+
+![sortCommand](uml/SortAssignmentsSeq.png)
+
+
+### Listing Student Grades for  (Jianning)
+
+
+### Autograding Assignments (Jianning)
+
+The `AutogradeAssignmentCommand` is used to automatically grade all current students' scripts and save the grades </br>
+Also used to keep track of which students have not submitted assignments
+
+![AutogradeCommand](uml/Autograde.png)
+
+
+[Coming soon] Get statistics from Autograde
+
 
 
 ### Adding Lesson to Module Timetable

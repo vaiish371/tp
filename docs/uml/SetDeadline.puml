@@ -1,0 +1,48 @@
+@startuml
+
+participant ":Parser" as Parser
+participant ":SetAssignmentDeadlineCommand" as Command
+participant ":Data" as Data
+participant ":Module" as Module
+participant ":Assignment" as Assignment
+
+
+[-> Parser : parse("set deadline")
+activate Parser
+
+ref over Parser, Command : getCommand
+
+[<-- Parser : SetAssignmentDeadlineCommand
+deactivate Parser
+
+[->Command : execute()
+activate Command
+
+Command -> Data : find(moduleCode)
+activate Data
+
+Data --> Command : module
+deactivate Data
+
+Command -> Module : findAssignment(assignmentName)
+activate Module
+
+Module --> Command : assignment
+deactivate Module
+
+Command -> Assignment : setDeadline(deadline)
+activate Assignment
+
+Assignment --> Command
+deactivate Assignment
+
+Command -> Ui : printSetAssignmentDeadline(moduleCode, assignmentName, deadline)
+activate Ui
+
+Ui --> Command
+deactivate Ui
+
+[<-- Command
+deactivate Command
+
+@enduml

@@ -75,13 +75,15 @@ public abstract class Assignment implements Comparable<Assignment>, Storable {
     }
 
     @Override
-    public int compareTo(Assignment a) {
-        if (this.getDeadline() == null) {
+    public int compareTo(Assignment other) {
+        if (this.getDeadline() == null && other.getDeadline() == null) {
+            return 0;
+        } else if (this.getDeadline() == null) {
             return 1;
-        } else if (a.getDeadline() == null) {
+        } else if (other.getDeadline() == null) {
             return -1;
         }
-        return this.getDeadline().compareTo(a.getDeadline());
+        return this.getDeadline().compareTo(other.getDeadline());
     }
 
     @Override
