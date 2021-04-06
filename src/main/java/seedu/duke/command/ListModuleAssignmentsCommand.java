@@ -11,7 +11,10 @@ public class ListModuleAssignmentsCommand extends Command {
 
     private String moduleCode;
 
-    public ListModuleAssignmentsCommand(String moduleCode) {
+    public ListModuleAssignmentsCommand(String moduleCode) throws ModuleNotFoundException {
+        if (moduleCode == null) {
+            throw new ModuleNotFoundException();
+        }
         this.moduleCode = moduleCode;
     }
 

@@ -149,15 +149,13 @@ John Doe, A0123456Y, e0123456@u.nus.edu
 
 Lists the details of all students enrolled in a particular module.
 
-Format: `list student details MODULE_NAME`
+Format: `list student details`
 
 Example of usage:
 
-`list student details CS2113T`
+`list student details`
 
-`list student details CS2101`
-
-> Expected outcome :
+> Expected outcome (assuming the current module is "CS2113T") :
 
 ```` 
 --------------------------------------------------------------------------
@@ -181,7 +179,8 @@ Example of usage:
 ```
 ---------------------------------------------------------------------
  Here are the students in CS2113T:
- 1. John Doe
+ 1. Vaishnavi
+ 2. Emily
 ---------------------------------------------------------------------
 ```
 ***
@@ -304,7 +303,7 @@ Here are the assignments in CS2113T:
 Sorts all assignments in the module by their deadline. <br/>
 If no deadline was set, the assignment will be sorted after those with deadlines.
 
-Format: `sort by deadline`
+Format: `sort assignments by deadline`
 
 Expected Outcome:
 ```
@@ -366,9 +365,7 @@ Examples:
 Expected Outcome:
 ```
 ---------------------------------------------------------------------
-Here are the assignments in CS2113T:
-1. quiz1 (due by: Aug 17 2021)
-2. quiz2 (due by: Aug 16 2021)
+I have set quiz1's deadline to Aug 17 2021 in CS2113
 ---------------------------------------------------------------------
 ```
 ***
@@ -415,6 +412,21 @@ Here are the students' grades for the quiz1 assignment:
 ***
 
 //@@author
+
+### xix. Exiting ModMan : `bye`
+
+Auto-saves all your changes and exits the program. ModMan will have all your data ready the next time you load it.
+
+Format: `bye`
+
+Expected Outcome:
+```
+---------------------------------------------------------------------
+Bye. Hope to see you again soon!
+---------------------------------------------------------------------
+```
+***
+
 ## 3. FAQ
 
 **Q**: How do I delete a particular module/assignment? 
@@ -430,7 +442,7 @@ remove module | `remove module MODULE_NAME` <br> e.g. `remove module CS2113T`
 select module | `select MODULE_NAME` <br> e.g. `select CS2113T`
 view current module | `current` <br>
 add student | `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL` <br> e.g. `add student /s John Doe /# A0123456Y /e e0123456@u.nus.edu`
-list student details | `list student details MODULE_NAME` <br> e.g. `list student details CS2113T`
+list student details | `list student details <br> e.g. `list student details`
 list student | `list student` <br> 
 add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `add timetable /t Lecture /v Zoom /d Fri /s 1600 /e 1800`
 list timetable | `list timetable` <br> 

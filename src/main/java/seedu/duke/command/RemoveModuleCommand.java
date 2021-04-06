@@ -1,5 +1,6 @@
 package seedu.duke.command;
 
+import seedu.duke.Module;
 import seedu.duke.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.ModuleNotFoundException;
@@ -15,10 +16,14 @@ public class RemoveModuleCommand extends Command {
     }
 
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
-        if (data.find(moduleCode) == null) {
+        Module module = data.find(moduleCode);
+        if (module == null) {
             throw new ModuleNotFoundException();
         } else {
-            if (Parser.getCurrentModule().equals(moduleCode)) {
+            String currentModuleCode = Parser.getCurrentModule();
+            if (currentModuleCode == null) {
+                // Avoiding NullPointerException
+            } else if (currentModuleCode.equals(moduleCode)) {
                 Parser.setCurrentModule(null);
             }
             data.remove(moduleCode);

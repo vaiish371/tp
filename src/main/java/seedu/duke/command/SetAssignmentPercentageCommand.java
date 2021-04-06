@@ -16,14 +16,10 @@ public class SetAssignmentPercentageCommand extends Command {
     private float percentage;
 
     public SetAssignmentPercentageCommand(String moduleCode, String assignmentName, String percentage)
-            throws InvalidPercentageException {
+            throws NumberFormatException, InvalidPercentageException {
         this.moduleCode = moduleCode;
         this.assignmentName = assignmentName;
-        try {
-            this.percentage = Float.parseFloat(percentage);
-        } catch (NumberFormatException error) {
-            throw new InvalidPercentageException();
-        }
+        this.percentage = Float.parseFloat(percentage);
         if (this.percentage < 0.0 || this.percentage > 100.0) {
             throw new InvalidPercentageException();
         }

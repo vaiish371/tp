@@ -9,6 +9,8 @@ import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.ui.Ui;
 
+import java.util.ArrayList;
+
 public class GetAssignmentCommentsCommand extends Command {
     private String moduleCode;
     private String assignmentName;
@@ -30,7 +32,7 @@ public class GetAssignmentCommentsCommand extends Command {
             throw new AssignmentNotFoundException();
         }
         assert assignment != null : "module should not be null";
-        String comments = assignment.getComments();
+        ArrayList<String> comments = assignment.getComments();
         ui.printGetAssignmentComments(assignmentName, comments);
     }
 }
