@@ -438,7 +438,7 @@ public class Parser {
             String email = line.substring(emailIndex + E_LENGTH).trim();
             command = new AddStudentCommand(currentModule, studentName, studentNumber, email);
         } catch (StringIndexOutOfBoundsException e) {
-            logger.log(Level.WARNING, "not enough parameters for edit timetable command");
+            logger.log(Level.WARNING, "not enough parameters for add student command");
             throw new InsufficientParametersException();
         }
         return command;

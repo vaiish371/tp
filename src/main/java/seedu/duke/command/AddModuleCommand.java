@@ -4,6 +4,7 @@ package seedu.duke.command;
 import seedu.duke.Module;
 import seedu.duke.Storage;
 import seedu.duke.data.Data;
+import seedu.duke.exception.DuplicateModuleException;
 import seedu.duke.ui.Ui;
 
 public class AddModuleCommand extends Command {
@@ -13,7 +14,10 @@ public class AddModuleCommand extends Command {
         this.moduleCode = moduleCode;
     }
 
-    public void execute(Data data, Ui ui, Storage storage) {
+    public void execute(Data data, Ui ui, Storage storage) throws DuplicateModuleException {
+        if (data.find(moduleCode) != null) {
+            throw new DuplicateModuleException();
+        }
         Module module = new Module(moduleCode);
         data.add(module);
         ui.printNewModule(module);
