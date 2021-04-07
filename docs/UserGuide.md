@@ -1,14 +1,21 @@
 # ModMan User Guide
 
 ## Introduction
-
+````
+ __  __           _   __  __ 
+|  \/  |         | | |  \/  |
+| \  / | ___   __| | | \  / | __ _ _ __
+| |\/| |/ _ \ / _  | | |\/| |/ _  |  _ \
+| |  | | (_) | (_| | | |  | | (_| | | | |
+|_|  |_|\___/ \__'_| |_|  |_|\__'_|_| |_|
+````
 ModMan, short for Module Manager, is a desktop app designed to help Teaching Assistants (TAs) manage their module(s).
 It is optimized for use via a Command Line Interface (CLI). ModMan helps to track module details as well as students’ progress and data, all in one platform. It can also perform autograding for MCQ assignments.
 
 ### What is a CLI?
 A command line interface (CLI) is a text-based user interface used to view and manage computer files.
 
-These include Operating system CLIs like the Command Prompt on Windows, which can be used to run and interact with the ModMan application.
+These include operating system CLIs like the Command Prompt on Windows, which can be used to run and interact with the ModMan application.
 
 ## Table of contents
 1. [Quick start](#1-quick-start)
@@ -36,7 +43,19 @@ These include Operating system CLIs like the Command Prompt on Windows, which ca
 3. [FAQ](#3-faq)
 4. [Command summary](#4-command-summary)
 
-## Legend
+
+## How to use the User Guide
+Welcome to the User Guide for ModMan!  
+
+Regardless if you are a teaching assistant, student or lecturer, this guide would be helpful for you in picking up and using ModMan.
+
+* You may navigate to any subsection from the [Table of contents](#table-of-contents).
+* Scroll down or click [here](#1-quick-start) for the Quick Start guide to get started now.
+* [FAQ](#3-faq) and [Command Summary](#4-command-summary) are available for quick queries or reference.
+
+### Legend 
+A short description of the icons that are used in this User Guide.
+
 Icon | Purpose
 ------ | ----------------
 | :information_source: | Explainers on how to use and interpret the User Guide |
@@ -45,7 +64,7 @@ Icon | Purpose
 ## 1. Quick Start
 
 1. Ensure you have Java 11 installed on your computer or install it from [here](https://www.oracle.com/sg/java/technologies/javase-jdk11-downloads.html).
-1. Download the latest `ModMan.jar` release from [here](https://github.com/AY2021S2-CS2113T-F08-1/tp/releases/tag/v1.0).
+1. Download the latest `ModMan.jar` release from [here](https://github.com/AY2021S2-CS2113T-F08-1/tp/releases/tag/v2.0).
 1. Open a command window in the folder containing the `.jar` file.
 1. Run the command `java -jar {filename}.jar` <br> If you haven't changed the filename, run the command `java -jar ModMan.jar`
 
@@ -68,7 +87,7 @@ Example of usage:
 
 `add module CS2101`
 
-> Expected outcome:
+Expected output :
 
 ```` 
 --------------------------------------------------------------------------
@@ -86,7 +105,7 @@ Example of usage:
 
 `remove module CS2113T`
 
-> Expected outcome:
+Expected output :
 
 ```` 
 --------------------------------------------------------------------------
@@ -104,13 +123,16 @@ Example of usage:
 
 `select CS2113T`
 
-> Expected outcome:
+Expected output :
 
 ```` 
 --------------------------------------------------------------------------
     Success! You are now working in: CS2113T
 -------------------------------------------------------------------------- 
 ````
+
+| :information_source: | All commands onwards assumes we are working in the module CS2113T |
+|----------------------|-------------------------------------|
 ***
 ### iv. Viewing Current Module: `current`
 
@@ -118,7 +140,7 @@ View the current module you are working in.
 
 Format: `current`
 
-> Expected outcome:
+Expected output :
 
 ```` 
 --------------------------------------------------------------------------
@@ -136,7 +158,7 @@ Example of usage:
 
 `add student /s John Doe /# A0123456Y /e e0123456@u.nus.edu`
 
-> Expected outcome (assuming the current module is "CS2113T") :
+Expected output :
 ```
 ---------------------------------------------------------------------
 I have assigned a new student to CS2113T:
@@ -155,7 +177,7 @@ Example of usage:
 
 `list student details`
 
-> Expected outcome (assuming the current module is "CS2113T") :
+Expected output :
 
 ```` 
 --------------------------------------------------------------------------
@@ -175,7 +197,7 @@ Example of usage:
 
 `list student`
 
-> Expected outcome (assuming the current module is "CS2113T") :
+Expected output :
 ```
 ---------------------------------------------------------------------
  Here are the students in CS2113T:
@@ -194,12 +216,14 @@ Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.  
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800`.
 
+:warning: All flags (`/t`, `/v` etc.) must be included in the order specified above.
+
 :warning: Note the spacing before and after each flag eg. `/t TYPE /v`; Input would be truncated if spaces are not present.
 
 Examples:
 * `add timetable /t Lecture /v Zoom /d FRIDAY /s 1600 /e 1800`
 
-> Expected output :
+Expected output :
 ```
 ---------------------------------------------------------------------
 Success! I have added the following timetable for the module - CS2113T
@@ -215,7 +239,7 @@ Format: `list timetable`
 
 * The `START_TIME` and `END_TIME` will be listed in the format `HH:mm` eg. `18:00`.
 
-> Expected output :
+Expected output :
 ```
 ---------------------------------------------------------------------
 Here are the lessons in CS2113T:
@@ -234,7 +258,7 @@ Example usage:
 
 `delete timetable 1`
 
-> Expected output :
+Expected output :
 ```
 ---------------------------------------------------------------------
 You have successfully removed lesson: FRIDAY, 16:00-18:00 from CS2113T
@@ -252,14 +276,16 @@ Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e EN
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800` if specified.
 * The parameters cannot be empty or whitespaces.
-  
+
+:warning: All flags (`/t`, `/v` etc.) must be included in the order specified above.
+
 :warning: Note the spacing before and after each flag eg. `/t TYPE /v`; Input would be truncated if spaces are not present.
 
 Example usage:
 
 Changing the day to Monday: `edit timetable 1 /t - /v - /d MONDAY /s - /e -`
 
-> Expected output :
+Expected output :
 ```
 ---------------------------------------------------------------------
 You have successfully edited the lesson to:
@@ -280,11 +306,11 @@ Example usage:
 
 `add assignment /t la /a recursion`
 
-> Expected Outcome (assuming the current module is "CS2040C") :
+Expected output :
 
 ```
 ---------------------------------------------------------------------
-I have added a new assignment to CS2040C:
+I have added a new assignment to CS2113T:
 Magic Sequence
 ---------------------------------------------------------------------
 ```
@@ -296,7 +322,7 @@ Lists out all assignments in the module along with the due date if the deadline 
 
 Format: `list assignment`
 
-Expected Outcome:
+Expected output :
 ```
 ---------------------------------------------------------------------
 Here are the assignments in CS2113T:
@@ -313,7 +339,7 @@ If no deadline was set, the assignment will be sorted after those with deadlines
 
 Format: `sort assignments by deadline`
 
-Expected Outcome:
+Expected output :
 ```
 ---------------------------------------------------------------------
 Here are the assignments in CS2113T:
@@ -346,7 +372,7 @@ Example usage:
 
 `edit assignment /t la /a recursion /n iteration`
 
-> Expected Outcome :
+Expected output :
 
 ```
 ---------------------------------------------------------------------
@@ -370,10 +396,10 @@ Examples:
 * `set deadline /a quiz1 /d 17 08 2021`
 * `set deadline /a quiz2 /d 16 08 2021`
 
-Expected Outcome:
+Expected output :
 ```
 ---------------------------------------------------------------------
-I have set quiz1's deadline to Aug 17 2021 in CS2113
+I have set quiz1's deadline to Aug 17 2021 in CS2113T
 ---------------------------------------------------------------------
 ```
 ***
@@ -389,7 +415,7 @@ Examples:
 * `list student assignment grades /a quiz1`
 * `list student assignment grades /a quiz3`
 
-Expected Outcome:
+Expected output :
 ```
 ---------------------------------------------------------------------
 Here are the students' grades for the quiz1 assignment:
@@ -409,7 +435,7 @@ Format: `autograde /a ASSIGNMENT_NAME`
 Examples:
 * `autograde /a quiz1`
 
-Expected Outcome:
+Expected output :
 ```
 ---------------------------------------------------------------------
 Here are the students' grades for the quiz1 assignment:
@@ -427,7 +453,7 @@ Auto-saves all your changes and exits the program. ModMan will have all your dat
 
 Format: `bye`
 
-Expected Outcome:
+Expected output :
 ```
 ---------------------------------------------------------------------
 Bye. Hope to see you again soon!
@@ -440,6 +466,11 @@ Bye. Hope to see you again soon!
 **Q**: How do I delete a particular module/assignment? 
 
 **A**: The feature of deletion is still in progress and will be released in our upcoming versions. 
+
+
+**Q**: When is the data saved to the database?
+
+**A**: It is only saved when you exit the program using the `bye` command.
 
 ## 4. Command Summary
 
