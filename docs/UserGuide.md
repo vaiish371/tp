@@ -215,10 +215,13 @@ Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 * The `TYPE` and `VENUE` can be in a natural language format.
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.  
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800`.
+* `START_TIME` must be before `END_TIME`
 
 :warning: All flags (`/t`, `/v` etc.) must be included in the order specified above.
 
 :warning: Note the spacing before and after each flag eg. `/t TYPE /v`; Input would be truncated if spaces are not present.
+
+:warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
 
 Examples:
 * `add timetable /t Lecture /v Zoom /d FRIDAY /s 1600 /e 1800`
@@ -275,11 +278,14 @@ Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e EN
 * The `TYPE` and `VENUE` can be in a natural language format.
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800` if specified.
+* `START_TIME` must be before `END_TIME`
 * The parameters cannot be empty or whitespaces.
 
 :warning: All flags (`/t`, `/v` etc.) must be included in the order specified above.
 
 :warning: Note the spacing before and after each flag eg. `/t TYPE /v`; Input would be truncated if spaces are not present.
+
+:warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
 
 Example usage:
 

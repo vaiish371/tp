@@ -1,5 +1,7 @@
 package seedu.duke;
 
+import seedu.duke.exception.InvalidStartTimeException;
+
 import java.time.LocalTime;
 
 public class Lesson implements Storable {
@@ -21,11 +23,17 @@ public class Lesson implements Storable {
         this.day = day;
     }
 
-    public void setStartTime(LocalTime startTime) {
+    public void setStartTime(LocalTime startTime) throws InvalidStartTimeException {
+        if (startTime.isAfter(endTime) || startTime.equals(endTime)) {
+            throw new InvalidStartTimeException();
+        }
         this.startTime = startTime;
     }
 
-    public void setEndTime(LocalTime endTime) {
+    public void setEndTime(LocalTime endTime) throws InvalidStartTimeException {
+        if (startTime.isAfter(endTime) || startTime.equals(endTime)) {
+            throw new InvalidStartTimeException();
+        }
         this.endTime = endTime;
     }
 
