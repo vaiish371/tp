@@ -15,6 +15,13 @@ Hello from
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
 	 You are currently working in: CS2113T
+
+	 Here's an overview of CS2113T
+		 - You have not added any lessons yet.
+
+		 - You currently have 0 students in your class
+
+		 - You have not added any assignments to yet.
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
 	 I have added a new assignment to CS2113T:
