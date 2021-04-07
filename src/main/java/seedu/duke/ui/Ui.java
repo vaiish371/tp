@@ -184,6 +184,21 @@ public class Ui {
         System.out.println("\t Success! You are now working in: " + moduleCode);
     }
 
+    public void printModules(ArrayList<Module> modules, String currentModuleCode) {
+        if (modules.size() == 0) {
+            System.out.println("\t You have not added any modules to ModMan yet!");
+        } else {
+            System.out.println("\t Here are your modules: ");
+            for (int i = 1; i <= modules.size(); i++) {
+                if (currentModuleCode.equals(modules.get(i - 1).getModuleCode())) {
+                    System.out.println("\t " + i + ". " + modules.get(i - 1).getModuleCode() + " (current)");
+                } else {
+                    System.out.println("\t " + i + ". " + modules.get(i - 1).getModuleCode());
+                }
+            }
+        }
+    }
+
     public void printModules(ArrayList<Module> modules) {
         if (modules.size() == 0) {
             System.out.println("\t You have not added any modules to ModMan yet!");
@@ -205,8 +220,47 @@ public class Ui {
     }
 
     public void printModuleInfo(Module module) {
-
         System.out.println("\t You are currently working in: " + module.getModuleCode());
+        System.out.println();
+        System.out.println("\t Here's an overview of " +  module.getModuleCode());
+        listModuleTimetableOverview(module);
+        System.out.println();
+        if (module.getStudents().size() == 1) {
+            System.out.println("\t\t - You currently have " + module.getStudents().size() + " student in your class");
+        } else {
+            System.out.println("\t\t - You currently have " + module.getStudents().size() + " students in your class");
+        }
+        System.out.println();
+        listModuleAssignmentsOverview(module);
+    }
+
+    private void listModuleAssignmentsOverview(Module module) {
+        ArrayList<Assignment> assignments = module.getAssignments();
+        if (assignments.size() == 0) {
+            System.out.println("\t\t - You have not added any assignments to yet.");
+        } else {
+            assert assignments.size() > 0 : "size of assignments should be greater than zero";
+            System.out.println("\t\t - Here are your assignments:");
+            for (int i = 1; i <= assignments.size(); i++) {
+                System.out.println("\t\t\t - " + assignments.get(i - 1).toString());
+            }
+        }
+    }
+
+    private void listModuleTimetableOverview(Module module) {
+        ArrayList<Lesson> lessons = module.getLessons();
+        Lesson lesson;
+        if (lessons.size() == 0) {
+            System.out.println("\t\t - You have not added any lessons yet.");
+        } else {
+            assert lessons.size() > 0 : "size of lessons should be greater than zero";
+            System.out.println("\t\t - Here are your lessons: ");
+            for (int i = 1; i <= lessons.size(); i++) {
+                lesson = lessons.get(i - 1);
+                System.out.println("\t\t\t - " + lesson.getLessonType() + ": " + lesson.toString()
+                        + " (" + lesson.getVenue() + ")");
+            }
+        }
     }
 
     public void deleteModuleTimetable(String moduleCode, Lesson lesson) {

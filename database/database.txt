@@ -1,11 +1,12 @@
 1
-CS2113T | 1 | 0 | 10
-quiz1 | McqAssignment | null | 0.0 | null | 5
+CS2113T | 1 | 1 | 10
+quiz1 | McqAssignment | null | 0.0 | [[null]] | 5
 A0214561M | 92.0
 A0215114X | 100.0
 A0765432X | 92.0
 A0234432X | 84.0
 A0123456Z | 96.0
+FRIDAY | 16:00 | 18:00 | Zoom | Lecture
 Jianning | A0214561M | e0527277@u.nus.edu
 Bryan | A0215114X | e0535051@u.nus.edu
 Zihan | A0123456Z | e0123456@u.nus.edu

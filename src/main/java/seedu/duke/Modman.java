@@ -2,8 +2,6 @@ package seedu.duke;
 
 import seedu.duke.command.Command;
 import seedu.duke.data.Data;
-import seedu.duke.exception.DataFileNotFoundException;
-import seedu.duke.exception.FileFormatException;
 import seedu.duke.exception.FileNotSavedException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.parser.Parser;
