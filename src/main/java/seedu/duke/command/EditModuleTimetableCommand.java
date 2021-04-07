@@ -5,7 +5,12 @@ import seedu.duke.Lesson;
 import seedu.duke.Module;
 import seedu.duke.Storage;
 import seedu.duke.data.Data;
-import seedu.duke.exception.*;
+import seedu.duke.exception.DateTimeFormatException;
+import seedu.duke.exception.DayFormatException;
+import seedu.duke.exception.EmptyTimetableParameterException;
+import seedu.duke.exception.IndexNotFoundException;
+import seedu.duke.exception.InvalidStartTimeException;
+import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.parser.Parser;
 import seedu.duke.ui.Ui;
 
