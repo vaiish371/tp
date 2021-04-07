@@ -72,8 +72,8 @@ Given below is the Sequence Diagram for the Storage class. The storage class int
 ![Data](uml/Data.png)
 
 The `Data`,
-* stores an `ArrayList` of `Module` objects that represents the modules.
-* Each `Module` object contains `ArrayLists` of `Assignment`, `Lesson`, and `Student` objects.
+1. Stores `Module` objects that represents the modules.
+2. Each `Module` contains the details of `Lesson` and `Student` objects which implements the `Storable` interface, as well as `Assignment` objects which implement the `Storable` and `Comparable` interfaces.
 
 ## Implementation
 
@@ -170,13 +170,13 @@ Also used to keep track of which students have not submitted assignments
 ## Product scope
 ### Target user profile:
 * Teaching assistants who: 
-    * have a need to manage their module(s), students and assignments
+    * have a need to manage their module(s), students and module assignments
     * are comfortable using CLI apps
 {Describe the target user profile}
 
 ### Value proposition
 
-Just to keep track of all informaiton pertaining to a module teaching assistants (at NUS) have to make use of multiple platforms:
+To keep track of all information pertaining to a module, teaching assistants (at NUS) have to make use of multiple platforms:
 * LumiNUS
 * NUSMods 
 * Module websites 
@@ -190,15 +190,19 @@ With the help of ModMan, users will be able to add, edit, and store all informat
 
 |Version| As a ... | I want to ... | So that I can ...|
 |--------|----------|---------------|------------------|
-|v1.0|new user|see usage instructions|refer to them when I forget how to use the application|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
+|v1.0|Teaching Assistant|add modules that I am teaching|keep track of the information for each of my modules|
+|v1.0|Teaching Assistant|add the time and day of a module's lesson|keep track of my teaching timetable|
+|v1.0|Teaching Assistant|add my student's details|contact them if they need help|
+|v2.0|Teaching Assistant|view my students' weekly grades for their assignments|focus on the students who are not doing well|
+|v2.0|Teaching Assistant|edit a module's lesson information|keep track of changes in lesson schedule|
+|v2.0|Teaching Assistant|print out assignments due within a certain time frame|keep track of the more urgent assignments|
 
 ## Non-Functional Requirements
 
 1. The application should work on any *mainstream* operating system (e.g. Windows, Linux, macOS) 
    with `Java 11` installed.
-1. The application should be responsive and users should not face any sluggish performance.
-1. Users who are above average in typing speed (in English) should be able to easily issue commands faster than using a mouse.
+1. The application should be responsive - users should not face any sluggish performance.
+1. Users who have above average typing speeds (in English) should be able to easily issue commands faster than using a mouse.
 
 
 ## Glossary

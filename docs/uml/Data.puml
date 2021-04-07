@@ -2,27 +2,45 @@
 skinparam componentStyle rectangle
 skinparam packageStyle rectangle
 
-Interface Storable <<interface>>
+Interface [Storable] <<interface>>
+Interface [Comparable] <<interface>>
 package Data {
 
   package "Module" {
-      [Modules] o--> [Module]
-      [Module] *--> [moduleCode]
+      [Modules] o--> "0..*" [Module]
+      [Module] *--> "1" [moduleCode]
       package "Assignment" {
-        [Module] --> [assignments]
-        [assignments] o--> [Assignment]
+        [Module] ---> "1" [assignments]
+        [assignments] o--> "0..*" [Assignment]
+        [Assignment] *--> "1" [name]
+        [Assignment] *--> "1" [typeOfAssignment]
+        [Assignment] *--> "0..1" [deadline]
+        [Assignment] *--> "0..1" [percentageOfOverallGrade]
+        [Assignment] *--> "1" [assignmentComments]
+        [Assignment] *--> "1" [studentGrades]
+        [Assignment] *--> "1" [answer]
       }
       package "Lesson" {
-        [Module] --> [lessons]
-        [lessons] o--> [Lesson]
+        [Module] ---> "1" [lessons]
+        [lessons] o--> "0..*" [Lesson]
+        [Lesson] *--> "1" [lessonType]
+        [Lesson] *--> "1" [venue]
+        [Lesson] *--> "1" [day]
+        [Lesson] *--> "1" [startTime]
+        [Lesson] *--> "1" [endTime]
       }
       package "Student" {
-        [Module] --> [students]
-        [students] o--> [Student]
+        [Module] ---> "1" [students]
+        [students] o--> "0..*" [Student]
+        [Student] *--> "1" [name]
+        [Student] *--> "1" [studentNumber]
+        [Student] *--> "1" [email]
       }
-      [Assignment] ..> Storable
-      [Lesson] ..> Storable
-      [Student] ..> Storable
+      [Assignment] ..up.|> Storable
+      [Assignment] ..up.|> Comparable
+      [Lesson] ..up.|> Storable
+      [Student] ..up.|> Storable
+
   }
 }
 
