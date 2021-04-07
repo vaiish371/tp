@@ -199,6 +199,17 @@ public class Ui {
         }
     }
 
+    public void printModules(ArrayList<Module> modules) {
+        if (modules.size() == 0) {
+            System.out.println("\t You have not added any modules to ModMan yet!");
+        } else {
+            System.out.println("\t Here are your modules: ");
+            for (int i = 1; i <= modules.size(); i++) {
+                System.out.println("\t " + i + ". " + modules.get(i - 1).getModuleCode());
+            }
+        }
+    }
+
     public void removeModuleMessage(String moduleCode) {
         System.out.println("\t You have successfully removed module: " + moduleCode);
     }
@@ -252,17 +263,6 @@ public class Ui {
             System.out.println("\t These are the students who have not submitted their assignments:");
             for (int i = 1; i <= ungraded.size(); i++) {
                 System.out.println("\t " + i + ". " + ungraded.get(i - 1).toString());
-            }
-        }
-    }
-
-    public void printModules(ArrayList<Module> modules) {
-        if (modules.size() == 0) {
-            System.out.println("\t You have not added any modules to ModMan yet!");
-        } else {
-            System.out.println("\t Here are your modules: ");
-            for (int i = 1; i <= modules.size(); i++) {
-                System.out.println("\t " + i + ". " + modules.get(i - 1).getModuleCode());
             }
         }
     }
