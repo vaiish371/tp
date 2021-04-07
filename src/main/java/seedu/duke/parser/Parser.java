@@ -1,5 +1,6 @@
 package seedu.duke.parser;
 
+import seedu.duke.Day;
 import seedu.duke.command.AddAssignmentCommand;
 import seedu.duke.command.AddModuleCommand;
 import seedu.duke.command.AddStudentCommand;
@@ -10,6 +11,7 @@ import seedu.duke.command.CurrentModuleCommand;
 import seedu.duke.command.DeleteModuleTimetableCommand;
 import seedu.duke.command.EditModuleTimetableCommand;
 import seedu.duke.command.ExitCommand;
+import seedu.duke.command.GetAssignmentCommentsCommand;
 import seedu.duke.command.ListModuleAssignmentsCommand;
 import seedu.duke.command.ListModuleCommand;
 import seedu.duke.command.ListModuleStudentsCommand;
@@ -18,13 +20,15 @@ import seedu.duke.command.ListStudentGradesForAssignmentCommand;
 import seedu.duke.command.ListStudentsDetailsCommand;
 import seedu.duke.command.RemoveModuleCommand;
 import seedu.duke.command.SelectModuleCommand;
+import seedu.duke.command.SetAssignmentCommentsCommand;
 import seedu.duke.command.SetAssignmentDeadlineCommand;
-import seedu.duke.command.SetAssignmentPercentageCommand;
 import seedu.duke.command.SetAssignmentGradeCommand;
+import seedu.duke.command.SetAssignmentPercentageCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
 import seedu.duke.exception.DateTimeFormatException;
+import seedu.duke.exception.DayFormatException;
 import seedu.duke.exception.IndexNotFoundException;
 import seedu.duke.exception.InsufficientParametersException;
 import seedu.duke.exception.InvalidCommandException;
@@ -32,8 +36,6 @@ import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.ModuleNotSelectedException;
-import seedu.duke.command.SetAssignmentCommentsCommand;
-import seedu.duke.command.GetAssignmentCommentsCommand;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -333,7 +335,7 @@ public class Parser {
     }
 
     private static Command getAddTimetableCommand(String line) throws InsufficientParametersException,
-            DateTimeFormatException {
+            DateTimeFormatException, DayFormatException {
         Command command;
         String typeSeparator = "/t";
         String venueSeparator = "/v";
@@ -349,7 +351,7 @@ public class Parser {
             int endIndex = line.indexOf(endSeparator);
             String type = line.substring(typeIndex + T_LENGTH, venueIndex - 1);
             String venue = line.substring(venueIndex + V_LENGTH, dayIndex - 1);
-            String day = line.substring(dayIndex + D_LENGTH, startIndex - 1);
+            Day day = Day.valueOf(line.substring(dayIndex + D_LENGTH, startIndex - 1));
             String start = line.substring(startIndex + S_LENGTH, endIndex - 1);
             String end = line.substring(endIndex + E_LENGTH).trim();
             command = new AddTimetableCommand(currentModule, type, venue, day, start, end);
@@ -359,6 +361,9 @@ public class Parser {
         } catch (DateTimeParseException e) {
             logger.log(Level.WARNING, "Start/End time format is wrong.");
             throw new DateTimeFormatException();
+        } catch (IllegalArgumentException e) {
+            logger.log(Level.WARNING, "Day format is wrong.");
+            throw new DayFormatException();
         }
         return command;
     }

@@ -3,21 +3,21 @@ package seedu.duke;
 import java.time.LocalTime;
 
 public class Lesson implements Storable {
-    private String day;
+    private Day day;
     private LocalTime startTime;
     private LocalTime endTime;
     private String venue;
     private String lessonType;
 
     public Lesson(String day, LocalTime startTime, LocalTime endTime, String venue, String lessonType) {
-        this.day = day;
+        this.day = Day.valueOf(day);
         this.startTime = startTime;
         this.endTime = endTime;
         this.venue = venue;
         this.lessonType = lessonType;
     }
 
-    public void setDay(String day) {
+    public void setDay(Day day) {
         this.day = day;
     }
 

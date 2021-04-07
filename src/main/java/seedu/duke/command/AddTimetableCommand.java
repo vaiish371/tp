@@ -1,10 +1,10 @@
 package seedu.duke.command;
 
+import seedu.duke.Day;
 import seedu.duke.Lesson;
 import seedu.duke.Module;
 import seedu.duke.Storage;
 import seedu.duke.data.Data;
-import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.ui.Ui;
 
@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 public class AddTimetableCommand extends Command {
     private final String moduleCode;
-    private final String day;
+    private final Day day;
     private final LocalTime startTime;
     private final LocalTime endTime;
     private final String venue;
@@ -25,7 +25,7 @@ public class AddTimetableCommand extends Command {
     private static final Logger logger = Logger.getLogger("AddTimetableCommand");
 
     public AddTimetableCommand(String moduleCode, String lessonType, String venue,
-                               String day, String startTime, String endTime) throws DateTimeParseException {
+                               Day day, String startTime, String endTime) throws DateTimeParseException {
         logger.log(Level.INFO, "start initialising AddTimeTableCommand");
         this.moduleCode = moduleCode;
         this.day = day;
@@ -43,7 +43,7 @@ public class AddTimetableCommand extends Command {
             throw new ModuleNotFoundException();
         }
         assert module != null : "module should not be null";
-        Lesson lesson = new Lesson(day, startTime, endTime, venue, lessonType);
+        Lesson lesson = new Lesson(day.toString(), startTime, endTime, venue, lessonType);
         module.addLesson(lesson);
         ui.printNewTimetable(moduleCode, lesson);
     }

@@ -190,17 +190,20 @@ Adds a new lesson to the list (timetable) of lessons for the module you have sel
 
 Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
-* The `TYPE`, `VENUE` and `DAY` can be in a natural language format.
+* The `TYPE` and `VENUE` can be in a natural language format.
+* The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.  
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800`.
 
+:warning: Note the spacing before and after each flag eg. `/t TYPE /v`; Input would be truncated if spaces are not present.
+
 Examples:
-* `add timetable /t Lecture /v Zoom /d Fri /s 1600 /e 1800`
+* `add timetable /t Lecture /v Zoom /d FRIDAY /s 1600 /e 1800`
 
 > Expected output :
 ```
 ---------------------------------------------------------------------
 Success! I have added the following timetable for the module - CS2113T
-Lecture: Fri, 16:00-18:00 (Zoom)
+Lecture: FRIDAY, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
 ***
@@ -216,8 +219,8 @@ Format: `list timetable`
 ```
 ---------------------------------------------------------------------
 Here are the lessons in CS2113T:
-1. Lecture: Fri, 16:00-18:00 (Zoom)
-2. Tutorial: Fri, 08:00-09:00 (Zoom)
+1. Lecture: FRIDAY, 16:00-18:00 (Zoom)
+2. Tutorial: FRIDAY, 08:00-09:00 (Zoom)
 ---------------------------------------------------------------------
 ```
 ***
@@ -234,7 +237,7 @@ Example usage:
 > Expected output :
 ```
 ---------------------------------------------------------------------
-You have successfully removed lesson: Fri, 16:00-18:00 from CS2113T
+You have successfully removed lesson: FRIDAY, 16:00-18:00 from CS2113T
 ---------------------------------------------------------------------
 ```
 ***
@@ -245,17 +248,22 @@ Edits the lessons in the timetable corresponding to the index for the module you
 Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
 * You may enter `-` for the field(s) you do not wish to change.
+* The `TYPE` and `VENUE` can be in a natural language format.
+* The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800` if specified.
+* The parameters cannot be empty or whitespaces.
+  
+:warning: Note the spacing before and after each flag eg. `/t TYPE /v`; Input would be truncated if spaces are not present.
 
 Example usage:
 
-Changing the day to Monday: `edit timetable 1 /t - /v - /d Mon /s - /e -`
+Changing the day to Monday: `edit timetable 1 /t - /v - /d MONDAY /s - /e -`
 
 > Expected output :
 ```
 ---------------------------------------------------------------------
 You have successfully edited the lesson to:
-Lecture: Mon, 16:00-18:00 (Zoom)
+Lecture: MONDAY, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
 ***
