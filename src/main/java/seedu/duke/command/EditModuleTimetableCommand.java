@@ -5,11 +5,7 @@ import seedu.duke.Lesson;
 import seedu.duke.Module;
 import seedu.duke.Storage;
 import seedu.duke.data.Data;
-import seedu.duke.exception.DateTimeFormatException;
-import seedu.duke.exception.DayFormatException;
-import seedu.duke.exception.EmptyTimetableParameterException;
-import seedu.duke.exception.IndexNotFoundException;
-import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.*;
 import seedu.duke.parser.Parser;
 import seedu.duke.ui.Ui;
 
@@ -44,7 +40,7 @@ public class EditModuleTimetableCommand extends Command {
 
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws IndexNotFoundException, DateTimeFormatException,
-            ModuleNotFoundException, EmptyTimetableParameterException, DayFormatException {
+            ModuleNotFoundException, EmptyTimetableParameterException, DayFormatException, InvalidStartTimeException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
@@ -95,6 +91,8 @@ public class EditModuleTimetableCommand extends Command {
             throw e;
         } catch (IllegalArgumentException e) {
             throw new DayFormatException();
+        } catch (InvalidStartTimeException e) {
+            throw e;
         }
     }
 }
