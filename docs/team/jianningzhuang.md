@@ -1,6 +1,6 @@
 # Jianning Zhuang's Project Portfolio Page
 
-###Project: ModMan
+### Project: ModMan
 Short for Module Manager, ModMan is a desktop app designed to help teaching assistants manage their module(s). 
 It is optimized for use via a Command Line Interface (CLI). 
 ModMan helps to track module details as well as students’ progress and data, all in one platform. 
@@ -50,6 +50,6 @@ Given below are my contributions to the project.
         - Added implementation details for the feature `sort assignments`: #142
         - Added implementation details for the feature `autograde assignments`: #208
 - Community:
-    - PRs reviewed (with non-trivial review comments): 
-    - Reported bugs in other team's applications: 
+    - PRs reviewed (with non-trivial review comments): #65
+    - Reported bugs in other team's applications
     
