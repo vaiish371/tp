@@ -8,7 +8,7 @@ import seedu.duke.exception.NumbersMisalignException;
 
 import java.util.ArrayList;
 
-public class ShortAnswerAssignment extends Assignment {
+public class ShortAnswerAssignment extends Assignment implements Autogradable {
 
     private Answer answer;
 

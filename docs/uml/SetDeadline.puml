@@ -5,6 +5,7 @@ participant ":SetAssignmentDeadlineCommand" as Command
 participant ":Data" as Data
 participant ":Module" as Module
 participant ":Assignment" as Assignment
+participant ":Ui" as Ui
 
 
 [-> Parser : parse("set deadline")

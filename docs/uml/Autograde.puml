@@ -5,11 +5,12 @@ participant ":AutogradeAssignmentCommand" as Command
 participant ":Data" as Data
 participant ":Module" as Module
 participant ":Storage" as Storage
-participant ":Assignment" as Assignment
 participant ":Answer" as Answer
+participant ":Assignment" as Assignment
 participant ":McqAssignment" as McqAssignment
 participant ":ShortAnswerAssignment" as ShortAnswerAssignment
-
+participant ":Student" as Student
+participant ":Ui" as Ui
 
 [-> Parser : parse("autograde assignment")
 activate Parser
@@ -34,8 +35,16 @@ activate Module
 Module --> Command : assignment
 deactivate Module
 
+Command -> Module : getStudents()
+activate Module
+
+Module --> Command : students
+deactivate Module
+
 Command -> Storage : loadAnswer(assignmentName, moduleCode)
 activate Storage
+
+ref over Storage, Answer : loadAnswer
 
 Storage --> Command : answer
 deactivate Storage
@@ -46,16 +55,12 @@ activate Assignment
 Assignment --> Command
 deactivate Assignment
 
-Command -> Module : getStudents()
-activate Module
-
-Module --> Command : students
-deactivate Module
-
 alt assignment instanceof McqAssignment
 
 Command -> McqAssignment : autogradeAssignment(students, moduleCode, storage)
 activate McqAssignment
+
+ref over McqAssignment, Student, Storage, Answer : autogradeMcq
 
 McqAssignment --> Command
 deactivate McqAssignment
@@ -65,6 +70,8 @@ else assignment instanceof ShortAnswerAssignment
 
 Command -> ShortAnswerAssignment : autogradeAssignment(students, moduleCode, storage)
 activate ShortAnswerAssignment
+
+ref over ShortAnswerAssignment, Student, Storage, Answer : autogradeShortAnswer
 
 ShortAnswerAssignment --> Command
 deactivate ShortAnswerAssignment

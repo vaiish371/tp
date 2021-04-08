@@ -1,0 +1,64 @@
+@startuml
+
+group sd autogradeMcq
+
+participant ":McqAssignment" as McqAssignment
+participant ":Student" as Student
+participant ":Storage" as Storage
+participant ":Answer" as Answer
+
+[-> McqAssignment : autogradeAssignment(students, moduleCode, storage)
+activate McqAssignment
+
+loop students
+
+McqAssignment -> Student : getStudentNumber()
+activate Student
+
+Student --> McqAssignment : studentNumber
+deactivate Student
+
+McqAssignment -> Storage : findStudentScript(name, moduleCode, studentNumber)
+activate Storage
+
+Storage --> McqAssignment : hasScript
+deactivate Storage
+
+opt hasScript
+
+McqAssignment -> Storage : loadScript(name, moduleCode, studentNumber)
+activate Storage
+
+ref over Storage: loadScript
+
+Storage --> McqAssignment : script
+deactivate Storage
+
+McqAssignment -> Answer : compareScript(script)
+activate Answer
+
+Answer --> McqAssignment : score
+deactivate Answer
+
+McqAssignment -> McqAssignment : getTotalMarks()
+activate McqAssignment
+
+McqAssignment --> McqAssignment : total
+deactivate McqAssignment
+
+McqAssignment -> McqAssignment : setStudentGrade(student, grade)
+activate McqAssignment
+
+McqAssignment --> McqAssignment
+deactivate McqAssignment
+
+end
+
+end
+
+[<-- McqAssignment
+deactivate McqAssignment
+
+end
+
+@enduml

@@ -35,12 +35,12 @@ The sections below give more details of each component.
 3. The command execution can affect the state of the `Data` and `Storage` components. For example, the `AddModuleCommand` adds a new `Module` object in `Data`.
 4. The `Command` object can also instruct the `Ui` to list and display information to the user.
 
-Given below is the sequence diagram for creating the corresponding `Command` object from user input via `Parser`. </br>
+Given below is the sequence diagram for creating the corresponding `Command` object from the user input via `Parser`. </br>
 The sequence diagram also acts as a reference frame for `getCommand` which is common across most `Command` objects.
 
 ![getCommand](uml/getCommand.png)
 
-If a `Command` does not use the reference frame, another sequence diagram would be used to describe how the `Command` object was created.
+If a `Command` object does not use the reference frame, another sequence diagram would be used to describe how the `Command` object was created.
 
 ## UI Component
 The UI Component consists of one class - `Ui` which provides all the functions
@@ -83,8 +83,8 @@ This section provides details on the implementation of the various commands that
 
 There are 4 attributes of the `Assignment` object in which the User can interact with:
 
-1. Deadline - `LocalDate` representing the date which assignment should be graded by.
-2. Percentage - `float` of the percentage of the overall grade which the assignment carries.
+1. Deadline - `LocalDate` representing the date which the assignment should be graded by.
+2. Percentage - `float` of the percentage of the overall grade which the assignment carries in the module.
 3. Students' Grades - `HashMap<String, Float>` of the students' grades for the assignment, where the key is the Student/Matric Number and the value is the Grade out of 100%.
 4. Comments - `String` representing comments for particular questions and/or the overall assignment.
 
@@ -103,9 +103,9 @@ Given below is the sequence diagram for the `SetAssignmentDeadlineCommand`:
 Implementation considerations for using `LocalDate` for deadline attribute in `Assignment`:
 
 * `LocalDate` is an immutable class that represents dates with a default format of yyyy-MM-dd
-* `LocalDate` allows for standardisation of format and representation of deadlines
-* `LocalDate` has a built in compareTo() method that allows us to compare two dates
-* `LocalDate` allows us to easily sort `Assignment` objects by the deadline attribute
+* `LocalDate` allows for standardisation of the format and representation of deadlines
+* `LocalDate` has a built-in compareTo() method that allows us to compare and order two dates
+* `LocalDate` allows us to easily sort `Assignment` objects by their deadline attribute
 
 ### `SetAssignmentGradeCommand`
 
@@ -150,14 +150,63 @@ Given below is the sequence diagram for the `SortAssignmentsByDeadlineCommand`:
 
 ### Listing Student Grades for  (Jianning)
 
+The ``
+
 
 ### Autograding Assignments (Jianning)
 
-The `AutogradeAssignmentCommand` is used to automatically grade all current students' scripts and save the grades </br>
-Also used to keep track of which students have not submitted assignments
+The `AutogradeAssignmentCommand` is used to grade all current students' scripts found in the `scripts` directory. </br>
+The grades for each student will also be automatically saved and updated in the `Assignment`.</br>
+Autograding also keeps track of which students in the current student list have not submitted their assignment. </br>
 
-![AutogradeCommand](uml/Autograde.png)
+| :information_source: |  Currently, only the `McqAssignment` and `ShortAnswerAssignment` implement the `Autogradable`interface|
+|----------------------|-------------------------------------|
 
+The sequence in which Autograding is carried out is as follows:
+
+1. The relevant `Module` is retrieved from `Data`, followed by the `Assignment` we wish to autograde and the current students in that `Module`.
+2. The `Answer` for the `Assignment` is read from the corresponding text file in the `answers` directory and is set or updated in the `Assignment`.
+3. If the `Assignment` is of type `McqAssignment` or `ShortAnswerAssignment`, their respective `autogradeAssignment` method will be invoked. Else, the `NotAutogradableException()` will be thrown.
+4. Within the `autogradeAssignment` method, for each `Student` in the student list:</br>
+   4.1. If the script for the `Student` can be found in the `scripts` directory, the script is loaded and compared with the `Answer`.</br>
+   4.2  The grade for the `Student` is calculated and saved in the `HashMap<String, Float>` of students' grades in `Assignment`.</br>
+   4.3  Else, grading for the `Student` is skipped and the loop continues.
+5. Based on the `HashMap<String, Float>` of students' grades, if a `Student`'s grade is `null` for the `Assignment`, they are added to the ungraded list.
+6. The students' grades as well as the list of students who have not submitted their work are displayed through `Ui`.
+
+The aforementioned sequence of events is also shown in the following sequence diagrams:
+
+![AutogradeCommand](uml/AutogradeDraft.png)
+
+:information_source: Reference frames for the `AutogradeAssignmentCommand` sequence diagram:
+* The `getCommand` reference frame can be found in the `Logic Component` section.
+* The `loadAnswer` and `loadScript` reference frames can be found in the `Storage Component` section.
+* Since the `autogradeMcq` and `autogradeShortAnswer` reference frames are similar, only `autogradeMcq` will be shown below. More details about the difference between autograding for Mcq and Short Answer will be discussed below as well.
+
+
+Reference frame for `autogradeMcq`:
+
+![AutogradeMcq](uml/SdMcqDraft.png)
+
+Implementation Considerations in Autograding:
+
+`Formatting of Answer Key and Student Scipts in text file`
+
+`Updating Answer Key` </br>
+
+* The Answer Key is updated in the `Assignment` every time an `Answer` is read from the text file in the `answers` directory, even if there was an existing `Answer`. </br>
+* This is to account for any changes in the Answer Key due to mistakes or more options being accepted. </br>
+* By the same principle, all the students' scripts would be graded again as well, even if they had been graded previously. </br>
+* The grades for each `Student` will also be updated in the `HashMap` accordingly.
+
+`Mcq vs Short Answer` </br>
+
+* The Answer Key is updated in the `Assignment` every time an `Answer` is read from the text file in the `answers` directory, even if there was an existing `Answer`. </br>
+* This is to account for any changes in the Answer Key due to mistakes or more options being accepted. </br>
+* By the same principle, all the students' scripts would be graded again as well, even if they had been graded previously. </br>
+* The grades for each `Student` will also be updated in the `HashMap` accordingly.
+
+`Autogradable Interface` </br>
 
 [Coming soon] Get statistics from Autograde
 
