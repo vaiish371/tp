@@ -1,0 +1,64 @@
+@startuml
+
+group sd autogradeShortAnswer
+
+participant ":ShortAnswerAssignment" as Assignment
+participant ":Student" as Student
+participant ":Storage" as Storage
+participant ":Answer" as Answer
+
+[-> Assignment : autogradeAssignment(students, moduleCode, storage)
+activate Assignment
+
+loop students
+
+Assignment -> Student : getStudentNumber()
+activate Student
+
+Student --> Assignment : studentNumber
+deactivate Student
+
+Assignment -> Storage : findStudentScript(name, moduleCode, studentNumber)
+activate Storage
+
+Storage --> Assignment : hasScript
+deactivate Storage
+
+opt hasScript
+
+Assignment -> Storage : loadScript(name, moduleCode, studentNumber)
+activate Storage
+
+ref over Storage: loadScript
+
+Storage --> Assignment : script
+deactivate Storage
+
+Assignment -> Answer : compareScript(script)
+activate Answer
+
+Answer --> Assignment : score
+deactivate Answer
+
+Assignment -> Assignment : getTotalMarks()
+activate Assignment
+
+Assignment --> Assignment : total
+deactivate Assignment
+
+Assignment -> Assignment : setStudentGrade(student, grade)
+activate Assignment
+
+Assignment --> Assignment
+deactivate Assignment
+
+end
+
+end
+
+[<-- Assignment
+deactivate Assignment
+
+end
+
+@enduml
