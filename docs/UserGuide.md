@@ -35,9 +35,12 @@ These include operating system CLIs like the Command Prompt on Windows, which ca
     1. [`list assignments` - Listing Module Assignments](#xiii-listing-module-assignments--list-assignments)
     1. [`sort assignments` - Sorting Module Assignments](#xiv-sorting-module-assignments--sort-assignments)
     1. [`edit assignment` - Editing an Assignment Name](#xv-editing-an-assignment-name-edit-assignment) 
-    1. [`set deadline` - Setting Assignment Deadline](#xvi-setting-assignment-deadline--set-deadline)
-    1. [`list grades` - Listing Assignment Grades](#xvii-listing-assignment-grades--list-grades)
-    1. [`autograde` - Auto-Grading Assignments](#xviii-auto-grading-assignments--autograde)
+    1. [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#xvi-setting-assignment-percentage-set-assignment-percentage)
+    1. [`set assignment comments` - Setting Assignment Comments](#xvii-setting-assignment-comments-set-assignment-comments)
+    1. [`get assignment comments` - Getting Assignment Percentage](#xviii-getting-assignment-comments-get-assignment-comments)
+    1. [`set deadline` - Setting Assignment Deadline](#xix-setting-assignment-deadline--set-deadline)
+    1. [`list grades` - Listing Assignment Grades](#xx-listing-assignment-grades--list-grades)
+    1. [`autograde` - Auto-Grading Assignments](#xxi-auto-grading-assignments--autograde)
  
   
 3. [FAQ](#3-faq)
@@ -302,7 +305,9 @@ Lecture: MONDAY, 16:00-18:00 (Zoom)
 //@@author bryanwhl
 ### xii. Adding an Assignment: `add assignment`
 
-Adds an assignment
+Adds an assignment to the module that is current selected by the user. 
+
+:warning: The parameter /t allows for only 3 types of assignment: "la" (which stands for Long Assignments), "sa" (which stands for Short Assignments) and "mcq" (which stands for Multiple Choice Question Assignments).
 
 Format: `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME`
 
@@ -388,8 +393,79 @@ Forest Fruits
 ```
 
 ***
+//@@author bryanwhl
+
+### xvi. Setting Assignment Percentage: `set assignment percentage`
+
+Sets the assignment percentage of an existing assignment
+
+Format: `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE`
+
+Example usage:
+
+`set assignment percentage /a Magic Sequence /p 15`
+
+`set assignment percentage /a Forest Fruits /p 25.0`
+
+Expected output :
+
+```
+---------------------------------------------------------------------
+I have set Magic Sequence's percentage to 15.0 in CS2113T
+---------------------------------------------------------------------
+```
+
+***
+//@@author bryanwhl
+
+### xvii. Setting Assignment Comments: `set assignment comments`
+
+Sets the assignment comments of an existing assignment
+
+Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
+
+Example usage:
+
+`set assignment comments /a Magic Sequence /p This assignment is well done.`
+
+`set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
+
+Expected output :
+
+```
+---------------------------------------------------------------------
+I have added a comment to Magic Sequence:
+    This assignment is well done.
+in CS2113T
+---------------------------------------------------------------------
+```
+
+***
+//@@author bryanwhl
+
+### xviii. Getting Assignment Comments: `get assignment comments`
+
+Gets the assignment comments of an existing assignment and prints it out for the user.
+
+Format: `get assignment comments /a ASSIGNMENT_NAME`
+
+Example usage:
+
+`get assignment comments /a Magic Sequence`
+
+Expected output :
+
+```
+---------------------------------------------------------------------
+Your previous comments for CS2113T is as follows:
+    1. This assignment is well done.
+in CS2113T
+---------------------------------------------------------------------
+```
+
+***
 //@@author jianningzhuang
-### xvi. Setting Assignment Deadline : `set deadline` 
+### xix. Setting Assignment Deadline : `set deadline` 
 
 Sets the deadline the assignment has to be graded by. 
 If a deadline had previously been set, it will be updated by the new deadline.
@@ -410,7 +486,7 @@ I have set quiz1's deadline to Aug 17 2021 in CS2113T
 ```
 ***
 //@@author bryanwhl
-### xvii. Listing Assignment Grades : `list grades` 
+### xx. Listing Assignment Grades : `list grades` 
 
 Lists the students' grades for a particular assignment.
 The students listed are sorted by grades.
@@ -431,7 +507,7 @@ Here are the students' grades for the quiz1 assignment:
 ```
 ***
 
-### xviii. Auto-Grading Assignments : `autograde` 
+### xxi. Auto-Grading Assignments : `autograde` 
 
 Auto-grades all student scripts for a particular assignment by comparing against solutions.
 Automatically updates student's grades for that assignment.
@@ -453,7 +529,7 @@ Here are the students' grades for the quiz1 assignment:
 
 //@@author
 
-### xix. Exiting ModMan : `bye`
+### xxii. Exiting ModMan : `bye`
 
 Auto-saves all your changes and exits the program. ModMan will have all your data ready the next time you load it.
 
