@@ -25,36 +25,31 @@ Given below are my contributions to the project.
       Autograding also keeps track of which students have not submitted their assignment.
     - Justification: Being able to autograde assignments would drastically help Teaching Assistants manage their workload. 
       Autograding is also much faster and accurate than manual grading.
-      
-- Code contributed: [*RepoSense* Link](https://nus-cs2113-ay2021s2.github.io/tp-dashboard/?search=jianningzhuang).
+    - Highlights: Autograding is a relatively complicated feature involving many components and classes.
+    
+- **Code contributed**: [*RepoSense* Link](https://nus-cs2113-ay2021s2.github.io/tp-dashboard/?search=jianningzhuang).
 
-- Project management:
+- **Project management**:
+    - Set up GitHub team organisation and repo
+    - Resolved some issues with Continuous Integration on GitHub
     - Managed releases v1.0 - v2.1 (3 releases) on GitHub
-- Enhancements to existing features:
-    - Implemented Assignment class to enhance the functionality of the application.
-    - Designed and added Storage class and methods that allow users' data to be saved automatically at the end of each session.
-- Documentation:
+    
+- **Enhancements to existing features**:
+    - Caught Exceptions and Added JUnit Tests for the Parser Class: #52, #59
+    - Implemented methods in the Storage Class to load and save students'scripts and answer keys from the respective directories: #120, #121
+    - Improve Ui features: #6, #72
+- **Documentation**:
     - User Guide:
-        - Added documentation for listing assignment feature #89
-        - Added documentation exit for adding Assignment feature #89
+        - Added documentation for the feature `list assignments`: #86
+        - Added documentation for the feature `sort assignments`: #86
+        - Added documentation for the feature `autograde assignments`: #86
+        - Added documentation for the feature `set deadline`: #86
     - Developer Guide:
         - Added Class Diagrams for the Logic Component: #111
-        - Added implementation details of the sorting feature: #115
-        - Added implementation details of the Storage feature: #115
+        - Added implementation details for the feature `set deadline`: #142
+        - Added implementation details for the feature `sort assignments`: #142
+        - Added implementation details for the feature `autograde assignments`: #208
 - Community:
-    - PRs reviewed (with non-trivial review comments): #122
-
-## Overview
-
-After missing out on any prizes in the Spin the Wheel section of Lecture for the past 10 weeks, 
-
-
-### Summary of Contributions
-
-* Set deadline
-* Sorting by deadline
-* Storing and Retrieving Answer Key
-* Storing and Retrieving Students'scripts
-* Autograding
-
-Corresponding section in UG and DG
+    - PRs reviewed (with non-trivial review comments): 
+    - Reported bugs in other team's applications: 
+    
