@@ -8,9 +8,10 @@ interface "<<interface>>\nStorable" as Storable {
 interface "<<interface>>\nComparable" as Comparable {
 }
 
-class Data {
+package Data {
+    class Data {
+    }
 }
-
 class Module {
     -moduleCode: String
 }
