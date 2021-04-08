@@ -12,5 +12,4 @@ public interface Autogradable {
 
     void autogradeAssignment(ArrayList<Student> students, String moduleCode, Storage storage)
             throws DataFileNotFoundException, NumbersMisalignException, FileFormatException;
-
 }

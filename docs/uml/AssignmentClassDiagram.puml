@@ -1,0 +1,67 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+
+abstract class "{abstract} Assignment"
+class LongAnswerAssignment
+class McqAssignment
+class ShortAnswerAssignment
+interface "<<interface>> Autogradable"
+
+"<<interface>> Autogradable" <|.. McqAssignment
+"<<interface>> Autogradable" <|.. ShortAnswerAssignment
+"{abstract} Assignment" <|-- LongAnswerAssignment
+"{abstract} Assignment" <|-- McqAssignment
+"{abstract} Assignment" <|-- ShortAnswerAssignment
+
+abstract class "{abstract} Assignment" {
+# name: String
+# typeOfAssignment : String
+# deadline : LocalDate
+# percentageOfOverallGrade : float
+# studentGrades : HashMap<String, Float>
++ assignmentComments : ArrayList<String>
++ getComments() : ArrayList<String>
++ setComments(comments: String) : void
++ getStudentGrades() : HashMap<String, Float>
++ setStudentGrade(student: Student, grade: String) : void
++ setStudentGrade(student: Student, grade: float) : void
++ getName() : String
++ setName(name : String) : void
++ getDeadline() : LocalDate
++ setDeadline(deadline: LocalDate) : void
++ getPercentage() : float
++ setPercentage(percentage: float) : void
++ compareTo(other: Assignment) : int
++ toString() : String
++ toStorage() : String
+}
+
+interface "<<interface>> Autogradable" {
+    autogradeAssignment(students: ArrayList<Student>, moduleCode: String, storage: Storage) : void
+}
+
+class LongAnswerAssignment {
+- answer : Answer
++ setAnswers(answer : Answer) : void
++ getAnswers() : Answer
+}
+
+class McqAssignment {
+- answer : Answer
++ setAnswers(answer : Answer) : void
++ getAnswers() : Answer
++ getTotalMarks() : int
++ autogradeAssignment(students : ArrayList<Student>, moduleCode : String, storage : Storage) : void
+}
+
+class ShortAnswerAssignment {
+- answer : Answer
++ setAnswers(answer : Answer) : void
++ getAnswers() : Answer
++ getTotalMarks() : int
++ autogradeAssignment(students : ArrayList<Student>, moduleCode : String, storage : Storage) : void
+}
+@enduml
