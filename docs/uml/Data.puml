@@ -1,48 +1,93 @@
 @startuml
-skinparam componentStyle rectangle
-skinparam packageStyle rectangle
+hide circle
+skinparam classAttributeIconSize 0
 
-Interface [Storable] <<interface>>
-Interface [Comparable] <<interface>>
-package Data {
-
-  package "Module" {
-      [Modules] o--> "0..*" [Module]
-      [Module] *--> "1" [moduleCode]
-      package "Assignment" {
-        [Module] ---> "1" [assignments]
-        [assignments] o--> "0..*" [Assignment]
-        [Assignment] *--> "1" [name]
-        [Assignment] *--> "1" [typeOfAssignment]
-        [Assignment] *--> "0..1" [deadline]
-        [Assignment] *--> "0..1" [percentageOfOverallGrade]
-        [Assignment] *--> "1" [assignmentComments]
-        [Assignment] *--> "1" [studentGrades]
-        [Assignment] *--> "1" [answer]
-      }
-      package "Lesson" {
-        [Module] ---> "1" [lessons]
-        [lessons] o--> "0..*" [Lesson]
-        [Lesson] *--> "1" [lessonType]
-        [Lesson] *--> "1" [venue]
-        [Lesson] *--> "1" [day]
-        [Lesson] *--> "1" [startTime]
-        [Lesson] *--> "1" [endTime]
-      }
-      package "Student" {
-        [Module] ---> "1" [students]
-        [students] o--> "0..*" [Student]
-        [Student] *--> "1" [name]
-        [Student] *--> "1" [studentNumber]
-        [Student] *--> "1" [email]
-      }
-      [Assignment] ..up.|> Storable
-      [Assignment] ..up.|> Comparable
-      [Lesson] ..up.|> Storable
-      [Student] ..up.|> Storable
-
-  }
+interface "<<interface>>\nStorable" as Storable {
 }
+
+interface "<<interface>>\nComparable" as Comparable {
+}
+
+class Data {
+}
+
+class Module {
+    -moduleCode: String
+}
+
+package Assignment {
+    interface "<<interface>>\nAutogradable" as Autogradable {
+    }
+
+    class "{abstract}\nAssignment" as Assignment {
+        #name: String
+        #typeOfAssignment: String
+        #deadline: LocalDate
+        #percentageOfOverallGrade: float
+        +assignmentComments: ArrayList<String>
+        #studentGrades: HashMap<String, float>
+    }
+
+    class Answer {
+        -answers: ArrayList<String>
+        -marks: ArrayList<Integer>
+        -numberOfQuestions: int
+    }
+
+    class LongAnswerAssignment {
+    }
+
+    class McqAssignment {
+    }
+
+    class ShortAnswerAssignment {
+    }
+}
+
+
+class Lesson {
+    -lessonType: String
+    -venue: String
+    -day: Day
+    -startTime: LocalTime
+    -endTime: LocalTime
+}
+
+class Student {
+    -name: String
+    -studentNumber: String
+    -email: String
+}
+
+enum "<<enumeration>>\nDay" {
+    MONDAY
+    TUESDAY
+    WEDNESDAY
+    THURSDAY
+    FRIDAY
+    SATURDAY
+    SUNDAY
+}
+
+Assignment ...|> Storable
+Lesson ...|> Storable
+Student ...|> Storable
+Assignment ...|> Comparable
+
+Data o--> "0..*" Module
+Module o--> "0..*" Assignment
+Assignment <|-- LongAnswerAssignment
+Assignment <|-- McqAssignment
+Assignment <|-- ShortAnswerAssignment
+LongAnswerAssignment --> "1" Answer
+McqAssignment --> "1" Answer
+ShortAnswerAssignment --> "1" Answer
+McqAssignment ...|> Autogradable
+ShortAnswerAssignment ...|> Autogradable
+
+Module o--> "0..*" Lesson
+Module o--> "0..*" Student
+
 
 
 

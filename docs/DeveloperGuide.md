@@ -68,12 +68,13 @@ Given below is the Sequence Diagram for the Storage class. The storage class int
 4. This string will then be appended to the database.txt file.
 
 ## Data Component
+The figure below shows the classes in ModMan that tracks module information data.
 
 ![Data](uml/Data.png)
 
 The `Data`,
 1. Stores `Module` objects that represents the modules.
-2. Each `Module` contains the details of `Lesson` and `Student` objects which implements the `Storable` interface, as well as `Assignment` objects which implement the `Storable` and `Comparable` interfaces.
+2. Each `Module` contains the details of `Lesson` and `Student` objects which implements the `Storable` interface, as well as abstract `Assignment` objects which implement the `Storable` and `Comparable` interfaces.
 
 ## Implementation
 
