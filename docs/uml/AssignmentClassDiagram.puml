@@ -22,7 +22,7 @@ abstract class "{abstract} Assignment" {
 # deadline : LocalDate
 # percentageOfOverallGrade : float
 # studentGrades : HashMap<String, Float>
-+ assignmentComments : ArrayList<String>
+# assignmentComments : ArrayList<String>
 + getComments() : ArrayList<String>
 + setComments(comments: String) : void
 + getStudentGrades() : HashMap<String, Float>

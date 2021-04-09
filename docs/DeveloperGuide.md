@@ -96,7 +96,7 @@ The deadline can then be used to sort the assignments based on the urgency of th
 
 Given below is the sequence diagram for the `SetAssignmentDeadlineCommand`:
 
-![DeadlineCommand](uml/SetDeadline.png)
+![DeadlineCommand](uml/SetDeadlineFinal.png)
 
 | :information_source: |  deadline passed into the setDeadline() function is of type `LocalDate` |
 |----------------------|-------------------------------------|
@@ -146,12 +146,8 @@ The code snippet for the compareTo() function which allows `Assignment` to imple
 
 Given below is the sequence diagram for the `SortAssignmentsByDeadlineCommand`:
 
-![sortCommand](uml/SortAssignmentsSeq.png)
+![sortCommand](uml/SortAssignmentByDeadlineCommandFinal.png)
 
-
-### Listing Student Grades for  (Jianning)
-
-The ``
 
 
 ### Autograding Assignments (Jianning)
@@ -169,9 +165,8 @@ The sequence in which Autograding is carried out is as follows:
 2. The `Answer` for the `Assignment` is read from the corresponding text file in the `answers` directory and is set or updated in the `Assignment`.
 3. If the `Assignment` is of type `McqAssignment` or `ShortAnswerAssignment`, their respective `autogradeAssignment` method will be invoked. Else, the `NotAutogradableException()` will be thrown.
 4. Within the `autogradeAssignment` method, for each `Student` in the student list:</br>
-   4.1. If the script for the `Student` can be found in the `scripts` directory, the script is loaded and compared with the `Answer`.</br>
-   4.2  The grade for the `Student` is calculated and saved in the `HashMap<String, Float>` of students' grades in `Assignment`.</br>
-   4.3  Else, grading for the `Student` is skipped and the loop continues.
+   4.1. If the script for the `Student` can be found in the `scripts` directory, the script is loaded and compared with the `Answer`. The grade for the `Student` is calculated and saved in the `HashMap<String, Float>` of students' grades in `Assignment`.</br>
+   4.2.  Else, grading for the `Student` is skipped and the loop continues.
 5. Based on the `HashMap<String, Float>` of students' grades, if a `Student`'s grade is `null` for the `Assignment`, they are added to the ungraded list.
 6. The students' grades as well as the list of students who have not submitted their work are displayed through `Ui`.
 
@@ -191,25 +186,33 @@ Reference frame for `autogradeMcq`:
 
 Implementation Considerations in Autograding:
 
-`Formatting of Answer Key and Student Scipts in text file`
+`Updating of Answer Key` </br>
 
-`Updating Answer Key` </br>
-
-* The Answer Key is updated in the `Assignment` every time an `Answer` is read from the text file in the `answers` directory, even if there was an existing `Answer`. </br>
-* This is to account for any changes in the Answer Key due to mistakes or more options being accepted. </br>
+* The answer key is updated in the `Assignment` every time an `Answer` is read from the text file in the `answers` directory, even if there was an existing `Answer` saved. </br>
+* This is to account for any changes in the answer key due to changes in grading or more options being accepted. </br>
 * By the same principle, all the students' scripts would be graded again as well, even if they had been graded previously. </br>
 * The grades for each `Student` will also be updated in the `HashMap` accordingly.
 
 `Mcq vs Short Answer` </br>
 
-* The Answer Key is updated in the `Assignment` every time an `Answer` is read from the text file in the `answers` directory, even if there was an existing `Answer`. </br>
-* This is to account for any changes in the Answer Key due to mistakes or more options being accepted. </br>
-* By the same principle, all the students' scripts would be graded again as well, even if they had been graded previously. </br>
-* The grades for each `Student` will also be updated in the `HashMap` accordingly.
+* The answer key for `McqAssignment`s is limited to the options A through E and 1 to 5 while the answer key for `ShortAnswerAssignment`s has no restrictions.
+* Alternative implementations of using Enumerations for Mcq options were considered. 
+  However, as the students scripts were not stored in the `Assignment`, it was redundant to convert the answers read from the `answers` directory to an enum 
+  just to convert it back to a String to be compared with the student's script.
+* Checking for valid Mcq options are still done when setting or updating the `Answer` before autograding. If there is an invalid option, the `InvalidMcqOption` exception will be thrown.
 
 `Autogradable Interface` </br>
 
-[Coming soon] Get statistics from Autograde
+* Currently, only `McqAssignment` and `ShortAnswerAssignment` implement the `Autogradable` Interface.
+* This is to restrict autograding for assignments with fixed answers and no partial grading.
+
+The Class Diagram for `Assignment` given below shows all the types of assignments that inherit from `Assignment` and the ones which implement the `Autogradable` Interface:
+
+![AutogradableClass](uml/AssignmentClassDiagramFinal.png)
+
+### [Coming soon] Get statistics from Autograde
+
+Autograding assignments also generates statistics on how students performed for each question in the assignment.
 
 
 
