@@ -5,6 +5,7 @@ import seedu.duke.assignment.Assignment;
 import seedu.duke.Module;
 import seedu.duke.data.Data;
 import seedu.duke.exception.AssignmentNotFoundException;
+import seedu.duke.exception.DateTimeFormatException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.ui.Ui;
 
@@ -21,10 +22,15 @@ public class SetAssignmentDeadlineCommand extends Command {
     private static Logger logger = Logger.getLogger(SetAssignmentDeadlineCommand.class.getName());
 
     public SetAssignmentDeadlineCommand(String moduleCode, String assignmentName,
-                                        String deadline) throws DateTimeParseException {
+                                        String deadline) throws DateTimeParseException, DateTimeFormatException {
         this.moduleCode = moduleCode;
         this.assignmentName = assignmentName;
         this.deadline = LocalDate.parse(deadline, formatter);
+        int year = this.deadline.getYear();
+        if (year < 2021 || year > 2030) {
+            throw new DateTimeFormatException();
+        }
+
     }
 
     @Override

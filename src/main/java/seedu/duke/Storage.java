@@ -31,7 +31,7 @@ public class Storage {
     private static final String ROOT = System.getProperty("user.dir");
     private static final Path ANSWER_DIR_PATH = Paths.get(ROOT, "answers");
     private static final Path SCRIPT_DIR_PATH = Paths.get(ROOT, "scripts");
-    private static final Path DATABASE_DIR_PATH = Paths.get(ROOT, "database");
+    private static final Path DATABASE_DIR_PATH = Paths.get(ROOT, "Database");
     private static final String ANSWER_DIVIDER = "|";
     private static final int LINE_START = 0;
     private static final int DIVIDER_LENGTH = 2;
@@ -59,8 +59,8 @@ public class Storage {
     public void saveData(Data data) throws FileNotSavedException {
         try {
             logger.log(Level.INFO, "current directory: " + ROOT);
-            String fileName = "database" + TXTFILE;
-            Path filePath = Paths.get(ROOT, "database", fileName);
+            String fileName = "Database" + TXTFILE;
+            Path filePath = Paths.get(ROOT, "Database", fileName);
             File databaseFile = new File(filePath.toString());
             databaseFile.createNewFile();
             String databaseString = "";
@@ -83,8 +83,8 @@ public class Storage {
         ArrayList<Module> modules = new ArrayList<>();
         try {
             logger.log(Level.INFO, "current directory: " + ROOT);
-            String fileName = "database" + TXTFILE;
-            Path filePath = Paths.get(ROOT, "database", fileName);
+            String fileName = "Database" + TXTFILE;
+            Path filePath = Paths.get(ROOT, "Database", fileName);
             File databaseFile = new File(filePath.toString());
             Scanner scanner = new Scanner(databaseFile);
             int numberOfModules = scanner.nextInt();

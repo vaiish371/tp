@@ -240,10 +240,10 @@ public class Parser {
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
             throw new InsufficientParametersException();
-        }  catch (DateTimeParseException e) {
+        } catch (DateTimeParseException | DateTimeFormatException e) {
             logger.log(Level.WARNING, "Deadline format is wrong.");
             throw new DateTimeFormatException();
-        } 
+        }
         return command;
     }
 
