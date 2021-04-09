@@ -1,7 +1,6 @@
 package seedu.duke.assignment;
 
 import org.junit.jupiter.api.Test;
-import seedu.duke.exception.DateTimeFormatException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
