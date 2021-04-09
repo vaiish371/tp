@@ -9,7 +9,8 @@ class AssignmentTest {
 
     @Test
     void testAssignment_AssignmentOne_convertedToString() {
-        assertEquals("AssignmentOne", new McqAssignment("AssignmentOne").toString());
+        assertEquals("AssignmentOne (McqAssignment) - due date not specified.",
+                new McqAssignment("AssignmentOne").toString());
     }
 
     @Test
