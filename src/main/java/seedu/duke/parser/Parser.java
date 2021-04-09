@@ -239,11 +239,16 @@ public class Parser {
     }
 
 
-    private static Command getSortAssignmentByDeadlineCommand() {
+    private static Command getSortAssignmentByDeadlineCommand() throws ModuleNotSelectedException {
         Command command;
-        logger.log(Level.INFO, "sort assignments by deadline command entered");
-        assert currentModule.length() != 0 : "currentModule should not be empty";
-        command = new SortAssignmentByDeadlineCommand(currentModule);
+        try {
+            logger.log(Level.INFO, "sort assignments by deadline command entered");
+            assert currentModule.length() != 0 : "currentModule should not be empty";
+            command = new SortAssignmentByDeadlineCommand(currentModule);
+        } catch (ModuleNotSelectedException e) {
+            logger.log(Level.WARNING, "module directory not selected");
+            throw new ModuleNotSelectedException();
+        }
         return command;
     }
 
@@ -357,7 +362,7 @@ public class Parser {
     }
 
     private static Command getAddTimetableCommand(String line) throws InsufficientParametersException,
-            DateTimeFormatException, DayFormatException {
+            DateTimeFormatException, DayFormatException, ModuleNotSelectedException {
         Command command;
         String typeSeparator = "/t";
         String venueSeparator = "/v";
@@ -386,14 +391,22 @@ public class Parser {
         } catch (IllegalArgumentException e) {
             logger.log(Level.WARNING, "Day format is wrong.");
             throw new DayFormatException();
+        } catch (ModuleNotSelectedException e) {
+            logger.log(Level.WARNING, "module directory not selected.");
+            throw new ModuleNotSelectedException();
         }
         return command;
     }
 
-    private static Command getListModuleTimetableCommand() {
+    private static Command getListModuleTimetableCommand() throws ModuleNotSelectedException {
         Command command;
-        logger.log(Level.INFO, "list timetable command entered");
-        command = new ListModuleTimetableCommand(currentModule);
+        try {
+            logger.log(Level.INFO, "list timetable command entered");
+            command = new ListModuleTimetableCommand(currentModule);
+        } catch (ModuleNotSelectedException e) {
+            logger.log(Level.WARNING, "module directory not selected");
+            throw new ModuleNotSelectedException();
+        }
         return command;
     }
 
@@ -450,7 +463,8 @@ public class Parser {
         return command;
     }
 
-    private static Command getAddStudentCommand(String line) throws InsufficientParametersException {
+    private static Command getAddStudentCommand(String line) throws InsufficientParametersException,
+            ModuleNotSelectedException {
         Command command;
         try {
             logger.log(Level.INFO, "add student command entered");
@@ -467,6 +481,9 @@ public class Parser {
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add student command");
             throw new InsufficientParametersException();
+        } catch (ModuleNotSelectedException e) {
+            logger.log(Level.WARNING, "module directory not selected");
+            throw new ModuleNotSelectedException();
         }
         return command;
     }

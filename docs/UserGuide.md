@@ -343,7 +343,7 @@ Here are the assignments in CS2113T:
 ---------------------------------------------------------------------
 ```
 ***
-### xiv. Sorting Module Assignments : `sort assignments` 
+### xiv. Sorting Module Assignments : `sort assignments by deadline` 
 
 Sorts all assignments in the module by their deadline. <br/>
 If no deadline was set, the assignment will be sorted after those with deadlines.
@@ -569,8 +569,8 @@ add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME
 list timetable | `list timetable` <br> 
 add assignment | `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME` <br> e.g. `add assignment /t mcq /a Magic Sequence`
 list assignments | `list assignment` <br>
-sort assignments | `sort by deadline` <br>
-edit assignment | `edit assignment /t TYPE_OF_ASSIGNMENT /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
+sort assignments | `sort assignments by deadline` <br>
+edit assignment | `edit assignment /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
 set deadline | `set deadline /a ASSIGNMENT_NAME /d DEADLINE` <br> e.g. `set deadline /a quiz1 /d 17 08 2021`
 list grades | `list student assignment grades /a ASSIGNMENT_NAME` <br> e.g. `list student assignment grades /a quiz1`
 autograde | `autograde /a ASSIGNMENT_NAME` <br> e.g. `autograde /a quiz1`
