@@ -91,8 +91,8 @@ public abstract class Assignment implements Comparable<Assignment>, Storable {
         if (deadline == null) {
             return name + " (" + typeOfAssignment + ") - due date not specified.";
         }
-        return name + " (" + typeOfAssignment + ") due by: " +
-                deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
+        return name + " (" + typeOfAssignment + ") due by: "
+                + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
     }
 
     @Override
