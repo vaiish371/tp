@@ -51,13 +51,13 @@ Icon | Purpose
     2.12 [`delete timetable` - Removing Timetable Lessons](#212-removing-timetable-lessons-delete-timetable) <br>
     2.13 [`edit timetable` - Editing a Timetable Lesson](#213-editing-timetable-lessons-edit-timetable) <br>
     2.14 [`add assignment` - Adding an Assignment](#214-adding-an-assignment-add-assignment) <br>
+    2.21 [`set deadline` - Setting Assignment Deadline](#221-setting-assignment-deadline--set-deadline) <br>
     2.15 [`list assignments` - Listing Module Assignments](#215-listing-module-assignments--list-assignments) <br>
     2.16 [`sort assignments by deadline` - Sorting Module Assignments](#216-sorting-module-assignments--sort-assignments-by-deadline) <br>
     2.17 [`edit assignment` - Editing an Assignment Name](#217-editing-an-assignment-name-edit-assignment-name) <br> 
     2.18 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#218-setting-assignment-percentage-set-assignment-percentage) <br>
     2.19 [`set assignment comments` - Setting Assignment Comments](#219-setting-assignment-comments-set-assignment-comments) <br>
     2.20 [`get assignment comments` - Getting Assignment Percentage](#220-getting-assignment-comments-get-assignment-comments) <br>
-    2.21 [`set deadline` - Setting Assignment Deadline](#221-setting-assignment-deadline--set-deadline) <br>
     2.22 [`list grades` - Listing Assignment Grades](#222-listing-assignment-grades--list-grades) <br>
     2.23 [`autograde` - Auto-Grading Assignments](#223-auto-grading-assignments--autograde) <br>
     2.24 [`bye` - Exiting ModMan](#224-exiting-modman--bye) <br>
@@ -80,7 +80,7 @@ Icon | Purpose
 ***
 ### 2.1 Listing Basic Commands: `help`
 This command is available for you to get a quick reference of all the basic commands available in ModMan, and their usages.
-You can invoke 'help' any time you are unsure of the basic commands and their formats.
+You can invoke `help` any time you are unsure of the basic commands and their formats.
 
 Format: `help`
 
@@ -101,7 +101,7 @@ Expected output:
 	9. remove module MODULE_NAME - to remove a module off the list
 	10. bye - to exit the program and save all your information
 
-For the full list of commands, check out the User Guide at: https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html
+    For the full list of commands, check out the User Guide at: https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html
 
 -------------------------------------------------------------------------- 
 `````
@@ -118,7 +118,7 @@ Example of usage:
 
 `add module CS2113T`
 
-Expected output :
+Expected output:
 
 ```` 
 --------------------------------------------------------------------------
@@ -137,7 +137,7 @@ Example of usage:
 
 `remove module CS2113T`
 
-Expected output :
+Expected output:
 
 ```` 
 --------------------------------------------------------------------------
@@ -156,7 +156,7 @@ Example of usage:
 
 `select CS2113T`
 
-Expected output :
+Expected output:
 
 ```` 
 --------------------------------------------------------------------------
@@ -173,7 +173,7 @@ View the current module you are working in. Also obtain an overview of the curre
 
 Format: `current`
 
-Expected output :
+Expected output:
 
 ```` 
 --------------------------------------------------------------------------
@@ -194,7 +194,7 @@ Lists all the modules you have added, and specifies the current module (if any).
 
 Format: `list module`
 
-Expected output :
+Expected output:
 
 ```` 
 --------------------------------------------------------------------------
@@ -213,7 +213,7 @@ Example of usage:
 
 `add student /s Bryan Wong /# A0123456Y /e e0123456@u.nus.edu`
 
-Expected output :
+Expected output:
 ```
 ---------------------------------------------------------------------
     I have assigned a new student to CS2113T:
@@ -232,7 +232,7 @@ Example of usage:
 
 `list student details`
 
-Expected output :
+Expected output:
 
 ```` 
 --------------------------------------------------------------------------
@@ -251,7 +251,7 @@ Example of usage:
 
 `list student`
 
-Expected output :
+Expected output:
 ```
 ---------------------------------------------------------------------
     Here are the students in CS2113T:
@@ -272,14 +272,18 @@ Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
 :warning: All flags (`/t`, `/v` etc.) must be included in the order specified above.
 
-:warning: Note the spacing before and after each flag eg. `/t TYPE /v`; Input would be truncated if spaces are not present.
+:warning: Note the spacing before and after each flag eg. `/t TYPE /v ...`; Input would be truncated if spaces are not present.</br>
+For example :
+* `/t /v...`: Only one space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
+* `.../s 1600/e 1800`: `START_TIME` will be parsed as `160` and wrong time error may be thrown.
 
 :warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
 
-Examples:
-* `add timetable /t Lecture /v Zoom /d FRIDAY /s 1600 /e 1800`
+Example of usage:
 
-Expected output :
+`add timetable /t Lecture /v Zoom /d FRIDAY /s 1600 /e 1800`
+
+Expected output:
 ```
 ---------------------------------------------------------------------
     Success! I have added the following timetable for the module - CS2113T
@@ -295,7 +299,7 @@ Format: `list timetable`
 
 * The `START_TIME` and `END_TIME` will be listed in the format `HH:mm` eg. `18:00`.
 
-Expected output :
+Expected output:
 ```
 ---------------------------------------------------------------------
     Here are the lessons in CS2113T:
@@ -313,7 +317,7 @@ Example usage:
 
 `delete timetable 1`
 
-Expected output :
+Expected output:
 ```
 ---------------------------------------------------------------------
     You have successfully removed lesson: FRIDAY, 16:00-18:00 from CS2113T
@@ -327,6 +331,7 @@ Edits the lessons in the timetable corresponding to the index for the module you
 Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
 * You may enter `-` for the field(s) you do not wish to change.
+  * `-` input would be trimmed for whitespaces.
 * The `TYPE` and `VENUE` can be in a natural language format.
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800` if specified.
@@ -335,15 +340,18 @@ Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e EN
 
 :warning: All flags (`/t`, `/v` etc.) must be included in the order specified above.
 
-:warning: Note the spacing before and after each flag eg. `/t TYPE /v`; Input would be truncated if spaces are not present.
+:warning: Note the spacing before and after each flag eg. `/t TYPE /v ...`; Input would be truncated if spaces are not present.</br>
+For example:
+* `/t /v...`: Only one space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
+* `.../s 1600/e 1800`: `START_TIME` will be parsed as `160` and wrong time error may be thrown.
 
 :warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
 
-Example usage:
+Example of usage:
 
 Changing the day to Monday: `edit timetable 1 /t - /v - /d MONDAY /s - /e -`
 
-Expected output :
+Expected output:
 ```
 ---------------------------------------------------------------------
     You have successfully edited the lesson to:
@@ -360,13 +368,11 @@ Adds an assignment to the module that is current selected by the user.
 
 Format: `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME`
 
-Example usage:
+Examples of usage:
+* `add assignment /t mcq /a Magic Sequence`
+* `add assignment /t la /a recursion`
 
-`add assignment /t mcq /a Magic Sequence`
-
-`add assignment /t la /a recursion`
-
-Expected output :
+Expected output:
 
 ```
 ---------------------------------------------------------------------
@@ -382,7 +388,7 @@ Lists out all assignments in the module along with the due date if the deadline 
 
 Format: `list assignment`
 
-Expected output :
+Expected output:
 ```
 ---------------------------------------------------------------------
     Here are the assignments in CS2113T:
@@ -399,7 +405,7 @@ If no deadline was set, the assignment will be sorted after those with deadlines
 
 Format: `sort assignments by deadline`
 
-Expected output :
+Expected output:
 ```
 ---------------------------------------------------------------------
     Here are the assignments in CS2113T:
@@ -425,13 +431,11 @@ Edits the assignment name of an existing assignment
 
 Format: `edit assignment name /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME`
 
-Example usage:
+Examples of usage:
+* `edit assignment name /a Magic Sequence /n Forest Fruits`
+* `edit assignment name /a recursion /n iteration`
 
-`edit assignment name /a Magic Sequence /n Forest Fruits`
-
-`edit assignment name /a recursion /n iteration`
-
-Expected output :
+Expected output:
 
 ```
 ---------------------------------------------------------------------
@@ -448,13 +452,11 @@ Sets the assignment percentage of an existing assignment
 
 Format: `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE`
 
-Example usage:
+Examples of usage:
+* `set assignment percentage /a Magic Sequence /p 15`
+* `set assignment percentage /a Forest Fruits /p 25.0`
 
-`set assignment percentage /a Magic Sequence /p 15`
-
-`set assignment percentage /a Forest Fruits /p 25.0`
-
-Expected output :
+Expected output:
 
 ```
 ---------------------------------------------------------------------
@@ -470,13 +472,11 @@ Sets the assignment comments of an existing assignment
 
 Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
 
-Example usage:
+Examples of usage:
+* `set assignment comments /a Magic Sequence /p This assignment is well done.`
+* `set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
 
-`set assignment comments /a Magic Sequence /p This assignment is well done.`
-
-`set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
-
-Expected output :
+Expected output:
 
 ```
 ---------------------------------------------------------------------
@@ -493,11 +493,11 @@ Gets the assignment comments of an existing assignment and prints it out for the
 
 Format: `get assignment comments /a ASSIGNMENT_NAME`
 
-Example usage:
+Example of usage:
 
 `get assignment comments /a Magic Sequence`
 
-Expected output :
+Expected output:
 
 ```
 ---------------------------------------------------------------------
@@ -517,11 +517,11 @@ Format: `set deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
 The DEADLINE must be in the format dd MM yyyy eg. 16 08 2021.
 
-Examples:
+Examples of usage:
 * `set deadline /a quiz1 /d 17 08 2021`
 * `set deadline /a quiz2 /d 16 08 2021`
 
-Expected output :
+Expected output:
 ```
 ---------------------------------------------------------------------
     I have set quiz1's deadline to Aug 17 2021 in CS2113T
@@ -536,11 +536,11 @@ The students listed are sorted by grades.
 
 Format: `list student assignment grades /a ASSIGNMENT_NAME`
 
-Examples:
+Examples of usage:
 * `list student assignment grades /a quiz1`
 * `list student assignment grades /a quiz3`
 
-Expected output :
+Expected output:
 ```
 ---------------------------------------------------------------------
     Here are the students' grades for the quiz1 assignment:
@@ -557,10 +557,11 @@ Automatically updates student's grades for that assignment.
 
 Format: `autograde /a ASSIGNMENT_NAME`
 
-Examples:
-* `autograde /a quiz1`
+Example of usage:
 
-Expected output :
+`autograde /a quiz1`
+
+Expected output:
 ```
 ---------------------------------------------------------------------
     Here are the students' grades for the quiz1 assignment:
@@ -576,7 +577,7 @@ Auto-saves all your changes and exits the program. ModMan will have all your dat
 
 Format: `bye`
 
-Expected output :
+Expected output:
 ```
 ---------------------------------------------------------------------
     Bye. Hope to see you again soon!

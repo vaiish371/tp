@@ -19,6 +19,7 @@ import seedu.duke.exception.FileFormatException;
 import seedu.duke.exception.InvalidMcqOption;
 import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.NotAutogradableException;
 import seedu.duke.exception.NumbersMisalignException;
 import seedu.duke.ui.Ui;
@@ -32,9 +33,13 @@ public class AutogradeAssignmentCommand extends Command {
     private String assignmentName;
     private static Logger logger = Logger.getLogger(ViewAnswersCommand.class.getName());
 
-    public AutogradeAssignmentCommand(String moduleCode, String assignmentName) {
+    public AutogradeAssignmentCommand(String moduleCode, String assignmentName) throws ModuleNotSelectedException {
+        if (moduleCode == null) {
+            throw new ModuleNotSelectedException();
+        }
+
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
+        this.assignmentName = assignmentName.trim();
     }
 
     @Override
