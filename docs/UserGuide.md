@@ -597,16 +597,15 @@ Expected output:
 ```
 ***
 
-### 2.23 Auto-Grading Assignments : `autograde` 
+### 2.23 Autograding Assignments : `autograde assignment` 
 
-Auto-grades all student scripts for a particular assignment by comparing against solutions.
-Automatically updates student's grades for that assignment.
+Autograding assignments on ModMan automatically grades all the students' scripts 
 
-Format: `autograde /a ASSIGNMENT_NAME`
+Format: `autograde assignment /a ASSIGNMENT_NAME`
 
 Example of usage:
 
-`autograde /a quiz1`
+`autograde assignment /a quiz1`
 
 Expected output:
 ```
@@ -634,16 +633,114 @@ Expected output:
 
 ### 2.25 Viewing Assignment Answer : `view assignment answer`
 
-The `view assignment answer` allows you to easily search and retrieve the answer key for an assignment stored in the `answers` directory.
-All you have to do is 
-Format: `bye`
+The `view assignment answer` command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment.</br>
+
+Answers are stored in the `answers` folder as a text file in the same working directory as the ModMan app.</br>
+
+| :information_source: | Naming of the text file has to be in the format `MODULECODE_ASSIGNMENTNAME.txt` for our system to automatically retrieve the answers |
+|----------------------|-------------------------------------|
+
+The answer key for all assignment types should also follow the following format:
+
+![answerFormat](UGPics/answers.PNG) 
+
+The first column contains the question number.</br>
+The second column contains the answer for the corresponding question.</br>
+The third column contains the marks for getting that question correct.</br>
+`QUESTION_NUMBER | ANSWER | MARKS`
+
+| :warning: | Answers for MCQ assignments should only have the options "A" to "E" or "1" to "5" |
+|----------------------|-------------------------------------|
+| :warning: | Answers for Short Answer assignments should not exceed 50 characters long |
+|----------------------|-------------------------------------|
+| :warning: | Answers for Long Answer assignments should not exceed 100 characters long |
+|----------------------|-------------------------------------|
+| :warning: | Question numbers should be in sequential order starting from 1 |
+|----------------------|-------------------------------------|
+| :warning: | Negative marking or partial grading is not supported for Autograding. Marks should be non negative integer values |
+|----------------------|-------------------------------------|
+
+Format: `view assignment answer /a ASSIGNMENT_NAME`
+
+Example of usage:</br>
+Let's take a look at what retrieving the answer key for quiz1 shown above and displaying it on the terminal would look like.
 
 Expected output:
 ```
 ---------------------------------------------------------------------
-    Bye. Hope to see you again soon!
+    Answer key for quiz1:
+    1. A | [2]
+    2. B | [4]
+    3. C | [4]
+    4. D | [2]
+    5. A | [4]
+    6. B | [4]
+    7. C | [2]
+    8. D | [4]
+    9. E | [4]
+    10. A | [2]
+    11. B | [4]
+    12. C | [4]
+    13. D | [2]
+    14. A | [2]
+    15. A | [2]
 ---------------------------------------------------------------------
 ```
+| :bulb: | You can open up the student script in another terminal so that you can view both the answer key and student script side by side!|
+|----------------------|-------------------------------------|
+***
+
+### 2.26 Viewing Student Script : `view student script`
+
+The `view student script` command allows you to easily search and retrieve the student script for an assignment just by entering the name of the assignment and the student.</br>
+
+Scripts are stored in the `scripts` folder as a text file in the same working directory as the ModMan app.</br>
+
+| :information_source: | Naming of the text file has to be in the format `MODULECODE_ASSIGNMENTNAME_MATRICNUMBER.txt` for our system to automatically retrieve the script |
+|----------------------|-------------------------------------|
+
+The scripts for all assignment types should also follow the following format:
+
+![solutionsFormat](UGPics/solutions.PNG)
+
+The first column contains the question number.</br>
+The second column contains the student's answer for the corresponding question.</br>
+`QUESTION_NUMBER | ANSWER | MARKS`
+
+| :warning: | Answers for all assignments should not exceed 100 characters long |
+|----------------------|-------------------------------------|
+| :warning: | Question numbers should be in sequential order starting from 1 |
+|----------------------|-------------------------------------|
+| :warning: | Ensure the delimiter \| is not used in the answers |
+|----------------------|-------------------------------------|
+
+Format: `view student script /a ASSIGNMENT_NAME /s STUDENT_NAME`
+
+Example of usage:</br>
+Let's take a look at what retrieving the script for quiz1 shown above and displaying it on the terminal would look like.
+
+Expected output:
+```
+---------------------------------------------------------------------
+    Jianning(A0214561M)'s script for quiz1
+    1. A
+    2. A
+    3. C
+    4. D
+    5. A
+    6. B
+    7. 1
+    8. A
+    9. E
+    10. A
+    11. B
+    12. C
+    13. D
+    14. A
+---------------------------------------------------------------------
+```
+| :bulb: | You can open up the answer key in another terminal so that you can view both the answer key and student script side by side!|
+|----------------------|-------------------------------------|
 ***
 
 ## 3. FAQ
@@ -656,6 +753,10 @@ Expected output:
 **Q**: When is the data saved to the database?
 
 **A**: It is only saved when you exit the program using the `bye` command.
+
+**Q**: How do I add the answer key and students' scripts for grading?
+
+**A**: You can simply copy and paste the answer key and student scripts into the respective folders in the working directory of ModMan named `answers` and `scripts` respectively.
 
 ## 4. Command Summary
 
