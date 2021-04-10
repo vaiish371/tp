@@ -3,6 +3,7 @@ package seedu.duke.command;
 import seedu.duke.data.lesson.Day;
 import seedu.duke.data.lesson.Lesson;
 import seedu.duke.data.module.Module;
+import seedu.duke.exception.EmptyTimetableParameterException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.InvalidStartTimeException;
@@ -25,17 +26,33 @@ public class AddTimetableCommand extends Command {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHmm");
     private static final Logger logger = Logger.getLogger("AddTimetableCommand");
 
-    public AddTimetableCommand(String moduleCode, String lessonType, String venue, Day day, String startTime,
-                               String endTime) throws DateTimeParseException, ModuleNotSelectedException {
+    public AddTimetableCommand(String moduleCode, String lessonType, String venue, String day, String startTime,
+                               String endTime) throws DateTimeParseException, ModuleNotSelectedException,
+            EmptyTimetableParameterException {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
         }
+        if (lessonType.trim().length() == 0) {
+            throw new EmptyTimetableParameterException();
+        }
+        if (venue.trim().length() == 0) {
+            throw new EmptyTimetableParameterException();
+        }
+        if (day.trim().length() == 0) {
+            throw new EmptyTimetableParameterException();
+        }
+        if (startTime.trim().length() == 0) {
+            throw new EmptyTimetableParameterException();
+        }
+        if (endTime.trim().length() == 0) {
+            throw new EmptyTimetableParameterException();
+        }
         this.moduleCode = moduleCode;
-        this.day = day;
-        this.startTime = LocalTime.parse(startTime, formatter);
-        this.endTime = LocalTime.parse(endTime, formatter);
-        this.venue = venue;
-        this.lessonType = lessonType;
+        this.day = Day.valueOf(day.trim());
+        this.startTime = LocalTime.parse(startTime.trim(), formatter);
+        this.endTime = LocalTime.parse(endTime.trim(), formatter);
+        this.venue = venue.trim();
+        this.lessonType = lessonType.trim();
     }
 
     @Override

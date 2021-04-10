@@ -272,7 +272,10 @@ Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
 :warning: All flags (`/t`, `/v` etc.) must be included in the order specified above.
 
-:warning: Note the spacing before and after each flag eg. `/t TYPE /v`; Input would be truncated if spaces are not present.
+:warning: Note the spacing before and after each flag eg. `/t TYPE /v ...`; Input would be truncated if spaces are not present.</br>
+For example :
+* `/t /v...`: Only one space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
+* `.../s 1600/e 1800`: `START_TIME` will be parsed as `160` and wrong time error may be thrown.
 
 :warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
 
@@ -328,6 +331,7 @@ Edits the lessons in the timetable corresponding to the index for the module you
 Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
 * You may enter `-` for the field(s) you do not wish to change.
+  * `-` input would be trimmed for whitespaces.
 * The `TYPE` and `VENUE` can be in a natural language format.
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800` if specified.
@@ -336,7 +340,10 @@ Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e EN
 
 :warning: All flags (`/t`, `/v` etc.) must be included in the order specified above.
 
-:warning: Note the spacing before and after each flag eg. `/t TYPE /v`; Input would be truncated if spaces are not present.
+:warning: Note the spacing before and after each flag eg. `/t TYPE /v ...`; Input would be truncated if spaces are not present.</br>
+For example:
+* `/t /v...`: Only one space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
+* `.../s 1600/e 1800`: `START_TIME` will be parsed as `160` and wrong time error may be thrown.
 
 :warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
 
