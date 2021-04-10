@@ -93,10 +93,12 @@ Hello from
 	 3. quiz3 (LongAnswerAssignment) - due date not specified.
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
-	 OOPS!!! File not found.
+	 OOPS!!! Please check the text file quiz1
+	 File not found!
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
-	 OOPS!!! File not found.
+	 OOPS!!! Please check the text file quiz1
+	 File not found!
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
 	 OOPS!!! Command is invalid! Please try again
