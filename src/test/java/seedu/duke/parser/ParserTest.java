@@ -127,6 +127,8 @@ class ParserTest {
     @Test
     void testParse_invalidInput_expectException() {
         Parser parser = new Parser();
+        String currentModule = "CS2113T";
+        parser.setCurrentModule(currentModule);
         String inputString = "blah";
         assertThrows(InvalidCommandException.class, () -> {
             parser.parse(inputString);
