@@ -67,7 +67,7 @@ class McqAssignmentTest {
         int numberOfQuestions = 2;
         Assignment assignmentOne = new McqAssignment("quiz1");
         assignmentOne.setAnswers(new Answer(answers, marks, numberOfQuestions));
-        assertEquals(6, ((ShortAnswerAssignment) assignmentOne).getTotalMarks());
+        assertEquals(6, ((McqAssignment) assignmentOne).getTotalMarks());
     }
 
 }
