@@ -1,0 +1,19 @@
+1
+CS2113T | 1 | 1 | 10
+quiz1 | McqAssignment | null | 0.0 | [[[[[null]], This assignment is great., This assignment sucks.], Fourth comment added]] | 5
+A0214561M | 92.0
+A0215114X | 100.0
+A0765432X | 92.0
+A0234432X | 84.0
+A0123456Z | 96.0
+FRIDAY | 16:00 | 18:00 | Zoom | Lecture
+Jianning | A0214561M | e0527277@u.nus.edu
+Bryan | A0215114X | e0535051@u.nus.edu
+Zihan | A0123456Z | e0123456@u.nus.edu
+Vikas | A0765432X | e0765432@u.nus.edu
+Vaish | A0234432X | e0111432@u.nus.edu
+Naughty | A1111111A | e1111111@u.nus.edu
+Mischievous | A2222222A | e2222222@u.nus.edu
+Playful | A3333333A | e3333333@u.nus.edu
+Tardy | A4444444A | e4444444@u.nus.edu
+Bad Boy | A5555555A | e5555555@u.nus.edu
