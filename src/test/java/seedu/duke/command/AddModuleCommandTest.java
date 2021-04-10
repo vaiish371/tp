@@ -1,7 +1,7 @@
 package seedu.duke.command;
 
 import org.junit.jupiter.api.Test;
-import seedu.duke.Storage;
+import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.ModManException;
 import seedu.duke.ui.Ui;

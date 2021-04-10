@@ -1,10 +1,10 @@
 package seedu.duke.ui;
 
-import seedu.duke.Lesson;
-import seedu.duke.Module;
-import seedu.duke.Student;
-import seedu.duke.assignment.Answer;
-import seedu.duke.assignment.Assignment;
+import seedu.duke.data.lesson.Lesson;
+import seedu.duke.data.module.Module;
+import seedu.duke.data.student.Student;
+import seedu.duke.data.assignment.Answer;
+import seedu.duke.data.assignment.Assignment;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

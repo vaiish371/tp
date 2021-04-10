@@ -1,9 +1,9 @@
 package seedu.duke.command;
 
-import seedu.duke.Day;
-import seedu.duke.Lesson;
-import seedu.duke.Module;
-import seedu.duke.Storage;
+import seedu.duke.data.lesson.Day;
+import seedu.duke.data.lesson.Lesson;
+import seedu.duke.data.module.Module;
+import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.DateTimeFormatException;
 import seedu.duke.exception.DayFormatException;

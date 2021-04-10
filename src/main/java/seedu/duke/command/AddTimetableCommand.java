@@ -1,9 +1,9 @@
 package seedu.duke.command;
 
-import seedu.duke.Day;
-import seedu.duke.Lesson;
-import seedu.duke.Module;
-import seedu.duke.Storage;
+import seedu.duke.data.lesson.Day;
+import seedu.duke.data.lesson.Lesson;
+import seedu.duke.data.module.Module;
+import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.InvalidStartTimeException;
 import seedu.duke.exception.ModuleNotFoundException;
@@ -13,7 +13,6 @@ import seedu.duke.ui.Ui;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AddTimetableCommand extends Command {

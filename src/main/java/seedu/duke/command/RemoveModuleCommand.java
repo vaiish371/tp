@@ -1,7 +1,7 @@
 package seedu.duke.command;
 
-import seedu.duke.Module;
-import seedu.duke.Storage;
+import seedu.duke.data.module.Module;
+import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.parser.Parser;

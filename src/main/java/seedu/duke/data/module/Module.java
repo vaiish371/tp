@@ -1,6 +1,9 @@
-package seedu.duke;
+package seedu.duke.data.module;
 
-import seedu.duke.assignment.Assignment;
+import seedu.duke.storage.Storable;
+import seedu.duke.data.student.Student;
+import seedu.duke.data.assignment.Assignment;
+import seedu.duke.data.lesson.Lesson;
 
 import java.util.ArrayList;
 import java.util.Collections;
