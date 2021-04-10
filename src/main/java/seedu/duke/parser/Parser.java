@@ -38,6 +38,7 @@ import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.ModuleNotSelectedException;
+import seedu.duke.exception.TimeFormatException;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -368,7 +369,7 @@ public class Parser {
     }
 
     private static Command getAddTimetableCommand(String line) throws InsufficientParametersException,
-            DateTimeFormatException, DayFormatException, ModuleNotSelectedException {
+            DayFormatException, ModuleNotSelectedException, TimeFormatException {
         Command command;
         String typeSeparator = "/t";
         String venueSeparator = "/v";
@@ -393,7 +394,7 @@ public class Parser {
             throw new InsufficientParametersException();
         } catch (DateTimeParseException e) {
             logger.log(Level.WARNING, "Start/End time format is wrong.");
-            throw new DateTimeFormatException();
+            throw new TimeFormatException();
         } catch (IllegalArgumentException e) {
             logger.log(Level.WARNING, "Day format is wrong.");
             throw new DayFormatException();
