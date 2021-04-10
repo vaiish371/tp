@@ -22,6 +22,10 @@ public class Answer {
         return marks;
     }
 
+    public int getNumberOfQuestions() {
+        return numberOfQuestions;
+    }
+
     public int compareScript(ArrayList<String> script) {
         int score = 0;
         for (int i = 0; i < numberOfQuestions; i++) {
