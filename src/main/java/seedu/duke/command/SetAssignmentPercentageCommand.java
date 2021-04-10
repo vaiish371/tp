@@ -12,8 +12,8 @@ import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.ui.Ui;
 
 public class SetAssignmentPercentageCommand extends Command {
-    private final float PERCENTAGE_MIN = (float)0.0;
-    private final float PERCENTAGE_MAX = (float)100.0;
+    private static final float PERCENTAGE_MIN = (float)0.0;
+    private static final float PERCENTAGE_MAX = (float)100.0;
     private String moduleCode;
     private String assignmentName;
     private float percentage;

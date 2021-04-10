@@ -16,8 +16,8 @@ import seedu.duke.exception.ModuleNotSelectedException;
 import java.util.logging.Logger;
 
 public class SetAssignmentDeadlineCommand extends Command {
-    private final int EARLIEST_YEAR = 2021;
-    private final int LATEST_YEAR = 2030;
+    private static final int EARLIEST_YEAR = 2021;
+    private static final int LATEST_YEAR = 2030;
     private String moduleCode;
     private String assignmentName;
     private LocalDate deadline;
