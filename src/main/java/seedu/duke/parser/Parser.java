@@ -29,7 +29,16 @@ import seedu.duke.command.SetAssignmentPercentageCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
-import seedu.duke.exception.*;
+import seedu.duke.exception.DateTimeFormatException;
+import seedu.duke.exception.DayFormatException;
+import seedu.duke.exception.IndexNotFoundException;
+import seedu.duke.exception.InsufficientParametersException;
+import seedu.duke.exception.InvalidCommandException;
+import seedu.duke.exception.InvalidPercentageException;
+import seedu.duke.exception.ModManException;
+import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.ModuleNotSelectedException;
+import seedu.duke.exception.TimeFormatException;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
