@@ -11,7 +11,7 @@ public class SelectModuleCommand extends Command {
     public String moduleCode;
 
     public SelectModuleCommand(String moduleCode) {
-        this.moduleCode = moduleCode;
+        this.moduleCode = moduleCode.trim();
         assert this.moduleCode != null : "Module code cannot be null";
     }
 

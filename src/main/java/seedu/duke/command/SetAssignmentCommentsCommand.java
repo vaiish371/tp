@@ -8,6 +8,7 @@ import seedu.duke.exception.AssignmentNotFoundException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.ModuleNotSelectedException;
+import seedu.duke.exception.EmptyParameterException;
 import seedu.duke.ui.Ui;
 
 public class SetAssignmentCommentsCommand extends Command {
@@ -16,13 +17,16 @@ public class SetAssignmentCommentsCommand extends Command {
     private String comments;
 
     public SetAssignmentCommentsCommand(String moduleCode, String assignmentName, String comments)
-            throws ModuleNotSelectedException {
+            throws ModuleNotSelectedException, EmptyParameterException {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
         }
         this.moduleCode = moduleCode;
         this.assignmentName = assignmentName.trim();
         this.comments = comments.trim();
+        if (comments.length() == 0) {
+            throw new EmptyParameterException();
+        }
     }
 
     @Override

@@ -57,16 +57,18 @@ required to print different kinds of messages on te console.
    that prints the messages.
    <br>
 
-## Storage Component (Bryan)
+## Storage Component
+
+<br>For the Storage functionality of the application, I have added a new `Storable` interface that is implemented by the three main entities of the app: Assignment, Student and Lesson.</br> The `Storable` interface mandates the user to write a `toStorage()` method in order to be stored in the database. The `toStorage()` method converts all information of an object into a `String` format to be appended onto the database.
+
+The implementation of the `Storable` interface helps to decouple the Storage class from all classes that require storing of their instances into the database. This is because by implementing `Storable`, all `Storage` class needs to do to store an object information into the database would be to interact with the `Storable` interface via the `toStorage()` method. 
+
 <br>Given below is the Class Diagram for the Storage class. The storage class interacts with the Database file, ensuring that user's data will be saved at the end of each session and loaded up upon the user's next visit. </br>
 
 ![Storage](uml/StorageClassDiagram.png)
 
 The `Storage` class is used to interact with the database.txt file. The `loadData()` function of the Storage object will be called at the start of the program and `saveData()` at the end of the program.
 
-The `Storage` class will collect the data of all classes that implements the Storable interface so that these data can be saved to the database.
-
-The `toStorage()` method of the Storable interface will return a string representing the object instance's data. 
 
 `loadData()`: 
 
@@ -74,12 +76,21 @@ The `loadData()` method is illustrated in the sequence diagram below.
 
 ![loadData](uml/LoadDataSequenceDiagram.png)
 
-As can be seen, multiple loops are required to load the information of all object instances onto the Database so that the user's data is saved.
+As can be seen, multiple loops are required to load all the information of each object instance from the Database so that the user's data can be retrieved fully.
 
 `saveData()`:
 
-When the saveData() method is called, the toStorage() method of each object instance implementing the Storable interface will be called. The return string of each toStorage() method will then be appended onto the database.
+When the `saveData()` method is called, the `toStorage()` method of each object instance implementing the `Storable` interface will be called. The return string of each `toStorage()` method will then be appended onto the database.
  
+`loadAnswer()`:
+
+For Autograding purpose, the `Storage` class is required to retrieve the answers and students' scripts from the respective .txt files that they were stored in. The `loadAnswer()` method in the `Storage` class fulfils this. The Sequence Diagram below exhibits the behaviour of the `loadAnswer()` method.
+
+![loadAnswer](uml/LoadAnswerSequenceDiagram.png)
+
+`loadScript()`:
+
+Similarly to `loadAnswer()` as shown in the above Sequence Diagram, the `loadScript()` method follows the same logic in retrieving each student's script from their input file, scanning them as Data and allowing us to perform Autograding.
 
 ## Data Component
 The figure below shows the classes in ModMan that tracks module information data.

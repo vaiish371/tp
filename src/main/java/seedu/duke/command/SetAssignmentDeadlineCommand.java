@@ -16,6 +16,8 @@ import seedu.duke.exception.ModuleNotSelectedException;
 import java.util.logging.Logger;
 
 public class SetAssignmentDeadlineCommand extends Command {
+    private static final int EARLIEST_YEAR = 2021;
+    private static final int LATEST_YEAR = 2030;
     private String moduleCode;
     private String assignmentName;
     private LocalDate deadline;
@@ -31,7 +33,7 @@ public class SetAssignmentDeadlineCommand extends Command {
         this.assignmentName = assignmentName.trim();
         this.deadline = LocalDate.parse(deadline.trim(), formatter);
         int year = this.deadline.getYear();
-        if (year < 2021 || year > 2030) {
+        if (year < EARLIEST_YEAR || year > LATEST_YEAR) {
             throw new DateTimeFormatException();
         }
 

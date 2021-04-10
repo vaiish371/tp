@@ -36,7 +36,8 @@ Icon | Purpose
 | :bulb: | Tips for Teaching Assistants |
 
 ## Table of contents
-1. [Quick start](#1-quick-start)
+1. [Quick start](#1-quick-start) <br>
+    1.1 [Input Formatting](#11-input-formatting)<br>
 1. [Features](#2-features) <br>
     2.1 [`help` - Listing Basic Commands](#21-listing-basic-commands-help) <br>
     2.2 [`add module` - Adding a Module](#22-adding-a-module-add-module) <br>
@@ -72,6 +73,21 @@ Icon | Purpose
 1. Open a command window in the folder containing the `.jar` file.
 1. Run the command `java -jar {filename}.jar` <br> If you haven't changed the filename, run the command `java -jar ModMan.jar`
 
+### 1.1 Input Formatting
+This section covers points to note about proper input formats for commands.
+
+1. Commands that do not accept any parameters (`help`, `current` etc.) will display wrong command error if any parameters are entered.
+2. For commands with flags (ie. `/t`, `/s`):
+    * All flags must be entered completely in the order specified in command format.
+    * There is one whitespace before and after each flag eg. `/t<space>TYPE<space>/v<space>...`; Input would be truncated if spaces are not present.</br>
+      For example:
+        * `/t /v...`: Only one space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
+        * `/t  /v...`: Two spaces between flags, input for flag `/t` would be parsed as empty. Empty parameter error may be thrown.
+        * `.../s 1600/e 1800`: `START_TIME` will be parsed as `160` and wrong time format error may be thrown.
+    * Any inputs within the space between the flags would be trimmed for whitespaces.
+        * `/t     Lecture       /v ...`: Input for `/t` will be trimmed to `Lecture`.
+    
+:warning: Inputs that do not follow this format would be invalid.
 
 ## 2. Features 
 
@@ -273,13 +289,6 @@ Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800`.
 * `START_TIME` must be before `END_TIME`
 
-:warning: All flags (`/t`, `/v` etc.) must be included in the order specified above.
-
-:warning: Note the spacing before and after each flag eg. `/t TYPE /v ...`; Input would be truncated if spaces are not present.</br>
-For example :
-* `/t /v...`: Only one space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
-* `.../s 1600/e 1800`: `START_TIME` will be parsed as `160` and wrong time error may be thrown.
-
 :warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
 
 Example of usage:
@@ -334,19 +343,11 @@ Edits the lessons in the timetable corresponding to the index for the module you
 Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
 * You may enter `-` for the field(s) you do not wish to change.
-  * `-` input would be trimmed for whitespaces.
 * The `TYPE` and `VENUE` can be in a natural language format.
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800` if specified.
 * `START_TIME` must be before `END_TIME`
 * The parameters cannot be empty or whitespaces.
-
-:warning: All flags (`/t`, `/v` etc.) must be included in the order specified above.
-
-:warning: Note the spacing before and after each flag eg. `/t TYPE /v ...`; Input would be truncated if spaces are not present.</br>
-For example:
-* `/t /v...`: Only one space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
-* `.../s 1600/e 1800`: `START_TIME` will be parsed as `160` and wrong time error may be thrown.
 
 :warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
 
@@ -549,11 +550,13 @@ Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 | :warning: | The deadline must be in the format `dd MM yyyy` e.g. 16 08 2021 </br> You are also restricted to dates from the years 2021 to 2030 |
 |----------------------|-------------------------------------|
 
+
 The deadline has to follow a strict format to allow you to easily sort your assignments by deadline later on!
 
 Examples of usage:
 * `set assignment deadline /a quiz1 /d 16 08 2021`
 * `set assignment deadline /a quiz2 /d 17 08 1999`
+
 
 Expected output:
 ```

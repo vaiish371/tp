@@ -30,6 +30,7 @@ import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
 import seedu.duke.exception.DateTimeFormatException;
 import seedu.duke.exception.DayFormatException;
+import seedu.duke.exception.EmptyModuleException;
 import seedu.duke.exception.EmptyParameterException;
 import seedu.duke.exception.IndexNotFoundException;
 import seedu.duke.exception.InsufficientParametersException;
@@ -38,6 +39,7 @@ import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.TimeFormatException;
+import seedu.duke.exception.EmptyParameterException;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -72,13 +74,13 @@ public class Parser {
             command = new ExitCommand();
         } else if (line.equals("help")) {
             command = getHelpModuleCommand();
-        } else if (line.startsWith("select ")) {
+        } else if ((line + " ").startsWith("select ")) {
             command = getSelectModuleCommand(line);
         } else if (line.equals("list module")) {
             command = getListModuleCommand();
-        } else if (line.startsWith("add module ")) {
+        } else if ((line + " ").startsWith("add module ")) {
             command = getAddModuleCommand(line);
-        } else if (line.startsWith("remove module ")) {
+        } else if ((line + " ").startsWith("remove module ")) {
             command = getRemoveModuleCommand(line);
         } else if (line.equals("current")) {
             command = getCurrentModuleCommand();
@@ -196,20 +198,26 @@ public class Parser {
         return command;
     }
 
-    private static Command getRemoveModuleCommand(String line) {
+    private static Command getRemoveModuleCommand(String line) throws InsufficientParametersException {
         logger.log(Level.INFO, "remove module command entered");
         Command command;
-        String moduleCode = line.substring(REMOVE_MODULE_LENGTH);
-        assert moduleCode.length() != 0 : "moduleCode should not be empty";
+        String moduleCode = (line + " ").substring(REMOVE_MODULE_LENGTH);
+        if (moduleCode.equals("")) {
+            logger.log(Level.WARNING, "not enough parameters for remove module command");
+            throw new InsufficientParametersException();
+        }
         command = new RemoveModuleCommand(moduleCode);
         return command;
     }
 
-    private static Command getSelectModuleCommand(String line) {
+    private static Command getSelectModuleCommand(String line) throws InsufficientParametersException {
         logger.log(Level.INFO, "select module command entered");
         Command command;
-        String moduleCode = line.substring(SELECT_LENGTH);
-        assert moduleCode.length() != 0 : "moduleCode should not be empty";
+        String moduleCode = (line + " ").substring(SELECT_LENGTH);
+        if (moduleCode.equals("")) {
+            logger.log(Level.WARNING, "not enough parameters for select module command");
+            throw new InsufficientParametersException();
+        }
         command = new SelectModuleCommand(moduleCode);
         return command;
     }
@@ -233,7 +241,8 @@ public class Parser {
         }
     }
 
-    private static Command getEditAssignmentNameCommand(String line) throws InsufficientParametersException {
+    private static Command getEditAssignmentNameCommand(String line)
+            throws InsufficientParametersException, EmptyParameterException {
         Command command;
         try {
             logger.log(Level.INFO, "edit assignment name command entered");
@@ -283,7 +292,7 @@ public class Parser {
     }
 
     private static Command getSetAssignmentCommentsCommand(String line)
-            throws InsufficientParametersException, ModuleNotSelectedException {
+            throws InsufficientParametersException, ModuleNotSelectedException, EmptyParameterException {
         Command command;
         try {
             logger.log(Level.INFO, "set comments command entered");
@@ -318,7 +327,7 @@ public class Parser {
     }
 
     private static Command getSetAssignmentGradeCommand(String line)
-            throws InsufficientParametersException, ModuleNotSelectedException {
+            throws InsufficientParametersException, ModuleNotSelectedException, EmptyParameterException {
         Command command;
         try {
             logger.log(Level.INFO, "set assignment grade command entered");
@@ -507,7 +516,7 @@ public class Parser {
     }
 
     private static Command getAddAssignmentCommand(String line) throws InvalidCommandException,
-            InsufficientParametersException, ModuleNotSelectedException {
+            InsufficientParametersException, ModuleNotSelectedException, EmptyParameterException {
         Command command;
         try {
             logger.log(Level.INFO, "add assignment command entered");
@@ -541,10 +550,11 @@ public class Parser {
         return command;
     }
 
-    private static Command getAddModuleCommand(String line) throws InsufficientParametersException {
+    private static Command getAddModuleCommand(String line) throws InsufficientParametersException,
+            EmptyModuleException {
         Command command;
         logger.log(Level.INFO, "add module command entered");
-        String moduleCode = line.substring(ADD_MODULE_LENGTH);
+        String moduleCode = (line + " ").substring(ADD_MODULE_LENGTH);
         if (moduleCode.equals("")) {
             logger.log(Level.WARNING, "not enough parameters for add module command");
             throw new InsufficientParametersException();
