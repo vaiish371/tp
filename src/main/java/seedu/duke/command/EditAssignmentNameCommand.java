@@ -4,6 +4,7 @@ import seedu.duke.Module;
 import seedu.duke.Storage;
 import seedu.duke.assignment.Assignment;
 import seedu.duke.data.Data;
+import seedu.duke.exception.AssignmentNotFoundException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.ui.Ui;
 
@@ -18,7 +19,8 @@ public class EditAssignmentNameCommand extends Command {
         this.newName = newName;
     }
 
-    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
+            AssignmentNotFoundException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
@@ -29,7 +31,11 @@ public class EditAssignmentNameCommand extends Command {
                 assignmentToBeEdited = assignment;
             }
         }
+        if (assignmentToBeEdited == null) {
+            throw new AssignmentNotFoundException();
+        }
+
         assignmentToBeEdited.setName(newName);
-        ui.printEditAssignment(module, oldName, newName);
+        ui.printEditAssignmentName(module, oldName, newName);
     }
 }

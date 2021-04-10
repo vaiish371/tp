@@ -58,7 +58,7 @@ public class Ui {
         System.out.println("\t " + student);
     }
 
-    public void printEditAssignment(Module module, String oldName, String newName) {
+    public void printEditAssignmentName(Module module, String oldName, String newName) {
         System.out.println("\t I have edited your assignment in " + module.getModuleCode() + " from:");
         System.out.println("\t - " + oldName);
         System.out.println("\t to");

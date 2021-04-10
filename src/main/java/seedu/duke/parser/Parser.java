@@ -9,6 +9,7 @@ import seedu.duke.command.AutogradeAssignmentCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.CurrentModuleCommand;
 import seedu.duke.command.DeleteModuleTimetableCommand;
+import seedu.duke.command.EditAssignmentNameCommand;
 import seedu.duke.command.EditModuleTimetableCommand;
 import seedu.duke.command.ExitCommand;
 import seedu.duke.command.GetAssignmentCommentsCommand;
@@ -106,6 +107,8 @@ public class Parser {
             command = getSetAssignmentDeadlineCommand(line);
         } else if (line.equals("sort assignments by deadline")) {
             command = getSortAssignmentByDeadlineCommand();
+        } else if (line.startsWith("edit assignment name ")) {
+            command = getEditAssignmentNameCommand(line);
         } else if (line.startsWith("remove module ")) {
             command = getRemoveModuleCommand(line);
         } else if (line.equals("current")) {
@@ -216,6 +219,25 @@ public class Parser {
             return currentModule;
         }
     }
+
+    private static Command getEditAssignmentNameCommand(String line) throws InsufficientParametersException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "edit assignment name command entered");
+            String oldNameSeparator = "/a";
+            String newNameSeparator = "/n";
+            int oldNameIndex = line.indexOf(oldNameSeparator);
+            int newNameIndex = line.indexOf(newNameSeparator);
+            String oldName = line.substring(oldNameIndex + A_LENGTH, newNameIndex - 1);
+            String newName = line.substring(newNameIndex + A_LENGTH).trim();
+            command = new EditAssignmentNameCommand(currentModule, oldName, newName);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for edit assignment name command");
+            throw new InsufficientParametersException();
+        }
+        return command;
+    }
+
 
     private static Command getSortAssignmentByDeadlineCommand() {
         Command command;
