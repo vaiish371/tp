@@ -1,10 +1,12 @@
 package seedu.duke.parser;
 
 import org.junit.jupiter.api.Test;
+import seedu.duke.Module;
 import seedu.duke.command.AddAssignmentCommand;
 import seedu.duke.command.AddModuleCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.ExitCommand;
+import seedu.duke.command.ListModuleAssignmentsCommand;
 import seedu.duke.command.SetAssignmentDeadlineCommand;
 import seedu.duke.exception.InsufficientParametersException;
 import seedu.duke.exception.InvalidCommandException;
@@ -50,40 +52,33 @@ class ParserTest {
         assertEquals(true, c instanceof AddAssignmentCommand);
     }
 
-    //     @Test
-    //     void testParse_addAssignmentMissingParam_InvalidCommandException() {
-    //         Parser parser = new Parser();
-    //         String inputString = "add assignment /m CS2113T";
-    //         assertThrows(InvalidCommandException.class, () -> {
-    //             parser.parse(inputString);
-    //         });
-    //     }
+     @Test
+     void testParse_addAssignmentMissingParam_InvalidCommandException() {
+         Parser parser = new Parser();
+         String inputString = "add assignment ";
+         assertThrows(InvalidCommandException.class, () -> {
+             parser.parse(inputString);
+         });
+     }
 
-    //     @Test
-    //     void testParse_addAssignmentEmptyAssignment_InvalidCommandException() {
-    //         Parser parser = new Parser();
-    //         String inputString = "add assignment /m CS2113T /a     ";
-    //         assertThrows(InvalidCommandException.class, () -> {
-    //             parser.parse(inputString);
-    //         });
-    //     }
+     @Test
+     void testParse_addAssignmentEmptyAssignment_InsufficientParametersException() {
+         Parser parser = new Parser();
+         String inputString = "add assignment /a     ";
+         assertThrows(InsufficientParametersException.class, () -> {
+             parser.parse(inputString);
+         });
+     }
 
-    //     @Test
-    //     void testParse_listAssignmentValid_ListModuleAssignmentsCommand() throws ModManException {
-    //         Parser parser = new Parser();
-    //         String inputString = "list assignment CS2113T";
-    //         Command c = parser.parse(inputString);
-    //         assertEquals(true, c instanceof ListModuleAssignmentsCommand);
-    //     }
-
-    //     @Test
-    //     void testParse_listAssignmentMissingParam_InvalidCommandException() {
-    //         Parser parser = new Parser();
-    //         String inputString = "list assignment     ";
-    //         assertThrows(InvalidCommandException.class, () -> {
-    //             parser.parse(inputString);
-    //         });
-    //     }
+     @Test
+     void testParse_listAssignmentValid_ListModuleAssignmentsCommand() throws ModManException {
+         Parser parser = new Parser();
+         Module testModule = new Module("CS2113T");
+         Parser.setCurrentModule(testModule.getModuleCode());
+         String inputString = "list assignments";
+         Command c = parser.parse(inputString);
+         assertEquals(true, c instanceof ListModuleAssignmentsCommand);
+     }
 
     @Test
     void testParse_setAssignmentDeadlineValid_SetAssignmentDeadlineCommand() throws ModManException {
