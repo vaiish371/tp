@@ -33,8 +33,8 @@ Hello from
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
 	 Here are the assignments in CS2113T:
-	 1. quiz1
-	 2. quiz2
+	 1. quiz1 (McqAssignment) - due date not specified.
+	 2. quiz2 (LongAnswerAssignment) - due date not specified.
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
 	 I have assigned a new student to CS2113T:
@@ -82,15 +82,15 @@ Hello from
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
 	 Here are the assignments in CS2113T:
-	 1. quiz1 (due by: Aug 17 2021)
-	 2. quiz2 (due by: Aug 16 2021)
-	 3. quiz3
+	 1. quiz1 (McqAssignment) due by: Aug 17 2021
+	 2. quiz2 (LongAnswerAssignment) due by: Aug 16 2021
+	 3. quiz3 (LongAnswerAssignment) - due date not specified.
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
 	 Here are the assignments in CS2113T:
-	 1. quiz2 (due by: Aug 16 2021)
-	 2. quiz1 (due by: Aug 17 2021)
-	 3. quiz3
+	 1. quiz2 (LongAnswerAssignment) due by: Aug 16 2021
+	 2. quiz1 (McqAssignment) due by: Aug 17 2021
+	 3. quiz3 (LongAnswerAssignment) - due date not specified.
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
 	 OOPS!!! File not found.
