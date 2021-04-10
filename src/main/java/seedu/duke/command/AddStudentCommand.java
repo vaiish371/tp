@@ -1,6 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.data.module.Module;
+import seedu.duke.exception.DuplicateStudentException;
 import seedu.duke.exception.EmptyParameterException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.student.Student;
@@ -36,10 +37,15 @@ public class AddStudentCommand extends Command {
         }
     }
 
-    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException, DuplicateStudentException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
+        }
+        for (Student student : module.getStudents()) {
+            if (student.getStudentNumber().equals(studentNumber)){
+                throw new DuplicateStudentException();
+            }
         }
         Student student = new Student(studentName, studentNumber, email);
         module.addStudent(student);
