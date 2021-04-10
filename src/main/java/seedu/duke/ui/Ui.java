@@ -55,7 +55,7 @@ public class Ui {
                 + "\t2. select MODULE_NAME - to select a module directory from the list of modules.\n"
                 + "\t3. add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL - to add a student to a module\n"
                 + "\t4. add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME - to add a lesson\n"
-                + "\t5.add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME - to add an assignment\n"
+                + "\t5. add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME - to add an assignment\n"
                 + "\t6. set deadline /a ASSIGNMENT_NAME /d DEADLINE - to set deadline for an assignment\n"
                 + "\t7. autograde /a ASSIGNMENT_NAME - to auto-grade all student scripts for assignment\n"
                 + "\t8. set assignment comments /a ASSIGNMENT_NAME /c COMMENT - to set feedback for an assignment\n"
