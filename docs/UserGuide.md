@@ -33,6 +33,7 @@ Icon | Purpose
 ------ | ----------------
 | :information_source: | Explainers on how to use and interpret the User Guide |
 | :warning: | Warnings on usage of ModMan |
+| :bulb: | Tips for Teaching Assistants |
 
 ## Table of contents
 1. [Quick start](#1-quick-start)
@@ -386,45 +387,73 @@ Expected output:
 
 ### 2.15 Listing Module Assignments : `list assignments` 
 
-Lists out all assignments in the module along with the due date if the deadline was set.
+This command lists out all the assignments in the current module you are working in. It also shows you information on the type of assignment 
+and the due date for grading if you have set a deadline for the assignment.
 
-Format: `list assignment`
+If you have executed the `sort assignments by deadline` command, the assignments will be listed in order from the most to least urgent deadline.
+Otherwise, the assignments will be listed in the order it was added. (more details of sorting assignments will be provided in section 2.16 `sort assignments by deadline`)
+
+Format: `list assignments`
+
+Example of usage:</br>
+Let's say you have added 3 assignments to the module CS2113T and set the deadline for the first two quizzes. 
+Executing the `list assignments` command will show you an expected output as shown below.
 
 Expected output:
 ```
 ---------------------------------------------------------------------
     Here are the assignments in CS2113T:
-    1. quiz1 (due by: Aug 17 2021)
-    2. quiz2 (due by: Aug 16 2021)
-    3. quiz3 (due by: Aug 20 2021)
+    1. quiz1 (McqAssignment) due by: Aug 17 2021
+    2. quiz2 (ShortAnswerAssignment) due by: Aug 16 2021
+    3. quiz3 (LongAnswerAssignment) - due date not specified.
 ---------------------------------------------------------------------
 ```
+
+| :information_source: | Assignments with no deadline set will output `due date not specified` |
+|----------------------|-------------------------------------|
 ***
 ### 2.16 Sorting Module Assignments : `sort assignments by deadline` 
 
-Sorts all assignments in the module by their deadline. <br/>
-If no deadline was set, the assignment will be sorted after those with deadlines.
+Sorting the assignments in the module by deadline allows you to easily keep track of which assignments have to be graded soon. 
+The assignments are sorted based on the urgency of the grading from the most urgent to the least urgent. </br>
+
+Here are some special cases to consider when sorting assignments:
+* If an assignment does not have a deadline, it will be sorted after other assignments with valid deadlines.
+* If two assignments have the same deadline or both do not have a deadline set, they will retain the initial order of when they were added to the module.
+
+
+
+| :bulb: | You can set your own deadlines to be earlier than the actual deadline for grading to help plan your time more wisely!|
+|----------------------|-------------------------------------|
+
 
 Format: `sort assignments by deadline`
 
+Example of usage:
+
+Here is an example of the before and after of sorting assignments by deadline
+
 Expected output:
+
+Before sorting:
 ```
 ---------------------------------------------------------------------
     Here are the assignments in CS2113T:
-    1. quiz2 (due by: Aug 16 2021)
-    2. quiz1 (due by: Aug 17 2021)
-    3. quiz3 (due by: Aug 20 2021)
+    1. quiz1 (McqAssignment) - due date not specified.
+    2. quiz2 (ShortAnswerAssignment) due by: Aug 17 2021
+    3. quiz3 (LongAnswerAssignment) due by: Aug 16 2021
 ---------------------------------------------------------------------
 ```
 
-Given below is an example usage scenario and how the sorting mechanism behaves.
-
-Step 1. The user launches the application. The CS2113T module has an assignment quiz1 due on 17 Aug 2021.
-Step 2. The user adds 2 more assignments quiz2 and quiz3
-Step 3. The user only sets the deadline for quiz3 to be 16 Aug 2021.
-Step 4. The user executes `sort by deadline` which reorders the assignments in CS2113T to be quiz3, quiz1 and quiz2.
-Assignments with null as deadline are sorted behind assignments with deadlines.
-
+After sorting:
+```
+---------------------------------------------------------------------
+    Here are the assignments in CS2113T:
+    1. quiz3 (LongAnswerAssignment) due by: Aug 16 2021
+    2. quiz2 (ShortAnswerAssignment) due by: Aug 17 2021
+    3. quiz1 (McqAssignment) - due date not specified.
+---------------------------------------------------------------------
+```
 ***
 
 ### 2.17 Editing an Assignment Name: `edit assignment name`
@@ -510,25 +539,38 @@ Expected output:
 
 ***
 
-### 2.21 Setting Assignment Deadline : `set deadline` 
+### 2.21 Setting Assignment Deadline : `set assignment deadline` 
 
-Sets the deadline the assignment has to be graded by. 
+The `set assigment deadline` command allows you to set the date which you have to grade the assignment by.
 If a deadline had previously been set, it will be updated by the new deadline.
 
-Format: `set deadline /a ASSIGNMENT_NAME /d DEADLINE`
+Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
-The DEADLINE must be in the format dd MM yyyy eg. 16 08 2021.
+| :warning: | The deadline must be in the format `dd MM yyyy` e.g. 16 08 2021 </br> You are also restricted to dates from the years 2021 to 2030 |
+|----------------------|-------------------------------------|
+
+The deadline has to follow a strict format to allow you to easily sort your assignments by deadline later on!
 
 Examples of usage:
-* `set deadline /a quiz1 /d 17 08 2021`
-* `set deadline /a quiz2 /d 16 08 2021`
+* `set assignment deadline /a quiz1 /d 16 08 2021`
+* `set assignment deadline /a quiz2 /d 17 08 1999`
 
 Expected output:
 ```
 ---------------------------------------------------------------------
-    I have set quiz1's deadline to Aug 17 2021 in CS2113T
+    I have set quiz1's deadline to Aug 16 2021 in CS2113T
 ---------------------------------------------------------------------
 ```
+```
+---------------------------------------------------------------------
+    OOPS!!! Date/Time Format is wrong!
+    Please re-enter the Date/Time in the following format: dd MM yyyy
+    Note that only year 2021 to 2030 is accepted.
+---------------------------------------------------------------------
+```
+
+| :bulb: | You can set your own deadlines to be earlier than the actual deadline for grading to help plan your time more wisely!|
+|----------------------|-------------------------------------|
 ***
 
 ### 2.22 Listing Assignment Grades : `list grades` 
@@ -577,6 +619,20 @@ Expected output:
 
 Auto-saves all your changes and exits the program. ModMan will have all your data ready the next time you load it.
 
+Format: `bye`
+
+Expected output:
+```
+---------------------------------------------------------------------
+    Bye. Hope to see you again soon!
+---------------------------------------------------------------------
+```
+***
+
+### 2.25 Viewing Assignment Answer : `view assignment answer`
+
+The `view assignment answer` allows you to easily search and retrieve the answer key for an assignment stored in the `answers` directory.
+All you have to do is 
 Format: `bye`
 
 Expected output:

@@ -27,8 +27,8 @@ public class ViewScriptCommand extends Command {
 
     public ViewScriptCommand(String moduleCode, String assignmentName, String studentName) {
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
-        this.studentName = studentName;
+        this.assignmentName = assignmentName.trim();
+        this.studentName = studentName.trim();
     }
 
     @Override

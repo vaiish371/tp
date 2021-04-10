@@ -29,7 +29,7 @@ public class ViewAnswersCommand extends Command {
 
     public ViewAnswersCommand(String moduleCode, String assignmentName) {
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
+        this.assignmentName = assignmentName.trim();
     }
 
     @Override
