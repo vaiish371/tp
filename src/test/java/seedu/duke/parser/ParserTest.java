@@ -51,7 +51,7 @@ class ParserTest {
         Command c = parser.parse(inputString);
         assertEquals(true, c instanceof AddAssignmentCommand);
     }
-    
+
     @Test
     void testParse_listAssignmentValid_ListModuleAssignmentsCommand() throws ModManException {
         Parser parser = new Parser();
