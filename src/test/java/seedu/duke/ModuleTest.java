@@ -29,7 +29,7 @@ class ModuleTest {
     void testGetAssignmentAtIndex() {
         Module testModule = new Module("CS2113T");
         testModule.addAssignment(new McqAssignment("tP"));
-        assertEquals("tP", testModule.getAssignmentAtIndex(0).toString());
+        assertEquals("tP (McqAssignment) - due date not specified.", testModule.getAssignmentAtIndex(0).toString());
     }
 
     @Test

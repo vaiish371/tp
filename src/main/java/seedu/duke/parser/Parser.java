@@ -13,6 +13,7 @@ import seedu.duke.command.EditAssignmentNameCommand;
 import seedu.duke.command.EditModuleTimetableCommand;
 import seedu.duke.command.ExitCommand;
 import seedu.duke.command.GetAssignmentCommentsCommand;
+import seedu.duke.command.HelpCommand;
 import seedu.duke.command.ListModuleAssignmentsCommand;
 import seedu.duke.command.ListModuleCommand;
 import seedu.duke.command.ListModuleStudentsCommand;
@@ -69,6 +70,8 @@ public class Parser {
         if (line.equals("bye")) {
             logger.log(Level.INFO, "bye command entered");
             command = new ExitCommand();
+        } else if (line.equals("help")) {
+            command = getHelpModuleCommand();
         } else if (line.startsWith("select ")) {
             command = getSelectModuleCommand(line);
         } else if (line.equals("list module")) {
@@ -124,6 +127,13 @@ public class Parser {
             throw new InvalidCommandException();
         }
         assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getHelpModuleCommand() {
+        logger.log(Level.INFO, "help command entered");
+        Command command;
+        command = new HelpCommand();
         return command;
     }
 
@@ -239,11 +249,16 @@ public class Parser {
     }
 
 
-    private static Command getSortAssignmentByDeadlineCommand() {
+    private static Command getSortAssignmentByDeadlineCommand() throws ModuleNotSelectedException {
         Command command;
-        logger.log(Level.INFO, "sort assignments by deadline command entered");
-        assert currentModule.length() != 0 : "currentModule should not be empty";
-        command = new SortAssignmentByDeadlineCommand(currentModule);
+        try {
+            logger.log(Level.INFO, "sort assignments by deadline command entered");
+            assert currentModule.length() != 0 : "currentModule should not be empty";
+            command = new SortAssignmentByDeadlineCommand(currentModule);
+        } catch (ModuleNotSelectedException e) {
+            logger.log(Level.WARNING, "module directory not selected");
+            throw new ModuleNotSelectedException();
+        }
         return command;
     }
 
@@ -357,7 +372,7 @@ public class Parser {
     }
 
     private static Command getAddTimetableCommand(String line) throws InsufficientParametersException,
-            DateTimeFormatException, DayFormatException {
+            DateTimeFormatException, DayFormatException, ModuleNotSelectedException {
         Command command;
         String typeSeparator = "/t";
         String venueSeparator = "/v";
@@ -386,14 +401,22 @@ public class Parser {
         } catch (IllegalArgumentException e) {
             logger.log(Level.WARNING, "Day format is wrong.");
             throw new DayFormatException();
+        } catch (ModuleNotSelectedException e) {
+            logger.log(Level.WARNING, "module directory not selected.");
+            throw new ModuleNotSelectedException();
         }
         return command;
     }
 
-    private static Command getListModuleTimetableCommand() {
+    private static Command getListModuleTimetableCommand() throws ModuleNotSelectedException {
         Command command;
-        logger.log(Level.INFO, "list timetable command entered");
-        command = new ListModuleTimetableCommand(currentModule);
+        try {
+            logger.log(Level.INFO, "list timetable command entered");
+            command = new ListModuleTimetableCommand(currentModule);
+        } catch (ModuleNotSelectedException e) {
+            logger.log(Level.WARNING, "module directory not selected");
+            throw new ModuleNotSelectedException();
+        }
         return command;
     }
 
@@ -450,7 +473,8 @@ public class Parser {
         return command;
     }
 
-    private static Command getAddStudentCommand(String line) throws InsufficientParametersException {
+    private static Command getAddStudentCommand(String line) throws InsufficientParametersException,
+            ModuleNotSelectedException {
         Command command;
         try {
             logger.log(Level.INFO, "add student command entered");
@@ -467,6 +491,9 @@ public class Parser {
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add student command");
             throw new InsufficientParametersException();
+        } catch (ModuleNotSelectedException e) {
+            logger.log(Level.WARNING, "module directory not selected");
+            throw new ModuleNotSelectedException();
         }
         return command;
     }

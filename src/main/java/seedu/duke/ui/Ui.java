@@ -37,6 +37,7 @@ public class Ui {
                 + "| |  | | (_) | (_| | | |  | | (_| | | | |\n"
                 + "|_|  |_|\\___/ \\__'_| |_|  |_|\\__'_|_| |_|\n";
         System.out.println("Hello from\n" + logo);
+
     }
 
     public String readCommand() {
@@ -47,6 +48,23 @@ public class Ui {
     public void showError(String message) {
         System.out.println("\t " + exceptionGreeting + message);
     }
+
+    public void printHelpMessage() {
+        System.out.println("Here are the list of basic commands you can use:\n ");
+        System.out.println("\t1. add module MODULE_NAME - to add a module\n"
+                + "\t2. select MODULE_NAME - to select a module directory from the list of modules.\n"
+                + "\t3. add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL - to add a student to a module\n"
+                + "\t4. add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME - to add a lesson\n"
+                + "\t5.add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME - to add an assignment\n"
+                + "\t6. set deadline /a ASSIGNMENT_NAME /d DEADLINE - to set deadline for an assignment\n"
+                + "\t7. autograde /a ASSIGNMENT_NAME - to auto-grade all student scripts for assignment\n"
+                + "\t8. set assignment comments /a ASSIGNMENT_NAME /c COMMENT - to set feedback for an assignment\n"
+                + "\t9. remove module MODULE_NAME - to remove a module off the list\n"
+                + "\t10. bye - to exit the program and save all your information\n\n"
+                + "For the full list of commands, check out the User Guide at: "
+                + "https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html");
+    }
+
 
     public void printNewAssignment(Module module, Assignment assignment) {
         System.out.println("\t I have added a new assignment to " + module.getModuleCode() + ":");

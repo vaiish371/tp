@@ -7,6 +7,7 @@ import seedu.duke.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.InvalidStartTimeException;
 import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.ui.Ui;
 
 import java.time.LocalTime;
@@ -25,16 +26,17 @@ public class AddTimetableCommand extends Command {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHmm");
     private static final Logger logger = Logger.getLogger("AddTimetableCommand");
 
-    public AddTimetableCommand(String moduleCode, String lessonType, String venue,
-                               Day day, String startTime, String endTime) throws DateTimeParseException {
-        logger.log(Level.INFO, "start initialising AddTimeTableCommand");
+    public AddTimetableCommand(String moduleCode, String lessonType, String venue, Day day, String startTime,
+                               String endTime) throws DateTimeParseException, ModuleNotSelectedException {
+        if (moduleCode == null) {
+            throw new ModuleNotSelectedException();
+        }
         this.moduleCode = moduleCode;
         this.day = day;
         this.startTime = LocalTime.parse(startTime, formatter);
         this.endTime = LocalTime.parse(endTime, formatter);
         this.venue = venue;
         this.lessonType = lessonType;
-        logger.log(Level.INFO, "AddTimeTableCommand initialised");
     }
 
     @Override

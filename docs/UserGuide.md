@@ -77,6 +77,40 @@ Icon | Purpose
 |----------------------|-------------------------------------|
 
 ***
+### i. Listing Basic Commands: `help`
+This command is available for you to get a quick reference of all the basic commands 
+that you are supposed to use to implement a particular feature. You can invoke this command
+any time during program run when you might not be able to keep track of the basic
+commands and their formats.
+
+Format: `help`
+
+Example of usage: `help`
+
+Expected output:
+
+```` 
+--------------------------------------------------------------------------
+    Here are the list of basic commands you can use:
+ 
+	1. add module MODULE_NAME - to add a module
+	2. select MODULE_NAME - to select a module directory from the list of modules.
+	3. add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL - to add a student to a module
+	4. add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME - to add a lesson
+	5. add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME - to add an assignment
+	6. set deadline /a ASSIGNMENT_NAME /d DEADLINE - to set deadline for an assignment
+	7. autograde /a ASSIGNMENT_NAME - to auto-grade all student scripts for assignment
+	8. set assignment comments /a ASSIGNMENT_NAME /c COMMENT - to set feedback for an assignment
+	9. remove module MODULE_NAME - to remove a module off the list
+	10. bye - to exit the program and save all your information
+
+For the full list of commands, check out the User Guide at: https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html
+
+-------------------------------------------------------------------------- 
+`````
+Do note that it does not display the full list of commands and you will be required
+to navigate to the User Guide page if you want to access all of them.
+
 ### 2.1 Adding a Module: `add module`
 
 Adds a new module to the list of modules.
@@ -95,6 +129,7 @@ Expected output :
 -------------------------------------------------------------------------- 
 ````
 ***
+
 ### 2.2 Removing a Module: `remove module`
 
 Removes a module from the list of modules.
@@ -113,6 +148,7 @@ Expected output :
 -------------------------------------------------------------------------- 
 ````
 ***
+
 ### 2.3 Selecting a Module: `select`
 
 Select the module you want to currently work in.
@@ -155,7 +191,7 @@ Expected output :
 -------------------------------------------------------------------------- 
 ````
 ***
-### 2.5 Listing Modules: `list module`
+### 2.5 Listing Modules: `list module` (Vikas)
 
 Lists all the modules you have added, and specifies the current module (if any).
 
@@ -170,6 +206,41 @@ Expected output :
 -------------------------------------------------------------------------- 
 ````
 ***
+
+### v. Listing Modules: `list module` (Vaish)
+
+This command displays the list of modules you have added since the last time you saved
+all your information and as you keep adding during the program run.
+
+**Format**: `list module`
+
+**Example of usage**: 
+
+You have saved a module `CS2113T` in the previous program run and have
+added a new module `CS2101`in the new session.
+
+````
+ Here are your modules: 
+	 1. CS2113T
+ > add module CS2101
+	---------------------------------------------------------------------
+	 I have added a new module: CS2101
+	---------------------------------------------------------------------
+````
+Now, you use the `list module` command: 
+````
+ > list module
+````
+**Expected output**:
+
+````
+        ---------------------------------------------------------------------
+	 Here are your modules: 
+	 1. CS2113T
+	 2. CS2101
+        ---------------------------------------------------------------------
+````
+
 ### 2.6 Adding a student: `add student`
 
 Assigns a new student to the current module you have selected.
@@ -359,7 +430,7 @@ Expected output :
 ---------------------------------------------------------------------
 ```
 ***
-### 2.15 Sorting Module Assignments : `sort assignments` 
+### 2.15 Sorting Module Assignments : `sort assignments by deadline` 
 
 Sorts all assignments in the module by their deadline. <br/>
 If no deadline was set, the assignment will be sorted after those with deadlines.
@@ -583,8 +654,8 @@ add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME
 list timetable | `list timetable` <br> 
 add assignment | `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME` <br> e.g. `add assignment /t mcq /a Magic Sequence`
 list assignments | `list assignment` <br>
-sort assignments | `sort by deadline` <br>
-edit assignment | `edit assignment /t TYPE_OF_ASSIGNMENT /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
+sort assignments | `sort assignments by deadline` <br>
+edit assignment | `edit assignment /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
 set deadline | `set deadline /a ASSIGNMENT_NAME /d DEADLINE` <br> e.g. `set deadline /a quiz1 /d 17 08 2021`
 list grades | `list student assignment grades /a ASSIGNMENT_NAME` <br> e.g. `list student assignment grades /a quiz1`
 autograde | `autograde /a ASSIGNMENT_NAME` <br> e.g. `autograde /a quiz1`
