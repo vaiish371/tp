@@ -1,33 +1,7 @@
 package seedu.duke.parser;
 
 import seedu.duke.Day;
-import seedu.duke.command.AddAssignmentCommand;
-import seedu.duke.command.AddModuleCommand;
-import seedu.duke.command.AddStudentCommand;
-import seedu.duke.command.AddTimetableCommand;
-import seedu.duke.command.AutogradeAssignmentCommand;
-import seedu.duke.command.Command;
-import seedu.duke.command.CurrentModuleCommand;
-import seedu.duke.command.DeleteModuleTimetableCommand;
-import seedu.duke.command.EditAssignmentNameCommand;
-import seedu.duke.command.EditModuleTimetableCommand;
-import seedu.duke.command.ExitCommand;
-import seedu.duke.command.GetAssignmentCommentsCommand;
-import seedu.duke.command.ListModuleAssignmentsCommand;
-import seedu.duke.command.ListModuleCommand;
-import seedu.duke.command.ListModuleStudentsCommand;
-import seedu.duke.command.ListModuleTimetableCommand;
-import seedu.duke.command.ListStudentGradesForAssignmentCommand;
-import seedu.duke.command.ListStudentsDetailsCommand;
-import seedu.duke.command.RemoveModuleCommand;
-import seedu.duke.command.SelectModuleCommand;
-import seedu.duke.command.SetAssignmentCommentsCommand;
-import seedu.duke.command.SetAssignmentDeadlineCommand;
-import seedu.duke.command.SetAssignmentGradeCommand;
-import seedu.duke.command.SetAssignmentPercentageCommand;
-import seedu.duke.command.SortAssignmentByDeadlineCommand;
-import seedu.duke.command.ViewAnswersCommand;
-import seedu.duke.command.ViewScriptCommand;
+import seedu.duke.command.*;
 import seedu.duke.exception.DateTimeFormatException;
 import seedu.duke.exception.DayFormatException;
 import seedu.duke.exception.IndexNotFoundException;
@@ -69,6 +43,8 @@ public class Parser {
         if (line.equals("bye")) {
             logger.log(Level.INFO, "bye command entered");
             command = new ExitCommand();
+        } else if (line.equals("help")) {
+            command = getHelpModuleCommand();
         } else if (line.startsWith("select ")) {
             command = getSelectModuleCommand(line);
         } else if (line.equals("list module")) {
@@ -124,6 +100,13 @@ public class Parser {
             throw new InvalidCommandException();
         }
         assert command != null : "command should not be null";
+        return command;
+    }
+
+    private static Command getHelpModuleCommand() {
+        logger.log(Level.INFO, "help command entered");
+        Command command;
+        command = new HelpCommand();
         return command;
     }
 
