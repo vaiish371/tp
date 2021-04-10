@@ -1,16 +1,11 @@
 package seedu.duke.command;
 
 import seedu.duke.data.module.Module;
+import seedu.duke.exception.*;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.assignment.Answer;
 import seedu.duke.data.assignment.Assignment;
 import seedu.duke.data.Data;
-import seedu.duke.exception.AssignmentNotFoundException;
-import seedu.duke.exception.DataFileNotFoundException;
-import seedu.duke.exception.FileFormatException;
-import seedu.duke.exception.InvalidMcqOption;
-import seedu.duke.exception.ModuleNotFoundException;
-import seedu.duke.exception.NumbersMisalignException;
 import seedu.duke.ui.Ui;
 
 import java.util.logging.Level;
@@ -22,7 +17,10 @@ public class ViewAnswersCommand extends Command {
     private String assignmentName;
     private static Logger logger = Logger.getLogger(ViewAnswersCommand.class.getName());
 
-    public ViewAnswersCommand(String moduleCode, String assignmentName) {
+    public ViewAnswersCommand(String moduleCode, String assignmentName) throws ModuleNotSelectedException {
+        if (moduleCode == null) {
+            throw new ModuleNotSelectedException();
+        }
         this.moduleCode = moduleCode;
         this.assignmentName = assignmentName;
     }
