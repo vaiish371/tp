@@ -34,7 +34,7 @@ public class Storage {
     private static final Path DATABASE_DIR_PATH = Paths.get(ROOT, "Database");
     private static final String ANSWER_DIVIDER = "|";
     private static final int LINE_START = 0;
-    private static final int DIVIDER_LENGTH = 2;
+    private static final int DIVIDER_LENGTH = 1;
     private static final String UNDERSCORE = "_";
     private static final String TXTFILE = ".txt";
     private static Logger logger = Logger.getLogger(Storage.class.getName());
