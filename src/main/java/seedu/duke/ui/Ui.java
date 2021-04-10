@@ -50,18 +50,18 @@ public class Ui {
     }
 
     public void printHelpMessage() {
-        System.out.println("Here are the list of basic commands you can use:\n ");
-        System.out.println("\t1. add module MODULE_NAME - to add a module\n"
-                + "\t2. select MODULE_NAME - to select a module directory from the list of modules.\n"
-                + "\t3. add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL - to add a student to a module\n"
-                + "\t4. add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME - to add a lesson\n"
-                + "\t5. add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME - to add an assignment\n"
-                + "\t6. set deadline /a ASSIGNMENT_NAME /d DEADLINE - to set deadline for an assignment\n"
-                + "\t7. autograde /a ASSIGNMENT_NAME - to auto-grade all student scripts for assignment\n"
-                + "\t8. set assignment comments /a ASSIGNMENT_NAME /c COMMENT - to set feedback for an assignment\n"
-                + "\t9. remove module MODULE_NAME - to remove a module off the list\n"
-                + "\t10. bye - to exit the program and save all your information\n\n"
-                + "For the full list of commands, check out the User Guide at: "
+        System.out.println("\t Here are the list of basic commands you can use:\n ");
+        System.out.println("\t 1. Adding a Module: add module MODULE_NAME\n"
+                + "\t 2. Selecting a Module: select MODULE_NAME\n"
+                + "\t 3. Viewing Current Module: current\n"
+                + "\t 4. Adding a student: add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL\n"
+                + "\t 5. Adding a Lesson: add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME\n"
+                + "\t 6. Adding an Assignment: add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME\n"
+                + "\t 7. Setting Assignment Deadline: set deadline /a ASSIGNMENT_NAME /d DEADLINE\n"
+                + "\t 8. Auto-Grading Assignments: autograde /a ASSIGNMENT_NAME\n"
+                + "\t 9. Setting Assignment Comments: set assignment comments /a ASSIGNMENT_NAME /c COMMENT\n"
+                + "\t 10. Exiting ModMan: bye\n\n"
+                + "\t For the full list of commands, check out the User Guide at: "
                 + "https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html");
     }
 
@@ -140,10 +140,10 @@ public class Ui {
     public void listModuleStudentsDetails(Module module) {
         ArrayList<Student> students = module.getStudents();
         if (students.size() == 0) {
-            System.out.println("\t Here are the details of all students enrolled in "
-                    + module.getModuleCode() + ":");
+            System.out.println("\t You have not added any students to " + module.getModuleCode() + " yet.");
         } else {
             assert students.size() > 0 : "size of students should be greater than zero";
+            System.out.println("\t Here are the details of all students enrolled in " + module.getModuleCode() + ":");
             for (int i = 1; i <= students.size(); i++) {
                 System.out.println("\t " + i + ". " + students.get(i - 1).toString());
             }
