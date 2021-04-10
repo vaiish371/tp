@@ -1,6 +1,11 @@
 package seedu.duke.command;
 
 import seedu.duke.data.module.Module;
+import seedu.duke.exception.AnswerTooLongException;
+import seedu.duke.exception.InvalidQuestionNumberException;
+import seedu.duke.exception.MarkTooLargeException;
+import seedu.duke.exception.MissingAnswerException;
+import seedu.duke.exception.MissingMarksException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.assignment.Answer;
 import seedu.duke.data.assignment.Assignment;
@@ -30,7 +35,8 @@ public class ViewAnswersCommand extends Command {
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException, FileFormatException,
-            InvalidMcqOption {
+            InvalidMcqOption, InvalidQuestionNumberException, MarkTooLargeException, MissingAnswerException,
+            AnswerTooLongException, MissingMarksException {
         Module module = data.find(moduleCode);
         if (module == null) {
             logger.log(Level.WARNING, "module not found in the list");

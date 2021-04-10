@@ -307,7 +307,7 @@ public class Ui {
         if (script.size() == 0) {
             System.out.println("\t Script is blank!");
         } else {
-            System.out.println("\t " + studentName + "[" + studentNumber + "]'s script for " + assignmentName);
+            System.out.println("\t " + studentName + "(" + studentNumber + ")'s script for " + assignmentName);
             for (int i = 1; i <= script.size(); i++) {
                 System.out.println("\t " + i + ". " + script.get(i - 1));
             }
@@ -323,5 +323,10 @@ public class Ui {
                 System.out.println("\t " + i + ". " + ungraded.get(i - 1).toString());
             }
         }
+    }
+
+    public void printScriptWarning(Student student) {
+        System.out.println("\t Could not Autograde " + student.getName()
+                + "'s script. Please check the formatting of the script!");
     }
 }
