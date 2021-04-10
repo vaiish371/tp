@@ -10,6 +10,7 @@ import seedu.duke.data.Data;
 import seedu.duke.exception.InvalidAssignmentException;
 import seedu.duke.exception.DuplicateAssignmentException;
 import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.parser.Parser;
 import seedu.duke.ui.Ui;
 
@@ -22,10 +23,14 @@ public class AddAssignmentCommand extends Command {
     public String assignmentType;
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
 
-    public AddAssignmentCommand(String assignmentType, String moduleCode, String assignmentName) {
-        this.assignmentType = assignmentType;
+    public AddAssignmentCommand(String assignmentType, String moduleCode, String assignmentName)
+            throws ModuleNotSelectedException {
+        if (moduleCode == null) {
+            throw new ModuleNotSelectedException();
+        }
+        this.assignmentType = assignmentType.trim();
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
+        this.assignmentName = assignmentName.trim();
         assert this.assignmentName != null : "assignment name cannot be null";
     }
 

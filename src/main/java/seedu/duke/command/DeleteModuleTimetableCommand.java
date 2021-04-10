@@ -6,6 +6,7 @@ import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.LessonNotFoundException;
 import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.parser.Parser;
 import seedu.duke.ui.Ui;
 
@@ -17,7 +18,10 @@ public class DeleteModuleTimetableCommand extends Command {
     private final String moduleCode;
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
 
-    public DeleteModuleTimetableCommand(int lessonIndex, String moduleCode) {
+    public DeleteModuleTimetableCommand(int lessonIndex, String moduleCode) throws ModuleNotSelectedException {
+        if (moduleCode == null) {
+            throw new ModuleNotSelectedException();
+        }
         this.lessonIndex = lessonIndex;
         this.moduleCode = moduleCode;
     }

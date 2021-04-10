@@ -1,6 +1,8 @@
 package seedu.duke.command;
 
 import seedu.duke.data.module.Module;
+import seedu.duke.exception.AnswerTooLongException;
+import seedu.duke.exception.InvalidQuestionNumberException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.student.Student;
 import seedu.duke.data.assignment.Assignment;
@@ -32,7 +34,7 @@ public class ViewScriptCommand extends Command {
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException, StudentNotFoundException,
-            FileFormatException {
+            FileFormatException, InvalidQuestionNumberException, AnswerTooLongException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
