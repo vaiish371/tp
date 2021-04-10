@@ -1,0 +1,5 @@
+1
+CS2113T | 1 | 0 | 1
+quiz1 | McqAssignment | null | 0.0 | [] | 1
+A0214561M | 10.0
+Jianning | A0214561M | e0527277@u.nus.edu
