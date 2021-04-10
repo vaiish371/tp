@@ -1,7 +1,13 @@
 package seedu.duke.command;
 
 import seedu.duke.data.module.Module;
-import seedu.duke.exception.*;
+import seedu.duke.exception.ModuleNotSelectedException;
+import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.AssignmentNotFoundException;
+import seedu.duke.exception.DataFileNotFoundException;
+import seedu.duke.exception.NumbersMisalignException;
+import seedu.duke.exception.FileFormatException;
+import seedu.duke.exception.InvalidMcqOption;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.assignment.Answer;
 import seedu.duke.data.assignment.Assignment;

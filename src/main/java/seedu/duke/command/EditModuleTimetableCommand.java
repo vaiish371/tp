@@ -34,8 +34,8 @@ public class EditModuleTimetableCommand extends Command {
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
 
     public EditModuleTimetableCommand(String lessonIndex, String moduleCode, String lessonType, String venue,
-                               String day, String startTime, String endTime) throws NumberFormatException
-            , ModuleNotSelectedException {
+                               String day, String startTime, String endTime) throws NumberFormatException,
+            ModuleNotSelectedException {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
         }
