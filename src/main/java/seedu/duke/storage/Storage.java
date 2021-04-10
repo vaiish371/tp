@@ -9,10 +9,15 @@ import seedu.duke.data.Data;
 import seedu.duke.data.lesson.Lesson;
 import seedu.duke.data.module.Module;
 import seedu.duke.data.student.Student;
+import seedu.duke.exception.AnswerTooLongException;
 import seedu.duke.exception.DataFileCorruptedException;
 import seedu.duke.exception.DataFileNotFoundException;
 import seedu.duke.exception.FileNotSavedException;
 import seedu.duke.exception.FileFormatException;
+import seedu.duke.exception.InvalidQuestionNumberException;
+import seedu.duke.exception.MarkTooLargeException;
+import seedu.duke.exception.MissingAnswerException;
+import seedu.duke.exception.MissingMarksException;
 import seedu.duke.exception.NumbersMisalignException;
 
 
@@ -37,7 +42,7 @@ public class Storage {
     private static final Path DATABASE_DIR_PATH = Paths.get(ROOT, "Database");
     private static final String ANSWER_DIVIDER = "|";
     private static final int LINE_START = 0;
-    private static final int DIVIDER_LENGTH = 2;
+    private static final int DIVIDER_LENGTH = 1;
     private static final String UNDERSCORE = "_";
     private static final String TXTFILE = ".txt";
     private static Logger logger = Logger.getLogger(Storage.class.getName());
@@ -213,7 +218,8 @@ public class Storage {
     }
 
     public Answer loadAnswer(String assignmentName, String moduleCode) throws DataFileNotFoundException,
-            NumbersMisalignException, FileFormatException {
+            NumbersMisalignException, FileFormatException, InvalidQuestionNumberException,
+            MarkTooLargeException, MissingMarksException, MissingAnswerException, AnswerTooLongException {
         Answer answerKey;
         ArrayList<String> answersArray = new ArrayList<>();
         ArrayList<Integer> marksArray = new ArrayList<>();
@@ -226,36 +232,49 @@ public class Storage {
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
                 int answerDividerIndex = line.indexOf(ANSWER_DIVIDER);
-                String questionNumberString = line.substring(LINE_START, answerDividerIndex).trim();
-                int questionNumber = Integer.parseInt(questionNumberString);
                 String answerAndMarks = line.substring(answerDividerIndex + DIVIDER_LENGTH);
                 int marksDividerIndex = answerDividerIndex + DIVIDER_LENGTH + answerAndMarks.indexOf(ANSWER_DIVIDER);
                 String answer = line.substring(answerDividerIndex + DIVIDER_LENGTH, marksDividerIndex).trim();
+                if (answer.equals("")) {
+                    throw new MissingAnswerException(assignmentName);
+                }
+                if (answer.length() > 100) {
+                    throw new AnswerTooLongException(assignmentName);
+                }
                 String marksString = line.substring(marksDividerIndex + DIVIDER_LENGTH).trim();
                 answersArray.add(answer);
                 if (marksString.equals("")) {
-                    marksArray.add(0);
+                    throw new MissingMarksException(assignmentName);
                 } else {
+                    if (marksString.length() > 5) {
+                        throw new MarkTooLargeException(assignmentName);
+                    }
                     Integer marks = Integer.valueOf(marksString);
+                    if (marks < 0) {
+                        throw new MarkTooLargeException(assignmentName);
+                    }
                     marksArray.add(marks);
                 }
+                String questionNumberString = line.substring(LINE_START, answerDividerIndex).trim();
+                int questionNumber = Integer.parseInt(questionNumberString);
                 if (questionNumber != answersArray.size()) {
-                    throw new NumbersMisalignException();
+                    throw new NumbersMisalignException(assignmentName);
                 }
             }
         } catch (FileNotFoundException e) {
-            throw new DataFileNotFoundException();
+            throw new DataFileNotFoundException(assignmentName);
         } catch (StringIndexOutOfBoundsException e) {
-            throw new FileFormatException();
+            throw new FileFormatException(assignmentName);
         } catch (NumberFormatException e) {
-            throw new FileFormatException();
+            throw new InvalidQuestionNumberException(assignmentName);
         }
         answerKey = new Answer(answersArray, marksArray, answersArray.size());
         return answerKey;
     }
 
     public ArrayList<String> loadScript(String assignmentName, String moduleCode, String studentNumber) throws
-            DataFileNotFoundException, NumbersMisalignException, FileFormatException {
+            DataFileNotFoundException, NumbersMisalignException, FileFormatException, InvalidQuestionNumberException,
+            AnswerTooLongException {
         ArrayList<String> answersArray = new ArrayList<>();
         try {
             logger.log(Level.INFO, "current directory: " + ROOT);
@@ -269,15 +288,20 @@ public class Storage {
                 String questionNumberString = line.substring(LINE_START, answerDividerIndex).trim();
                 int questionNumber = Integer.parseInt(questionNumberString);
                 String answer = line.substring(answerDividerIndex + DIVIDER_LENGTH).trim();
+                if (answer.length() > 100) {
+                    throw new AnswerTooLongException(studentNumber);
+                }
                 answersArray.add(answer);
                 if (questionNumber != answersArray.size()) {
-                    throw new NumbersMisalignException();
+                    throw new NumbersMisalignException(studentNumber);
                 }
             }
         } catch (FileNotFoundException e) {
-            throw new DataFileNotFoundException();
+            throw new DataFileNotFoundException(studentNumber);
         } catch (StringIndexOutOfBoundsException e) {
-            throw new FileFormatException();
+            throw new FileFormatException(studentNumber);
+        } catch (NumberFormatException e) {
+            throw new InvalidQuestionNumberException(studentNumber);
         }
         return answersArray;
     }

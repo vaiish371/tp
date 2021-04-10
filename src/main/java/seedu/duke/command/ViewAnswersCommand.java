@@ -1,17 +1,21 @@
 package seedu.duke.command;
 
 import seedu.duke.data.module.Module;
-import seedu.duke.exception.ModuleNotSelectedException;
-import seedu.duke.exception.ModuleNotFoundException;
-import seedu.duke.exception.AssignmentNotFoundException;
-import seedu.duke.exception.DataFileNotFoundException;
-import seedu.duke.exception.NumbersMisalignException;
-import seedu.duke.exception.FileFormatException;
-import seedu.duke.exception.InvalidMcqOption;
+import seedu.duke.exception.AnswerTooLongException;
+import seedu.duke.exception.InvalidQuestionNumberException;
+import seedu.duke.exception.MarkTooLargeException;
+import seedu.duke.exception.MissingAnswerException;
+import seedu.duke.exception.MissingMarksException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.assignment.Answer;
 import seedu.duke.data.assignment.Assignment;
 import seedu.duke.data.Data;
+import seedu.duke.exception.AssignmentNotFoundException;
+import seedu.duke.exception.DataFileNotFoundException;
+import seedu.duke.exception.FileFormatException;
+import seedu.duke.exception.InvalidMcqOption;
+import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.NumbersMisalignException;
 import seedu.duke.ui.Ui;
 
 import java.util.logging.Level;
@@ -23,18 +27,16 @@ public class ViewAnswersCommand extends Command {
     private String assignmentName;
     private static Logger logger = Logger.getLogger(ViewAnswersCommand.class.getName());
 
-    public ViewAnswersCommand(String moduleCode, String assignmentName) throws ModuleNotSelectedException {
-        if (moduleCode == null) {
-            throw new ModuleNotSelectedException();
-        }
+    public ViewAnswersCommand(String moduleCode, String assignmentName) {
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName.trim();
+        this.assignmentName = assignmentName;
     }
 
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException, FileFormatException,
-            InvalidMcqOption {
+            InvalidMcqOption, InvalidQuestionNumberException, MarkTooLargeException, MissingAnswerException,
+            AnswerTooLongException, MissingMarksException {
         Module module = data.find(moduleCode);
         if (module == null) {
             logger.log(Level.WARNING, "module not found in the list");

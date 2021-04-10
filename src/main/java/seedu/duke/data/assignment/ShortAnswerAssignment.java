@@ -1,5 +1,7 @@
 package seedu.duke.data.assignment;
 
+import seedu.duke.exception.AnswerTooLongException;
+import seedu.duke.exception.InvalidQuestionNumberException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.student.Student;
 import seedu.duke.exception.DataFileNotFoundException;
@@ -38,7 +40,7 @@ public class ShortAnswerAssignment extends Assignment implements Autogradable {
 
     public void autogradeAssignment(ArrayList<Student> students, String moduleCode, Storage storage)
             throws DataFileNotFoundException, NumbersMisalignException, FileFormatException,
-            InvalidPercentageException {
+            InvalidPercentageException, InvalidQuestionNumberException, AnswerTooLongException {
         int score = 0;
         for (Student student : students) {
             String studentNumber = student.getStudentNumber();
@@ -47,7 +49,7 @@ public class ShortAnswerAssignment extends Assignment implements Autogradable {
             } else {
                 ArrayList<String> script = storage.loadScript(name, moduleCode, studentNumber);
                 if (script.size() != this.answer.getNumberOfQuestions()) {
-                    throw new NumbersMisalignException();
+                    throw new NumbersMisalignException(studentNumber);
                 }
                 score = answer.compareScript(script);
             }
