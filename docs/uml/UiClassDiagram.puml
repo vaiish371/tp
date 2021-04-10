@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+
+class Ui {
+
+}
+
+
+class "{abstract} \n Command" as Command {
+execute (data: Data, ui: Ui, storage: Storage) {abstract}
+}
+
+class Lesson {
+
+}
+
+class Student {
+}
+
+class Assignment {
+}
+
+class Answer {
+}
+
+class Module {
+}
+
+class Modman {
+    ui: Ui
+}
+
+class Parser {
+}
+
+class XYZCommand {
+}
+
+Ui ..> Student
+Ui ..> Assignment
+Ui ..> Module
+Ui ..> Lesson
+Ui ..> Answer
+
+Command ..> Ui
+Modman *-- Ui
+Command <|-- XYZCommand
+Parser ..> XYZCommand
+
+
+@enduml
