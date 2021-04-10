@@ -103,7 +103,7 @@ public class Ui {
 
     public void printSetAssignmentComments(String moduleCode, String assignmentName, String comment) {
         System.out.println("\t " + "I have added a comment to  " + assignmentName + ":\n\t\t"
-                + comment + "\n\tin " + moduleCode);
+                + comment);
     }
 
     public void printGetAssignmentComments(String assignmentName, ArrayList<String> comments) {

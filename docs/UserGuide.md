@@ -17,38 +17,8 @@ A command line interface (CLI) is a text-based user interface used to view and m
 
 These include operating system CLIs like the Command Prompt on Windows, which can be used to run and interact with the ModMan application.
 
-## Table of contents
-1. [Quick start](#1-quick-start)
-1. [Features](#2-features)
-    1. [`add module` - Adding a Module](#i-adding-a-module-add-module)
-    1. [`remove module` - Removing a Module](#ii-removing-a-module-remove-module)
-    1. [`select` - Selecting a Module](#iii-selecting-a-module-select)
-    1. [`current` - Viewing Current Module](#iv-viewing-current-module-current)
-    1. [`add student` - Adding a Student](#v-adding-a-student-add-student)
-    1. [`list student details` - Listing Students Details](#vi-listing-students-details-list-student-details)
-    1. [`list student` - Listing Students in Module](#vii-listing-students-in-module-list-student-)    
-    1. [`add timetable` - Adding a Lesson](#viii-adding-a-lesson-add-timetable)
-    1. [`list timetable` - Listing Timetable Lessons](#ix-listing-timetable-lessons-list-timetable)
-    1. [`delete timetable` - Removing Timetable Lessons](#x-removing-timetable-lessons-delete-timetable)
-    1. [`edit timetable` - Editing a Timetable Lesson](#xi-editing-timetable-lessons-edit-timetable)
-    1. [`add assignment` - Adding an Assignment](#xii-adding-an-assignment-add-assignment)
-    1. [`list assignments` - Listing Module Assignments](#xiii-listing-module-assignments--list-assignments)
-    1. [`sort assignments` - Sorting Module Assignments](#xiv-sorting-module-assignments--sort-assignments)
-    1. [`edit assignment` - Editing an Assignment Name](#xv-editing-an-assignment-name-edit-assignment) 
-    1. [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#xvi-setting-assignment-percentage-set-assignment-percentage)
-    1. [`set assignment comments` - Setting Assignment Comments](#xvii-setting-assignment-comments-set-assignment-comments)
-    1. [`get assignment comments` - Getting Assignment Percentage](#xviii-getting-assignment-comments-get-assignment-comments)
-    1. [`set deadline` - Setting Assignment Deadline](#xix-setting-assignment-deadline--set-deadline)
-    1. [`list grades` - Listing Assignment Grades](#xx-listing-assignment-grades--list-grades)
-    1. [`autograde` - Auto-Grading Assignments](#xxi-auto-grading-assignments--autograde)
- 
-  
-3. [FAQ](#3-faq)
-4. [Command summary](#4-command-summary)
-
-
 ## How to use the User Guide
-Welcome to the User Guide for ModMan!  
+Welcome to the User Guide for ModMan!
 
 Regardless if you are a teaching assistant, student or lecturer, this guide would be helpful for you in picking up and using ModMan.
 
@@ -56,13 +26,42 @@ Regardless if you are a teaching assistant, student or lecturer, this guide woul
 * Scroll down or click [here](#1-quick-start) for the Quick Start guide to get started now.
 * [FAQ](#3-faq) and [Command Summary](#4-command-summary) are available for quick queries or reference.
 
-### Legend 
+### Legend
 A short description of the icons that are used in this User Guide.
 
 Icon | Purpose
 ------ | ----------------
 | :information_source: | Explainers on how to use and interpret the User Guide |
 | :warning: | Warnings on usage of ModMan |
+
+## Table of contents
+1. [Quick start](#1-quick-start)
+1. [Features](#2-features) </br>
+    2.1 [`add module` - Adding a Module](#21-adding-a-module-add-module) </br>
+    2.2 [`remove module` - Removing a Module](#22-removing-a-module-remove-module) </br>
+    2.3 [`select` - Selecting a Module](#23-selecting-a-module-select) </br>
+    2.4 [`current` - Viewing Current Module](#24-viewing-current-module-current) </br>
+    2.5 [`list module` - Listing Modules](#25-listing-modules-list-module) </br>
+    2.6 [`add student` - Adding a Student](#26-adding-a-student-add-student) </br>
+    2.7 [`list student details` - Listing Students Details](#27-listing-students-details-list-student-details) </br>
+    2.8 [`list student` - Listing Students in Module](#28-listing-students-in-module-list-student-) </br>   
+    2.9 [`add timetable` - Adding a Lesson](#29-adding-a-lesson-add-timetable) </br>
+    2.10 [`list timetable` - Listing Timetable Lessons](#210-listing-timetable-lessons-list-timetable) </br>
+    2.11 [`delete timetable` - Removing Timetable Lessons](#211-removing-timetable-lessons-delete-timetable) </br>
+    2.12 [`edit timetable` - Editing a Timetable Lesson](#212-editing-timetable-lessons-edit-timetable) </br>
+    2.13 [`add assignment` - Adding an Assignment](#213-adding-an-assignment-add-assignment) </br>
+    2.14 [`list assignments` - Listing Module Assignments](#214-listing-module-assignments--list-assignments) </br>
+    2.15 [`sort assignments` - Sorting Module Assignments](#215-sorting-module-assignments--sort-assignments) </br>
+    2.16 [`edit assignment` - Editing an Assignment Name](#216-editing-an-assignment-name-edit-assignment-name) </br> 
+    2.17 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#217-setting-assignment-percentage-set-assignment-percentage) </br>
+    2.18 [`set assignment comments` - Setting Assignment Comments](#218-setting-assignment-comments-set-assignment-comments) </br>
+    2.19 [`get assignment comments` - Getting Assignment Percentage](#219-getting-assignment-comments-get-assignment-comments) </br>
+    2.20 [`set deadline` - Setting Assignment Deadline](#220-setting-assignment-deadline--set-deadline) </br>
+    2.21 [`list grades` - Listing Assignment Grades](#221-listing-assignment-grades--list-grades) </br>
+    2.22 [`autograde` - Auto-Grading Assignments](#222-auto-grading-assignments--autograde) </br>
+    2.23 [`bye` - Exiting ModMan](#223-exiting-modman--bye) </br>
+1. [FAQ](#3-faq)
+1. [Command summary](#4-command-summary)
 
 ## 1. Quick Start
 
@@ -78,7 +77,7 @@ Icon | Purpose
 |----------------------|-------------------------------------|
 
 ***
-### i. Adding a Module: `add module`
+### 2.1 Adding a Module: `add module`
 
 Adds a new module to the list of modules.
 
@@ -88,8 +87,6 @@ Example of usage:
 
 `add module CS2113T`
 
-`add module CS2101`
-
 Expected output :
 
 ```` 
@@ -98,7 +95,7 @@ Expected output :
 -------------------------------------------------------------------------- 
 ````
 ***
-### ii. Removing a Module: `remove module`
+### 2.2 Removing a Module: `remove module`
 
 Removes a module from the list of modules.
 
@@ -116,7 +113,7 @@ Expected output :
 -------------------------------------------------------------------------- 
 ````
 ***
-### iii. Selecting a Module: `select`
+### 2.3 Selecting a Module: `select`
 
 Select the module you want to currently work in.
 
@@ -137,9 +134,9 @@ Expected output :
 | :information_source: | All commands onwards assumes we are working in the module CS2113T |
 |----------------------|-------------------------------------|
 ***
-### iv. Viewing Current Module: `current`
+### 2.4 Viewing Current Module: `current`
 
-View the current module you are working in.
+View the current module you are working in. Also obtain an overview of the current module.
 
 Format: `current`
 
@@ -148,10 +145,32 @@ Expected output :
 ```` 
 --------------------------------------------------------------------------
     You are currently working in: CS2113T
+
+	Here's an overview of CS2113T
+	    - You have not added any lessons yet.
+
+		- You currently have 0 students in your class
+
+		- You have not added any assignments to yet.
 -------------------------------------------------------------------------- 
 ````
 ***
-### v. Adding a student: `add student`
+### 2.5 Listing Modules: `list module`
+
+Lists all the modules you have added, and specifies the current module (if any).
+
+Format: `list module`
+
+Expected output :
+
+```` 
+--------------------------------------------------------------------------
+    Here are your modules: 
+	1. CS2113T (current)
+-------------------------------------------------------------------------- 
+````
+***
+### 2.6 Adding a student: `add student`
 
 Assigns a new student to the current module you have selected.
 
@@ -159,18 +178,18 @@ Format: `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL`
 
 Example of usage:
 
-`add student /s John Doe /# A0123456Y /e e0123456@u.nus.edu`
+`add student /s Bryan Wong /# A0123456Y /e e0123456@u.nus.edu`
 
 Expected output :
 ```
 ---------------------------------------------------------------------
-I have assigned a new student to CS2113T:
-John Doe, A0123456Y, e0123456@u.nus.edu
+    I have assigned a new student to CS2113T:
+    Bryan Wong, A0123456Y, e0123456@u.nus.edu
 ---------------------------------------------------------------------
 ```
 ***
 
-### vi. Listing Students Details: `list student details`
+### 2.7 Listing Students Details: `list student details`
 
 Lists the details of all students enrolled in a particular module.
 
@@ -185,13 +204,12 @@ Expected output :
 ```` 
 --------------------------------------------------------------------------
     Here are the students of all students enrolled in CS2113T:
-    1. Vaishnavi, A0208551J, vaiish371@gmail.com
-    2. Emily, A0888888J, emily@gmail.com
+    1. Bryan Wong, A0123456Y, e0123456@u.nus.edu
 -------------------------------------------------------------------------- 
 ````
 ***
 
-### vii. Listing Students in Module: `list student `
+### 2.8 Listing Students in Module: `list student `
 Lists the names of students assigned to the current module you have selected.
 
 Format: `list student`
@@ -203,14 +221,13 @@ Example of usage:
 Expected output :
 ```
 ---------------------------------------------------------------------
- Here are the students in CS2113T:
- 1. Vaishnavi
- 2. Emily
+    Here are the students in CS2113T:
+    1. Bryan
 ---------------------------------------------------------------------
 ```
 ***
 
-### viii. Adding a Lesson: `add timetable`
+### 2.9 Adding a Lesson: `add timetable`
 Adds a new lesson to the list (timetable) of lessons for the module you have selected.
 
 Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
@@ -232,13 +249,13 @@ Examples:
 Expected output :
 ```
 ---------------------------------------------------------------------
-Success! I have added the following timetable for the module - CS2113T
-Lecture: FRIDAY, 16:00-18:00 (Zoom)
+    Success! I have added the following timetable for the module - CS2113T
+    Lecture: FRIDAY, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
 ***
 
-### ix. Listing Timetable Lessons: `list timetable`
+### 2.10 Listing Timetable Lessons: `list timetable`
 Lists the lessons in the timetable for the module you have selected.
 
 Format: `list timetable`
@@ -248,14 +265,13 @@ Format: `list timetable`
 Expected output :
 ```
 ---------------------------------------------------------------------
-Here are the lessons in CS2113T:
-1. Lecture: FRIDAY, 16:00-18:00 (Zoom)
-2. Tutorial: FRIDAY, 08:00-09:00 (Zoom)
+    Here are the lessons in CS2113T:
+    1. Lecture: FRIDAY, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
 ***
 
-### x. Removing Timetable Lessons: `delete timetable`
+### 2.11 Removing Timetable Lessons: `delete timetable`
 Deletes the lessons in the timetable corresponding to the index for the module you have selected.
 
 Format: `delete timetable LESSON_INDEX`
@@ -267,12 +283,12 @@ Example usage:
 Expected output :
 ```
 ---------------------------------------------------------------------
-You have successfully removed lesson: FRIDAY, 16:00-18:00 from CS2113T
+    You have successfully removed lesson: FRIDAY, 16:00-18:00 from CS2113T
 ---------------------------------------------------------------------
 ```
 ***
 
-### xi. Editing Timetable Lessons: `edit timetable`
+### 2.12 Editing Timetable Lessons: `edit timetable`
 Edits the lessons in the timetable corresponding to the index for the module you have selected.
 
 Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
@@ -297,13 +313,13 @@ Changing the day to Monday: `edit timetable 1 /t - /v - /d MONDAY /s - /e -`
 Expected output :
 ```
 ---------------------------------------------------------------------
-You have successfully edited the lesson to:
-Lecture: MONDAY, 16:00-18:00 (Zoom)
+    You have successfully edited the lesson to:
+    Lecture: MONDAY, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
 ***
 //@@author bryanwhl
-### xii. Adding an Assignment: `add assignment`
+### 2.13 Adding an Assignment: `add assignment`
 
 Adds an assignment to the module that is current selected by the user. 
 
@@ -321,13 +337,13 @@ Expected output :
 
 ```
 ---------------------------------------------------------------------
-I have added a new assignment to CS2113T:
-Magic Sequence
+    I have added a new assignment to CS2113T:
+    Magic Sequence
 ---------------------------------------------------------------------
 ```
 ***
 //@@author jianningzhuang
-### xiii. Listing Module Assignments : `list assignments` 
+### 2.14 Listing Module Assignments : `list assignments` 
 
 Lists out all assignments in the module along with the due date if the deadline was set.
 
@@ -336,14 +352,14 @@ Format: `list assignment`
 Expected output :
 ```
 ---------------------------------------------------------------------
-Here are the assignments in CS2113T:
-1. quiz1 (due by: Aug 17 2021)
-2. quiz2 (due by: Aug 16 2021)
-3. quiz3 (due by: Aug 20 2021)
+    Here are the assignments in CS2113T:
+    1. quiz1 (due by: Aug 17 2021)
+    2. quiz2 (due by: Aug 16 2021)
+    3. quiz3 (due by: Aug 20 2021)
 ---------------------------------------------------------------------
 ```
 ***
-### xiv. Sorting Module Assignments : `sort assignments` 
+### 2.15 Sorting Module Assignments : `sort assignments` 
 
 Sorts all assignments in the module by their deadline. <br/>
 If no deadline was set, the assignment will be sorted after those with deadlines.
@@ -353,10 +369,10 @@ Format: `sort assignments by deadline`
 Expected output :
 ```
 ---------------------------------------------------------------------
-Here are the assignments in CS2113T:
-1. quiz2 (due by: Aug 16 2021)
-2. quiz1 (due by: Aug 17 2021)
-3. quiz3 (due by: Aug 20 2021)
+    Here are the assignments in CS2113T:
+    1. quiz2 (due by: Aug 16 2021)
+    2. quiz1 (due by: Aug 17 2021)
+    3. quiz3 (due by: Aug 20 2021)
 ---------------------------------------------------------------------
 ```
 
@@ -371,7 +387,7 @@ Assignments with null as deadline are sorted behind assignments with deadlines.
 ***
 //@@author bryanwhl
 
-### xv. Editing an Assignment Name: `edit assignment name`
+### 2.16 Editing an Assignment Name: `edit assignment name`
 
 Edits the assignment name of an existing assignment
 
@@ -387,15 +403,15 @@ Expected output :
 
 ```
 ---------------------------------------------------------------------
-I have updated your assignment name:
-Forest Fruits
+    I have updated your assignment name:
+    Forest Fruits
 ---------------------------------------------------------------------
 ```
 
 ***
 //@@author bryanwhl
 
-### xvi. Setting Assignment Percentage: `set assignment percentage`
+### 2.17 Setting Assignment Percentage: `set assignment percentage`
 
 Sets the assignment percentage of an existing assignment
 
@@ -411,14 +427,14 @@ Expected output :
 
 ```
 ---------------------------------------------------------------------
-I have set Magic Sequence's percentage to 15.0 in CS2113T
+    I have set Magic Sequence's percentage to 15.0 in CS2113T
 ---------------------------------------------------------------------
 ```
 
 ***
 //@@author bryanwhl
 
-### xvii. Setting Assignment Comments: `set assignment comments`
+### 2.18 Setting Assignment Comments: `set assignment comments`
 
 Sets the assignment comments of an existing assignment
 
@@ -434,16 +450,15 @@ Expected output :
 
 ```
 ---------------------------------------------------------------------
-I have added a comment to Magic Sequence:
-    This assignment is well done.
-in CS2113T
+    I have added a comment to Magic Sequence:
+        This assignment is well done.
 ---------------------------------------------------------------------
 ```
 
 ***
 //@@author bryanwhl
 
-### xviii. Getting Assignment Comments: `get assignment comments`
+### 2.19 Getting Assignment Comments: `get assignment comments`
 
 Gets the assignment comments of an existing assignment and prints it out for the user.
 
@@ -457,15 +472,14 @@ Expected output :
 
 ```
 ---------------------------------------------------------------------
-Your previous comments for CS2113T is as follows:
-    1. This assignment is well done.
-in CS2113T
+    Your previous comments for Magic Sequence are as follows:
+        1. This assignment is well done.
 ---------------------------------------------------------------------
 ```
 
 ***
 //@@author jianningzhuang
-### xix. Setting Assignment Deadline : `set deadline` 
+### 2.20 Setting Assignment Deadline : `set deadline` 
 
 Sets the deadline the assignment has to be graded by. 
 If a deadline had previously been set, it will be updated by the new deadline.
@@ -481,12 +495,12 @@ Examples:
 Expected output :
 ```
 ---------------------------------------------------------------------
-I have set quiz1's deadline to Aug 17 2021 in CS2113T
+    I have set quiz1's deadline to Aug 17 2021 in CS2113T
 ---------------------------------------------------------------------
 ```
 ***
 //@@author bryanwhl
-### xx. Listing Assignment Grades : `list grades` 
+### 2.21 Listing Assignment Grades : `list grades` 
 
 Lists the students' grades for a particular assignment.
 The students listed are sorted by grades.
@@ -500,14 +514,14 @@ Examples:
 Expected output :
 ```
 ---------------------------------------------------------------------
-Here are the students' grades for the quiz1 assignment:
-1. A0214561M - 100.0
-2. A0215114X - 101.0
+    Here are the students' grades for the quiz1 assignment:
+    1. A0214561M - 100.0
+    2. A0215114X - 101.0
 ---------------------------------------------------------------------
 ```
 ***
 
-### xxi. Auto-Grading Assignments : `autograde` 
+### 2.22 Auto-Grading Assignments : `autograde` 
 
 Auto-grades all student scripts for a particular assignment by comparing against solutions.
 Automatically updates student's grades for that assignment.
@@ -520,16 +534,16 @@ Examples:
 Expected output :
 ```
 ---------------------------------------------------------------------
-Here are the students' grades for the quiz1 assignment:
-1. A0214561M - 100.0
-2. A0215114X - 101.0
+    Here are the students' grades for the quiz1 assignment:
+    1. A0214561M - 100.0
+    2. A0215114X - 101.0
 ---------------------------------------------------------------------
 ```
 ***
 
 //@@author
 
-### xxii. Exiting ModMan : `bye`
+### 2.23 Exiting ModMan : `bye`
 
 Auto-saves all your changes and exits the program. ModMan will have all your data ready the next time you load it.
 
@@ -538,7 +552,7 @@ Format: `bye`
 Expected output :
 ```
 ---------------------------------------------------------------------
-Bye. Hope to see you again soon!
+    Bye. Hope to see you again soon!
 ---------------------------------------------------------------------
 ```
 ***
