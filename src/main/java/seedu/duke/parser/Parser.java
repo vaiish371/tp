@@ -75,6 +75,13 @@ public class Parser {
             command = getListModuleCommand();
         } else if (line.startsWith("add module ")) {
             command = getAddModuleCommand(line);
+        } else if (line.startsWith("remove module ")) {
+            command = getRemoveModuleCommand(line);
+        } else if (line.equals("current")) {
+            command = getCurrentModuleCommand();
+        } else if (currentModule == null && !line.startsWith("select ")) {
+            logger.log(Level.WARNING, "module not selected");
+            throw new ModuleNotSelectedException();
         } else if (line.startsWith("add assignment ")) {
             command = getAddAssignmentCommand(line);
         } else if (line.equals("list assignments")) {
@@ -109,10 +116,6 @@ public class Parser {
             command = getSortAssignmentByDeadlineCommand();
         } else if (line.startsWith("edit assignment name ")) {
             command = getEditAssignmentNameCommand(line);
-        } else if (line.startsWith("remove module ")) {
-            command = getRemoveModuleCommand(line);
-        } else if (line.equals("current")) {
-            command = getCurrentModuleCommand();
         } else if (line.startsWith("view assignment answer ")) {
             command = getViewAnswersCommand(line);
         } else if (line.startsWith("view student script ")) {
@@ -471,15 +474,10 @@ public class Parser {
         return command;
     }
 
-    private static Command getListModuleAssignmentCommand() throws InvalidCommandException, ModuleNotSelectedException {
+    private static Command getListModuleAssignmentCommand() {
         Command command;
-        try {
-            logger.log(Level.INFO, "list assignment command entered");
-            command = new ListModuleAssignmentsCommand(currentModule);
-        } catch (ModuleNotFoundException e) {
-            logger.log(Level.WARNING, "module directory not selected");
-            throw new ModuleNotSelectedException();
-        }
+        logger.log(Level.INFO, "list assignment command entered");
+        command = new ListModuleAssignmentsCommand(currentModule);
         return command;
     }
 

@@ -12,6 +12,7 @@ import seedu.duke.exception.AssignmentNotFoundException;
 import seedu.duke.exception.DataFileNotFoundException;
 import seedu.duke.exception.FileFormatException;
 import seedu.duke.exception.InvalidMcqOption;
+import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.NotAutogradableException;
 import seedu.duke.exception.NumbersMisalignException;
@@ -34,7 +35,7 @@ public class AutogradeAssignmentCommand extends Command {
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException,
-            NotAutogradableException, FileFormatException, InvalidMcqOption {
+            NotAutogradableException, FileFormatException, InvalidMcqOption, InvalidPercentageException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
