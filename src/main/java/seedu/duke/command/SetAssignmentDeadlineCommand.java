@@ -12,6 +12,7 @@ import seedu.duke.ui.Ui;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import seedu.duke.exception.ModuleNotSelectedException;
 import java.util.logging.Logger;
 
 public class SetAssignmentDeadlineCommand extends Command {
@@ -21,8 +22,11 @@ public class SetAssignmentDeadlineCommand extends Command {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
     private static Logger logger = Logger.getLogger(SetAssignmentDeadlineCommand.class.getName());
 
-    public SetAssignmentDeadlineCommand(String moduleCode, String assignmentName,
-                                        String deadline) throws DateTimeParseException, DateTimeFormatException {
+    public SetAssignmentDeadlineCommand(String moduleCode, String assignmentName, String deadline)
+            throws ModuleNotSelectedException, DateTimeParseException, DateTimeFormatException {
+        if (moduleCode == null) {
+            throw new ModuleNotSelectedException();
+        }
         this.moduleCode = moduleCode;
         this.assignmentName = assignmentName;
         this.deadline = LocalDate.parse(deadline, formatter);

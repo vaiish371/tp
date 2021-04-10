@@ -9,6 +9,7 @@ import seedu.duke.exception.EmptyTimetableParameterException;
 import seedu.duke.exception.IndexNotFoundException;
 import seedu.duke.exception.InvalidStartTimeException;
 import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.TimeFormatException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
@@ -34,7 +35,11 @@ public class EditModuleTimetableCommand extends Command {
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
 
     public EditModuleTimetableCommand(String lessonIndex, String moduleCode, String lessonType, String venue,
-                               String day, String startTime, String endTime) throws NumberFormatException {
+                               String day, String startTime, String endTime) throws NumberFormatException,
+            ModuleNotSelectedException {
+        if (moduleCode == null) {
+            throw new ModuleNotSelectedException();
+        }
         this.lessonIndex = Integer.parseInt(lessonIndex) - 1;
         this.moduleCode = moduleCode;
         this.day = day.trim();

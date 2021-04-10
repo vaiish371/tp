@@ -7,6 +7,7 @@ import seedu.duke.data.Data;
 import seedu.duke.exception.AssignmentNotFoundException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.ui.Ui;
 
@@ -16,7 +17,10 @@ public class SetAssignmentPercentageCommand extends Command {
     private float percentage;
 
     public SetAssignmentPercentageCommand(String moduleCode, String assignmentName, String percentage)
-            throws NumberFormatException, InvalidPercentageException {
+            throws NumberFormatException, InvalidPercentageException, ModuleNotSelectedException {
+        if (moduleCode == null) {
+            throw new ModuleNotSelectedException();
+        }
         this.moduleCode = moduleCode;
         this.assignmentName = assignmentName;
         this.percentage = Float.parseFloat(percentage);
