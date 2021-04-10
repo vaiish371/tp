@@ -37,10 +37,10 @@ class ParserTest {
     }
 
     @Test
-    void testParse_addModuleNoModuleCode_InvalidCommandException() {
+    void testParse_addModuleNoModuleCode_InsufficientParametersException() {
         Parser parser = new Parser();
         String inputString = "add module ";
-        assertThrows(InvalidCommandException.class, () -> {
+        assertThrows(InsufficientParametersException.class, () -> {
             parser.parse(inputString);
         });
     }
