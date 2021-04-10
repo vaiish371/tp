@@ -14,5 +14,6 @@ import java.util.ArrayList;
 public interface Autogradable {
 
     void autogradeAssignment(ArrayList<Student> students, String moduleCode, Storage storage)
-            throws DataFileNotFoundException, NumbersMisalignException, FileFormatException, InvalidPercentageException, InvalidQuestionNumberException, AnswerTooLongException;
+            throws DataFileNotFoundException, NumbersMisalignException, FileFormatException, 
+            InvalidPercentageException, InvalidQuestionNumberException, AnswerTooLongException;
 }
