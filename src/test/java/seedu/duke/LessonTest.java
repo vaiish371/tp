@@ -1,6 +1,7 @@
 package seedu.duke;
 
 import org.junit.jupiter.api.Test;
+import seedu.duke.data.lesson.Lesson;
 import seedu.duke.exception.InvalidStartTimeException;
 
 import java.time.LocalTime;

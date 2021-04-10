@@ -1,11 +1,14 @@
-package seedu.duke;
+package seedu.duke.storage;
 
-import seedu.duke.assignment.Assignment;
-import seedu.duke.assignment.LongAnswerAssignment;
-import seedu.duke.assignment.ShortAnswerAssignment;
-import seedu.duke.assignment.McqAssignment;
-import seedu.duke.assignment.Answer;
+import seedu.duke.data.assignment.Assignment;
+import seedu.duke.data.assignment.LongAnswerAssignment;
+import seedu.duke.data.assignment.ShortAnswerAssignment;
+import seedu.duke.data.assignment.McqAssignment;
+import seedu.duke.data.assignment.Answer;
 import seedu.duke.data.Data;
+import seedu.duke.data.lesson.Lesson;
+import seedu.duke.data.module.Module;
+import seedu.duke.data.student.Student;
 import seedu.duke.exception.DataFileCorruptedException;
 import seedu.duke.exception.DataFileNotFoundException;
 import seedu.duke.exception.FileNotSavedException;

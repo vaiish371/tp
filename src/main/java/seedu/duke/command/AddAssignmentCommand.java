@@ -1,11 +1,11 @@
 package seedu.duke.command;
 
-import seedu.duke.Module;
-import seedu.duke.Storage;
-import seedu.duke.assignment.Assignment;
-import seedu.duke.assignment.LongAnswerAssignment;
-import seedu.duke.assignment.McqAssignment;
-import seedu.duke.assignment.ShortAnswerAssignment;
+import seedu.duke.data.module.Module;
+import seedu.duke.storage.Storage;
+import seedu.duke.data.assignment.Assignment;
+import seedu.duke.data.assignment.LongAnswerAssignment;
+import seedu.duke.data.assignment.McqAssignment;
+import seedu.duke.data.assignment.ShortAnswerAssignment;
 import seedu.duke.data.Data;
 import seedu.duke.exception.InvalidAssignmentException;
 import seedu.duke.exception.DuplicateAssignmentException;

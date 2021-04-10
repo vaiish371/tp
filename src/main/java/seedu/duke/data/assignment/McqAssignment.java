@@ -1,26 +1,35 @@
-package seedu.duke.assignment;
+package seedu.duke.data.assignment;
 
-import seedu.duke.Storage;
-import seedu.duke.Student;
+import seedu.duke.storage.Storage;
+import seedu.duke.data.student.Student;
 import seedu.duke.exception.DataFileNotFoundException;
 import seedu.duke.exception.FileFormatException;
+import seedu.duke.exception.InvalidMcqOption;
 import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.NumbersMisalignException;
 
 import java.util.ArrayList;
 
-public class ShortAnswerAssignment extends Assignment implements Autogradable {
+public class McqAssignment extends Assignment implements Autogradable {
 
     private Answer answer;
 
-    public ShortAnswerAssignment(String name) {
+    public McqAssignment(String name) {
         super(name);
-        this.typeOfAssignment = "ShortAnswerAssignment";
+        this.typeOfAssignment = "McqAssignment";
     }
 
-    @Override
-    public void setAnswers(Answer answer) {
+    public void setAnswers(Answer answer) throws InvalidMcqOption {
+        ArrayList<String> answersArray = answer.getAnswers();
+        for (String ans : answersArray) {
+            if (!ans.equals("A") && !ans.equals("B") && !ans.equals("C") && !ans.equals("D") && !ans.equals("E")
+                    && !ans.equals("1") && !ans.equals("2") && !ans.equals("3")
+                    && !ans.equals("4") && !ans.equals("5")) {
+                throw new InvalidMcqOption();
+            }
+        }
         this.answer = answer;
+
     }
 
     public Answer getAnswers() {
@@ -52,7 +61,7 @@ public class ShortAnswerAssignment extends Assignment implements Autogradable {
                 score = answer.compareScript(script);
             }
             int total = getTotalMarks();
-            float grade = (float)score / (float)total;
+            float grade = (float)score * (float)100 / (float)total;
             setStudentGrade(student, grade);
         }
     }

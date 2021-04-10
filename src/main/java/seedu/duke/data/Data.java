@@ -1,6 +1,6 @@
 package seedu.duke.data;
 
-import seedu.duke.Module;
+import seedu.duke.data.module.Module;
 
 import java.util.ArrayList;
 

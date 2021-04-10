@@ -1,5 +1,6 @@
-package seedu.duke;
+package seedu.duke.data.lesson;
 
+import seedu.duke.storage.Storable;
 import seedu.duke.exception.InvalidStartTimeException;
 
 import java.time.LocalTime;

@@ -1,4 +1,4 @@
-package seedu.duke.assignment;
+package seedu.duke.data.assignment;
 
 import org.junit.jupiter.api.Test;
 
