@@ -30,13 +30,12 @@ import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
 import seedu.duke.exception.DateTimeFormatException;
 import seedu.duke.exception.DayFormatException;
-import seedu.duke.exception.EmptyTimetableParameterException;
+import seedu.duke.exception.EmptyParameterException;
 import seedu.duke.exception.IndexNotFoundException;
 import seedu.duke.exception.InsufficientParametersException;
 import seedu.duke.exception.InvalidCommandException;
 import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModManException;
-import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.TimeFormatException;
 
@@ -369,7 +368,7 @@ public class Parser {
     }
 
     private static Command getAddTimetableCommand(String line) throws InsufficientParametersException,
-            DayFormatException, ModuleNotSelectedException, TimeFormatException, EmptyTimetableParameterException {
+            DayFormatException, ModuleNotSelectedException, TimeFormatException, EmptyParameterException {
         Command command;
         String typeSeparator = "/t";
         String venueSeparator = "/v";
@@ -401,7 +400,7 @@ public class Parser {
         } catch (ModuleNotSelectedException e) {
             logger.log(Level.WARNING, "module directory not selected.");
             throw new ModuleNotSelectedException();
-        } catch (EmptyTimetableParameterException e) {
+        } catch (EmptyParameterException e) {
             throw e;
         }
         return command;
@@ -474,7 +473,7 @@ public class Parser {
     }
 
     private static Command getAddStudentCommand(String line) throws InsufficientParametersException,
-            ModuleNotSelectedException {
+            ModuleNotSelectedException, EmptyParameterException {
         Command command;
         try {
             logger.log(Level.INFO, "add student command entered");
@@ -486,7 +485,7 @@ public class Parser {
             int emailIndex = line.indexOf(emailSeparator);
             String studentName = line.substring(nameIndex + S_LENGTH, numberIndex - 1);
             String studentNumber = line.substring(numberIndex + HASH_LENGTH, emailIndex - 1);
-            String email = line.substring(emailIndex + E_LENGTH).trim();
+            String email = (line + " ").substring(emailIndex + E_LENGTH).trim();
             command = new AddStudentCommand(currentModule, studentName, studentNumber, email);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for add student command");
@@ -494,6 +493,8 @@ public class Parser {
         } catch (ModuleNotSelectedException e) {
             logger.log(Level.WARNING, "module directory not selected");
             throw new ModuleNotSelectedException();
+        } catch (EmptyParameterException e) {
+            throw e;
         }
         return command;
     }

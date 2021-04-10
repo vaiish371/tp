@@ -3,7 +3,7 @@ package seedu.duke.command;
 import seedu.duke.data.lesson.Day;
 import seedu.duke.data.lesson.Lesson;
 import seedu.duke.data.module.Module;
-import seedu.duke.exception.EmptyTimetableParameterException;
+import seedu.duke.exception.EmptyParameterException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.InvalidStartTimeException;
@@ -28,24 +28,24 @@ public class AddTimetableCommand extends Command {
 
     public AddTimetableCommand(String moduleCode, String lessonType, String venue, String day, String startTime,
                                String endTime) throws DateTimeParseException, ModuleNotSelectedException,
-            EmptyTimetableParameterException {
+            EmptyParameterException {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
         }
         if (lessonType.trim().length() == 0) {
-            throw new EmptyTimetableParameterException();
+            throw new EmptyParameterException();
         }
         if (venue.trim().length() == 0) {
-            throw new EmptyTimetableParameterException();
+            throw new EmptyParameterException();
         }
         if (day.trim().length() == 0) {
-            throw new EmptyTimetableParameterException();
+            throw new EmptyParameterException();
         }
         if (startTime.trim().length() == 0) {
-            throw new EmptyTimetableParameterException();
+            throw new EmptyParameterException();
         }
         if (endTime.trim().length() == 0) {
-            throw new EmptyTimetableParameterException();
+            throw new EmptyParameterException();
         }
         this.moduleCode = moduleCode;
         this.day = Day.valueOf(day.trim());

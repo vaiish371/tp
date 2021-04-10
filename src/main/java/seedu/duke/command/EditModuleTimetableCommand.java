@@ -5,7 +5,7 @@ import seedu.duke.data.lesson.Lesson;
 import seedu.duke.data.module.Module;
 import seedu.duke.exception.DateTimeFormatException;
 import seedu.duke.exception.DayFormatException;
-import seedu.duke.exception.EmptyTimetableParameterException;
+import seedu.duke.exception.EmptyParameterException;
 import seedu.duke.exception.IndexNotFoundException;
 import seedu.duke.exception.InvalidStartTimeException;
 import seedu.duke.exception.ModuleNotFoundException;
@@ -51,7 +51,7 @@ public class EditModuleTimetableCommand extends Command {
 
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws IndexNotFoundException, DateTimeFormatException,
-            ModuleNotFoundException, EmptyTimetableParameterException, DayFormatException, InvalidStartTimeException,
+            ModuleNotFoundException, EmptyParameterException, DayFormatException, InvalidStartTimeException,
             TimeFormatException {
         Module module = data.find(moduleCode);
         if (module == null) {
@@ -63,19 +63,19 @@ public class EditModuleTimetableCommand extends Command {
             ArrayList<Lesson> lessons = module.getLessons();
             Lesson lesson = lessons.get(lessonIndex);
             if (lessonType.trim().length() == 0) {
-                throw new EmptyTimetableParameterException();
+                throw new EmptyParameterException();
             }
             if (venue.trim().length() == 0) {
-                throw new EmptyTimetableParameterException();
+                throw new EmptyParameterException();
             }
             if (day.trim().length() == 0) {
-                throw new EmptyTimetableParameterException();
+                throw new EmptyParameterException();
             }
             if (startTime.trim().length() == 0) {
-                throw new EmptyTimetableParameterException();
+                throw new EmptyParameterException();
             }
             if (endTime.trim().length() == 0) {
-                throw new EmptyTimetableParameterException();
+                throw new EmptyParameterException();
             }
             if (!lessonType.equals("-")) {
                 lesson.setLessonType(lessonType);
@@ -99,7 +99,7 @@ public class EditModuleTimetableCommand extends Command {
         } catch (DateTimeParseException error) {
             logger.log(Level.WARNING, "Start/End date format wrong");
             throw new TimeFormatException();
-        } catch (EmptyTimetableParameterException e) {
+        } catch (EmptyParameterException e) {
             throw e;
         } catch (IllegalArgumentException e) {
             throw new DayFormatException();
