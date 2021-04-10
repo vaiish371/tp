@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+loop over scanner.hasNext()
+
+[-> Storage: loadAnswer()
+activate Storage
+Storage -> Answer**
+activate Answer
+Answer --> Storage
+deactivate Answer
+[<-- Storage: Answer
+deactivate Storage
+
+@enduml
