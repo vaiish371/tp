@@ -56,9 +56,14 @@ public abstract class Assignment implements Comparable<Assignment>, Storable {
         }
     }
 
-    public void setStudentGrade(Student student, float grade) {
+    public void setStudentGrade(Student student, float grade) throws InvalidPercentageException {
         String studentNumber = student.getStudentNumber();
         Float gradeFloat = Float.valueOf(grade);
+        Float maxGrade = Float.valueOf(100);
+        Float minGrade = Float.valueOf(0);
+        if (gradeFloat < minGrade || gradeFloat > maxGrade) {
+            throw new InvalidPercentageException();
+        }
         studentGrades.put(studentNumber, gradeFloat);
     }
 

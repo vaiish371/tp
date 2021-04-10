@@ -168,7 +168,7 @@ public class Parser {
     private static Command getViewAnswersCommand(String line) throws InsufficientParametersException {
         Command command;
         try {
-            logger.log(Level.INFO, "view answers command entered");
+            logger.log(Level.INFO, "view assignment answers command entered");
             String assignmentSeparator = "/a";
             int assignmentIndex = line.indexOf(assignmentSeparator);
             String assignmentName = line.substring(assignmentIndex + A_LENGTH).trim();
@@ -245,7 +245,7 @@ public class Parser {
     private static Command getSortAssignmentByDeadlineCommand() {
         Command command;
         logger.log(Level.INFO, "sort assignments by deadline command entered");
-        assert currentModule.length() != 0 : "currentModule should not be empty";
+        assert currentModule != null : "currentModule should not be null";
         command = new SortAssignmentByDeadlineCommand(currentModule);
         return command;
     }

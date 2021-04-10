@@ -279,7 +279,8 @@ public class Ui {
         } else {
             System.out.println("\t Answer key for " + assignmentName);
             for (int i = 1; i <= answer.getAnswers().size(); i++) {
-                System.out.println("\t " + i + ". " + answer.getAnswers().get(i - 1));
+                System.out.println("\t " + i + ". " + answer.getAnswers().get(i - 1) + " | ["
+                        + answer.getMarks().get(i - 1) + "]");
             }
         }
     }
