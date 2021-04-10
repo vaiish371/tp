@@ -37,12 +37,12 @@ public class Ui {
                 + "| |  | | (_) | (_| | | |  | | (_| | | | |\n"
                 + "|_|  |_|\\___/ \\__'_| |_|  |_|\\__'_|_| |_|\n";
         System.out.println("Hello from\n" + logo);
-        System.out.println("Modman, short for Module Manager, is a desktop app designed to help " +
-                "Teaching Assistants (TAs) manage their module(s). Optimized for use via a " +
-                "Command Line Interface (CLI), ModMan helps you track module details, students’ progress" +
-                "and data, set assignments, set timetables and includes the very-handy autograding feature " +
-                "all in one platform. To get an introduction to the various features and commands, " +
-                "please use the command 'help'.\n");
+        System.out.println("Modman, short for Module Manager, is a desktop app designed to help "
+                + "Teaching Assistants (TAs) manage their module(s). Optimized for use via a "
+                + "Command Line Interface (CLI), ModMan helps you track module details, students’ progress"
+                + "and data, set assignments, set timetables and includes the very-handy autograding feature "
+                + "all in one platform. To get an introduction to the various features and commands, "
+                + "please use the command 'help'.\n");
 
     }
 
