@@ -1,6 +1,6 @@
 1
 CS2113T | 1 | 1 | 10
-quiz1 | McqAssignment | null | 0.0 | [[[[null]], This assignment is great., This assignment sucks.], Fourth comment added] | 5
+quiz1 | McqAssignment | null | 0.0 | [[[[[null]], This assignment is great., This assignment sucks.], Fourth comment added]] | 5
 A0214561M | 92.0
 A0215114X | 100.0
 A0765432X | 92.0
