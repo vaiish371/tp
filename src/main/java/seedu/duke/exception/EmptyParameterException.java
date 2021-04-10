@@ -1,7 +1,7 @@
 package seedu.duke.exception;
 
-public class EmptyTimetableParameterException extends ModManException {
-    public EmptyTimetableParameterException() {
+public class EmptyParameterException extends ModManException {
+    public EmptyParameterException() {
         this.errorMessage = "The parameter after the flag cannot be empty or whitespaces.";
     }
 }

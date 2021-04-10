@@ -1,6 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.data.module.Module;
+import seedu.duke.exception.EmptyParameterException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.student.Student;
 import seedu.duke.data.Data;
@@ -15,14 +16,24 @@ public class AddStudentCommand extends Command {
     public String email;
 
     public AddStudentCommand(String moduleCode, String studentName,
-                             String studentNumber, String email) throws ModuleNotSelectedException {
+                             String studentNumber, String email) throws ModuleNotSelectedException,
+            EmptyParameterException {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
         }
         this.moduleCode = moduleCode;
-        this.studentName = studentName;
-        this.studentNumber = studentNumber;
-        this.email = email;
+        this.studentName = studentName.trim();
+        this.studentNumber = studentNumber.trim();
+        this.email = email.trim();
+        if (this.studentName.length() == 0) {
+            throw new EmptyParameterException();
+        }
+        if (this.studentNumber.length() == 0) {
+            throw new EmptyParameterException();
+        }
+        if (this.email.length() == 0) {
+            throw new EmptyParameterException();
+        }
     }
 
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
