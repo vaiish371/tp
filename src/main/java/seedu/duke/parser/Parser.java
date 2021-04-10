@@ -1,6 +1,6 @@
 package seedu.duke.parser;
 
-import seedu.duke.Day;
+import seedu.duke.data.lesson.Day;
 import seedu.duke.command.AddAssignmentCommand;
 import seedu.duke.command.AddModuleCommand;
 import seedu.duke.command.AddStudentCommand;

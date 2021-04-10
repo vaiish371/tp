@@ -1,7 +1,7 @@
-package seedu.duke.assignment;
+package seedu.duke.data.assignment;
 
-import seedu.duke.Storable;
-import seedu.duke.Student;
+import seedu.duke.storage.Storable;
+import seedu.duke.data.student.Student;
 import seedu.duke.exception.InvalidMcqOption;
 import seedu.duke.exception.InvalidPercentageException;
 

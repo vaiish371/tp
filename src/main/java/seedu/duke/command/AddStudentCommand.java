@@ -1,8 +1,8 @@
 package seedu.duke.command;
 
-import seedu.duke.Module;
-import seedu.duke.Storage;
-import seedu.duke.Student;
+import seedu.duke.data.module.Module;
+import seedu.duke.storage.Storage;
+import seedu.duke.data.student.Student;
 import seedu.duke.data.Data;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.ModuleNotSelectedException;

@@ -2,7 +2,9 @@
 hide circle
 skinparam classAttributeIconSize 0
 
-interface "<<interface>>\nStorable" as Storable {
+package Storage {
+    interface "<<interface>>\nStorable" as Storable {
+    }
 }
 
 interface "<<interface>>\nComparable" as Comparable {
@@ -11,63 +13,68 @@ interface "<<interface>>\nComparable" as Comparable {
 package Data {
     class Data {
     }
-}
-class Module {
-    -moduleCode: String
-}
 
-package Assignment {
-    interface "<<interface>>\nAutogradable" as Autogradable {
+    package Module {
+        class Module {
+                -moduleCode: String
+            }
     }
 
-    class "{abstract}\nAssignment" as Assignment {
-        #name: String
-        #typeOfAssignment: String
-        #deadline: LocalDate
-        #percentageOfOverallGrade: float
-        +assignmentComments: ArrayList<String>
-        #studentGrades: HashMap<String, float>
+    package Assignment {
+        interface "<<interface>>\nAutogradable" as Autogradable {
+        }
+
+        class "{abstract}\nAssignment" as Assignment {
+            #name: String
+            #typeOfAssignment: String
+            #deadline: LocalDate
+            #percentageOfOverallGrade: float
+            +assignmentComments: ArrayList<String>
+            #studentGrades: HashMap<String, float>
+        }
+
+        class Answer {
+            -answers: ArrayList<String>
+            -marks: ArrayList<Integer>
+            -numberOfQuestions: int
+        }
+
+        class LongAnswerAssignment {
+        }
+
+        class McqAssignment {
+        }
+
+        class ShortAnswerAssignment {
+        }
     }
 
-    class Answer {
-        -answers: ArrayList<String>
-        -marks: ArrayList<Integer>
-        -numberOfQuestions: int
+    package Lesson {
+        class Lesson {
+            -lessonType: String
+            -venue: String
+            -day: Day
+            -startTime: LocalTime
+            -endTime: LocalTime
+        }
+        enum "<<enumeration>>\nDay" {
+                MONDAY
+                TUESDAY
+                WEDNESDAY
+                THURSDAY
+                FRIDAY
+                SATURDAY
+                SUNDAY
+            }
     }
 
-    class LongAnswerAssignment {
+    package Student {
+        class Student {
+            -name: String
+            -studentNumber: String
+            -email: String
+        }
     }
-
-    class McqAssignment {
-    }
-
-    class ShortAnswerAssignment {
-    }
-}
-
-
-class Lesson {
-    -lessonType: String
-    -venue: String
-    -day: Day
-    -startTime: LocalTime
-    -endTime: LocalTime
-}
-
-class Student {
-    -name: String
-    -studentNumber: String
-    -email: String
-}
-
-enum "<<enumeration>>\nDay" {
-    MONDAY
-    TUESDAY
-    WEDNESDAY
-    THURSDAY
-    FRIDAY
-    SATURDAY
-    SUNDAY
 }
 
 Assignment ...|> Storable
@@ -80,9 +87,9 @@ Module o--> "0..*" Assignment
 Assignment <|-- LongAnswerAssignment
 Assignment <|-- McqAssignment
 Assignment <|-- ShortAnswerAssignment
-LongAnswerAssignment --> "1" Answer
-McqAssignment --> "1" Answer
-ShortAnswerAssignment --> "1" Answer
+LongAnswerAssignment --> "0..1" Answer
+McqAssignment --> "0..1" Answer
+ShortAnswerAssignment --> "0..1" Answer
 McqAssignment ...|> Autogradable
 ShortAnswerAssignment ...|> Autogradable
 

@@ -1,18 +1,15 @@
 package seedu.duke.command;
 
-import seedu.duke.Lesson;
-import seedu.duke.Module;
-import seedu.duke.Storage;
+import seedu.duke.data.lesson.Lesson;
+import seedu.duke.data.module.Module;
+import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
-import seedu.duke.exception.IndexNotFoundException;
 import seedu.duke.exception.LessonNotFoundException;
-import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.parser.Parser;
 import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DeleteModuleTimetableCommand extends Command {

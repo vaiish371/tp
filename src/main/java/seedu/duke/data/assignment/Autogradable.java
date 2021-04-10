@@ -1,7 +1,7 @@
-package seedu.duke.assignment;
+package seedu.duke.data.assignment;
 
-import seedu.duke.Storage;
-import seedu.duke.Student;
+import seedu.duke.storage.Storage;
+import seedu.duke.data.student.Student;
 import seedu.duke.exception.DataFileNotFoundException;
 import seedu.duke.exception.FileFormatException;
 import seedu.duke.exception.InvalidPercentageException;
