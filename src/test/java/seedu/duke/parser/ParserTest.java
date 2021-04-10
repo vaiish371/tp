@@ -45,7 +45,7 @@ class ParserTest {
     @Test
     void testParse_addAssignmentValid_AddAssignmentCommand() throws ModManException {
         Parser parser = new Parser();
-        String inputString = "add assignment /m CS2113T /a quiz1";
+        String inputString = "add assignment /a quiz1";
         Command c = parser.parse(inputString);
         assertEquals(true, c instanceof AddAssignmentCommand);
     }
@@ -88,7 +88,7 @@ class ParserTest {
     @Test
     void testParse_setAssignmentDeadlineValid_SetAssignmentDeadlineCommand() throws ModManException {
         Parser parser = new Parser();
-        String inputString = "set deadline /m CS2113T /a quiz1 /d 16 08 2021";
+        String inputString = "set assignment deadline /a quiz1 /d 16 08 2021";
         Command c = parser.parse(inputString);
         assertEquals(true, c instanceof SetAssignmentDeadlineCommand);
     }
@@ -96,7 +96,7 @@ class ParserTest {
     @Test
     void testParse_setAssignmentDeadlineMissingParam_InvalidCommandException() {
         Parser parser = new Parser();
-        String inputString = "set deadline /m CS2113T /a quiz1 ";
+        String inputString = "set assignment deadline /a quiz1 ";
         assertThrows(InsufficientParametersException.class, () -> {
             parser.parse(inputString);
         });
