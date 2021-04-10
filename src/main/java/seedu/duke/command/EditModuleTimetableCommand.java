@@ -37,11 +37,11 @@ public class EditModuleTimetableCommand extends Command {
                                String day, String startTime, String endTime) throws NumberFormatException {
         this.lessonIndex = Integer.parseInt(lessonIndex) - 1;
         this.moduleCode = moduleCode;
-        this.day = day;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.venue = venue;
-        this.lessonType = lessonType;
+        this.day = day.trim();
+        this.startTime = startTime.trim();
+        this.endTime = endTime.trim();
+        this.venue = venue.trim();
+        this.lessonType = lessonType.trim();
     }
 
     @Override

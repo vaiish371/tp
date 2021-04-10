@@ -29,16 +29,7 @@ import seedu.duke.command.SetAssignmentPercentageCommand;
 import seedu.duke.command.SortAssignmentByDeadlineCommand;
 import seedu.duke.command.ViewAnswersCommand;
 import seedu.duke.command.ViewScriptCommand;
-import seedu.duke.exception.DateTimeFormatException;
-import seedu.duke.exception.DayFormatException;
-import seedu.duke.exception.IndexNotFoundException;
-import seedu.duke.exception.InsufficientParametersException;
-import seedu.duke.exception.InvalidCommandException;
-import seedu.duke.exception.InvalidPercentageException;
-import seedu.duke.exception.ModManException;
-import seedu.duke.exception.ModuleNotFoundException;
-import seedu.duke.exception.ModuleNotSelectedException;
-import seedu.duke.exception.TimeFormatException;
+import seedu.duke.exception.*;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -371,7 +362,7 @@ public class Parser {
     }
 
     private static Command getAddTimetableCommand(String line) throws InsufficientParametersException,
-            DayFormatException, ModuleNotSelectedException, TimeFormatException {
+            DayFormatException, ModuleNotSelectedException, TimeFormatException, EmptyTimetableParameterException {
         Command command;
         String typeSeparator = "/t";
         String venueSeparator = "/v";
@@ -387,9 +378,9 @@ public class Parser {
             int endIndex = line.indexOf(endSeparator);
             String type = line.substring(typeIndex + T_LENGTH, venueIndex - 1);
             String venue = line.substring(venueIndex + V_LENGTH, dayIndex - 1);
-            Day day = Day.valueOf(line.substring(dayIndex + D_LENGTH, startIndex - 1));
+            String day = line.substring(dayIndex + D_LENGTH, startIndex - 1);
             String start = line.substring(startIndex + S_LENGTH, endIndex - 1);
-            String end = line.substring(endIndex + E_LENGTH).trim();
+            String end = (line + " ").substring(endIndex + E_LENGTH).trim();
             command = new AddTimetableCommand(currentModule, type, venue, day, start, end);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
@@ -403,6 +394,8 @@ public class Parser {
         } catch (ModuleNotSelectedException e) {
             logger.log(Level.WARNING, "module directory not selected.");
             throw new ModuleNotSelectedException();
+        } catch (EmptyTimetableParameterException e) {
+            throw e;
         }
         return command;
     }
@@ -439,7 +432,7 @@ public class Parser {
             String venue = line.substring(venueIndex + V_LENGTH, dayIndex - 1);
             String day = line.substring(dayIndex + D_LENGTH, startIndex - 1);
             String start = line.substring(startIndex + S_LENGTH, endIndex - 1);
-            String end = line.substring(endIndex + E_LENGTH).trim();
+            String end = (line + " ").substring(endIndex + E_LENGTH).trim();
             command = new EditModuleTimetableCommand(lessonIndex, currentModule, type, venue, day, start, end);
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for edit timetable command");
