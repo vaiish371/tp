@@ -3,14 +3,15 @@ package seedu.duke.command;
 import seedu.duke.data.lesson.Day;
 import seedu.duke.data.lesson.Lesson;
 import seedu.duke.data.module.Module;
-import seedu.duke.storage.Storage;
-import seedu.duke.data.Data;
 import seedu.duke.exception.DateTimeFormatException;
 import seedu.duke.exception.DayFormatException;
 import seedu.duke.exception.EmptyTimetableParameterException;
 import seedu.duke.exception.IndexNotFoundException;
 import seedu.duke.exception.InvalidStartTimeException;
 import seedu.duke.exception.ModuleNotFoundException;
+import seedu.duke.exception.TimeFormatException;
+import seedu.duke.storage.Storage;
+import seedu.duke.data.Data;
 import seedu.duke.parser.Parser;
 import seedu.duke.ui.Ui;
 
@@ -45,7 +46,8 @@ public class EditModuleTimetableCommand extends Command {
 
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws IndexNotFoundException, DateTimeFormatException,
-            ModuleNotFoundException, EmptyTimetableParameterException, DayFormatException, InvalidStartTimeException {
+            ModuleNotFoundException, EmptyTimetableParameterException, DayFormatException, InvalidStartTimeException,
+            TimeFormatException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
@@ -91,7 +93,7 @@ public class EditModuleTimetableCommand extends Command {
             throw new IndexNotFoundException();
         } catch (DateTimeParseException error) {
             logger.log(Level.WARNING, "Start/End date format wrong");
-            throw new DateTimeFormatException();
+            throw new TimeFormatException();
         } catch (EmptyTimetableParameterException e) {
             throw e;
         } catch (IllegalArgumentException e) {
