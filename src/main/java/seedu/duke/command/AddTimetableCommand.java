@@ -27,7 +27,8 @@ public class AddTimetableCommand extends Command {
     private static final Logger logger = Logger.getLogger("AddTimetableCommand");
 
     public AddTimetableCommand(String moduleCode, String lessonType, String venue, String day, String startTime,
-                               String endTime) throws DateTimeParseException, ModuleNotSelectedException, EmptyTimetableParameterException {
+                               String endTime) throws DateTimeParseException, ModuleNotSelectedException,
+            EmptyTimetableParameterException {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
         }
