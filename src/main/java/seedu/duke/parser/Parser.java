@@ -9,6 +9,7 @@ import seedu.duke.command.AutogradeAssignmentCommand;
 import seedu.duke.command.Command;
 import seedu.duke.command.CurrentModuleCommand;
 import seedu.duke.command.DeleteModuleTimetableCommand;
+import seedu.duke.command.EditAssignmentNameCommand;
 import seedu.duke.command.EditModuleTimetableCommand;
 import seedu.duke.command.ExitCommand;
 import seedu.duke.command.GetAssignmentCommentsCommand;
@@ -76,13 +77,13 @@ public class Parser {
             command = getAddModuleCommand(line);
         } else if (line.startsWith("add assignment ")) {
             command = getAddAssignmentCommand(line);
-        } else if (line.equals("list assignment")) {
+        } else if (line.equals("list assignments")) {
             command = getListModuleAssignmentCommand();
         } else if (line.startsWith("add student ")) {
             command = getAddStudentCommand(line);
         } else if (line.equals("list student details")) {
             command = getListStudentDetailsCommand();
-        } else if (line.startsWith("list student assignment grades ")) {
+        } else if (line.startsWith("list assignment grades ")) {
             command = getListStudentAssignmentGradesCommand(line);
         } else if (line.equals("list student")) {
             command = getListStudentCommand();
@@ -102,17 +103,19 @@ public class Parser {
             command = getGetAssignmentCommentsCommand(line);
         } else if (line.startsWith("set assignment percentage ")) {
             command = getSetAssignmentPercentageCommand(line);
-        } else if (line.startsWith("set deadline ")) {
+        } else if (line.startsWith("set assignment deadline ")) {
             command = getSetAssignmentDeadlineCommand(line);
         } else if (line.equals("sort assignments by deadline")) {
             command = getSortAssignmentByDeadlineCommand();
+        } else if (line.startsWith("edit assignment name ")) {
+            command = getEditAssignmentNameCommand(line);
         } else if (line.startsWith("remove module ")) {
             command = getRemoveModuleCommand(line);
         } else if (line.equals("current")) {
             command = getCurrentModuleCommand();
-        } else if (line.startsWith("view answers ")) {
+        } else if (line.startsWith("view assignment answer ")) {
             command = getViewAnswersCommand(line);
-        } else if (line.startsWith("view script ")) {
+        } else if (line.startsWith("view student script ")) {
             command = getViewScriptCommand(line);
         } else if (line.startsWith("autograde assignment ")) {
             command = getAutogradeAssignentCommand(line);
@@ -217,6 +220,25 @@ public class Parser {
         }
     }
 
+    private static Command getEditAssignmentNameCommand(String line) throws InsufficientParametersException {
+        Command command;
+        try {
+            logger.log(Level.INFO, "edit assignment name command entered");
+            String oldNameSeparator = "/a";
+            String newNameSeparator = "/n";
+            int oldNameIndex = line.indexOf(oldNameSeparator);
+            int newNameIndex = line.indexOf(newNameSeparator);
+            String oldName = line.substring(oldNameIndex + A_LENGTH, newNameIndex - 1);
+            String newName = line.substring(newNameIndex + A_LENGTH).trim();
+            command = new EditAssignmentNameCommand(currentModule, oldName, newName);
+        } catch (StringIndexOutOfBoundsException e) {
+            logger.log(Level.WARNING, "not enough parameters for edit assignment name command");
+            throw new InsufficientParametersException();
+        }
+        return command;
+    }
+
+
     private static Command getSortAssignmentByDeadlineCommand() {
         Command command;
         logger.log(Level.INFO, "sort assignments by deadline command entered");
@@ -240,10 +262,10 @@ public class Parser {
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
             throw new InsufficientParametersException();
-        }  catch (DateTimeParseException e) {
+        } catch (DateTimeParseException | DateTimeFormatException e) {
             logger.log(Level.WARNING, "Deadline format is wrong.");
             throw new DateTimeFormatException();
-        } 
+        }
         return command;
     }
 

@@ -371,17 +371,17 @@ Assignments with null as deadline are sorted behind assignments with deadlines.
 ***
 //@@author bryanwhl
 
-### xv. Editing an Assignment Name: `edit assignment`
+### xv. Editing an Assignment Name: `edit assignment name`
 
 Edits the assignment name of an existing assignment
 
-Format: `edit assignment /t TYPE_OF_ASSIGNMENT /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME`
+Format: `edit assignment name /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME`
 
 Example usage:
 
-`edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
+`edit assignment name /a Magic Sequence /n Forest Fruits`
 
-`edit assignment /t la /a recursion /n iteration`
+`edit assignment name /a recursion /n iteration`
 
 Expected output :
 

@@ -47,8 +47,7 @@ public class AddAssignmentCommand extends Command {
             logger.log(Level.WARNING, "assignment type must be either la, sa or mcq");
             throw new InvalidAssignmentException();
         }
-        assert module != null : "module should not be null";
-        assert assignment != null : "assignment should not be null";
+
         for (int i = 0; i < module.getAssignments().size(); i++) {
             Assignment currentAssignment = module.getAssignments().get(i);
             if (currentAssignment.getName().equals(assignmentName)) {

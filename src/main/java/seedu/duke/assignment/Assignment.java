@@ -15,7 +15,7 @@ public abstract class Assignment implements Comparable<Assignment>, Storable {
     protected String typeOfAssignment;
     protected LocalDate deadline; // Optional field, null can be thrown
     protected float percentageOfOverallGrade; // Optional field, null can be thrown
-    public ArrayList<String> assignmentComments = new ArrayList<>();
+    protected ArrayList<String> assignmentComments = new ArrayList<>();
     protected HashMap<String, Float> studentGrades;
 
     public ArrayList<String> getComments() {
