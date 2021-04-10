@@ -11,7 +11,6 @@ class ShortAnswerAssignmentTest {
 
     @Test
     void testSetAnswer_ValidOptions_noException() throws InvalidMcqOption {
-        Assignment assignmentOne = new ShortAnswerAssignment("quiz1");
         ArrayList<String> answers = new ArrayList<>();
         answers.add("A");
         answers.add("1");
@@ -19,6 +18,7 @@ class ShortAnswerAssignmentTest {
         marks.add(Integer.valueOf("2"));
         marks.add(Integer.valueOf("4"));
         int numberOfQuestions = 2;
+        Assignment assignmentOne = new McqAssignment("quiz1");
         assignmentOne.setAnswers(new Answer(answers, marks, numberOfQuestions));
         assertEquals(2, assignmentOne.getAnswers().getNumberOfQuestions());
     }
@@ -26,7 +26,6 @@ class ShortAnswerAssignmentTest {
 
     @Test
     void testGetTotalMarks_noMarks_Zero() throws InvalidMcqOption {
-        Assignment assignmentOne = new ShortAnswerAssignment("quiz1");
         ArrayList<String> answers = new ArrayList<>();
         answers.add("A");
         answers.add("1");
@@ -34,13 +33,13 @@ class ShortAnswerAssignmentTest {
         marks.add(Integer.valueOf("0"));
         marks.add(Integer.valueOf("0"));
         int numberOfQuestions = 2;
+        Assignment assignmentOne = new McqAssignment("quiz1");
         assignmentOne.setAnswers(new Answer(answers, marks, numberOfQuestions));
         assertEquals(0, ((ShortAnswerAssignment) assignmentOne).getTotalMarks());
     }
 
     @Test
     void testGetTotalMarks_Marks_Six() throws InvalidMcqOption {
-        Assignment assignmentOne = new ShortAnswerAssignment("quiz1");
         ArrayList<String> answers = new ArrayList<>();
         answers.add("A");
         answers.add("1");
@@ -48,6 +47,7 @@ class ShortAnswerAssignmentTest {
         marks.add(Integer.valueOf("2"));
         marks.add(Integer.valueOf("4"));
         int numberOfQuestions = 2;
+        Assignment assignmentOne = new McqAssignment("quiz1");
         assignmentOne.setAnswers(new Answer(answers, marks, numberOfQuestions));
         assertEquals(6, ((ShortAnswerAssignment) assignmentOne).getTotalMarks());
     }

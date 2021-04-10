@@ -15,7 +15,6 @@ class McqAssignmentTest {
 
     @Test
     void testSetAnswer_ValidOptions_noException() throws InvalidMcqOption {
-        Assignment assignmentOne = new McqAssignment("quiz1");
         ArrayList<String> answers = new ArrayList<>();
         answers.add("A");
         answers.add("1");
@@ -23,13 +22,13 @@ class McqAssignmentTest {
         marks.add(Integer.valueOf("2"));
         marks.add(Integer.valueOf("4"));
         int numberOfQuestions = 2;
+        Assignment assignmentOne = new McqAssignment("quiz1");
         assignmentOne.setAnswers(new Answer(answers, marks, numberOfQuestions));
         assertEquals(2, assignmentOne.getAnswers().getNumberOfQuestions());
     }
 
     @Test
     void testSetAnswer_InvalidOptions_ExceptionThrows() {
-        Assignment assignmentOne = new McqAssignment("quiz1");
         ArrayList<String> answers = new ArrayList<>();
         answers.add("A");
         answers.add("ASHUASA");
@@ -37,6 +36,7 @@ class McqAssignmentTest {
         marks.add(Integer.valueOf("2"));
         marks.add(Integer.valueOf("4"));
         int numberOfQuestions = 2;
+        Assignment assignmentOne = new McqAssignment("quiz1");
         assertThrows(InvalidMcqOption.class, () -> {
             assignmentOne.setAnswers(new Answer(answers, marks, numberOfQuestions));
         });
@@ -44,7 +44,6 @@ class McqAssignmentTest {
 
     @Test
     void testGetTotalMarks_noMarks_Zero() throws InvalidMcqOption {
-        Assignment assignmentOne = new McqAssignment("quiz1");
         ArrayList<String> answers = new ArrayList<>();
         answers.add("A");
         answers.add("1");
@@ -52,13 +51,13 @@ class McqAssignmentTest {
         marks.add(Integer.valueOf("0"));
         marks.add(Integer.valueOf("0"));
         int numberOfQuestions = 2;
+        Assignment assignmentOne = new McqAssignment("quiz1");
         assignmentOne.setAnswers(new Answer(answers, marks, numberOfQuestions));
         assertEquals(0, ((McqAssignment) assignmentOne).getTotalMarks());
     }
 
     @Test
     void testGetTotalMarks_Marks_Six() throws InvalidMcqOption {
-        Assignment assignmentOne = new ShortAnswerAssignment("quiz1");
         ArrayList<String> answers = new ArrayList<>();
         answers.add("A");
         answers.add("1");
@@ -66,6 +65,7 @@ class McqAssignmentTest {
         marks.add(Integer.valueOf("2"));
         marks.add(Integer.valueOf("4"));
         int numberOfQuestions = 2;
+        Assignment assignmentOne = new McqAssignment("quiz1");
         assignmentOne.setAnswers(new Answer(answers, marks, numberOfQuestions));
         assertEquals(6, ((ShortAnswerAssignment) assignmentOne).getTotalMarks());
     }
