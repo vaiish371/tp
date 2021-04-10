@@ -1,4 +1,6 @@
-package seedu.duke;
+package seedu.duke.data.student;
+
+import seedu.duke.storage.Storable;
 
 public class Student implements Storable {
     private String name;

@@ -1,12 +1,14 @@
 package seedu.duke;
 
 import org.junit.jupiter.api.Test;
-import seedu.duke.assignment.Assignment;
-import seedu.duke.assignment.LongAnswerAssignment;
-import seedu.duke.assignment.McqAssignment;
-import seedu.duke.assignment.ShortAnswerAssignment;
+import seedu.duke.data.assignment.Assignment;
+import seedu.duke.data.assignment.LongAnswerAssignment;
+import seedu.duke.data.assignment.McqAssignment;
+import seedu.duke.data.assignment.ShortAnswerAssignment;
+import seedu.duke.data.lesson.Lesson;
+import seedu.duke.data.module.Module;
+import seedu.duke.data.student.Student;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -29,7 +31,7 @@ class ModuleTest {
     void testGetAssignmentAtIndex() {
         Module testModule = new Module("CS2113T");
         testModule.addAssignment(new McqAssignment("tP"));
-        assertEquals("tP", testModule.getAssignmentAtIndex(0).toString());
+        assertEquals("tP (McqAssignment) - due date not specified.", testModule.getAssignmentAtIndex(0).toString());
     }
 
     @Test

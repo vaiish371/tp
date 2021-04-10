@@ -1,11 +1,12 @@
 package seedu.duke.command;
 
-import seedu.duke.Storage;
-import seedu.duke.assignment.Assignment;
-import seedu.duke.Module;
-import seedu.duke.Student;
+import seedu.duke.storage.Storage;
+import seedu.duke.data.assignment.Assignment;
+import seedu.duke.data.module.Module;
+import seedu.duke.data.student.Student;
 import seedu.duke.data.Data;
 import seedu.duke.exception.AssignmentNotFoundException;
+import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.StudentNotFoundException;
 import seedu.duke.ui.Ui;
@@ -25,7 +26,7 @@ public class SetAssignmentGradeCommand extends Command {
     }
 
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
-            AssignmentNotFoundException, StudentNotFoundException {
+            AssignmentNotFoundException, StudentNotFoundException, InvalidPercentageException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();

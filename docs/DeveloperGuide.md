@@ -56,16 +56,30 @@ required to print different kinds of messages on te console.
    runs. It accepts `Ui` object as a parameter and calls the relevant `Ui` methods
    that prints the messages.
    <br>
-   <br>
 
-Given below is the Sequence Diagram for the Storage class. The storage class interacts with the database file, storing our data into the database or loading our data from the database. </br>
 ## Storage Component (Bryan)
+<br>Given below is the Class Diagram for the Storage class. The storage class interacts with the Database file, ensuring that user's data will be saved at the end of each session and loaded up upon the user's next visit. </br>
+
 ![Storage](uml/StorageClassDiagram.png)
 
-1. The `Storage` class is used to interact with the database.txt file by calling loadData() at the start of the program and calling saveData() at the end of the program.
-2. The `Storage` class will collect the data of all classes that implements the Storable interface so that these data can be saved to the database.
-3. The `toStorage()` method of the Storable interface will return a string representing the object instance's data. 
-4. This string will then be appended to the database.txt file.
+The `Storage` class is used to interact with the database.txt file. The `loadData()` function of the Storage object will be called at the start of the program and `saveData()` at the end of the program.
+
+The `Storage` class will collect the data of all classes that implements the Storable interface so that these data can be saved to the database.
+
+The `toStorage()` method of the Storable interface will return a string representing the object instance's data. 
+
+`loadData()`: 
+
+The `loadData()` method is illustrated in the sequence diagram below.
+
+![loadData](uml/LoadDataSequenceDiagram.png)
+
+As can be seen, multiple loops are required to load the information of all object instances onto the Database so that the user's data is saved.
+
+`saveData()`:
+
+When the saveData() method is called, the toStorage() method of each object instance implementing the Storable interface will be called. The return string of each toStorage() method will then be appended onto the database.
+ 
 
 ## Data Component
 The figure below shows the classes in ModMan that tracks module information data.

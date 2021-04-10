@@ -1,7 +1,7 @@
 package seedu.duke.command;
 
-import seedu.duke.Module;
-import seedu.duke.Storage;
+import seedu.duke.data.module.Module;
+import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.ui.Ui;
@@ -11,10 +11,7 @@ public class ListModuleAssignmentsCommand extends Command {
 
     private String moduleCode;
 
-    public ListModuleAssignmentsCommand(String moduleCode) throws ModuleNotFoundException {
-        if (moduleCode == null) {
-            throw new ModuleNotFoundException();
-        }
+    public ListModuleAssignmentsCommand(String moduleCode) {
         this.moduleCode = moduleCode;
     }
 

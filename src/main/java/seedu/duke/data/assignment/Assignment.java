@@ -1,8 +1,9 @@
-package seedu.duke.assignment;
+package seedu.duke.data.assignment;
 
-import seedu.duke.Storable;
-import seedu.duke.Student;
+import seedu.duke.storage.Storable;
+import seedu.duke.data.student.Student;
 import seedu.duke.exception.InvalidMcqOption;
+import seedu.duke.exception.InvalidPercentageException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -38,15 +39,31 @@ public abstract class Assignment implements Comparable<Assignment>, Storable {
         return studentGrades;
     }
 
-    public void setStudentGrade(Student student, String grade) {
-        String studentNumber = student.getStudentNumber();
-        Float gradeFloat = Float.parseFloat(grade);
-        studentGrades.put(studentNumber, gradeFloat);
+    public void setStudentGrade(Student student, String grade) throws InvalidPercentageException {
+        try {
+            Float maxGrade = Float.valueOf(100);
+            Float minGrade = Float.valueOf(0);
+            String studentNumber = student.getStudentNumber();
+            Float gradeFloat = Float.parseFloat(grade);
+            if (gradeFloat < minGrade || gradeFloat > maxGrade) {
+                throw new InvalidPercentageException();
+            }
+            studentGrades.put(studentNumber, gradeFloat);
+        } catch (NumberFormatException e) {
+            throw new InvalidPercentageException();
+        } catch (NullPointerException e) {
+            throw new InvalidPercentageException();
+        }
     }
 
-    public void setStudentGrade(Student student, float grade) {
+    public void setStudentGrade(Student student, float grade) throws InvalidPercentageException {
         String studentNumber = student.getStudentNumber();
         Float gradeFloat = Float.valueOf(grade);
+        Float maxGrade = Float.valueOf(100);
+        Float minGrade = Float.valueOf(0);
+        if (gradeFloat < minGrade || gradeFloat > maxGrade) {
+            throw new InvalidPercentageException();
+        }
         studentGrades.put(studentNumber, gradeFloat);
     }
 
@@ -89,9 +106,10 @@ public abstract class Assignment implements Comparable<Assignment>, Storable {
     @Override
     public String toString() {
         if (deadline == null) {
-            return name;
+            return name + " (" + typeOfAssignment + ") - due date not specified.";
         }
-        return name + " (due by: " + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + ")";
+        return name + " (" + typeOfAssignment + ") due by: "
+                + deadline.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
     }
 
     @Override

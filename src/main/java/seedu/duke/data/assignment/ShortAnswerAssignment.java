@@ -1,34 +1,26 @@
-package seedu.duke.assignment;
+package seedu.duke.data.assignment;
 
-import seedu.duke.Storage;
-import seedu.duke.Student;
+import seedu.duke.storage.Storage;
+import seedu.duke.data.student.Student;
 import seedu.duke.exception.DataFileNotFoundException;
 import seedu.duke.exception.FileFormatException;
-import seedu.duke.exception.InvalidMcqOption;
+import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.NumbersMisalignException;
 
 import java.util.ArrayList;
 
-public class McqAssignment extends Assignment implements Autogradable {
+public class ShortAnswerAssignment extends Assignment implements Autogradable {
 
     private Answer answer;
 
-    public McqAssignment(String name) {
+    public ShortAnswerAssignment(String name) {
         super(name);
-        this.typeOfAssignment = "McqAssignment";
+        this.typeOfAssignment = "ShortAnswerAssignment";
     }
 
-    public void setAnswers(Answer answer) throws InvalidMcqOption {
-        ArrayList<String> answersArray = answer.getAnswers();
-        for (String ans : answersArray) {
-            if (!ans.equals("A") && !ans.equals("B") && !ans.equals("C") && !ans.equals("D") && !ans.equals("E")
-                    && !ans.equals("1") && !ans.equals("2") && !ans.equals("3")
-                    && !ans.equals("4") && !ans.equals("5")) {
-                throw new InvalidMcqOption();
-            }
-        }
+    @Override
+    public void setAnswers(Answer answer) {
         this.answer = answer;
-
     }
 
     public Answer getAnswers() {
@@ -45,7 +37,8 @@ public class McqAssignment extends Assignment implements Autogradable {
     }
 
     public void autogradeAssignment(ArrayList<Student> students, String moduleCode, Storage storage)
-            throws DataFileNotFoundException, NumbersMisalignException, FileFormatException {
+            throws DataFileNotFoundException, NumbersMisalignException, FileFormatException,
+            InvalidPercentageException {
         int score = 0;
         for (Student student : students) {
             String studentNumber = student.getStudentNumber();
@@ -59,7 +52,7 @@ public class McqAssignment extends Assignment implements Autogradable {
                 score = answer.compareScript(script);
             }
             int total = getTotalMarks();
-            float grade = (float)score * (float)100 / (float)total;
+            float grade = (float)score / (float)total;
             setStudentGrade(student, grade);
         }
     }

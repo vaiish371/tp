@@ -1,4 +1,4 @@
-package seedu.duke.assignment;
+package seedu.duke.data.assignment;
 
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,8 @@ class AssignmentTest {
 
     @Test
     void testAssignment_AssignmentOne_convertedToString() {
-        assertEquals("AssignmentOne", new McqAssignment("AssignmentOne").toString());
+        assertEquals("AssignmentOne (McqAssignment) - due date not specified.",
+                new McqAssignment("AssignmentOne").toString());
     }
 
     @Test

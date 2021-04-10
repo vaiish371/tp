@@ -1,7 +1,7 @@
 package seedu.duke.parser;
 
 import org.junit.jupiter.api.Test;
-import seedu.duke.Module;
+import seedu.duke.data.module.Module;
 import seedu.duke.command.AddAssignmentCommand;
 import seedu.duke.command.AddModuleCommand;
 import seedu.duke.command.Command;
@@ -127,6 +127,8 @@ class ParserTest {
     @Test
     void testParse_invalidInput_expectException() {
         Parser parser = new Parser();
+        String currentModule = "CS2113T";
+        parser.setCurrentModule(currentModule);
         String inputString = "blah";
         assertThrows(InvalidCommandException.class, () -> {
             parser.parse(inputString);

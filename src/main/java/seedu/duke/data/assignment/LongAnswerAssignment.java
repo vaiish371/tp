@@ -1,4 +1,4 @@
-package seedu.duke.assignment;
+package seedu.duke.data.assignment;
 
 public class LongAnswerAssignment extends Assignment {
 
