@@ -36,7 +36,7 @@ Icon | Purpose
 
 ## Table of contents
 1. [Quick start](#1-quick-start)
-1. [Features](#2-features) </br>
+1. [Features](#2-features) <br>
     2.1 [`help` - Listing Basic Commands](#21-listing-basic-commands-help) <br>
     2.2 [`add module` - Adding a Module](#22-adding-a-module-add-module) <br>
     2.3 [`remove module` - Removing a Module](#23-removing-a-module-remove-module) <br>
@@ -45,7 +45,7 @@ Icon | Purpose
     2.6 [`list module` - Listing Modules](#26-listing-modules-list-module) <br>
     2.7 [`add student` - Adding a Student](#27-adding-a-student-add-student) <br>
     2.8 [`list student details` - Listing Students Details](#28-listing-students-details-list-student-details) <br>
-    2.9 [`list student` - Listing Students in Module](#29-listing-students-in-module-list-student-) <br>   
+    2.9 [`list student` - Listing Students in Module](#29-listing-students-in-module-list-student-) <br>
     2.10 [`add timetable` - Adding a Lesson](#210-adding-a-lesson-add-timetable) <br>
     2.11 [`list timetable` - Listing Timetable Lessons](#211-listing-timetable-lessons-list-timetable) <br>
     2.12 [`delete timetable` - Removing Timetable Lessons](#212-removing-timetable-lessons-delete-timetable) <br>
