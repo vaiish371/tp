@@ -88,21 +88,20 @@ Expected output:
 
 ```` 
 --------------------------------------------------------------------------
-    Here are the list of basic commands you can use:
+ Here are the list of basic commands you can use:
  
-	1. add module MODULE_NAME - to add a module
-	2. select MODULE_NAME - to select a module directory from the list of modules.
-	3. add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL - to add a student to a module
-	4. add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME - to add a lesson
-	5. add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME - to add an assignment
-	6. set deadline /a ASSIGNMENT_NAME /d DEADLINE - to set deadline for an assignment
-	7. autograde /a ASSIGNMENT_NAME - to auto-grade all student scripts for assignment
-	8. set assignment comments /a ASSIGNMENT_NAME /c COMMENT - to set feedback for an assignment
-	9. remove module MODULE_NAME - to remove a module off the list
-	10. bye - to exit the program and save all your information
-
-    For the full list of commands, check out the User Guide at: https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html
-
+ 1. Adding a Module: add module MODULE_NAME
+ 2. Selecting a Module: select MODULE_NAME
+ 3. Viewing Current Module: current
+ 4. Adding a student: add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL
+ 5. Adding a Lesson: add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME
+ 6. Adding an Assignment: add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME
+ 7. Setting Assignment Deadline: set deadline /a ASSIGNMENT_NAME /d DEADLINE
+ 8. Auto-Grading Assignments: autograde /a ASSIGNMENT_NAME
+ 9. Setting Assignment Comments: set assignment comments /a ASSIGNMENT_NAME /c COMMENT
+ 10. Exiting ModMan: bye
+ 
+ For the full list of commands, check out the User Guide at: https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html
 -------------------------------------------------------------------------- 
 `````
 Please note that it does not display the full list of commands (due to there being so many!). 
