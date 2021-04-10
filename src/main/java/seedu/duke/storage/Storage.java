@@ -232,18 +232,16 @@ public class Storage {
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
                 int answerDividerIndex = line.indexOf(ANSWER_DIVIDER);
-                String questionNumberString = line.substring(LINE_START, answerDividerIndex).trim();
-                int questionNumber = Integer.parseInt(questionNumberString);
                 String answerAndMarks = line.substring(answerDividerIndex + DIVIDER_LENGTH);
                 int marksDividerIndex = answerDividerIndex + DIVIDER_LENGTH + answerAndMarks.indexOf(ANSWER_DIVIDER);
                 String answer = line.substring(answerDividerIndex + DIVIDER_LENGTH, marksDividerIndex).trim();
-                String marksString = line.substring(marksDividerIndex + DIVIDER_LENGTH).trim();
                 if (answer.equals("")) {
                     throw new MissingAnswerException(assignmentName);
                 }
                 if (answer.length() > 100) {
                     throw new AnswerTooLongException(assignmentName);
                 }
+                String marksString = line.substring(marksDividerIndex + DIVIDER_LENGTH).trim();
                 answersArray.add(answer);
                 if (marksString.equals("")) {
                     throw new MissingMarksException(assignmentName);
@@ -257,6 +255,8 @@ public class Storage {
                     }
                     marksArray.add(marks);
                 }
+                String questionNumberString = line.substring(LINE_START, answerDividerIndex).trim();
+                int questionNumber = Integer.parseInt(questionNumberString);
                 if (questionNumber != answersArray.size()) {
                     throw new NumbersMisalignException(assignmentName);
                 }
