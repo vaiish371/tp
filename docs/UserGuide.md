@@ -209,6 +209,8 @@ Assigns a new student to the current module you have selected.
 
 Format: `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL`
 
+:warning: Students with the same `STUDENT_NUMBER` cannot be assigned to the same module. However, there can be students with the same `STUDENT_NAME` and `STUDENT_EMAIL`.
+
 Example of usage:
 
 `add student /s Bryan Wong /# A0123456Y /e e0123456@u.nus.edu`
