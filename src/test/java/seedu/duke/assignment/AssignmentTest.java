@@ -60,4 +60,62 @@ class AssignmentTest {
         assertFalse(deadlineString.equals("01 01 2021"));
     }
 
+    @Test
+    void testCompareTo_bothNull_noChangeZero() {
+        Assignment assignmentNullOne = new McqAssignment("quiz1");
+        Assignment assignmentNullTwo = new McqAssignment("quiz2");
+        assertEquals(0, assignmentNullOne.compareTo(assignmentNullTwo));
+    }
+
+    @Test
+    void testCompareTo_TwoNull_negative() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+        Assignment assignmentNullOne = new McqAssignment("quiz1");
+        assignmentNullOne.setDeadline(LocalDate.parse("01 01 2021", formatter));
+        Assignment assignmentNullTwo = new McqAssignment("quiz2");
+        assertEquals(-1, assignmentNullOne.compareTo(assignmentNullTwo));
+    }
+
+    @Test
+    void testCompareTo_OneNull_positive() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+        Assignment assignmentNullOne = new McqAssignment("quiz1");
+        Assignment assignmentNullTwo = new McqAssignment("quiz2");
+        assignmentNullTwo.setDeadline(LocalDate.parse("01 01 2021", formatter));
+        assertEquals(1, assignmentNullOne.compareTo(assignmentNullTwo));
+    }
+
+    @Test
+    void testCompareTo_OneBeforeTwo_negative() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+        Assignment assignmentNullOne = new McqAssignment("quiz1");
+        assignmentNullOne.setDeadline(LocalDate.parse("01 01 2021", formatter));
+        Assignment assignmentNullTwo = new McqAssignment("quiz2");
+        assignmentNullTwo.setDeadline(LocalDate.parse("02 01 2021", formatter));
+        assertEquals(-1, assignmentNullOne.compareTo(assignmentNullTwo));
+    }
+
+    @Test
+    void testCompareTo_TwoBeforeOne_positive() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+        Assignment assignmentNullOne = new McqAssignment("quiz1");
+        assignmentNullOne.setDeadline(LocalDate.parse("02 01 2021", formatter));
+        Assignment assignmentNullTwo = new McqAssignment("quiz2");
+        assignmentNullTwo.setDeadline(LocalDate.parse("01 01 2021", formatter));
+        assertEquals(1, assignmentNullOne.compareTo(assignmentNullTwo));
+    }
+
+    @Test
+    void testCompareTo_OneEqualsTwo_zero() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+        Assignment assignmentNullOne = new McqAssignment("quiz1");
+        assignmentNullOne.setDeadline(LocalDate.parse("01 01 2021", formatter));
+        Assignment assignmentNullTwo = new McqAssignment("quiz2");
+        assignmentNullTwo.setDeadline(LocalDate.parse("01 01 2021", formatter));
+        assertEquals(0, assignmentNullOne.compareTo(assignmentNullTwo));
+    }
+
+
+
+
 }
