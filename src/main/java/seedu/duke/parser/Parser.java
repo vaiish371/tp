@@ -80,13 +80,13 @@ public class Parser {
             command = getAddModuleCommand(line);
         } else if (line.startsWith("add assignment ")) {
             command = getAddAssignmentCommand(line);
-        } else if (line.equals("list assignment")) {
+        } else if (line.equals("list assignments")) {
             command = getListModuleAssignmentCommand();
         } else if (line.startsWith("add student ")) {
             command = getAddStudentCommand(line);
         } else if (line.equals("list student details")) {
             command = getListStudentDetailsCommand();
-        } else if (line.startsWith("list student assignment grades ")) {
+        } else if (line.startsWith("list assignment grades ")) {
             command = getListStudentAssignmentGradesCommand(line);
         } else if (line.equals("list student")) {
             command = getListStudentCommand();
@@ -106,7 +106,7 @@ public class Parser {
             command = getGetAssignmentCommentsCommand(line);
         } else if (line.startsWith("set assignment percentage ")) {
             command = getSetAssignmentPercentageCommand(line);
-        } else if (line.startsWith("set deadline ")) {
+        } else if (line.startsWith("set assignment deadline ")) {
             command = getSetAssignmentDeadlineCommand(line);
         } else if (line.equals("sort assignments by deadline")) {
             command = getSortAssignmentByDeadlineCommand();
@@ -116,9 +116,9 @@ public class Parser {
             command = getRemoveModuleCommand(line);
         } else if (line.equals("current")) {
             command = getCurrentModuleCommand();
-        } else if (line.startsWith("view answers ")) {
+        } else if (line.startsWith("view assignment answer ")) {
             command = getViewAnswersCommand(line);
-        } else if (line.startsWith("view script ")) {
+        } else if (line.startsWith("view student script ")) {
             command = getViewScriptCommand(line);
         } else if (line.startsWith("autograde assignment ")) {
             command = getAutogradeAssignentCommand(line);
@@ -277,10 +277,10 @@ public class Parser {
         } catch (StringIndexOutOfBoundsException e) {
             logger.log(Level.WARNING, "not enough parameters for set assignment deadline command");
             throw new InsufficientParametersException();
-        }  catch (DateTimeParseException e) {
+        } catch (DateTimeParseException | DateTimeFormatException e) {
             logger.log(Level.WARNING, "Deadline format is wrong.");
             throw new DateTimeFormatException();
-        } 
+        }
         return command;
     }
 

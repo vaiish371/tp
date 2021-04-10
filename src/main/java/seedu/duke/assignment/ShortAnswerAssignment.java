@@ -44,6 +44,9 @@ public class ShortAnswerAssignment extends Assignment implements Autogradable {
                 continue;
             } else {
                 ArrayList<String> script = storage.loadScript(name, moduleCode, studentNumber);
+                if (script.size() != this.answer.getNumberOfQuestions()) {
+                    throw new NumbersMisalignException();
+                }
                 score = answer.compareScript(script);
             }
             int total = getTotalMarks();

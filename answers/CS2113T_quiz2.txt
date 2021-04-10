@@ -1,1 +1,7 @@
-1 |
+<<<<<<< HEAD
+1 | 
+=======
+1 | sdsdssdsdsdsdssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss | 2
+2 | sdsdsd | 4
+>>>>>>> dc7ab7affdafb929c0a715d5401b37485abea926
