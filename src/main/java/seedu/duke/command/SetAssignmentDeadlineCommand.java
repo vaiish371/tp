@@ -28,8 +28,8 @@ public class SetAssignmentDeadlineCommand extends Command {
             throw new ModuleNotSelectedException();
         }
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
-        this.deadline = LocalDate.parse(deadline, formatter);
+        this.assignmentName = assignmentName.trim();
+        this.deadline = LocalDate.parse(deadline.trim(), formatter);
         int year = this.deadline.getYear();
         if (year < 2021 || year > 2030) {
             throw new DateTimeFormatException();

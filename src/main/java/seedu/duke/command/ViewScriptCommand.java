@@ -30,8 +30,8 @@ public class ViewScriptCommand extends Command {
             throw new ModuleNotSelectedException();
         }
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
-        this.studentName = studentName;
+        this.assignmentName = assignmentName.trim();
+        this.studentName = studentName.trim();
     }
 
     @Override

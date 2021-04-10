@@ -34,7 +34,7 @@ public class AutogradeAssignmentCommand extends Command {
         }
 
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
+        this.assignmentName = assignmentName.trim();
     }
 
     @Override

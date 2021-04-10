@@ -10,26 +10,24 @@ public class SetAssignmentDeadlineCommandTest {
     @Test
     void setDeadline_01_01_2020_failOne() {
         assertThrows(DateTimeFormatException.class, () -> {
-            Command c = new SetAssignmentDeadlineCommand("CS2113T", "Magic Sequence", "31 12 2020");
+            new SetAssignmentDeadlineCommand("CS2113T", "Magic Sequence", "31 12 2020");
         });
     }
 
     @Test
     void setDeadline_01_01_2020_failTwo() {
         assertThrows(DateTimeFormatException.class, () -> {
-            Command c = new SetAssignmentDeadlineCommand("CS2113T", "Magic Sequence", "01 01 2031");
+            new SetAssignmentDeadlineCommand("CS2113T", "Magic Sequence", "01 01 2031");
         });
     }
 
     @Test
     void setDeadline_01_01_2020_passOne() {
-        Command c;
         assertDoesNotThrow(() -> new SetAssignmentDeadlineCommand("CS2113T", "Magic Sequence", "31 12 2030"));
     }
 
     @Test
     void setDeadline_01_01_2020_passTwo() {
-        Command c;
         assertDoesNotThrow(() -> new SetAssignmentDeadlineCommand("CS2113T", "Magic Sequence", "01 01 2021"));
     }
 

@@ -21,9 +21,9 @@ public class SetAssignmentGradeCommand extends Command {
     public SetAssignmentGradeCommand(String moduleCode, String assignmentName,
                                      String studentName, String grade) throws ModuleNotSelectedException {
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
-        this.studentName = studentName;
-        this.grade = grade;
+        this.assignmentName = assignmentName.trim();
+        this.studentName = studentName.trim();
+        this.grade = grade.trim();
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
         }

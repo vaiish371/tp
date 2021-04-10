@@ -28,7 +28,7 @@ public class ViewAnswersCommand extends Command {
             throw new ModuleNotSelectedException();
         }
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
+        this.assignmentName = assignmentName.trim();
     }
 
     @Override
