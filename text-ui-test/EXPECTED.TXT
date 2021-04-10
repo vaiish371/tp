@@ -84,14 +84,14 @@ Hello from
 	---------------------------------------------------------------------
 	 Here are the assignments in CS2113T:
 	 1. quiz1 (McqAssignment) due by: Aug 17 2021
-     2. quiz2 (LongAnswerAssignment) due by: Aug 16 2021
-     3. quiz3 (LongAnswerAssignment) - due date not specified.
+     	 2. quiz2 (LongAnswerAssignment) due by: Aug 16 2021
+     	 3. quiz3 (LongAnswerAssignment) - due date not specified.
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
 	 Here are the assignments in CS2113T:
 	 1. quiz2 (LongAnswerAssignment) due by: Aug 16 2021
-     2. quiz1 (McqAssignment) due by: Aug 17 2021
-     3. quiz3 (LongAnswerAssignment) - due date not specified.
+     	 2. quiz1 (McqAssignment) due by: Aug 17 2021
+     	 3. quiz3 (LongAnswerAssignment) - due date not specified.
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
 	 OOPS!!! File not found.
