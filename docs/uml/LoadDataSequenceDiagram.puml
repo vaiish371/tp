@@ -32,39 +32,36 @@ loop for all Module
 
     loop for all Assignment
         ref over Storage, Assignment : loadAssignment()
-        Storage -> Module
+        Storage -> Module : addAssignment()
         activate Module
-        Module -> Module : addAssignment()
         Module --> Storage
         deactivate Module
     end
 
     loop for all Lesson
         ref over Storage, Lesson : loadLesson()
-        Storage -> Module
+        Storage -> Module : addLesson()
         activate Module
-        Module -> Module : addLesson()
         Module --> Storage
         deactivate Module
     end
 
     loop for all Student
         ref over Storage, Student : loadStudent()
-        Storage -> Module
+        Storage -> Module : addStudent()
         activate Module
-        Module -> Module : addStudent()
         Module --> Storage
         deactivate Module
     end
 
+Storage --> Storage
 deactivate Storage
 
 end
 deactivate Module
 
-Storage -> Data
+Storage -> Data : addModule()
 activate Data
-Data -> Data : addModule()
 Data --> Storage
 deactivate Data
 
