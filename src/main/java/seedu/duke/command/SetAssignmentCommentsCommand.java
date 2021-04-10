@@ -21,8 +21,8 @@ public class SetAssignmentCommentsCommand extends Command {
             throw new ModuleNotSelectedException();
         }
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
-        this.comments = comments;
+        this.assignmentName = assignmentName.trim();
+        this.comments = comments.trim();
     }
 
     @Override

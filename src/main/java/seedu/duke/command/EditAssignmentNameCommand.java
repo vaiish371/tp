@@ -16,8 +16,8 @@ public class EditAssignmentNameCommand extends Command {
 
     public EditAssignmentNameCommand(String moduleCode, String oldName, String newName) {
         this.moduleCode = moduleCode;
-        this.oldName = oldName;
-        this.newName = newName;
+        this.oldName = oldName.trim();
+        this.newName = newName.trim();
     }
 
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,

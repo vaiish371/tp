@@ -28,9 +28,9 @@ public class AddAssignmentCommand extends Command {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
         }
-        this.assignmentType = assignmentType;
+        this.assignmentType = assignmentType.trim();
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
+        this.assignmentName = assignmentName.trim();
         assert this.assignmentName != null : "assignment name cannot be null";
     }
 

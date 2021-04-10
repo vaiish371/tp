@@ -22,8 +22,8 @@ public class SetAssignmentPercentageCommand extends Command {
             throw new ModuleNotSelectedException();
         }
         this.moduleCode = moduleCode;
-        this.assignmentName = assignmentName;
-        this.percentage = Float.parseFloat(percentage);
+        this.assignmentName = assignmentName.trim();
+        this.percentage = Float.parseFloat(percentage.trim());
         if (this.percentage < 0.0 || this.percentage > 100.0) {
             throw new InvalidPercentageException();
         }
