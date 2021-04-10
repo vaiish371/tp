@@ -508,18 +508,18 @@ Expected output:
 
 ***
 
-### 2.21 Setting Assignment Deadline : `set deadline` 
+### 2.21 Setting Assignment Deadline : `set assignment deadline` 
 
 Sets the deadline the assignment has to be graded by. 
 If a deadline had previously been set, it will be updated by the new deadline.
 
-Format: `set deadline /a ASSIGNMENT_NAME /d DEADLINE`
+Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
 The DEADLINE must be in the format dd MM yyyy eg. 16 08 2021.
 
 Examples of usage:
-* `set deadline /a quiz1 /d 17 08 2021`
-* `set deadline /a quiz2 /d 16 08 2021`
+* `set assignment deadline /a quiz1 /d 17 08 2021`
+* `set assignment deadline /a quiz2 /d 16 08 2021`
 
 Expected output:
 ```

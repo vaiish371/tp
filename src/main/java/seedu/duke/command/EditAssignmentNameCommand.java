@@ -7,6 +7,7 @@ import seedu.duke.data.Data;
 import seedu.duke.exception.AssignmentNotFoundException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.ModuleNotSelectedException;
+import seedu.duke.exception.EmptyParameterException;
 import seedu.duke.ui.Ui;
 
 public class EditAssignmentNameCommand extends Command {
@@ -14,10 +15,13 @@ public class EditAssignmentNameCommand extends Command {
     private final String oldName;
     private final String newName;
 
-    public EditAssignmentNameCommand(String moduleCode, String oldName, String newName) {
+    public EditAssignmentNameCommand(String moduleCode, String oldName, String newName) throws EmptyParameterException {
         this.moduleCode = moduleCode;
         this.oldName = oldName.trim();
         this.newName = newName.trim();
+        if (newName.length() == 0) {
+            throw new EmptyParameterException();
+        }
     }
 
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,

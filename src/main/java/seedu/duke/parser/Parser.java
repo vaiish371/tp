@@ -38,6 +38,7 @@ import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.TimeFormatException;
+import seedu.duke.exception.EmptyParameterException;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -233,7 +234,8 @@ public class Parser {
         }
     }
 
-    private static Command getEditAssignmentNameCommand(String line) throws InsufficientParametersException {
+    private static Command getEditAssignmentNameCommand(String line)
+            throws InsufficientParametersException, EmptyParameterException {
         Command command;
         try {
             logger.log(Level.INFO, "edit assignment name command entered");
@@ -283,7 +285,7 @@ public class Parser {
     }
 
     private static Command getSetAssignmentCommentsCommand(String line)
-            throws InsufficientParametersException, ModuleNotSelectedException {
+            throws InsufficientParametersException, ModuleNotSelectedException, EmptyParameterException {
         Command command;
         try {
             logger.log(Level.INFO, "set comments command entered");
@@ -318,7 +320,7 @@ public class Parser {
     }
 
     private static Command getSetAssignmentGradeCommand(String line)
-            throws InsufficientParametersException, ModuleNotSelectedException {
+            throws InsufficientParametersException, ModuleNotSelectedException, EmptyParameterException {
         Command command;
         try {
             logger.log(Level.INFO, "set assignment grade command entered");
@@ -507,7 +509,7 @@ public class Parser {
     }
 
     private static Command getAddAssignmentCommand(String line) throws InvalidCommandException,
-            InsufficientParametersException, ModuleNotSelectedException {
+            InsufficientParametersException, ModuleNotSelectedException, EmptyParameterException {
         Command command;
         try {
             logger.log(Level.INFO, "add assignment command entered");
