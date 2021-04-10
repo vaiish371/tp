@@ -3,6 +3,7 @@ package seedu.duke.assignment;
 import seedu.duke.Storable;
 import seedu.duke.Student;
 import seedu.duke.exception.InvalidMcqOption;
+import seedu.duke.exception.InvalidPercentageException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -38,10 +39,21 @@ public abstract class Assignment implements Comparable<Assignment>, Storable {
         return studentGrades;
     }
 
-    public void setStudentGrade(Student student, String grade) {
-        String studentNumber = student.getStudentNumber();
-        Float gradeFloat = Float.parseFloat(grade);
-        studentGrades.put(studentNumber, gradeFloat);
+    public void setStudentGrade(Student student, String grade) throws InvalidPercentageException {
+        try {
+            Float maxGrade = Float.valueOf(100);
+            Float minGrade = Float.valueOf(0);
+            String studentNumber = student.getStudentNumber();
+            Float gradeFloat = Float.parseFloat(grade);
+            if (gradeFloat < minGrade || gradeFloat > maxGrade) {
+                throw new InvalidPercentageException();
+            }
+            studentGrades.put(studentNumber, gradeFloat);
+        } catch (NumberFormatException e) {
+            throw new InvalidPercentageException();
+        } catch (NullPointerException e) {
+            throw new InvalidPercentageException();
+        }
     }
 
     public void setStudentGrade(Student student, float grade) {

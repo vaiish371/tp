@@ -37,29 +37,30 @@ Icon | Purpose
 ## Table of contents
 1. [Quick start](#1-quick-start)
 1. [Features](#2-features) </br>
-    2.1 [`add module` - Adding a Module](#21-adding-a-module-add-module) </br>
-    2.2 [`remove module` - Removing a Module](#22-removing-a-module-remove-module) </br>
-    2.3 [`select` - Selecting a Module](#23-selecting-a-module-select) </br>
-    2.4 [`current` - Viewing Current Module](#24-viewing-current-module-current) </br>
-    2.5 [`list module` - Listing Modules](#25-listing-modules-list-module) </br>
-    2.6 [`add student` - Adding a Student](#26-adding-a-student-add-student) </br>
-    2.7 [`list student details` - Listing Students Details](#27-listing-students-details-list-student-details) </br>
-    2.8 [`list student` - Listing Students in Module](#28-listing-students-in-module-list-student-) </br>   
-    2.9 [`add timetable` - Adding a Lesson](#29-adding-a-lesson-add-timetable) </br>
-    2.10 [`list timetable` - Listing Timetable Lessons](#210-listing-timetable-lessons-list-timetable) </br>
-    2.11 [`delete timetable` - Removing Timetable Lessons](#211-removing-timetable-lessons-delete-timetable) </br>
-    2.12 [`edit timetable` - Editing a Timetable Lesson](#212-editing-timetable-lessons-edit-timetable) </br>
-    2.13 [`add assignment` - Adding an Assignment](#213-adding-an-assignment-add-assignment) </br>
-    2.14 [`list assignments` - Listing Module Assignments](#214-listing-module-assignments--list-assignments) </br>
-    2.15 [`sort assignments` - Sorting Module Assignments](#215-sorting-module-assignments--sort-assignments) </br>
-    2.16 [`edit assignment` - Editing an Assignment Name](#216-editing-an-assignment-name-edit-assignment-name) </br> 
-    2.17 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#217-setting-assignment-percentage-set-assignment-percentage) </br>
-    2.18 [`set assignment comments` - Setting Assignment Comments](#218-setting-assignment-comments-set-assignment-comments) </br>
-    2.19 [`get assignment comments` - Getting Assignment Percentage](#219-getting-assignment-comments-get-assignment-comments) </br>
-    2.20 [`set deadline` - Setting Assignment Deadline](#220-setting-assignment-deadline--set-deadline) </br>
-    2.21 [`list grades` - Listing Assignment Grades](#221-listing-assignment-grades--list-grades) </br>
-    2.22 [`autograde` - Auto-Grading Assignments](#222-auto-grading-assignments--autograde) </br>
-    2.23 [`bye` - Exiting ModMan](#223-exiting-modman--bye) </br>
+    2.1 [`help` - Listing Basic Commands](#21-listing-basic-commands-help) <br>
+    2.2 [`add module` - Adding a Module](#22-adding-a-module-add-module) <br>
+    2.3 [`remove module` - Removing a Module](#23-removing-a-module-remove-module) <br>
+    2.4 [`select` - Selecting a Module](#24-selecting-a-module-select) <br>
+    2.5 [`current` - Viewing Current Module](#25-viewing-current-module-current) <br>
+    2.6 [`list module` - Listing Modules](#26-listing-modules-list-module) <br>
+    2.7 [`add student` - Adding a Student](#27-adding-a-student-add-student) <br>
+    2.8 [`list student details` - Listing Students Details](#28-listing-students-details-list-student-details) <br>
+    2.9 [`list student` - Listing Students in Module](#29-listing-students-in-module-list-student-) <br>   
+    2.10 [`add timetable` - Adding a Lesson](#210-adding-a-lesson-add-timetable) <br>
+    2.11 [`list timetable` - Listing Timetable Lessons](#211-listing-timetable-lessons-list-timetable) <br>
+    2.12 [`delete timetable` - Removing Timetable Lessons](#212-removing-timetable-lessons-delete-timetable) <br>
+    2.13 [`edit timetable` - Editing a Timetable Lesson](#213-editing-timetable-lessons-edit-timetable) <br>
+    2.14 [`add assignment` - Adding an Assignment](#214-adding-an-assignment-add-assignment) <br>
+    2.15 [`list assignments` - Listing Module Assignments](#215-listing-module-assignments--list-assignments) <br>
+    2.16 [`sort assignments by deadline` - Sorting Module Assignments](#216-sorting-module-assignments--sort-assignments-by-deadline) <br>
+    2.17 [`edit assignment` - Editing an Assignment Name](#217-editing-an-assignment-name-edit-assignment-name) <br> 
+    2.18 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#218-setting-assignment-percentage-set-assignment-percentage) <br>
+    2.19 [`set assignment comments` - Setting Assignment Comments](#219-setting-assignment-comments-set-assignment-comments) <br>
+    2.20 [`get assignment comments` - Getting Assignment Percentage](#220-getting-assignment-comments-get-assignment-comments) <br>
+    2.21 [`set deadline` - Setting Assignment Deadline](#221-setting-assignment-deadline--set-deadline) <br>
+    2.22 [`list grades` - Listing Assignment Grades](#222-listing-assignment-grades--list-grades) <br>
+    2.23 [`autograde` - Auto-Grading Assignments](#223-auto-grading-assignments--autograde) <br>
+    2.24 [`bye` - Exiting ModMan](#224-exiting-modman--bye) <br>
 1. [FAQ](#3-faq)
 1. [Command summary](#4-command-summary)
 
@@ -77,15 +78,11 @@ Icon | Purpose
 |----------------------|-------------------------------------|
 
 ***
-### i. Listing Basic Commands: `help`
-This command is available for you to get a quick reference of all the basic commands 
-that you are supposed to use to implement a particular feature. You can invoke this command
-any time during program run when you might not be able to keep track of the basic
-commands and their formats.
+### 2.1 Listing Basic Commands: `help`
+This command is available for you to get a quick reference of all the basic commands available in ModMan, and their usages.
+You can invoke 'help' any time you are unsure of the basic commands and their formats.
 
 Format: `help`
-
-Example of usage: `help`
 
 Expected output:
 
@@ -108,10 +105,10 @@ For the full list of commands, check out the User Guide at: https://ay2021s2-cs2
 
 -------------------------------------------------------------------------- 
 `````
-Do note that it does not display the full list of commands and you will be required
-to navigate to the User Guide page if you want to access all of them.
+Please note that it does not display the full list of commands (due to there being so many!). 
+You may open this User Guide for a comprehensive list.
 
-### 2.1 Adding a Module: `add module`
+### 2.2 Adding a Module: `add module`
 
 Adds a new module to the list of modules.
 
@@ -130,7 +127,7 @@ Expected output :
 ````
 ***
 
-### 2.2 Removing a Module: `remove module`
+### 2.3 Removing a Module: `remove module`
 
 Removes a module from the list of modules.
 
@@ -149,7 +146,7 @@ Expected output :
 ````
 ***
 
-### 2.3 Selecting a Module: `select`
+### 2.4 Selecting a Module: `select`
 
 Select the module you want to currently work in.
 
@@ -170,7 +167,7 @@ Expected output :
 | :information_source: | All commands onwards assumes we are working in the module CS2113T |
 |----------------------|-------------------------------------|
 ***
-### 2.4 Viewing Current Module: `current`
+### 2.5 Viewing Current Module: `current`
 
 View the current module you are working in. Also obtain an overview of the current module.
 
@@ -191,7 +188,7 @@ Expected output :
 -------------------------------------------------------------------------- 
 ````
 ***
-### 2.5 Listing Modules: `list module` (Vikas)
+### 2.6 Listing Modules: `list module`
 
 Lists all the modules you have added, and specifies the current module (if any).
 
@@ -206,42 +203,7 @@ Expected output :
 -------------------------------------------------------------------------- 
 ````
 ***
-
-### v. Listing Modules: `list module` (Vaish)
-
-This command displays the list of modules you have added since the last time you saved
-all your information and as you keep adding during the program run.
-
-**Format**: `list module`
-
-**Example of usage**: 
-
-You have saved a module `CS2113T` in the previous program run and have
-added a new module `CS2101`in the new session.
-
-````
- Here are your modules: 
-	 1. CS2113T
- > add module CS2101
-	---------------------------------------------------------------------
-	 I have added a new module: CS2101
-	---------------------------------------------------------------------
-````
-Now, you use the `list module` command: 
-````
- > list module
-````
-**Expected output**:
-
-````
-        ---------------------------------------------------------------------
-	 Here are your modules: 
-	 1. CS2113T
-	 2. CS2101
-        ---------------------------------------------------------------------
-````
-
-### 2.6 Adding a student: `add student`
+### 2.7 Adding a student: `add student`
 
 Assigns a new student to the current module you have selected.
 
@@ -260,7 +222,7 @@ Expected output :
 ```
 ***
 
-### 2.7 Listing Students Details: `list student details`
+### 2.8 Listing Students Details: `list student details`
 
 Lists the details of all students enrolled in a particular module.
 
@@ -280,7 +242,7 @@ Expected output :
 ````
 ***
 
-### 2.8 Listing Students in Module: `list student `
+### 2.9 Listing Students in Module: `list student `
 Lists the names of students assigned to the current module you have selected.
 
 Format: `list student`
@@ -298,7 +260,7 @@ Expected output :
 ```
 ***
 
-### 2.9 Adding a Lesson: `add timetable`
+### 2.10 Adding a Lesson: `add timetable`
 Adds a new lesson to the list (timetable) of lessons for the module you have selected.
 
 Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
@@ -326,7 +288,7 @@ Expected output :
 ```
 ***
 
-### 2.10 Listing Timetable Lessons: `list timetable`
+### 2.11 Listing Timetable Lessons: `list timetable`
 Lists the lessons in the timetable for the module you have selected.
 
 Format: `list timetable`
@@ -342,7 +304,7 @@ Expected output :
 ```
 ***
 
-### 2.11 Removing Timetable Lessons: `delete timetable`
+### 2.12 Removing Timetable Lessons: `delete timetable`
 Deletes the lessons in the timetable corresponding to the index for the module you have selected.
 
 Format: `delete timetable LESSON_INDEX`
@@ -359,7 +321,7 @@ Expected output :
 ```
 ***
 
-### 2.12 Editing Timetable Lessons: `edit timetable`
+### 2.13 Editing Timetable Lessons: `edit timetable`
 Edits the lessons in the timetable corresponding to the index for the module you have selected.
 
 Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
@@ -389,8 +351,8 @@ Expected output :
 ---------------------------------------------------------------------
 ```
 ***
-//@@author bryanwhl
-### 2.13 Adding an Assignment: `add assignment`
+
+### 2.14 Adding an Assignment: `add assignment`
 
 Adds an assignment to the module that is current selected by the user. 
 
@@ -413,8 +375,8 @@ Expected output :
 ---------------------------------------------------------------------
 ```
 ***
-//@@author jianningzhuang
-### 2.14 Listing Module Assignments : `list assignments` 
+
+### 2.15 Listing Module Assignments : `list assignments` 
 
 Lists out all assignments in the module along with the due date if the deadline was set.
 
@@ -430,7 +392,7 @@ Expected output :
 ---------------------------------------------------------------------
 ```
 ***
-### 2.15 Sorting Module Assignments : `sort assignments by deadline` 
+### 2.16 Sorting Module Assignments : `sort assignments by deadline` 
 
 Sorts all assignments in the module by their deadline. <br/>
 If no deadline was set, the assignment will be sorted after those with deadlines.
@@ -456,9 +418,8 @@ Step 4. The user executes `sort by deadline` which reorders the assignments in C
 Assignments with null as deadline are sorted behind assignments with deadlines.
 
 ***
-//@@author bryanwhl
 
-### 2.16 Editing an Assignment Name: `edit assignment name`
+### 2.17 Editing an Assignment Name: `edit assignment name`
 
 Edits the assignment name of an existing assignment
 
@@ -480,9 +441,8 @@ Expected output :
 ```
 
 ***
-//@@author bryanwhl
 
-### 2.17 Setting Assignment Percentage: `set assignment percentage`
+### 2.18 Setting Assignment Percentage: `set assignment percentage`
 
 Sets the assignment percentage of an existing assignment
 
@@ -503,9 +463,8 @@ Expected output :
 ```
 
 ***
-//@@author bryanwhl
 
-### 2.18 Setting Assignment Comments: `set assignment comments`
+### 2.19 Setting Assignment Comments: `set assignment comments`
 
 Sets the assignment comments of an existing assignment
 
@@ -527,9 +486,8 @@ Expected output :
 ```
 
 ***
-//@@author bryanwhl
 
-### 2.19 Getting Assignment Comments: `get assignment comments`
+### 2.20 Getting Assignment Comments: `get assignment comments`
 
 Gets the assignment comments of an existing assignment and prints it out for the user.
 
@@ -549,8 +507,8 @@ Expected output :
 ```
 
 ***
-//@@author jianningzhuang
-### 2.20 Setting Assignment Deadline : `set deadline` 
+
+### 2.21 Setting Assignment Deadline : `set deadline` 
 
 Sets the deadline the assignment has to be graded by. 
 If a deadline had previously been set, it will be updated by the new deadline.
@@ -570,8 +528,8 @@ Expected output :
 ---------------------------------------------------------------------
 ```
 ***
-//@@author bryanwhl
-### 2.21 Listing Assignment Grades : `list grades` 
+
+### 2.22 Listing Assignment Grades : `list grades` 
 
 Lists the students' grades for a particular assignment.
 The students listed are sorted by grades.
@@ -592,7 +550,7 @@ Expected output :
 ```
 ***
 
-### 2.22 Auto-Grading Assignments : `autograde` 
+### 2.23 Auto-Grading Assignments : `autograde` 
 
 Auto-grades all student scripts for a particular assignment by comparing against solutions.
 Automatically updates student's grades for that assignment.
@@ -612,9 +570,7 @@ Expected output :
 ```
 ***
 
-//@@author
-
-### 2.23 Exiting ModMan : `bye`
+### 2.24 Exiting ModMan : `bye`
 
 Auto-saves all your changes and exits the program. ModMan will have all your data ready the next time you load it.
 
@@ -630,7 +586,7 @@ Expected output :
 
 ## 3. FAQ
 
-**Q**: How do I delete a particular module/assignment? 
+**Q**: How do I delete a particular student/assignment? 
 
 **A**: The feature of deletion is still in progress and will be released in our upcoming versions. 
 
@@ -643,21 +599,29 @@ Expected output :
 
 Action | Format, Examples
 ------ | ----------------
+help | `help` <br>
 add module | `add module MODULE_NAME` <br> e.g. `add module CS2113T`
 remove module | `remove module MODULE_NAME` <br> e.g. `remove module CS2113T`
 select module | `select MODULE_NAME` <br> e.g. `select CS2113T`
 view current module | `current` <br>
+list module | `list module` <br>
 add student | `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL` <br> e.g. `add student /s John Doe /# A0123456Y /e e0123456@u.nus.edu`
 list student details | `list student details <br> e.g. `list student details`
 list student | `list student` <br> 
-add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `add timetable /t Lecture /v Zoom /d Fri /s 1600 /e 1800`
+add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `add timetable /t Lecture /v Zoom /d FRIDAY /s 1600 /e 1800`
 list timetable | `list timetable` <br> 
+delete timetable | `delete timetable LESSON_INDEX` <br> e.g. `delete timetable 1`
+edit timetbale | `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `edit timetable 1 /t - /v COM2 /d - /s 1600 /e 1800` 
 add assignment | `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME` <br> e.g. `add assignment /t mcq /a Magic Sequence`
 list assignments | `list assignment` <br>
 sort assignments | `sort assignments by deadline` <br>
 edit assignment | `edit assignment /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
+set assignment percentage | `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE` <br> e.g. `set assignment percentage /a Magic Sequence /p 15`
+set assignment comments | `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS` <br> e.g. `set assignment comments /a Magic Sequence /p This assignment is well done.`
+get assignment comments | `get assignment comments /a ASSIGNMENT_NAME` <br> e.g. `get assignment comments /a Magic Sequence`
 set deadline | `set deadline /a ASSIGNMENT_NAME /d DEADLINE` <br> e.g. `set deadline /a quiz1 /d 17 08 2021`
 list grades | `list student assignment grades /a ASSIGNMENT_NAME` <br> e.g. `list student assignment grades /a quiz1`
 autograde | `autograde /a ASSIGNMENT_NAME` <br> e.g. `autograde /a quiz1`
+bye | `bye` <br>
 
 
