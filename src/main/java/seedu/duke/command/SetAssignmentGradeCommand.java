@@ -10,6 +10,7 @@ import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.StudentNotFoundException;
+import seedu.duke.exception.EmptyParameterException;
 import seedu.duke.ui.Ui;
 
 public class SetAssignmentGradeCommand extends Command {
@@ -18,14 +19,17 @@ public class SetAssignmentGradeCommand extends Command {
     public String studentName;
     public String grade;
 
-    public SetAssignmentGradeCommand(String moduleCode, String assignmentName,
-                                     String studentName, String grade) throws ModuleNotSelectedException {
+    public SetAssignmentGradeCommand(String moduleCode, String assignmentName, String studentName,
+                                     String grade) throws ModuleNotSelectedException, EmptyParameterException {
         this.moduleCode = moduleCode;
         this.assignmentName = assignmentName.trim();
         this.studentName = studentName.trim();
         this.grade = grade.trim();
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
+        }
+        if (grade.length() == 0) {
+            throw new EmptyParameterException();
         }
     }
 

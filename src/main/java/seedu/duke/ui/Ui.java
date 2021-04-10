@@ -57,7 +57,7 @@ public class Ui {
                 + "\t 4. Adding a student: add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL\n"
                 + "\t 5. Adding a Lesson: add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME\n"
                 + "\t 6. Adding an Assignment: add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME\n"
-                + "\t 7. Setting Assignment Deadline: set deadline /a ASSIGNMENT_NAME /d DEADLINE\n"
+                + "\t 7. Setting Assignment Deadline: set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE\n"
                 + "\t 8. Auto-Grading Assignments: autograde /a ASSIGNMENT_NAME\n"
                 + "\t 9. Setting Assignment Comments: set assignment comments /a ASSIGNMENT_NAME /c COMMENT\n"
                 + "\t 10. Exiting ModMan: bye\n\n"
