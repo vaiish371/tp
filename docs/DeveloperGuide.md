@@ -23,7 +23,7 @@ Readers can find out more about the overall architecture of ModMan, and also the
 behind various functionalities. Technically inclined readers may wish to use the developer guide and
 further implement features or customise ModMan for their own use!
 
-## How to use the Developer Guide
+### How to use the Developer Guide
 
 The Developer Guide has been split into clear sections to allow readers to quickly navigate to their desired 
 information.
