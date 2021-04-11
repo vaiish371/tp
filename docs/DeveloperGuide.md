@@ -177,9 +177,7 @@ The `Data`,
 
 ## Implementation
 
-The implementation of key features and functionalities of ModMan are described in this section.
-
-### Editing Assignment Information (Jianning and Bryan)
+### Editing Assignment Information
 
 This subsection provides details on the implementation of the various commands that modify the `Assignment` object.
 
@@ -224,7 +222,7 @@ Implementation considerations for using `HashMap<String, Float>` to store studen
     * `HashMap` may have even better performance with a good hash
     
 
-### Sorting Assignments by Deadline (Jianning)
+### Sorting Assignments by Deadline
 
 The `SortAssignmentByDeadlineCommand` is used to reorder the ArrayList of `Assignment` objects stored in the current `Module`. </br>
 
@@ -257,7 +255,7 @@ Given below is the sequence diagram for the `SortAssignmentsByDeadlineCommand`:
 
 
 
-### Autograding Assignments (Jianning)
+### Autograding Assignments
 
 The `AutogradeAssignmentCommand` is used to grade all current students' scripts found in the `scripts` directory. </br>
 The grades for each student will also be automatically saved and updated in the `Assignment`.</br>
@@ -386,4 +384,42 @@ With the help of ModMan, users will be able to add, edit, and store all informat
 
 ## Instructions for manual testing
 
-{Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
+### Initial launch
+
+### Sorting Assignments
+
+Ensure you have added a few assignments to be sorted.
+
+Test Case 1: Assignments with different deadlines</br>
+Expected: Assignments will be sorted with the more urgent deadlines near the top of the list.
+
+Test Case 2: Assignments with the same deadline</br>
+Expected: Sorting assignments is stable. Assignments with the same deadline will retain the initial order of when they were added to the module.
+
+Test Case 3: Assignments with no deadline</br>
+Expected: Assignments with no deadline will be sorted after other assignments with valid deadlines. Two assignments both without deadlines will also retain their initial order.
+
+
+### Autograding Assignments
+
+Here are some steps you can take to begin testing the autograde feature:
+
+1. Add your students and assignments to the module.
+2. Add the answer key and student scripts to the respective folders.
+3. Check if you can load the answer key and student script from ModMan. If it does not load:</br>
+    3.1 Check if you have added the assignment or student.</br>
+    3.2 Check if you have named the text files according to the format shown in the User Guide section 2.23
+   
+Test Case 1: Answer key question numbers are not in sequential order.</br>
+Expected: Error message regarding misalignment of question numbers shown.
+
+Test Case 2: Answer key contains non integer question numbers.</br>
+Expected: Error message regarding invalid question number shown
+
+Test Case 3: Number of questions in answer key and script are different.</br>
+Expected: Error message regarding misalignment of question numbers shown.
+
+Test Case 4: MCQ assignment has invalid MCQ option.</br>
+Expected: Error message regarding invalid MCQ option shown.
+
+For more test cases, refer to User Guide section 2.23, 2.25 and 2.26
