@@ -1,19 +1,20 @@
 @startuml
 
 participant ":Parser" as Parser
-participant ":SetAssignmentDeadlineCommand" as Command
+participant ":SetAssignmentGradeCommand" as Command
 participant ":Data" as Data
 participant ":Module" as Module
+participant ":Student" as Student
 participant ":Assignment" as Assignment
 participant ":Ui" as Ui
 
 
-[-> Parser : parse("set assignment deadline")
+[-> Parser : parse("set assignment grade")
 activate Parser
 
 ref over Parser, Command : getCommand
 
-[<-- Parser : SetAssignmentDeadlineCommand
+[<-- Parser : SetAssignmentGradeCommand
 deactivate Parser
 
 [->Command : execute()
@@ -31,13 +32,20 @@ activate Module
 Module --> Command : assignment
 deactivate Module
 
-Command -> Assignment : setDeadline(deadline)
+Command -> Student : findStudent(studentName)
+activate Student
+
+Student --> Command : student
+deactivate Student
+
+Command -> Assignment : setStudentGrade(student, grade)
 activate Assignment
 
 Assignment --> Command
 deactivate Assignment
 
-Command -> Ui : printSetAssignmentDeadline(moduleCode, assignmentName, deadline)
+
+Command -> Ui : printSetAssignmentGrade(moduleCode, assignmentName, studentName, grade)
 activate Ui
 
 Ui --> Command

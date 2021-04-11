@@ -80,14 +80,14 @@ This section covers points to note about proper input formats for commands.
 2. For commands with flags (ie. `/t`, `/s`):
     * All flags must be entered completely in the order specified in command format.
     * There is one whitespace before and after each flag eg. `/t<space>TYPE<space>/v<space>...`; Input would be truncated if spaces are not present.</br>
-      For example:
-        * `/t /v...`: Only one space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
-        * `/t  /v...`: Two spaces between flags, input for flag `/t` would be parsed as empty. Empty parameter error may be thrown.
+        * `/t<space>/v...`: One space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
+        * `/t<space><space>/v...`: Two spaces between flags, input for flag `/t` would be parsed as empty. Empty parameter error may be thrown.
         * `.../s 1600/e 1800`: `START_TIME` will be parsed as `160` and wrong time format error may be thrown.
     * Any inputs within the space between the flags would be trimmed for whitespaces.
-        * `/t     Lecture       /v ...`: Input for `/t` will be trimmed to `Lecture`.
+        * `/t<space><space>Lecture<space><space><space>/v ...`: Input for `/t` will be trimmed to `Lecture`.
     
-:warning: Inputs that do not follow this format would be invalid.
+| :warning: | Inputs that do not follow this format would be invalid. |
+|----------------------|-------------------------------------|
 
 ## 2. Features 
 
@@ -142,6 +142,10 @@ Expected output:
     I have added a new module: CS2113T
 -------------------------------------------------------------------------- 
 ````
+
+| :warning: | Input is case sensitive, ie. `CS2113T` and `cs2113T` would be considered two different modules |
+|----------------------|-------------------------------------|
+
 ***
 
 ### 2.3 Removing a Module: `remove module`
@@ -161,6 +165,10 @@ Expected output:
     You have successfully removed module: CS2113T
 -------------------------------------------------------------------------- 
 ````
+
+| :warning: | You can remove the current `Module` you are working in |
+|----------------------|-------------------------------------|
+
 ***
 
 ### 2.4 Selecting a Module: `select`
@@ -226,7 +234,8 @@ Assigns a new student to the current module you have selected.
 
 Format: `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL`
 
-:warning: Students with the same `STUDENT_NUMBER` cannot be assigned to the same module. However, there can be students with the same `STUDENT_NAME` and `STUDENT_EMAIL`.
+| :warning: | Students with the same `STUDENT_NUMBER` cannot be assigned to the same module.<br>However, there can be students with the same `STUDENT_NAME` and `STUDENT_EMAIL`. |
+|----------------------|-------------------------------------|
 
 Example of usage:
 
@@ -287,9 +296,11 @@ Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 * The `TYPE` and `VENUE` can be in a natural language format.
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.  
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800`.
-* `START_TIME` must be before `END_TIME`
+* `START_TIME` must be before `END_TIME`.
+* The parameters cannot be empty or whitespaces.
 
-:warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
+| :warning: | Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`. |
+|----------------------|-------------------------------------|
 
 Example of usage:
 
@@ -303,7 +314,6 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 ***
-
 ### 2.11 Listing Timetable Lessons: `list timetable`
 Lists the lessons in the timetable for the module you have selected.
 
@@ -346,10 +356,11 @@ Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e EN
 * The `TYPE` and `VENUE` can be in a natural language format.
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800` if specified.
-* `START_TIME` must be before `END_TIME`
+* `START_TIME` must be before `END_TIME`.
 * The parameters cannot be empty or whitespaces.
 
-:warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
+| :warning: | Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`. |
+|----------------------|-------------------------------------|
 
 Example of usage:
 
@@ -480,7 +491,7 @@ Expected output:
 
 ### 2.18 Setting Assignment Percentage: `set assignment percentage`
 
-Sets the assignment percentage of an existing assignment
+Sets the assignment percentage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer.
 
 Format: `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE`
 
@@ -500,10 +511,12 @@ Expected output:
 
 ### 2.19 Setting Assignment Comments: `set assignment comments`
 
-Sets the assignment comments of an existing assignment
+Sets the assignment comments of an existing assignment. The assignment comment must not exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on that feature!).
+
+| :bulb: |Although the edit and append features for assignment comments are still in production, you can recreate an edit by calling the "get assignment comments" (Section 2.20) command, copy-pasting the result onto your terminal and editing before calling this command.|
+|----------------------|-------------------------------------|
 
 Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
-
 Examples of usage:
 * `set assignment comments /a Magic Sequence /p This assignment is well done.`
 * `set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
@@ -521,7 +534,7 @@ Expected output:
 
 ### 2.20 Getting Assignment Comments: `get assignment comments`
 
-Gets the assignment comments of an existing assignment and prints it out for the user.
+Gets the assignment comments of an existing assignment and prints it out for the user. 
 
 Format: `get assignment comments /a ASSIGNMENT_NAME`
 
@@ -543,7 +556,7 @@ Expected output:
 ### 2.21 Setting Assignment Deadline : `set assignment deadline` 
 
 The `set assigment deadline` command allows you to set the date which you have to grade the assignment by.
-If a deadline had previously been set, it will be updated by the new deadline.
+If a deadline had previously been set, the deadline of the assignment will be updated with the new deadline.
 
 Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
@@ -553,17 +566,17 @@ Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
 The deadline has to follow a strict format to allow you to easily sort your assignments by deadline later on!
 
-Examples of usage:
-* `set assignment deadline /a quiz1 /d 16 08 2021`
-* `set assignment deadline /a quiz2 /d 17 08 1999`
+Examples of usage:</br>
 
+1. `set assignment deadline /a quiz1 /d 16 08 2021`
 
-Expected output:
 ```
 ---------------------------------------------------------------------
     I have set quiz1's deadline to Aug 16 2021 in CS2113T
 ---------------------------------------------------------------------
 ```
+2. `set assignment deadline /a quiz2 /d 17 08 1999`
+
 ```
 ---------------------------------------------------------------------
     OOPS!!! Date/Time Format is wrong!
@@ -597,25 +610,56 @@ Expected output:
 ```
 ***
 
-### 2.23 Auto-Grading Assignments : `autograde` 
+### 2.23 Autograding Assignments : `autograde assignment` 
 
-Auto-grades all student scripts for a particular assignment by comparing against solutions.
-Automatically updates student's grades for that assignment.
+ModMan has an integrated autograder to help you grade digital assignment submissions easily and efficiently!</br>
 
-Format: `autograde /a ASSIGNMENT_NAME`
+The key features of autograding are as follows:</br>
+
+* All the students' scripts for that assignment found in the `scripts` folder will be graded. 
+* The grades for each student will be listed out for you and automatically saved in the database. 
+* Keeps track of which of your students have not submitted their work.
+
+| :warning: | Currently, only MCQ and Short Answer assignments can be autograded |
+|----------------------|-------------------------------------|
+
+Format: `autograde assignment /a ASSIGNMENT_NAME`
 
 Example of usage:
 
-`autograde /a quiz1`
+Let's say you are currently teaching 10 students in CS2113T and the deadline for students to submit their quiz1 MCQ assignment was yesterday. 
+The following 3 steps are all you need to autograde all your students'assignments:
+
+1. Copy and Paste the answer key for quiz1 into the `answers` folder found in the same working directory as the ModMan app.
+
+![Ans](UGPics/ans.PNG)
+
+2. Copy and Paste the students' scripts for quiz1 into the `scripts` folder found in the same working directory as the ModMan app.
+
+![SCR](UGPics/scr.PNG)
+
+3. Execute the command `autograde assignment /a quiz1`
 
 Expected output:
 ```
 ---------------------------------------------------------------------
     Here are the students' grades for the quiz1 assignment:
-    1. A0214561M - 100.0
-    2. A0215114X - 101.0
+    1. A0214561M - 78.26087
+    2. A0215114X - 100.0
+    3. A0213460U - 78.26087
+    4. A0123456Z - 86.95652
+    5. A0214345M - 82.608696
+    These are the students who have not submitted their assignments:
+    1. Naughty, A1111111A, e1111111@u.nus.edu
+    2. Mischievous, A2222222A, e2222222@u.nus.edu
+    3. Playful, A3333333A, e3333333@u.nus.edu
+    4. Tardy, A4444444A, e4444444@u.nus.edu
+    5. Bad Boy, A5555555A, e5555555@u.nus.edu
 ---------------------------------------------------------------------
 ```
+
+| :information_source: | Answers for MCQ assignments are limited to the options A to E or 1 to 5</br>Answers fpr Short Answer Assignments are limited to 100 characters.|
+|----------------------|-------------------------------------|
 ***
 
 ### 2.24 Exiting ModMan : `bye`
@@ -634,16 +678,151 @@ Expected output:
 
 ### 2.25 Viewing Assignment Answer : `view assignment answer`
 
-The `view assignment answer` allows you to easily search and retrieve the answer key for an assignment stored in the `answers` directory.
-All you have to do is 
-Format: `bye`
+The `view assignment answer` command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment.</br>
+
+Answers are stored as text files in the `answers` folder which can be found in the same working directory as the ModMan app.</br>
+
+| :information_source: | Naming of the answer text file has to be in the format `<ModuleCode>_<AssignmentName>.txt` for our system to be able to automatically retrieve the answers for you |
+|----------------------|-------------------------------------|
+
+Within the text file, the answer for each question should also follow the format `<QUESTION_NUMBER> | <ANSWER> | <MARKS>` whereby:</br>
+* The first column contains the question number</br>
+* The second column contains the answer for the corresponding question</br>
+* The third column contains the marks for getting that question correct</br>
+
+Shown below are examples of what the answer text file for an assignment should look like:</br>
+On the left, we have the answer key for an MCQ assignment quiz1.</br>
+On the right, we have the answer key for a Short Answer assignment quiz2.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![MCQ](UGPics/answersFormat.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswer](UGPics/shortAnswer.PNG)
+
+:warning: Here are some things to look out for when editing the answer text file:
+* Question numbers should be in sequential order starting from 1
+* Answers for MCQ assignments should only include options A to E or 1 to 5
+* Answers for Short Answer assignments should not exceed 50 characters long
+* Answers for Long Answer assignments should not exceed 100 characters long
+* Marks should have non-negative integer values
+* Ensure that the delimiter `|` is not used in the answer
+
+
+Format: `view assignment answer /a ASSIGNMENT_NAME`
+
+Example of usage:</br>
+Let's say you want to view the answer key to quiz1 shown above on the left.</br>
+The command `view assignment answer /a quiz1` quickly searches through the `answers` folder to display the answer key in the format `<QUESTION_NUMBER>. <ANSWER> | [<MARKS>]`.</br>
+The expected output below shows what it would look like in the app.
 
 Expected output:
 ```
 ---------------------------------------------------------------------
-    Bye. Hope to see you again soon!
+    Answer key for quiz1:
+    1. A | [2]
+    2. B | [4]
+    3. C | [4]
+    4. D | [2]
+    5. A | [4]
+    6. B | [4]
+    7. C | [2]
+    8. D | [4]
+    9. E | [4]
+    10. A | [2]
+    11. B | [4]
+    12. C | [4]
+    13. D | [2]
+    14. A | [2]
+    15. A | [2]
 ---------------------------------------------------------------------
 ```
+| :bulb: | You can open up the student script in another terminal so that you can view both the answer key and student script side by side!|
+|----------------------|-------------------------------------|
+***
+
+### 2.26 Viewing Student Script : `view student script`
+
+The `view student script` command allows you to easily search and retrieve the student's script for an assignment just by entering the name of the assignment and the student.</br>
+
+Scripts are stored as text files in the `scripts` folder which can be found in the same working directory as the ModMan app.</br>
+
+| :information_source: | Naming of the script text file has to be in the format `<ModuleCode>_<AssignmentName>_<MatricNumber>\.txt` for our system to be able to automatically retrieve the script for you |
+|----------------------|-------------------------------------|
+
+Within the text file, the answer for each question should also follow the format `<QUESTION_NUMBER> | <ANSWER>` whereby:</br>
+* The first column contains the question number</br>
+* The second column contains the student's answer for the corresponding question</br>
+
+Shown below are examples of what a student's script text file for an assignment should look like:</br>
+On the left, we have the script for an MCQ assignment quiz1.</br>
+On the right, we have the script for a Short Answer assignment quiz2.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![MCQS](UGPics/MCQS.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswerS](UGPics/SAS.PNG)
+
+:warning: Here are some things to look out for when formatting the script text file:
+* Question numbers should be in sequential order starting from 1
+* Answers for all assignment types should not exceed 100 characters long
+* Ensure that the delimiter `|` is not used in the answer
+
+
+Format: `view student script /a ASSIGNMENT_NAME /s STUDENT_NAME`
+
+Example of usage:</br>
+Let's say you want to view your student Jianning's script for quiz1.</br>
+The command `view student script /a Jianning` quickly searches through the `scripts` folder by matching the student name with their matric number.</br> 
+The script is then displayed in the format `<QUESTION_NUMBER>. <ANSWER>` for each question in the assignment.</br>
+The expected output below shows what it would look like in the app.</br>
+Expected output:
+```
+---------------------------------------------------------------------
+    Jianning(A0214561M)'s script for quiz1
+    1. A
+    2. A
+    3. C
+    4. D
+    5. A
+    6. B
+    7. 1
+    8. A
+    9. E
+    10. A
+    11. B
+    12. C
+    13. D
+    14. A
+---------------------------------------------------------------------
+```
+| :bulb: | You can open up the answer key in another terminal so that you can view both the answer key and student script side by side!|
+|----------------------|-------------------------------------|
+***
+
+### 2.27 Setting Assignment Grade : `set assignment grade`
+
+The `set assigment grade` command allows you to set the grade of a student after you have graded his/her assignment.
+If a grade had previously been set, the grade for the student will be updated with the new grade.
+
+Format: `set assignment grade /a ASSIGNMENT_NAME /s STUDENT_NAME /g GRADE`
+
+| :warning: | The grade must be a percentage in the range from 0 to 100</br> It can also be a floating point number|
+|----------------------|-------------------------------------|
+
+
+Examples of usage:</br>
+
+1. `set assignment grade /a quiz1 /s Jianning /g 100`
+
+```
+---------------------------------------------------------------------
+    I have set Jianning's grade to 100 for assignment quiz1 in CS2113T
+---------------------------------------------------------------------
+```
+2. `set assignment grade /a quiz1 /s Jianning /g 101`
+
+```
+---------------------------------------------------------------------
+    OOPS!!! The percentage you entered is invalid! Please provide a percentage value between 0 to 100
+---------------------------------------------------------------------
+```
+
+| :bulb: | You can manually set the grades of your students if you prefer a more personal touch compared to autograding|
+|----------------------|-------------------------------------|
 ***
 
 ## 3. FAQ
@@ -656,6 +835,10 @@ Expected output:
 **Q**: When is the data saved to the database?
 
 **A**: It is only saved when you exit the program using the `bye` command.
+
+**Q**: How do I add the answer key and students' scripts for grading?
+
+**A**: You can simply copy and paste the answer key and student scripts into the respective folders in the working directory of ModMan named `answers` and `scripts` respectively.
 
 ## 4. Command Summary
 

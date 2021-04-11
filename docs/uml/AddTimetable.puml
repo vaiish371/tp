@@ -1,18 +1,19 @@
 @startuml
 
 participant ":Parser" as Parser
-participant ":SortAssignmentByDeadlineCommand" as Command
+participant ":AddTimetableCommand" as Command
 participant ":Data" as Data
 participant ":Module" as Module
+participant ":Lesson" as Lesson
 participant ":Ui" as Ui
 
 
-[-> Parser : parse("sort assignments by deadline")
+[-> Parser : parse("add timetable")
 activate Parser
 
 ref over Parser, Command : getCommand
 
-[<-- Parser : sortAssignmentsByDeadlineCommand
+[<-- Parser : AddTimetableCommand
 deactivate Parser
 
 [->Command : execute()
@@ -24,13 +25,20 @@ activate Data
 Data --> Command : module
 deactivate Data
 
-Command -> Module : sortAssignments()
+
+Command -> Lesson ** : Lesson(day, startTime, endTime, venue, lessonType)
+activate Lesson
+
+Lesson --> Command : lesson
+deactivate Lesson
+
+Command -> Module : addLesson(lesson)
 activate Module
 
 Module --> Command
 deactivate Module
 
-Command -> Ui : listModuleAssignments(module)
+Command -> Ui : printNewTimetable(moduleCode, lesson)
 activate Ui
 
 Ui --> Command

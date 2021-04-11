@@ -1,0 +1,33 @@
+@startuml
+!include <office/Concepts/globe_internet>
+!include <office/Concepts/documents>
+!include <office/Users/user>
+!include <osa/laptop/laptop.puml>
+
+hide circle
+hide members
+skinparam classAttributeIconSize 0
+
+Package " "<<Rectangle>>{
+    Class UI #83E769
+    Class Logic #C8C8FA
+    Class Storage #EDC520
+    Class Data #F97181
+    Class Modman #grey
+}
+
+Class "<$user>" as User #F97181
+Class "<$documents>" as File #83E769
+
+UI -[#green]> Logic
+UI -right[#green]-> Data
+Logic -[#blue]-> Storage
+Logic -down[#blue]-> Data
+Modman -[#grey]-> UI
+Modman -[#grey]-> Logic
+Modman -[#grey]-> Storage
+Modman -up[#grey]-> Data
+
+Storage .right[#EDC520].>File
+User <..> UI
+@enduml
