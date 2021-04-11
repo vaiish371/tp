@@ -97,6 +97,13 @@ This section covers points to note about proper input formats for commands.
 | :warning: | Inputs that do not follow this format would be invalid. |
 |----------------------|-------------------------------------|
 
+### 1.2 Database File Tampering
+
+This section provides a warning for the handling of database for this application. 
+
+| :warning: | The database of the program is stored in the Database.txt file. You should not tamper with the file. If you open up the Database.txt file and edit its contents, the data will likely be corrupted. In such cases, the program will fail upon starting, prompting the user to delete Database.txt before running the program again. |
+|----------------------|-------------------------------------|
+
 ## 2. Features 
 
 | :information_source: | Inputs in `UPPER_CASE` are parameters to be supplied by the user. |
