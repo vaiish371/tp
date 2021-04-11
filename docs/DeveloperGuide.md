@@ -1,5 +1,27 @@
 # Developer Guide
 
+## Table of contents
+* [Design](#design)
+    * [Architecture](#architecture)
+    * [Logic](#logic-component)
+    * [UI](#ui-component)
+    * [Storage](#storage-component)
+    * [Data](#data-component)
+* [Implementation](#implementation)
+    * [Editing Assignment Information](#editing-assignment-information-jianning-and-bryan)
+    * [Sorting Assignments by Deadline](#sorting-assignments-by-deadline-jianning)
+    * [Autograding Assignments](#autograding-assignments-jianning)
+    * [(Coming soon) Get statistics from Autograde](#coming-soon-get-statistics-from-autograde)
+    * [Adding Lesson to Module Timetable](#adding-lesson-to-module-timetable)
+* [Product scope](#product-scope)
+    * [Target user profile](#target-user-profile)
+    * [Value proposition](#value-proposition)
+    * [User stories](#user-stories)
+    * [Non-functional requirements](#non-functional-requirements)
+* [Glossary](#glossary)
+* [Instructions for manual testing](#instructions-for-manual-testing)
+    
+
 ## Design
 
 ### Architecture
@@ -26,7 +48,7 @@ The *Sequence diagram* below shows the interaction between components for when t
 The sections below give more details of each component.
 
 
-## Logic Component 
+### Logic Component 
 
 ![logic](uml/ParserAndCommandComponent.png)
 
@@ -42,7 +64,7 @@ The sequence diagram also acts as a reference frame for `getCommand` which is co
 
 If a `Command` object does not use the reference frame, another sequence diagram would be used to describe how the `Command` object was created.
 
-## UI Component
+### UI Component
 The UI Component consists of one class - `Ui` which provides all the functions
 required to print different kinds of messages on te console.
 
@@ -57,7 +79,7 @@ required to print different kinds of messages on te console.
    that prints the messages.
    <br>
 
-## Storage Component
+### Storage Component
 
 <br>For the Storage functionality of the application, I have added a new `Storable` interface that is implemented by the three main entities of the app: Assignment, Student and Lesson.</br> The `Storable` interface mandates the user to write a `toStorage()` method in order to be stored in the database. The `toStorage()` method converts all information of an object into a `String` format to be appended onto the database.
 
@@ -92,7 +114,7 @@ For Autograding purpose, the `Storage` class is required to retrieve the answers
 
 Similarly to `loadAnswer()` as shown in the above Sequence Diagram, the `loadScript()` method follows the same logic in retrieving each student's script from their input file, scanning them as Data and allowing us to perform Autograding.
 
-## Data Component
+### Data Component
 The figure below shows the classes in ModMan that tracks module information data.
 
 ![Data](uml/Data.png)
@@ -270,7 +292,7 @@ With the help of ModMan, users will be able to add, edit, and store all informat
 
 
 
-## User Stories
+### User Stories
 
 |Version| As a ... | I want to ... | So that I can ...|
 |--------|----------|---------------|------------------|
@@ -281,7 +303,7 @@ With the help of ModMan, users will be able to add, edit, and store all informat
 |v2.0|Teaching Assistant|edit a module's lesson information|keep track of changes in lesson schedule|
 |v2.0|Teaching Assistant|print out assignments due within a certain time frame|keep track of the more urgent assignments|
 
-## Non-Functional Requirements
+### Non-Functional Requirements
 
 1. The application should work on any *mainstream* operating system (e.g. Windows, Linux, macOS) 
    with `Java 11` installed.
