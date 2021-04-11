@@ -7,7 +7,7 @@ participant ":Module" as Module
 participant ":Ui" as Ui
 
 
-[-> Parser : parse("sort by deadline")
+[-> Parser : parse("sort assignments by deadline")
 activate Parser
 
 ref over Parser, Command : getCommand
