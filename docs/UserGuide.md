@@ -39,30 +39,38 @@ Icon | Purpose
 1. [Quick start](#1-quick-start) <br>
     1.1 [Input Formatting](#11-input-formatting)<br>
 1. [Features](#2-features) <br>
-    2.1 [`help` - Listing Basic Commands](#21-listing-basic-commands-help) <br>
-    2.2 [`add module` - Adding a Module](#22-adding-a-module-add-module) <br>
-    2.3 [`remove module` - Removing a Module](#23-removing-a-module-remove-module) <br>
-    2.4 [`select` - Selecting a Module](#24-selecting-a-module-select) <br>
-    2.5 [`current` - Viewing Current Module](#25-viewing-current-module-current) <br>
-    2.6 [`list module` - Listing Modules](#26-listing-modules-list-module) <br>
-    2.7 [`add student` - Adding a Student](#27-adding-a-student-add-student) <br>
-    2.8 [`list student details` - Listing Students Details](#28-listing-students-details-list-student-details) <br>
-    2.9 [`list student` - Listing Students in Module](#29-listing-students-in-module-list-student-) <br>
-    2.10 [`add timetable` - Adding a Lesson](#210-adding-a-lesson-add-timetable) <br>
-    2.11 [`list timetable` - Listing Timetable Lessons](#211-listing-timetable-lessons-list-timetable) <br>
-    2.12 [`delete timetable` - Removing Timetable Lessons](#212-removing-timetable-lessons-delete-timetable) <br>
-    2.13 [`edit timetable` - Editing a Timetable Lesson](#213-editing-timetable-lessons-edit-timetable) <br>
-    2.14 [`add assignment` - Adding an Assignment](#214-adding-an-assignment-add-assignment) <br>
-    2.21 [`set deadline` - Setting Assignment Deadline](#221-setting-assignment-deadline--set-deadline) <br>
-    2.15 [`list assignments` - Listing Module Assignments](#215-listing-module-assignments--list-assignments) <br>
-    2.16 [`sort assignments by deadline` - Sorting Module Assignments](#216-sorting-module-assignments--sort-assignments-by-deadline) <br>
-    2.17 [`edit assignment` - Editing an Assignment Name](#217-editing-an-assignment-name-edit-assignment-name) <br> 
-    2.18 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#218-setting-assignment-percentage-set-assignment-percentage) <br>
-    2.19 [`set assignment comments` - Setting Assignment Comments](#219-setting-assignment-comments-set-assignment-comments) <br>
-    2.20 [`get assignment comments` - Getting Assignment Percentage](#220-getting-assignment-comments-get-assignment-comments) <br>
-    2.22 [`list assignment grades` - Listing Assignment Grades](#222-listing-assignment-grades--list-grades) <br>
-    2.23 [`autograde` - Auto-Grading Assignments](#223-auto-grading-assignments--autograde) <br>
-    2.24 [`bye` - Exiting ModMan](#224-exiting-modman--bye) <br>
+   2.1 [Module](#21-module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#211-adding-a-module-add-module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.2 [`remove module` - Removing a Module](#212-removing-a-module-remove-module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.3 [`select` - Selecting a Module](#213-selecting-a-module-select) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.4 [`current` - Viewing Current Module](#214-viewing-current-module-current) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.5 [`list module` - Listing Modules](#215-listing-modules-list-module) <br>
+   2.2 [Student](#22-student) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.1 [`add student` - Adding a Student](#221-adding-a-student-add-student) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.2 [`list student details` - Listing Students Details](#222-listing-students-details-list-student-details) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.3 [`list student` - Listing Students in Module](#223-listing-students-in-module-list-student) <br>
+   2.3 [Timetable](#23-timetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.1 [`add timetable` - Adding a Lesson](#231-adding-a-lesson-add-timetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.2 [`delete timetable` - Removing Timetable Lessons](#232-removing-timetable-lessons-delete-timetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.3 [`edit timetable` - Editing a Timetable Lesson](#233-editing-timetable-lessons-edit-timetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.4 [`list timetable` - Listing Timetable Lessons](#234-listing-timetable-lessons-list-timetable) <br>
+   2.4 [Assignment](#24-assignment) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.1 [`add assignment` - Adding an Assignment](#241-adding-an-assignment-add-assignment) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.2 [`set assignment deadline` - Setting Assignment Deadline](#242-setting-assignment-deadline--set-assignment-deadline) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.3 [`set assignment grade` - Setting Assignment Grade](#243-setting-assignment-grade--set-assignment-grade) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.4 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#244-setting-assignment-percentage-set-assignment-percentage) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.5 [`set assignment comments` - Setting Assignment Comments](#245-setting-assignment-comments-set-assignment-comments) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.6 [`get assignment comments` - Getting Assignment Percentage](#246-getting-assignment-comments-get-assignment-comments) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.7 [`edit assignment name` - Editing an Assignment Name](#247-editing-an-assignment-name-edit-assignment-name) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.8 [`list assignments` - Listing Module Assignments](#248-listing-module-assignments--list-assignments) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.9 [`sort assignments by deadline` - Sorting Module Assignments](#249-sorting-module-assignments--sort-assignments-by-deadline) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.10 [`list assignment grades` - Listing Assignment Grades](#2410-listing-assignment-grades--list-assignment-grades) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.11 [`view assignment answer` - Viewing Assignment Answers](#2411-viewing-assignment-answer--view-assignment-answer) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.12 [`view student script` - Viewing Student Script](#2412-viewing-student-script--view-student-script) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.13 [`autograde assignment` - Auto-Grading Assignments](#2413-autograding-assignments--autograde-assignment) <br>
+   2.5 [Help and Exit](#25-help-and-exit) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.5.1 [`help` - Listing Basic Commands](#251-listing-basic-commands-help) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.5.2 [`bye` - Exiting ModMan](#252-exiting-modman--bye) <br>
 1. [FAQ](#3-faq)
 1. [Command summary](#4-command-summary)
 
@@ -95,37 +103,9 @@ This section covers points to note about proper input formats for commands.
 |----------------------|-------------------------------------|
 
 ***
-### 2.1 Listing Basic Commands: `help`
-This command is available for you to get a quick reference of all the basic commands available in ModMan, and their usages.
-You can invoke `help` any time you are unsure of the basic commands and their formats.
+### 2.1 Module
 
-Format: `help`
-
-Expected output:
-
-```` 
---------------------------------------------------------------------------
-    Here are the list of basic commands you can use:
- 
-	1. Adding a Module: add module MODULE_NAME
-	2. Selecting a Module: select MODULE_NAME
-	3. Viewing Current Module: current
-	4. Adding a student: add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL
-	5. Adding a Lesson: add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME
-	6. Adding an Assignment: add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME
-	7. Setting Assignment Deadline: set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE
-	8. Auto-Grading Assignments: autograde /a ASSIGNMENT_NAME
-	9. Setting Assignment Comments: set assignment comments /a ASSIGNMENT_NAME /c COMMENT
-	10. Exiting ModMan: bye
-
-    For the full list of commands, check out the User Guide at: https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html
-
--------------------------------------------------------------------------- 
-`````
-Please note that it does not display the full list of commands (due to there being so many!). 
-You may open this User Guide for a comprehensive list.
-
-### 2.2 Adding a Module: `add module`
+### 2.1.1 Adding a Module: `add module`
 
 Adds a new module to the list of modules.
 
@@ -148,7 +128,7 @@ Expected output:
 
 ***
 
-### 2.3 Removing a Module: `remove module`
+### 2.1.2 Removing a Module: `remove module`
 
 Removes a module from the list of modules.
 
@@ -170,8 +150,7 @@ Expected output:
 |----------------------|-------------------------------------|
 
 ***
-
-### 2.4 Selecting a Module: `select`
+### 2.1.3 Selecting a Module: `select`
 
 Select the module you want to currently work in.
 
@@ -192,7 +171,7 @@ Expected output:
 | :information_source: | All commands onwards assumes we are working in the module CS2113T |
 |----------------------|-------------------------------------|
 ***
-### 2.5 Viewing Current Module: `current`
+### 2.1.4 Viewing Current Module: `current`
 
 View the current module you are working in. Also obtain an overview of the current module.
 
@@ -213,7 +192,7 @@ Expected output:
 -------------------------------------------------------------------------- 
 ````
 ***
-### 2.6 Listing Modules: `list module`
+### 2.1.5 Listing Modules: `list module`
 
 Lists all the modules you have added, and specifies the current module (if any).
 
@@ -228,13 +207,16 @@ Expected output:
 -------------------------------------------------------------------------- 
 ````
 ***
-### 2.7 Adding a student: `add student`
+
+### 2.2 Student
+
+### 2.2.1 Adding a student: `add student`
 
 Assigns a new student to the current module you have selected.
 
 Format: `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL`
 
-| :warning: | Students with the any matching `STUDENT_NAME`, `STUDENT_NUMBER` or `STUDENT_EMAIL` cannot be assigned to the same module. |
+| :warning: | Students with matching `STUDENT_NAME`, `STUDENT_NUMBER` or `STUDENT_EMAIL` cannot be assigned to the same module. |
 |----------------------|-------------------------------------|
 
 Example of usage:
@@ -250,7 +232,7 @@ Expected output:
 ```
 ***
 
-### 2.8 Listing Students Details: `list student details`
+### 2.2.2 Listing Students Details: `list student details`
 
 Lists the details of all students enrolled in a particular module.
 
@@ -270,7 +252,7 @@ Expected output:
 ````
 ***
 
-### 2.9 Listing Students in Module: `list student `
+### 2.2.3 Listing Students in Module: `list student`
 Lists the names of students assigned to the current module you have selected.
 
 Format: `list student`
@@ -288,7 +270,9 @@ Expected output:
 ```
 ***
 
-### 2.10 Adding a Lesson: `add timetable`
+### 2.3 Timetable
+
+### 2.3.1 Adding a Lesson: `add timetable`
 Adds a new lesson to the list (timetable) of lessons for the module you have selected.
 
 Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
@@ -315,23 +299,7 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 ***
-### 2.11 Listing Timetable Lessons: `list timetable`
-Lists the lessons in the timetable for the module you have selected.
-
-Format: `list timetable`
-
-* The `START_TIME` and `END_TIME` will be listed in the format `HH:mm` eg. `18:00`.
-
-Expected output:
-```
----------------------------------------------------------------------
-    Here are the lessons in CS2113T:
-    1. Lecture: FRIDAY, 16:00-18:00 (Zoom)
----------------------------------------------------------------------
-```
-***
-
-### 2.12 Removing Timetable Lessons: `delete timetable`
+### 2.3.2 Removing Timetable Lessons: `delete timetable`
 Deletes the lessons in the timetable corresponding to the index for the module you have selected.
 
 Format: `delete timetable LESSON_INDEX`
@@ -347,8 +315,7 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 ***
-
-### 2.13 Editing Timetable Lessons: `edit timetable`
+### 2.3.3 Editing Timetable Lessons: `edit timetable`
 Edits the lessons in the timetable corresponding to the index for the module you have selected.
 
 Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
@@ -377,7 +344,25 @@ Expected output:
 ```
 ***
 
-### 2.14 Adding an Assignment: `add assignment`
+### 2.3.4 Listing Timetable Lessons: `list timetable`
+Lists the lessons in the timetable for the module you have selected.
+
+Format: `list timetable`
+
+* The `START_TIME` and `END_TIME` will be listed in the format `HH:mm` eg. `18:00`.
+
+Expected output:
+```
+---------------------------------------------------------------------
+    Here are the lessons in CS2113T:
+    1. Lecture: FRIDAY, 16:00-18:00 (Zoom)
+---------------------------------------------------------------------
+```
+***
+
+### 2.4 Assignment
+
+### 2.4.1 Adding an Assignment: `add assignment`
 
 Adds an assignment to the module that is current selected by the user. 
 
@@ -399,13 +384,166 @@ Expected output:
 ```
 ***
 
-### 2.15 Listing Module Assignments : `list assignments` 
+### 2.4.2 Setting Assignment Deadline : `set assignment deadline`
+
+The `set assigment deadline` command allows you to set the date which you have to grade the assignment by.
+If a deadline had previously been set, the deadline of the assignment will be updated with the new deadline.
+
+Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
+
+| :warning: | The deadline must be in the format `dd MM yyyy` e.g. 16 08 2021 </br> You are also restricted to dates from the years 2021 to 2030 |
+|----------------------|-------------------------------------|
+
+
+The deadline has to follow a strict format to allow you to easily sort your assignments by deadline later on!
+
+Examples of usage:</br>
+
+1. `set assignment deadline /a quiz1 /d 16 08 2021`
+
+```
+---------------------------------------------------------------------
+    I have set quiz1's deadline to Aug 16 2021 in CS2113T
+---------------------------------------------------------------------
+```
+2. `set assignment deadline /a quiz2 /d 17 08 1999`
+
+```
+---------------------------------------------------------------------
+    OOPS!!! Date/Time Format is wrong!
+    Please re-enter the Date/Time in the following format: dd MM yyyy
+    Note that only year 2021 to 2030 is accepted.
+---------------------------------------------------------------------
+```
+
+| :bulb: | You can set your own deadlines to be earlier than the actual deadline for grading to help plan your time more wisely!|
+|----------------------|-------------------------------------|
+***
+
+### 2.4.3 Setting Assignment Grade : `set assignment grade`
+
+The `set assigment grade` command allows you to set the grade of a student after you have graded his/her assignment.
+If a grade had previously been set, the grade for the student will be updated with the new grade.
+
+Format: `set assignment grade /a ASSIGNMENT_NAME /s STUDENT_NAME /g GRADE`
+
+| :warning: | The grade must be a percentage in the range from 0 to 100</br> It can also be a floating point number|
+|----------------------|-------------------------------------|
+
+
+Examples of usage:</br>
+
+1. `set assignment grade /a quiz1 /s Jianning /g 100`
+
+```
+---------------------------------------------------------------------
+    I have set Jianning's grade to 100 for assignment quiz1 in CS2113T
+---------------------------------------------------------------------
+```
+2. `set assignment grade /a quiz1 /s Jianning /g 101`
+
+```
+---------------------------------------------------------------------
+    OOPS!!! The percentage you entered is invalid! Please provide a percentage value between 0 to 100
+---------------------------------------------------------------------
+```
+
+| :bulb: | You can manually set the grades of your students if you prefer a more personal touch compared to autograding|
+|----------------------|-------------------------------------|
+***
+
+### 2.4.4 Setting Assignment Percentage: `set assignment percentage`
+
+Sets the assignment percentage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer.
+
+Format: `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE`
+
+Examples of usage:
+* `set assignment percentage /a Magic Sequence /p 15`
+* `set assignment percentage /a Forest Fruits /p 25.0`
+
+Expected output:
+
+```
+---------------------------------------------------------------------
+    I have set Magic Sequence's percentage to 15.0 in CS2113T
+---------------------------------------------------------------------
+```
+
+***
+
+### 2.4.5 Setting Assignment Comments: `set assignment comments`
+
+Sets the assignment comments of an existing assignment. The assignment comment must not exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on that feature!).
+
+| :bulb: |Although the edit and append features for assignment comments are still in production, you can recreate an edit by calling the "get assignment comments" (Section 2.20) command, copy-pasting the result onto your terminal and editing before calling this command.|
+|----------------------|-------------------------------------|
+
+Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
+Examples of usage:
+* `set assignment comments /a Magic Sequence /p This assignment is well done.`
+* `set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
+
+Expected output:
+
+```
+---------------------------------------------------------------------
+    I have added a comment to Magic Sequence:
+        This assignment is well done.
+---------------------------------------------------------------------
+```
+
+***
+
+### 2.4.6 Getting Assignment Comments: `get assignment comments`
+
+Gets the assignment comments of an existing assignment and prints it out for the user.
+
+Format: `get assignment comments /a ASSIGNMENT_NAME`
+
+Example of usage:
+
+`get assignment comments /a Magic Sequence`
+
+Expected output:
+
+```
+---------------------------------------------------------------------
+    Your previous comments for Magic Sequence are as follows:
+        1. This assignment is well done.
+---------------------------------------------------------------------
+```
+
+***
+
+### 2.4.7 Editing an Assignment Name: `edit assignment name`
+
+Edits the assignment name of an existing assignment
+
+Format: `edit assignment name /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME`
+
+Examples of usage:
+* `edit assignment name /a Magic Sequence /n Forest Fruits`
+* `edit assignment name /a recursion /n iteration`
+
+Expected output:
+
+```
+---------------------------------------------------------------------
+    I have updated your assignment name:
+    Forest Fruits
+---------------------------------------------------------------------
+```
+
+***
+
+### 2.4.8 Listing Module Assignments : `list assignments` 
 
 This command lists out all the assignments in the current module you are working in. It also shows you information on the type of assignment 
 and the due date for grading if you have set a deadline for the assignment.
 
 If you have executed the `sort assignments by deadline` command, the assignments will be listed in order from the most to least urgent deadline.
-Otherwise, the assignments will be listed in the order it was added. (more details of sorting assignments will be provided in section 2.16 `sort assignments by deadline`)
+Otherwise, the assignments will be listed in the order it was added. (more details of sorting assignments will be provided in section 2.4.9 `sort assignments by deadline`)
 
 Format: `list assignments`
 
@@ -426,7 +564,7 @@ Expected output:
 | :information_source: | Assignments with no deadline set will output `due date not specified` |
 |----------------------|-------------------------------------|
 ***
-### 2.16 Sorting Module Assignments : `sort assignments by deadline` 
+### 2.4.9 Sorting Module Assignments : `sort assignments by deadline` 
 
 Sorting the assignments in the module by deadline allows you to easily keep track of which assignments have to be graded soon. 
 The assignments are sorted based on the urgency of the grading from the most urgent to the least urgent. </br>
@@ -470,128 +608,7 @@ After sorting:
 ```
 ***
 
-### 2.17 Editing an Assignment Name: `edit assignment name`
-
-Edits the assignment name of an existing assignment
-
-Format: `edit assignment name /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME`
-
-Examples of usage:
-* `edit assignment name /a Magic Sequence /n Forest Fruits`
-* `edit assignment name /a recursion /n iteration`
-
-Expected output:
-
-```
----------------------------------------------------------------------
-    I have updated your assignment name:
-    Forest Fruits
----------------------------------------------------------------------
-```
-
-***
-
-### 2.18 Setting Assignment Percentage: `set assignment percentage`
-
-Sets the assignment percentage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer.
-
-Format: `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE`
-
-Examples of usage:
-* `set assignment percentage /a Magic Sequence /p 15`
-* `set assignment percentage /a Forest Fruits /p 25.0`
-
-Expected output:
-
-```
----------------------------------------------------------------------
-    I have set Magic Sequence's percentage to 15.0 in CS2113T
----------------------------------------------------------------------
-```
-
-***
-
-### 2.19 Setting Assignment Comments: `set assignment comments`
-
-Sets the assignment comments of an existing assignment. The assignment comment must not exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on that feature!).
-
-| :bulb: |Although the edit and append features for assignment comments are still in production, you can recreate an edit by calling the "get assignment comments" (Section 2.20) command, copy-pasting the result onto your terminal and editing before calling this command.|
-|----------------------|-------------------------------------|
-
-Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
-Examples of usage:
-* `set assignment comments /a Magic Sequence /p This assignment is well done.`
-* `set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
-
-Expected output:
-
-```
----------------------------------------------------------------------
-    I have added a comment to Magic Sequence:
-        This assignment is well done.
----------------------------------------------------------------------
-```
-
-***
-
-### 2.20 Getting Assignment Comments: `get assignment comments`
-
-Gets the assignment comments of an existing assignment and prints it out for the user. 
-
-Format: `get assignment comments /a ASSIGNMENT_NAME`
-
-Example of usage:
-
-`get assignment comments /a Magic Sequence`
-
-Expected output:
-
-```
----------------------------------------------------------------------
-    Your previous comments for Magic Sequence are as follows:
-        1. This assignment is well done.
----------------------------------------------------------------------
-```
-
-***
-
-### 2.21 Setting Assignment Deadline : `set assignment deadline` 
-
-The `set assigment deadline` command allows you to set the date which you have to grade the assignment by.
-If a deadline had previously been set, the deadline of the assignment will be updated with the new deadline.
-
-Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
-
-| :warning: | The deadline must be in the format `dd MM yyyy` e.g. 16 08 2021 </br> You are also restricted to dates from the years 2021 to 2030 |
-|----------------------|-------------------------------------|
-
-
-The deadline has to follow a strict format to allow you to easily sort your assignments by deadline later on!
-
-Examples of usage:</br>
-
-1. `set assignment deadline /a quiz1 /d 16 08 2021`
-
-```
----------------------------------------------------------------------
-    I have set quiz1's deadline to Aug 16 2021 in CS2113T
----------------------------------------------------------------------
-```
-2. `set assignment deadline /a quiz2 /d 17 08 1999`
-
-```
----------------------------------------------------------------------
-    OOPS!!! Date/Time Format is wrong!
-    Please re-enter the Date/Time in the following format: dd MM yyyy
-    Note that only year 2021 to 2030 is accepted.
----------------------------------------------------------------------
-```
-
-| :bulb: | You can set your own deadlines to be earlier than the actual deadline for grading to help plan your time more wisely!|
-|----------------------|-------------------------------------|
-***
-
-### 2.22 Listing Assignment Grades : `list assignment grades` 
+### 2.4.10 Listing Assignment Grades : `list assignment grades` 
 
 Lists the students' grades for a particular assignment.
 The students listed are sorted by grades.
@@ -612,73 +629,7 @@ Expected output:
 ```
 ***
 
-### 2.23 Autograding Assignments : `autograde assignment` 
-
-ModMan has an integrated autograder to help you grade digital assignment submissions easily and efficiently!</br>
-
-The key features of autograding are as follows:</br>
-
-* All the students' scripts for that assignment found in the `scripts` folder will be graded. 
-* The grades for each student will be listed out for you and automatically saved in the database. 
-* Keeps track of which of your students have not submitted their work.
-
-| :warning: | Currently, only MCQ and Short Answer assignments can be autograded |
-|----------------------|-------------------------------------|
-
-Format: `autograde assignment /a ASSIGNMENT_NAME`
-
-Example of usage:
-
-Let's say you are currently teaching 10 students in CS2113T and the deadline for students to submit their quiz1 MCQ assignment was yesterday. 
-The following 3 steps are all you need to autograde all your students'assignments:
-
-1. Copy and Paste the answer key for quiz1 into the `answers` folder found in the same working directory as the ModMan app.
-
-![Ans](UGPics/ans.PNG)
-
-2. Copy and Paste the students' scripts for quiz1 into the `scripts` folder found in the same working directory as the ModMan app.
-
-![SCR](UGPics/scr.PNG)
-
-3. Execute the command `autograde assignment /a quiz1`
-
-Expected output:
-```
----------------------------------------------------------------------
-    Here are the students' grades for the quiz1 assignment:
-    1. A0214561M - 78.26087
-    2. A0215114X - 100.0
-    3. A0213460U - 78.26087
-    4. A0123456Z - 86.95652
-    5. A0214345M - 82.608696
-    These are the students who have not submitted their assignments:
-    1. Naughty, A1111111A, e1111111@u.nus.edu
-    2. Mischievous, A2222222A, e2222222@u.nus.edu
-    3. Playful, A3333333A, e3333333@u.nus.edu
-    4. Tardy, A4444444A, e4444444@u.nus.edu
-    5. Bad Boy, A5555555A, e5555555@u.nus.edu
----------------------------------------------------------------------
-```
-
-| :information_source: | Answers for MCQ assignments are limited to the options A to E or 1 to 5</br>Answers fpr Short Answer Assignments are limited to 100 characters.|
-|----------------------|-------------------------------------|
-***
-
-### 2.24 Exiting ModMan : `bye`
-
-Auto-saves all your changes and exits the program. ModMan will have all your data ready the next time you load it.
-
-Format: `bye`
-
-Expected output:
-```
----------------------------------------------------------------------
-    Bye. Hope to see you again soon!
----------------------------------------------------------------------
-```
-***
-
-### 2.25 Viewing Assignment Answer : `view assignment answer`
+### 2.4.11 Viewing Assignment Answer : `view assignment answer`
 
 The `view assignment answer` command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment.</br>
 
@@ -739,7 +690,7 @@ Expected output:
 |----------------------|-------------------------------------|
 ***
 
-### 2.26 Viewing Student Script : `view student script`
+### 2.4.12 Viewing Student Script : `view student script`
 
 The `view student script` command allows you to easily search and retrieve the student's script for an assignment just by entering the name of the assignment and the student.</br>
 
@@ -768,7 +719,7 @@ Format: `view student script /a ASSIGNMENT_NAME /s STUDENT_NAME`
 
 Example of usage:</br>
 Let's say you want to view your student Jianning's script for quiz1.</br>
-The command `view student script /a Jianning` quickly searches through the `scripts` folder by matching the student name with their matric number.</br> 
+The command `view student script /a Jianning` quickly searches through the `scripts` folder by matching the student name with their matric number.</br>
 The script is then displayed in the format `<QUESTION_NUMBER>. <ANSWER>` for each question in the assignment.</br>
 The expected output below shows what it would look like in the app.</br>
 Expected output:
@@ -795,36 +746,104 @@ Expected output:
 |----------------------|-------------------------------------|
 ***
 
-### 2.27 Setting Assignment Grade : `set assignment grade`
 
-The `set assigment grade` command allows you to set the grade of a student after you have graded his/her assignment.
-If a grade had previously been set, the grade for the student will be updated with the new grade.
+### 2.4.13 Autograding Assignments : `autograde assignment` 
 
-Format: `set assignment grade /a ASSIGNMENT_NAME /s STUDENT_NAME /g GRADE`
+ModMan has an integrated autograder to help you grade digital assignment submissions easily and efficiently!</br>
 
-| :warning: | The grade must be a percentage in the range from 0 to 100</br> It can also be a floating point number|
+The key features of autograding are as follows:</br>
+
+* All the students' scripts for that assignment found in the `scripts` folder will be graded. 
+* The grades for each student will be listed out for you and automatically saved in the database. 
+* Keeps track of which of your students have not submitted their work.
+
+| :warning: | Currently, only MCQ and Short Answer assignments can be autograded |
 |----------------------|-------------------------------------|
 
+Format: `autograde assignment /a ASSIGNMENT_NAME`
 
-Examples of usage:</br>
+Example of usage:
 
-1. `set assignment grade /a quiz1 /s Jianning /g 100`
+Let's say you are currently teaching 10 students in CS2113T and the deadline for students to submit their quiz1 MCQ assignment was yesterday. 
+The following 3 steps are all you need to autograde all your students'assignments:
 
+1. Copy and Paste the answer key for quiz1 into the `answers` folder found in the same working directory as the ModMan app.
+
+![Ans](UGPics/ans.PNG)
+
+2. Copy and Paste the students' scripts for quiz1 into the `scripts` folder found in the same working directory as the ModMan app.
+
+![SCR](UGPics/scr.PNG)
+
+3. Execute the command `autograde assignment /a quiz1`
+
+Expected output:
 ```
 ---------------------------------------------------------------------
-    I have set Jianning's grade to 100 for assignment quiz1 in CS2113T
+    Here are the students' grades for the quiz1 assignment:
+    1. A0214561M - 78.26087
+    2. A0215114X - 100.0
+    3. A0213460U - 78.26087
+    4. A0123456Z - 86.95652
+    5. A0214345M - 82.608696
+    These are the students who have not submitted their assignments:
+    1. Naughty, A1111111A, e1111111@u.nus.edu
+    2. Mischievous, A2222222A, e2222222@u.nus.edu
+    3. Playful, A3333333A, e3333333@u.nus.edu
+    4. Tardy, A4444444A, e4444444@u.nus.edu
+    5. Bad Boy, A5555555A, e5555555@u.nus.edu
 ---------------------------------------------------------------------
 ```
-2. `set assignment grade /a quiz1 /s Jianning /g 101`
 
-```
----------------------------------------------------------------------
-    OOPS!!! The percentage you entered is invalid! Please provide a percentage value between 0 to 100
----------------------------------------------------------------------
-```
-
-| :bulb: | You can manually set the grades of your students if you prefer a more personal touch compared to autograding|
+| :information_source: | Answers for MCQ assignments are limited to the options A to E or 1 to 5</br>Answers fpr Short Answer Assignments are limited to 100 characters.|
 |----------------------|-------------------------------------|
+***
+
+### 2.5 Help and Exit
+
+### 2.5.1 Listing Basic Commands: `help`
+This command is available for you to get a quick reference of all the basic commands available in ModMan, and their usages.
+You can invoke `help` any time you are unsure of the basic commands and their formats.
+
+Format: `help`
+
+Expected output:
+
+```` 
+--------------------------------------------------------------------------
+    Here are the list of basic commands you can use:
+ 
+	1. Adding a Module: add module MODULE_NAME
+	2. Selecting a Module: select MODULE_NAME
+	3. Viewing Current Module: current
+	4. Adding a student: add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL
+	5. Adding a Lesson: add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME
+	6. Adding an Assignment: add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME
+	7. Setting Assignment Deadline: set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE
+	8. Auto-Grading Assignments: autograde /a ASSIGNMENT_NAME
+	9. Setting Assignment Comments: set assignment comments /a ASSIGNMENT_NAME /c COMMENT
+	10. Exiting ModMan: bye
+
+    For the full list of commands, check out the User Guide at: https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html
+
+-------------------------------------------------------------------------- 
+`````
+Please note that it does not display the full list of commands (due to there being so many!).
+You may open this User Guide for a comprehensive list.
+
+
+### 2.5.2 Exiting ModMan : `bye`
+
+Auto-saves all your changes and exits the program. ModMan will have all your data ready the next time you load it.
+
+Format: `bye`
+
+Expected output:
+```
+---------------------------------------------------------------------
+    Bye. Hope to see you again soon!
+---------------------------------------------------------------------
+```
 ***
 
 ## 3. FAQ
@@ -832,7 +851,6 @@ Examples of usage:</br>
 **Q**: How do I delete a particular student/assignment? 
 
 **A**: The feature of deletion is still in progress and will be released in our upcoming versions. 
-
 
 **Q**: When is the data saved to the database?
 
@@ -861,14 +879,14 @@ delete timetable | `delete timetable LESSON_INDEX` <br> e.g. `delete timetable 1
 edit timetable | `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `edit timetable 1 /t - /v COM2 /d - /s 1600 /e 1800` 
 add assignment | `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME` <br> e.g. `add assignment /t mcq /a Magic Sequence`
 list assignments | `list assignments` <br>
-sort assignments | `sort assignments by deadline` <br>
+sort assignments by deadline | `sort assignments by deadline` <br>
 edit assignment | `edit assignment /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
 set assignment percentage | `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE` <br> e.g. `set assignment percentage /a Magic Sequence /p 15`
 set assignment comments | `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS` <br> e.g. `set assignment comments /a Magic Sequence /p This assignment is well done.`
 get assignment comments | `get assignment comments /a ASSIGNMENT_NAME` <br> e.g. `get assignment comments /a Magic Sequence`
-set deadline | `set deadline /a ASSIGNMENT_NAME /d DEADLINE` <br> e.g. `set deadline /a quiz1 /d 17 08 2021`
+set assignment deadline | `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE` <br> e.g. `set assignment deadline /a quiz1 /d 17 08 2021`
 list assignment grades | `list assignment grades /a ASSIGNMENT_NAME` <br> e.g. `list assignment grades /a quiz1`
-autograde | `autograde /a ASSIGNMENT_NAME` <br> e.g. `autograde /a quiz1`
+autograde assignment | `autograde assignment /a ASSIGNMENT_NAME` <br> e.g. `autograde assignment /a quiz1`
 bye | `bye` <br>
-
-
+view assignment answer | `view assignment answer /a ASSIGNMENT_NAME` <br> e.g. `view assignment answer /a quiz1`
+view student script | `view student script /a ASSIGNMENT_NAME /s STUDENT_NAME` <br> e.g. `view assignment answer /a quiz1 /s Jianning`
