@@ -33,9 +33,8 @@ class LessonTest {
         String venue = "Zoom";
         String lessonType = "Lecture";
         Lesson testLesson = new Lesson(day, startTime, endTime, venue, lessonType);
-        assertThrows(InvalidStartTimeException.class, () -> {
-            testLesson.setStartTime(LocalTime.parse("1800", formatter));
-        });
+        assertThrows(InvalidStartTimeException.class, () ->
+                testLesson.setStartTime(LocalTime.parse("1800", formatter)));
     }
 
     @Test
@@ -58,9 +57,8 @@ class LessonTest {
         String venue = "Zoom";
         String lessonType = "Lecture";
         Lesson testLesson = new Lesson(day, startTime, endTime, venue, lessonType);
-        assertThrows(InvalidStartTimeException.class, () -> {
-            testLesson.setEndTime(LocalTime.parse("1600", formatter));
-        });
+        assertThrows(InvalidStartTimeException.class, () ->
+                testLesson.setEndTime(LocalTime.parse("1600", formatter)));
     }
 
     @Test

@@ -1,13 +1,7 @@
 1
-CS2113T | 3 | 0 | 10
-quiz3 | LongAnswerAssignment | 2021-08-16 | 0.0 | [] | 0
-quiz2 | ShortAnswerAssignment | 2021-08-17 | 0.0 | [] | 0
-quiz1 | McqAssignment | null | 0.0 | [[]] | 5
-A0214561M | 78.26087
-A0215114X | 78.26087
-A0213460U | 78.26087
-A0123456Z | 78.26087
-A0214345M | 78.26087
+CS2113T | 1 | 0 | 1
+quiz1 | McqAssignment | null | 0.0 | [[]] | 1
+A0214561M | 10.0
 Jianning | A0214561M | e0527277@u.nus.edu
 Bryan | A0215114X | e0599999@u.nus.edu
 Vikas | A0213460U | e0588888@u.nus.edu

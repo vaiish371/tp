@@ -20,7 +20,7 @@ class AssignmentTest {
     @Test
     void testAssignment_AssignmentOne_falseAsserted() {
         Assignment assignmentCheck = new LongAnswerAssignment("Assignment One");
-        assertFalse("AssignmentOne" == assignmentCheck.toString());
+        assertFalse("AssignmentOne".equals(assignmentCheck.toString()));
     }
 
     @Test

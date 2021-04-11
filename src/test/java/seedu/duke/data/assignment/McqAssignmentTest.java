@@ -34,9 +34,8 @@ class McqAssignmentTest {
         marks.add(Integer.valueOf("4"));
         int numberOfQuestions = 2;
         Assignment assignmentOne = new McqAssignment("quiz1");
-        assertThrows(InvalidMcqOption.class, () -> {
-            assignmentOne.setAnswers(new Answer(answers, marks, numberOfQuestions));
-        });
+        assertThrows(InvalidMcqOption.class, () ->
+                assignmentOne.setAnswers(new Answer(answers, marks, numberOfQuestions)));
     }
 
     @Test

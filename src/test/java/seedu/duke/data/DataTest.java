@@ -22,8 +22,6 @@ class DataTest {
         Module mod =  new Module("CS2101");
         Data data = new Data();
         data.add(mod);
-        assertThrows(NullPointerException.class, () -> {
-            data.find("CS2113T").getModuleCode();
-        });
+        assertThrows(NullPointerException.class, () -> data.find("CS2113T").getModuleCode());
     }
 }
