@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
 
 class ModuleTest {
 
@@ -38,9 +37,7 @@ class ModuleTest {
     void getAssignmentAtIndex_indexNonExistent_exceptionThrown() {
         Module testModule = new Module("CS2113T");
         testModule.addAssignment(new LongAnswerAssignment("tP"));
-        assertThrows(IndexOutOfBoundsException.class, () -> {
-            testModule.getAssignmentAtIndex(1);
-        });
+        assertThrows(IndexOutOfBoundsException.class, () -> testModule.getAssignmentAtIndex(1));
     }
 
     @Test

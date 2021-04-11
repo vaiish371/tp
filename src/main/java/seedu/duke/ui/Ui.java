@@ -232,11 +232,6 @@ public class Ui {
         System.out.println("\t You have successfully removed module: " + moduleCode);
     }
 
-    public void printModuleInfo() {
-        System.out.println("\t You are not currently working in any module!");
-        System.out.println("\t Please select a module by using the select command");
-    }
-
     public void printModuleInfo(Module module) {
         System.out.println("\t You are currently working in: " + module.getModuleCode());
         System.out.println();
@@ -323,10 +318,5 @@ public class Ui {
                 System.out.println("\t " + i + ". " + ungraded.get(i - 1).toString());
             }
         }
-    }
-
-    public void printScriptWarning(Student student) {
-        System.out.println("\t Could not Autograde " + student.getName()
-                + "'s script. Please check the formatting of the script!");
     }
 }

@@ -7,7 +7,6 @@ import seedu.duke.exception.ModManException;
 import seedu.duke.ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 class AddModuleCommandTest {
