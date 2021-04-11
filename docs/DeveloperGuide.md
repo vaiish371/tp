@@ -270,7 +270,13 @@ Autograding assignments also generates statistics on how students performed for 
 
 
 ### Adding Lesson to Module Timetable
+The `AddTimetableCommand` is used to add a `Lesson` to the timetable for the `Module` selected.
 
+Given below is the sequence diagram for the `AddTimetableCommand`:
+![AddTimetable](uml/AddTimetable.png)
+
+| :information_source: |  - `startTime` and `endTime` passed into the `Lesson` constructor is of type `LocalTime`<br> - `day` is of enumeration type `Day`|
+|----------------------|-------------------------------------|
 
 
 ## Product scope
