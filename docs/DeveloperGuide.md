@@ -171,6 +171,10 @@ For Autograding purpose, the `Storage` class is required to retrieve the answers
 
 Similarly to `loadAnswer()` as shown in the above Sequence Diagram, the `loadScript()` method follows the same logic in retrieving each student's script from their input file, scanning them as Data and allowing us to perform Autograding.
 
+#### Database Failure:
+
+The database should not be tampered with by the user. If the user opens up Database.txt and edits its contents, the data will likely be corrupted. In such case, the program will fail upon starting, prompting the user to delete Database.txt before running the program again. 
+
 ### Data Component
 The figure below shows the classes in ModMan that tracks module information data.
 
