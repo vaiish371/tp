@@ -599,22 +599,54 @@ Expected output:
 
 ### 2.23 Autograding Assignments : `autograde assignment` 
 
-Autograding assignments on ModMan automatically grades all the students' scripts 
+ModMan has an integrated autograder to help you grade digital assignment submissions easily and efficiently!</br>
+
+The key features of autograding are as follows:</br>
+
+* All the students' scripts for that assignment found in the `scripts` folder will be graded. 
+* The grades for each student will be listed out for you and automatically saved in the database. 
+* Keeps track of which of your students have not submitted their work.
+
+| :warning: | Currently, only MCQ and Short Answer assignments can be autograded |
+|----------------------|-------------------------------------|
 
 Format: `autograde assignment /a ASSIGNMENT_NAME`
 
 Example of usage:
 
-`autograde assignment /a quiz1`
+Let's say you are currently teaching 10 students in CS2113T and the deadline for students to submit their quiz1 MCQ assignment was yesterday. 
+The following 3 steps are all you need to autograde all your students'assignments:
+
+1. Copy and Paste the answer key for quiz1 into the `answers` folder found in the same working directory as the ModMan app.
+
+![Ans](UGPics/ans.PNG)
+
+2. Copy and Paste the students' scripts for quiz1 into the `scripts` folder found in the same working directory as the ModMan app.
+
+![SCR](UGPics/scr.PNG)
+
+3. Execute the command `autograde assignment /a quiz1`
 
 Expected output:
 ```
 ---------------------------------------------------------------------
     Here are the students' grades for the quiz1 assignment:
-    1. A0214561M - 100.0
-    2. A0215114X - 101.0
+    1. A0214561M - 78.26087
+    2. A0215114X - 100.0
+    3. A0213460U - 78.26087
+    4. A0123456Z - 86.95652
+    5. A0214345M - 82.608696
+    These are the students who have not submitted their assignments:
+    1. Naughty, A1111111A, e1111111@u.nus.edu
+    2. Mischievous, A2222222A, e2222222@u.nus.edu
+    3. Playful, A3333333A, e3333333@u.nus.edu
+    4. Tardy, A4444444A, e4444444@u.nus.edu
+    5. Bad Boy, A5555555A, e5555555@u.nus.edu
 ---------------------------------------------------------------------
 ```
+
+| :information_source: | Answers for MCQ assignments are limited to the options A to E or 1 to 5</br>Answers fpr Short Answer Assignments are limited to 100 characters.|
+|----------------------|-------------------------------------|
 ***
 
 ### 2.24 Exiting ModMan : `bye`
@@ -635,35 +667,37 @@ Expected output:
 
 The `view assignment answer` command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment.</br>
 
-Answers are stored in the `answers` folder as a text file in the same working directory as the ModMan app.</br>
+Answers are stored as text files in the `answers` folder which can be found in the same working directory as the ModMan app.</br>
 
-| :information_source: | Naming of the text file has to be in the format `MODULECODE_ASSIGNMENTNAME.txt` for our system to automatically retrieve the answers |
+| :information_source: | Naming of the answer text file has to be in the format `<ModuleCode>_<AssignmentName>.txt` for our system to be able to automatically retrieve the answers for you |
 |----------------------|-------------------------------------|
 
-The answer key for all assignment types should also follow the following format:
+Within the text file, the answer for each question should also follow the format `<QUESTION_NUMBER> | <ANSWER> | <MARKS>` whereby:</br>
+* The first column contains the question number</br>
+* The second column contains the answer for the corresponding question</br>
+* The third column contains the marks for getting that question correct</br>
 
-![answerFormat](UGPics/answers.PNG) 
+Shown below are examples of what the answer text file for an assignment should look like:</br>
+On the left, we have the answer key for an MCQ assignment quiz1.</br>
+On the right, we have the answer key for a Short Answer assignment quiz2.
 
-The first column contains the question number.</br>
-The second column contains the answer for the corresponding question.</br>
-The third column contains the marks for getting that question correct.</br>
-`QUESTION_NUMBER | ANSWER | MARKS`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![MCQ](UGPics/answersFormat.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswer](UGPics/ShortAnswer.PNG)
 
-| :warning: | Answers for MCQ assignments should only have the options "A" to "E" or "1" to "5" |
-|----------------------|-------------------------------------|
-| :warning: | Answers for Short Answer assignments should not exceed 50 characters long |
-|----------------------|-------------------------------------|
-| :warning: | Answers for Long Answer assignments should not exceed 100 characters long |
-|----------------------|-------------------------------------|
-| :warning: | Question numbers should be in sequential order starting from 1 |
-|----------------------|-------------------------------------|
-| :warning: | Negative marking or partial grading is not supported for Autograding. Marks should be non negative integer values |
-|----------------------|-------------------------------------|
+:warning: Here are some things to look out for when editing the answer text file:
+* Question numbers should be in sequential order starting from 1
+* Answers for MCQ assignments should only include options A to E or 1 to 5
+* Answers for Short Answer assignments should not exceed 50 characters long
+* Answers for Long Answer assignments should not exceed 100 characters long
+* Marks should have non-negative integer values
+* Ensure that the delimiter `|` is not used in the answer
+
 
 Format: `view assignment answer /a ASSIGNMENT_NAME`
 
 Example of usage:</br>
-Let's take a look at what retrieving the answer key for quiz1 shown above and displaying it on the terminal would look like.
+Let's say you want to view the answer key to quiz1 shown above on the left.</br>
+The command `view assignment answer /a quiz1` quickly searches through the `answers` folder to display the answer key in the format `<QUESTION_NUMBER>. <ANSWER> | [<MARKS>]`.</br>
+The expected output below shows what it would look like in the app.
 
 Expected output:
 ```
@@ -692,33 +726,36 @@ Expected output:
 
 ### 2.26 Viewing Student Script : `view student script`
 
-The `view student script` command allows you to easily search and retrieve the student script for an assignment just by entering the name of the assignment and the student.</br>
+The `view student script` command allows you to easily search and retrieve the student's script for an assignment just by entering the name of the assignment and the student.</br>
 
-Scripts are stored in the `scripts` folder as a text file in the same working directory as the ModMan app.</br>
+Scripts are stored as text files in the `scripts` folder which can be found in the same working directory as the ModMan app.</br>
 
-| :information_source: | Naming of the text file has to be in the format `MODULECODE_ASSIGNMENTNAME_MATRICNUMBER.txt` for our system to automatically retrieve the script |
+| :information_source: | Naming of the script text file has to be in the format `<ModuleCode>_<AssignmentName>_<MatricNumber>\.txt` for our system to be able to automatically retrieve the script for you |
 |----------------------|-------------------------------------|
 
-The scripts for all assignment types should also follow the following format:
+Within the text file, the answer for each question should also follow the format `<QUESTION_NUMBER> | <ANSWER>` whereby:</br>
+* The first column contains the question number</br>
+* The second column contains the student's answer for the corresponding question</br>
 
-![solutionsFormat](UGPics/solutions.PNG)
+Shown below are examples of what a student's script text file for an assignment should look like:</br>
+On the left, we have the script for an MCQ assignment quiz1.</br>
+On the right, we have the script for a Short Answer assignment quiz2.
 
-The first column contains the question number.</br>
-The second column contains the student's answer for the corresponding question.</br>
-`QUESTION_NUMBER | ANSWER | MARKS`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![MCQS](UGPics/MCQS.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswerS](UGPics/SAS.PNG)
 
-| :warning: | Answers for all assignments should not exceed 100 characters long |
-|----------------------|-------------------------------------|
-| :warning: | Question numbers should be in sequential order starting from 1 |
-|----------------------|-------------------------------------|
-| :warning: | Ensure the delimiter \| is not used in the answers |
-|----------------------|-------------------------------------|
+:warning: Here are some things to look out for when formatting the script text file:
+* Question numbers should be in sequential order starting from 1
+* Answers for all assignment types should not exceed 100 characters long
+* Ensure that the delimiter `|` is not used in the answer
+
 
 Format: `view student script /a ASSIGNMENT_NAME /s STUDENT_NAME`
 
 Example of usage:</br>
-Let's take a look at what retrieving the script for quiz1 shown above and displaying it on the terminal would look like.
-
+Let's say you want to view your student Jianning's script for quiz1.</br>
+The command `view student script /a Jianning` quickly searches through the `scripts` folder by matching the student name with their matric number.</br> 
+The script is then displayed in the format `<QUESTION_NUMBER>. <ANSWER>` for each question in the assignment.</br>
+The expected output below shows what it would look like in the app.</br>
 Expected output:
 ```
 ---------------------------------------------------------------------

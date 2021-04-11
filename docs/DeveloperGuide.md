@@ -121,7 +121,7 @@ The deadline can then be used to sort the assignments based on the urgency of th
 
 Given below is the sequence diagram for the `SetAssignmentDeadlineCommand`:
 
-![DeadlineCommand](uml/SetDeadlineFinal.png)
+![DeadlineCommand](uml/SetDeadlineF.png)
 
 | :information_source: |  deadline passed into the setDeadline() function is of type `LocalDate` |
 |----------------------|-------------------------------------|
@@ -171,7 +171,7 @@ The code snippet for the compareTo() function which allows `Assignment` to imple
 
 Given below is the sequence diagram for the `SortAssignmentsByDeadlineCommand`:
 
-![sortCommand](uml/SortAssignmentByDeadlineCommandFinal.png)
+![sortCommand](uml/SortAssignmentByDeadlineCommandF.png)
 
 
 
