@@ -23,7 +23,7 @@ Readers can find out more about the overall architecture of ModMan, and also the
 behind various functionalities. Technically inclined readers may wish to use the developer guide and
 further implement features or customise ModMan for their own use!
 
-## How to use the Developer Guide
+### How to use the Developer Guide
 
 The Developer Guide has been split into clear sections to allow readers to quickly navigate to their desired 
 information.
@@ -170,6 +170,10 @@ For Autograding purpose, the `Storage` class is required to retrieve the answers
 `loadScript()`:
 
 Similarly to `loadAnswer()` as shown in the above Sequence Diagram, the `loadScript()` method follows the same logic in retrieving each student's script from their input file, scanning them as Data and allowing us to perform Autograding.
+
+#### Database Failure:
+
+The database should not be tampered with by the user. If the user opens up Database.txt and edits its contents, the data will likely be corrupted. In such case, the program will fail upon starting, prompting the user to delete Database.txt before running the program again. 
 
 ### Data Component
 The figure below shows the classes in ModMan that tracks module information data.
