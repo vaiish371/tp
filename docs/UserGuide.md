@@ -80,14 +80,14 @@ This section covers points to note about proper input formats for commands.
 2. For commands with flags (ie. `/t`, `/s`):
     * All flags must be entered completely in the order specified in command format.
     * There is one whitespace before and after each flag eg. `/t<space>TYPE<space>/v<space>...`; Input would be truncated if spaces are not present.</br>
-      For example:
-        * `/t /v...`: Only one space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
-        * `/t  /v...`: Two spaces between flags, input for flag `/t` would be parsed as empty. Empty parameter error may be thrown.
+        * `/t<space>/v...`: One space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
+        * `/t<space><space>/v...`: Two spaces between flags, input for flag `/t` would be parsed as empty. Empty parameter error may be thrown.
         * `.../s 1600/e 1800`: `START_TIME` will be parsed as `160` and wrong time format error may be thrown.
     * Any inputs within the space between the flags would be trimmed for whitespaces.
-        * `/t     Lecture       /v ...`: Input for `/t` will be trimmed to `Lecture`.
+        * `/t<space><space>Lecture<space><space><space>/v ...`: Input for `/t` will be trimmed to `Lecture`.
     
-:warning: Inputs that do not follow this format would be invalid.
+| :warning: | Inputs that do not follow this format would be invalid. |
+|----------------------|-------------------------------------|
 
 ## 2. Features 
 
