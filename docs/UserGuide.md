@@ -683,7 +683,7 @@ Shown below are examples of what the answer text file for an assignment should l
 On the left, we have the answer key for an MCQ assignment quiz1.</br>
 On the right, we have the answer key for a Short Answer assignment quiz2.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![MCQ](UGPics/answersFormat.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswer](UGPics/ShortAnswer.PNG)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![MCQ](UGPics/answersFormat.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswer](UGPics/shortAnswer.PNG)
 
 :warning: Here are some things to look out for when editing the answer text file:
 * Question numbers should be in sequential order starting from 1
