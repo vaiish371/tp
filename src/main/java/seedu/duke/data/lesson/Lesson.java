@@ -20,6 +20,14 @@ public class Lesson implements Storable {
         this.lessonType = lessonType;
     }
 
+    public Lesson(Lesson another) {
+        this.day = another.day;
+        this.startTime = another.startTime;
+        this.endTime = another.endTime;
+        this.venue = another.venue;
+        this.lessonType = another.lessonType;
+    }
+
     public void setDay(Day day) {
         this.day = day;
     }
@@ -46,6 +54,10 @@ public class Lesson implements Storable {
         this.lessonType = lessonType;
     }
 
+    public Day getDay() {
+        return day;
+    }
+
     public LocalTime getStartTime() {
         return startTime;
     }
@@ -65,6 +77,23 @@ public class Lesson implements Storable {
     @Override
     public String toString() {
         return day + ", " + startTime.toString() + "-" + endTime.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+
+        if (!(o instanceof Lesson)) {
+            return false;
+        }
+
+        Lesson lesson = (Lesson) o;
+
+        return (this.day.equals(lesson.day) && this.startTime.equals(lesson.startTime) &&
+                this.endTime.equals(lesson.endTime) && this.venue.equals(lesson.venue) &&
+                this.lessonType.equals(lesson.lessonType));
     }
 
     @Override

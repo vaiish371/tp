@@ -3,14 +3,7 @@ package seedu.duke.command;
 import seedu.duke.data.lesson.Day;
 import seedu.duke.data.lesson.Lesson;
 import seedu.duke.data.module.Module;
-import seedu.duke.exception.DateTimeFormatException;
-import seedu.duke.exception.DayFormatException;
-import seedu.duke.exception.EmptyParameterException;
-import seedu.duke.exception.IndexNotFoundException;
-import seedu.duke.exception.InvalidStartTimeException;
-import seedu.duke.exception.ModuleNotFoundException;
-import seedu.duke.exception.ModuleNotSelectedException;
-import seedu.duke.exception.TimeFormatException;
+import seedu.duke.exception.*;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.parser.Parser;
@@ -52,7 +45,7 @@ public class EditModuleTimetableCommand extends Command {
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws IndexNotFoundException, DateTimeFormatException,
             ModuleNotFoundException, EmptyParameterException, DayFormatException, InvalidStartTimeException,
-            TimeFormatException {
+            TimeFormatException, DuplicateLessonException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
@@ -62,6 +55,7 @@ public class EditModuleTimetableCommand extends Command {
         try {
             ArrayList<Lesson> lessons = module.getLessons();
             Lesson lesson = lessons.get(lessonIndex);
+            Lesson duplicateLesson = new Lesson(lesson);
             if (lessonType.trim().length() == 0) {
                 throw new EmptyParameterException();
             }
@@ -78,20 +72,30 @@ public class EditModuleTimetableCommand extends Command {
                 throw new EmptyParameterException();
             }
             if (!lessonType.equals("-")) {
-                lesson.setLessonType(lessonType);
+                duplicateLesson.setLessonType(lessonType);
             }
             if (!venue.equals("-")) {
-                lesson.setVenue(venue);
+                duplicateLesson.setVenue(venue);
             }
             if (!day.equals("-")) {
-                lesson.setDay(Day.valueOf(day));
+                duplicateLesson.setDay(Day.valueOf(day));
             }
             if (!startTime.equals("-")) {
-                lesson.setStartTime(LocalTime.parse(startTime, formatter));
+                duplicateLesson.setStartTime(LocalTime.parse(startTime, formatter));
             }
             if (!endTime.equals("-")) {
-                lesson.setEndTime(LocalTime.parse(endTime, formatter));
+                duplicateLesson.setEndTime(LocalTime.parse(endTime, formatter));
             }
+            for (Lesson moduleLesson : module.getLessons()) {
+                if (moduleLesson.equals(duplicateLesson)) {
+                    throw new DuplicateLessonException();
+                }
+            }
+            lesson.setDay(duplicateLesson.getDay());
+            lesson.setStartTime(duplicateLesson.getStartTime());
+            lesson.setEndTime(duplicateLesson.getEndTime());
+            lesson.setVenue(duplicateLesson.getVenue());
+            lesson.setLessonType(duplicateLesson.getLessonType());
             ui.editModuleTimetable(moduleCode, lesson);
         } catch (IndexOutOfBoundsException | NullPointerException e) {
             logger.log(Level.WARNING, "lesson index not found or no lessons added yet");
@@ -104,6 +108,8 @@ public class EditModuleTimetableCommand extends Command {
         } catch (IllegalArgumentException e) {
             throw new DayFormatException();
         } catch (InvalidStartTimeException e) {
+            throw e;
+        } catch (DuplicateLessonException e) {
             throw e;
         }
     }

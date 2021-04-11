@@ -23,7 +23,8 @@ Given below are my contributions to the project.
     - Implemented the main `Modman` class that structures the high-level logic of the app: #15
     - Implemented `Day` in `Lesson` as an enumeration type, validating user input dates must match a valid date spelled fully in caps: #197
     - Ensure `startTime` is before `endTime` in `Lesson`: #204
-    - Check for duplicate `studentName`: #247
+    - Check for duplicate parameters in `add student`: #247, #266
+    - Check for duplicate parameters in `add timetable` and `edit timetable`: #266
     - Implemented input validation for empty or whitespace parameters across commands in `Parser` class: #241, #245, #248
 
 

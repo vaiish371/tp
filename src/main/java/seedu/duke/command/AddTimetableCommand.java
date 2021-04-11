@@ -3,12 +3,9 @@ package seedu.duke.command;
 import seedu.duke.data.lesson.Day;
 import seedu.duke.data.lesson.Lesson;
 import seedu.duke.data.module.Module;
-import seedu.duke.exception.EmptyParameterException;
+import seedu.duke.exception.*;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
-import seedu.duke.exception.InvalidStartTimeException;
-import seedu.duke.exception.ModuleNotFoundException;
-import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.ui.Ui;
 
 import java.time.LocalTime;
@@ -56,7 +53,8 @@ public class AddTimetableCommand extends Command {
     }
 
     @Override
-    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException, InvalidStartTimeException {
+    public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException, InvalidStartTimeException,
+            DuplicateLessonException {
         Module module = data.find(moduleCode);
         if (module == null) {
             throw new ModuleNotFoundException();
@@ -64,8 +62,14 @@ public class AddTimetableCommand extends Command {
         if (startTime.isAfter(endTime) || startTime.equals(endTime)) {
             throw new InvalidStartTimeException();
         }
+
         assert module != null : "module should not be null";
         Lesson lesson = new Lesson(day.toString(), startTime, endTime, venue, lessonType);
+        for (Lesson moduleLesson : module.getLessons()) {
+            if (moduleLesson.equals(lesson)) {
+                throw new DuplicateLessonException();
+            }
+        }
         module.addLesson(lesson);
         ui.printNewTimetable(moduleCode, lesson);
     }
