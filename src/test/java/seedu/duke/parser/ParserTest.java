@@ -48,9 +48,9 @@ class ParserTest {
     }
 
     @Test
-    void testParse_addAssignmentMissingParam_InvalidCommandException() {
+    void testParse_addAssignmentMissingParam_InsufficientParametersException() {
         String inputString = "add assignment ";
-        assertThrows(InvalidCommandException.class, () -> Parser.parse(inputString));
+        assertThrows(InsufficientParametersException.class, () -> Parser.parse(inputString));
     }
 
     @Test
