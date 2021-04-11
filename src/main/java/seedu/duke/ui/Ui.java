@@ -319,4 +319,16 @@ public class Ui {
             }
         }
     }
+
+    public void showUnrecognisedError() {
+        System.out.println("\t There is an unexpected error.");
+    }
+
+    public void showUnrecognisedSaveError() {
+        System.out.println("\t There is an error during saving the file.");
+    }
+
+    public void showUnrecognisedLoadError() {
+        System.out.println("\t There is an error during loading the file.");
+    }
 }

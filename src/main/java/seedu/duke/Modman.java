@@ -5,7 +5,6 @@ import seedu.duke.data.Data;
 import seedu.duke.exception.FileNotSavedException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.parser.Parser;
-//import seedu.duke.storage.Storage;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.Ui;
 
@@ -24,6 +23,8 @@ public class Modman {
             data = storage.loadData();
         } catch (ModManException e) {
             data = new Data();
+        } catch (Exception e) {
+            ui.showUnrecognisedLoadError();
         }
     }
 
@@ -40,6 +41,8 @@ public class Modman {
                 isExit = c.isExit();
             } catch (ModManException e) {
                 ui.showError(e.getErrorMessage());
+            } catch (Exception e) {
+                ui.showUnrecognisedError();
             } finally {
                 Ui.showLine();
             }
@@ -48,6 +51,8 @@ public class Modman {
             storage.saveData(data);
         } catch (FileNotSavedException e) {
             ui.showError(e.getErrorMessage());
+        } catch (Exception e) {
+            ui.showUnrecognisedSaveError();
         }
     }
 
