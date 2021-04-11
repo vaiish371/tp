@@ -226,7 +226,8 @@ Assigns a new student to the current module you have selected.
 
 Format: `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL`
 
-:warning: Students with the same `STUDENT_NUMBER` cannot be assigned to the same module. However, there can be students with the same `STUDENT_NAME` and `STUDENT_EMAIL`.
+| :warning: | Students with the same `STUDENT_NUMBER` cannot be assigned to the same module.<br>However, there can be students with the same `STUDENT_NAME` and `STUDENT_EMAIL`. |
+|----------------------|-------------------------------------|
 
 Example of usage:
 
@@ -287,9 +288,11 @@ Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 * The `TYPE` and `VENUE` can be in a natural language format.
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.  
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800`.
-* `START_TIME` must be before `END_TIME`
+* `START_TIME` must be before `END_TIME`.
+* The parameters cannot be empty or whitespaces.
 
-:warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
+| :warning: | Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`. |
+|----------------------|-------------------------------------|
 
 Example of usage:
 
@@ -346,10 +349,11 @@ Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e EN
 * The `TYPE` and `VENUE` can be in a natural language format.
 * The `DAY` must be a valid day spelt out fully in caps eg. `MONDAY`.
 * The `START_TIME` and `END_TIME` must be in the format `HHmm` eg. `1800` if specified.
-* `START_TIME` must be before `END_TIME`
+* `START_TIME` must be before `END_TIME`.
 * The parameters cannot be empty or whitespaces.
 
-:warning: Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`.
+| :warning: | Input `2400` for `START_TIME` and `END_TIME` would be interpreted as `00:00`. |
+|----------------------|-------------------------------------|
 
 Example of usage:
 
