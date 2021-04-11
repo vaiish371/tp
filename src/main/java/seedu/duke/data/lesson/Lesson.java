@@ -91,9 +91,9 @@ public class Lesson implements Storable {
 
         Lesson lesson = (Lesson) o;
 
-        return (this.day.equals(lesson.day) && this.startTime.equals(lesson.startTime) &&
-                this.endTime.equals(lesson.endTime) && this.venue.equals(lesson.venue) &&
-                this.lessonType.equals(lesson.lessonType));
+        return (this.day.equals(lesson.day) && this.startTime.equals(lesson.startTime)
+                && this.endTime.equals(lesson.endTime) && this.venue.equals(lesson.venue)
+                && this.lessonType.equals(lesson.lessonType));
     }
 
     @Override

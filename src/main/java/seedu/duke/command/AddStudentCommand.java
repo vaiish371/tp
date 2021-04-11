@@ -43,8 +43,8 @@ public class AddStudentCommand extends Command {
             throw new ModuleNotFoundException();
         }
         for (Student student : module.getStudents()) {
-            if (student.getStudentNumber().equals(studentNumber) || student.getName().equals(studentName) ||
-            student.getEmail().equals(email)) {
+            if (student.getStudentNumber().equals(studentNumber) || student.getName().equals(studentName)
+                    || student.getEmail().equals(email)) {
                 throw new DuplicateStudentException();
             }
         }
