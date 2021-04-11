@@ -135,12 +135,18 @@ Implementation considerations for using `LocalDate` for deadline attribute in `A
 
 ### `SetAssignmentGradeCommand`
 
-The `SetAssignmentGradeCommand` is used to 
+The `SetAssignmentGradeCommand` is used to set or update the grade of the `Assignment` for a `Student`. This can be used to track individual grades for each student.
 
 Given below is the sequence diagram for the `SetAssignmentGradeCommand`:
 
-Implementation considerations for using `HashMap<String, Float>` to store students'grades:
+![GradeCommand](uml/SetAssignmentGrade.png)
 
+Implementation considerations for using `HashMap<String, Float>` to store students' grades:
+
+* `HashMap` allows for easy storage of "key/value" pairs, with the `studentName` and `grade` corresponding to key and value respectively
+* `HashMap` has worst case get/put complexity of `O(logn)`, which offers decent time complexity performance when setting and retrieving the `grade`
+    * `HashMap` may have even better performance with a good hash
+    
 
 ### Sorting Assignments by Deadline (Jianning)
 
@@ -285,7 +291,9 @@ With the help of ModMan, users will be able to add, edit, and store all informat
 
 ## Glossary
 
-* *glossary item* - Definition
+* *Module* - Structured unit of study or academic programme that TAs may be involved in.
+* *Assignment* - Work assigned to students that TAs are in charge of tracking, grading or commenting on.
+* *Autograde* - Automatic grading of student assignment scripts against a set answer.
 
 ## Instructions for manual testing
 
