@@ -25,6 +25,7 @@ public class Modman {
             data = new Data();
         } catch (Exception e) {
             ui.showUnrecognisedLoadError();
+            System.exit(0);
         }
     }
 
