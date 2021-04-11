@@ -559,17 +559,17 @@ Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
 The deadline has to follow a strict format to allow you to easily sort your assignments by deadline later on!
 
-Examples of usage:
-* `set assignment deadline /a quiz1 /d 16 08 2021`
-* `set assignment deadline /a quiz2 /d 17 08 1999`
+Examples of usage:</br>
 
+1. `set assignment deadline /a quiz1 /d 16 08 2021`
 
-Expected output:
 ```
 ---------------------------------------------------------------------
     I have set quiz1's deadline to Aug 16 2021 in CS2113T
 ---------------------------------------------------------------------
 ```
+2. `set assignment deadline /a quiz2 /d 17 08 1999`
+
 ```
 ---------------------------------------------------------------------
     OOPS!!! Date/Time Format is wrong!
@@ -783,6 +783,38 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 | :bulb: | You can open up the answer key in another terminal so that you can view both the answer key and student script side by side!|
+|----------------------|-------------------------------------|
+***
+
+### 2.27 Setting Assignment Grade : `set assignment grade`
+
+The `set assigment grade` command allows you to set the grade of a student after you have graded his/her assignment.
+If a grade had previously been set, the grade for the student will be updated with the new grade.
+
+Format: `set assignment grade /a ASSIGNMENT_NAME /s STUDENT_NAME /g GRADE`
+
+| :warning: | The grade must be a percentage in the range from 0 to 100</br> It can also be a floating point number|
+|----------------------|-------------------------------------|
+
+
+Examples of usage:</br>
+
+1. `set assignment grade /a quiz1 /s Jianning /g 100`
+
+```
+---------------------------------------------------------------------
+    I have set Jianning's grade to 100 for assignment quiz1 in CS2113T
+---------------------------------------------------------------------
+```
+2. `set assignment grade /a quiz1 /s Jianning /g 101`
+
+```
+---------------------------------------------------------------------
+    OOPS!!! The percentage you entered is invalid! Please provide a percentage value between 0 to 100
+---------------------------------------------------------------------
+```
+
+| :bulb: | You can manually set the grades of your students if you prefer a more personal touch compared to autograding|
 |----------------------|-------------------------------------|
 ***
 
