@@ -1,6 +1,40 @@
 # Developer Guide
 
+## Introduction
+
+````
+ __  __           _   __  __ 
+|  \/  |         | | |  \/  |
+| \  / | ___   __| | | \  / | __ _ _ __
+| |\/| |/ _ \ / _  | | |\/| |/ _  |  _ \
+| |  | | (_) | (_| | | |  | | (_| | | | |
+|_|  |_|\___/ \__'_| |_|  |_|\__'_|_| |_|
+````
+
+ModMan, short for Module Manager, is a desktop app designed to help Teaching Assistants (TAs) manage their module(s). 
+It is optimized for use via a Command Line Interface (CLI). 
+ModMan helps to track module details as well as students’ progress and data, 
+all in one platform. It can also perform autograding for MCQ assignments.
+
+### About this Developer Guide
+
+This developer guide details how ModMan is designed, implemented and tested. 
+Readers can find out more about the overall architecture of ModMan, and also the implementation 
+behind various functionalities. Technically inclined readers may wish to use the developer guide and
+further implement features or customise ModMan for their own use!
+
+## How to use the Developer Guide
+
+The Developer Guide has been split into clear sections to allow readers to quickly navigate to their desired 
+information.
+
+* You may navigate to any section from the [Table of contents](#table-of-contents).
+* Click [here](#setting-up) for the Setting Up section and get started as a developer!
+* Alternatively, if you wish to dive right into ModMan's implementation, 
+  we would recommend starting in the [Design](#design) section.
+
 ## Table of contents
+* [Setting Up](#setting-up)
 * [Design](#design)
     * [Architecture](#architecture)
     * [Logic](#logic-component)
@@ -21,12 +55,30 @@
 * [Glossary](#glossary)
 * [Instructions for manual testing](#instructions-for-manual-testing)
     
+## Setting Up
+
+You may follow this Setting Up guide and get started as a developer! This guide helps you import ModMan onto IntelliJ IDEA,
+but feel free to use your preferred IDE. 
+
+1. Ensure you have Java 11 installed on your computer or install it from [here](https://www.oracle.com/sg/java/technologies/javase-jdk11-downloads.html).
+1. Fork the ModMan repository from [here](https://github.com/AY2021S2-CS2113T-F08-1/tp).
+1. Clone your fork to your local machine, using the Git software you prefer.
+1. Open IntelliJ IDEA; you may download it from [here](https://www.jetbrains.com/idea/) first.
+1. Import the cloned repository as a Gradle project.
+1. To ensure everything is working correctly, you may right click the `ModMan.java` file and select `Run Modman.main()`. You can also test some of ModMan's commands.
+
+For readers who are not familiar with the commands of ModMan, they can access the User Guide [here](https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html).
 
 ## Design
 
+This section describes the four architecture components of ModMan, as well as the connections between them.
+The overall architecture of ModMan is explained first, before diving into each of the architecture components.
+
 ### Architecture
 
-The **Architecture Design** given above explains the high-level design of the App.
+![](uml/Architecture.png)
+
+The **Architecture Design** given above explains the high-level design of ModMan.
 Given below is a quick overview of each component. </br>
 
 `Modman` is the main class of the application, and handles the app launch,
@@ -125,9 +177,11 @@ The `Data`,
 
 ## Implementation
 
+The implementation of key features and functionalities of ModMan are described in this section.
+
 ### Editing Assignment Information (Jianning and Bryan)
 
-This section provides details on the implementation of the various commands that modify the `Assignment` object.
+This subsection provides details on the implementation of the various commands that modify the `Assignment` object.
 
 There are 4 attributes of the `Assignment` object in which the User can interact with:
 
@@ -280,11 +334,13 @@ Given below is the sequence diagram for the `AddTimetableCommand`:
 
 
 ## Product scope
+
+Product scope provides you an insight into the value of ModMan, and its benefits for target users.
+
 ### Target user profile:
 * Teaching assistants who: 
-    * have a need to manage their module(s), students and module assignments
+    * have a need to manage their module(s), students, lessons and module assignments
     * are comfortable using CLI apps
-{Describe the target user profile}
 
 ### Value proposition
 
@@ -296,8 +352,6 @@ To keep track of all information pertaining to a module, teaching assistants (at
 
 With the help of ModMan, users will be able to add, edit, and store all information on one platform, simplifying the process. In addition, features such as autograding and saving comments for assignments will free up time, allowing TAs to focus on teaching!
 
-
-
 ### User Stories
 
 |Version| As a ... | I want to ... | So that I can ...|
@@ -305,9 +359,14 @@ With the help of ModMan, users will be able to add, edit, and store all informat
 |v1.0|Teaching Assistant|add modules that I am teaching|keep track of the information for each of my modules|
 |v1.0|Teaching Assistant|add the time and day of a module's lesson|keep track of my teaching timetable|
 |v1.0|Teaching Assistant|add my student's details|contact them if they need help|
-|v2.0|Teaching Assistant|view my students' weekly grades for their assignments|focus on the students who are not doing well|
+|v1.0|Teaching Assistant|add upcoming module assignments|manage and plan out my schedule easily|
+|v2.0|Teaching Assistant|view my students' grades for each assignment|focus on the students who are not doing well|
 |v2.0|Teaching Assistant|edit a module's lesson information|keep track of changes in lesson schedule|
-|v2.0|Teaching Assistant|print out assignments due within a certain time frame|keep track of the more urgent assignments|
+|v2.0|Teaching Assistant|sort out assignments by deadline|keep track of the more urgent assignments|
+|v2.0|Teaching Assistant|obtain an overview of information related to a module|easily view my teaching timetable, upcoming assignments and students|
+|v2.0|Teaching Assistant|auto-grade assignments|save time while marking and focus, instead, on teaching!|
+|v2.0|Teaching Assistant|add comments to assignments|refer back to them when other students make the same mistake|
+
 
 ### Non-Functional Requirements
 
@@ -315,6 +374,7 @@ With the help of ModMan, users will be able to add, edit, and store all informat
    with `Java 11` installed.
 1. The application should be responsive - users should not face any sluggish performance.
 1. Users who have above average typing speeds (in English) should be able to easily issue commands faster than using a mouse.
+1. The application should not depend on any remote servers. This means it can be accessed anywhere, without a need for an Internet connection. 
 
 
 ## Glossary
@@ -322,6 +382,7 @@ With the help of ModMan, users will be able to add, edit, and store all informat
 * *Module* - Structured unit of study or academic programme that TAs may be involved in.
 * *Assignment* - Work assigned to students that TAs are in charge of tracking, grading or commenting on.
 * *Autograde* - Automatic grading of student assignment scripts against a set answer.
+* *IDE* - Integrated development environment, software applications for software development
 
 ## Instructions for manual testing
 
