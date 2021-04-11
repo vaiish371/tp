@@ -116,20 +116,25 @@ The sequence diagram also acts as a reference frame for `getCommand` which is co
 
 If a `Command` object does not use the reference frame, another sequence diagram would be used to describe how the `Command` object was created.
 
-### UI Component
+## UI Component
+
+![Ui](uml/UiClassDiagram.png)
+
 The UI Component consists of one class - `Ui` which provides all the functions
-required to print different kinds of messages on te console.
+required to print different kinds of messages on the console.
 
 1. `Ui` is class with a `Scanner` object that reads input from console.
 1. `Modman` has `Ui` object as an attribute which is instantiated
    when we enter the program.
-1. `Ui` object reads input from screen and returns it which will then be passed to the Parser so that it can
+1. `Ui` object reads input from screen and returns it which will then be passed to the `Parser` so that it can
    parse the command.
-1. Depending on the parsed command, the corresponding
-   `execute()` function of the  `Command` abstract class
-   runs. It accepts `Ui` object as a parameter and calls the relevant `Ui` methods
-   that prints the messages.
-   <br>
+1. `Command` is an abstract class that has multiple derived command classes that implement
+   the abstract method `execute`.
+1. Depending on the parsed user input, a command class object is created and the corresponding
+   `execute()` method runs. It accepts `Ui` object as a parameter and calls the relevant `Ui` methods
+   that prints the specific messages.
+1. Each `Ui` method has different parameters such as `Lesson`, `Student`, `Assignment`, `Answer`, `Module` objects
+   which form dependencies between `Ui` and these classes.
 
 ### Storage Component
 
