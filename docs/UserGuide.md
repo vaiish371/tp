@@ -142,6 +142,10 @@ Expected output:
     I have added a new module: CS2113T
 -------------------------------------------------------------------------- 
 ````
+
+| :warning: | Input is case sensitive, ie. `CS2113T` and `cs2113T` would be considered two different modules |
+|----------------------|-------------------------------------|
+
 ***
 
 ### 2.3 Removing a Module: `remove module`
@@ -161,6 +165,10 @@ Expected output:
     You have successfully removed module: CS2113T
 -------------------------------------------------------------------------- 
 ````
+
+| :warning: | You can remove the current `Module` you are working in |
+|----------------------|-------------------------------------|
+
 ***
 
 ### 2.4 Selecting a Module: `select`
@@ -306,7 +314,6 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 ***
-
 ### 2.11 Listing Timetable Lessons: `list timetable`
 Lists the lessons in the timetable for the module you have selected.
 
