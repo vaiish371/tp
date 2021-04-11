@@ -39,7 +39,6 @@ import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.TimeFormatException;
-import seedu.duke.exception.EmptyParameterException;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -68,62 +67,62 @@ public class Parser {
         logger.setLevel(Level.INFO);
         logger.log(Level.FINE, "parsing user command");
         Command command;
-        line = line.trim();
-        if (line.equals("bye")) {
+        line = line.trim() + " ";
+        if (line.equals("bye ")) {
             logger.log(Level.INFO, "bye command entered");
             command = new ExitCommand();
-        } else if (line.equals("help")) {
+        } else if (line.equals("help ")) {
             command = getHelpModuleCommand();
-        } else if ((line + " ").startsWith("select ")) {
-            command = getSelectModuleCommand(line);
-        } else if (line.equals("list module")) {
+        } else if (line.startsWith("select ")) {
+            command = getSelectModuleCommand(line.trim());
+        } else if (line.equals("list module ")) {
             command = getListModuleCommand();
-        } else if ((line + " ").startsWith("add module ")) {
-            command = getAddModuleCommand(line);
-        } else if ((line + " ").startsWith("remove module ")) {
-            command = getRemoveModuleCommand(line);
-        } else if (line.equals("current")) {
+        } else if (line.startsWith("add module ")) {
+            command = getAddModuleCommand(line.trim());
+        } else if (line.startsWith("remove module ")) {
+            command = getRemoveModuleCommand(line.trim());
+        } else if (line.equals("current ")) {
             command = getCurrentModuleCommand();
         } else if (line.startsWith("add assignment ")) {
-            command = getAddAssignmentCommand(line);
-        } else if (line.equals("list assignments")) {
+            command = getAddAssignmentCommand(line.trim());
+        } else if (line.equals("list assignments ")) {
             command = getListModuleAssignmentCommand();
         } else if (line.startsWith("add student ")) {
-            command = getAddStudentCommand(line);
-        } else if (line.equals("list student details")) {
+            command = getAddStudentCommand(line.trim());
+        } else if (line.equals("list student details ")) {
             command = getListStudentDetailsCommand();
         } else if (line.startsWith("list assignment grades ")) {
-            command = getListStudentAssignmentGradesCommand(line);
-        } else if (line.equals("list student")) {
+            command = getListStudentAssignmentGradesCommand(line.trim());
+        } else if (line.equals("list student ")) {
             command = getListStudentCommand();
         } else if (line.startsWith("add timetable ")) {
-            command = getAddTimetableCommand(line);
-        } else if (line.equals("list timetable")) {
+            command = getAddTimetableCommand(line.trim());
+        } else if (line.equals("list timetable ")) {
             command = getListModuleTimetableCommand();
         } else if (line.startsWith("edit timetable ")) {
-            command = getEditModuleTimetableCommand(line);
+            command = getEditModuleTimetableCommand(line.trim());
         } else if (line.startsWith("delete timetable ")) {
-            command = getDeleteModuleTimetableCommand(line);
+            command = getDeleteModuleTimetableCommand(line.trim());
         } else if (line.startsWith("set assignment grade ")) {
-            command = getSetAssignmentGradeCommand(line);
+            command = getSetAssignmentGradeCommand(line.trim());
         } else if (line.startsWith("set assignment comments ")) {
-            command = getSetAssignmentCommentsCommand(line);
+            command = getSetAssignmentCommentsCommand(line.trim());
         } else if (line.startsWith("get assignment comments ")) {
-            command = getGetAssignmentCommentsCommand(line);
+            command = getGetAssignmentCommentsCommand(line.trim());
         } else if (line.startsWith("set assignment percentage ")) {
-            command = getSetAssignmentPercentageCommand(line);
+            command = getSetAssignmentPercentageCommand(line.trim());
         } else if (line.startsWith("set assignment deadline ")) {
-            command = getSetAssignmentDeadlineCommand(line);
-        } else if (line.equals("sort assignments by deadline")) {
+            command = getSetAssignmentDeadlineCommand(line.trim());
+        } else if (line.equals("sort assignments by deadline ")) {
             command = getSortAssignmentByDeadlineCommand();
         } else if (line.startsWith("edit assignment name ")) {
-            command = getEditAssignmentNameCommand(line);
+            command = getEditAssignmentNameCommand(line.trim());
         } else if (line.startsWith("view assignment answer ")) {
-            command = getViewAnswersCommand(line);
+            command = getViewAnswersCommand(line.trim());
         } else if (line.startsWith("view student script ")) {
-            command = getViewScriptCommand(line);
+            command = getViewScriptCommand(line.trim());
         } else if (line.startsWith("autograde assignment ")) {
-            command = getAutogradeAssignentCommand(line);
+            command = getAutogradeAssignentCommand(line.trim());
         } else {
             logger.log(Level.WARNING, "invalid command entered");
             throw new InvalidCommandException();
@@ -140,7 +139,7 @@ public class Parser {
     }
 
     private static Command getViewScriptCommand(String line)
-            throws InsufficientParametersException, ModuleNotSelectedException {
+            throws InsufficientParametersException {
         Command command;
         try {
             logger.log(Level.INFO, "view script command entered");
@@ -177,7 +176,7 @@ public class Parser {
     
            
     private static Command getViewAnswersCommand(String line)
-            throws InsufficientParametersException, ModuleNotSelectedException {
+            throws InsufficientParametersException {
         Command command;
         try {
             logger.log(Level.INFO, "view assignment answers command entered");
@@ -515,8 +514,8 @@ public class Parser {
         return command;
     }
 
-    private static Command getAddAssignmentCommand(String line) throws InvalidCommandException,
-            InsufficientParametersException, ModuleNotSelectedException, EmptyParameterException {
+    private static Command getAddAssignmentCommand(String line) throws InsufficientParametersException,
+            ModuleNotSelectedException, EmptyParameterException {
         Command command;
         try {
             logger.log(Level.INFO, "add assignment command entered");

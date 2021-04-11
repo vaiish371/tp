@@ -2,7 +2,6 @@ package seedu.duke.data.assignment;
 
 import seedu.duke.exception.AnswerTooLongException;
 import seedu.duke.exception.InvalidQuestionNumberException;
-import seedu.duke.exception.ModManException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.student.Student;
 import seedu.duke.exception.DataFileNotFoundException;
