@@ -60,7 +60,7 @@ Icon | Purpose
     2.18 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#218-setting-assignment-percentage-set-assignment-percentage) <br>
     2.19 [`set assignment comments` - Setting Assignment Comments](#219-setting-assignment-comments-set-assignment-comments) <br>
     2.20 [`get assignment comments` - Getting Assignment Percentage](#220-getting-assignment-comments-get-assignment-comments) <br>
-    2.22 [`list grades` - Listing Assignment Grades](#222-listing-assignment-grades--list-grades) <br>
+    2.22 [`list assignment grades` - Listing Assignment Grades](#222-listing-assignment-grades--list-grades) <br>
     2.23 [`autograde` - Auto-Grading Assignments](#223-auto-grading-assignments--autograde) <br>
     2.24 [`bye` - Exiting ModMan](#224-exiting-modman--bye) <br>
 1. [FAQ](#3-faq)
@@ -107,16 +107,16 @@ Expected output:
 --------------------------------------------------------------------------
     Here are the list of basic commands you can use:
  
-	1. add module MODULE_NAME - to add a module
-	2. select MODULE_NAME - to select a module directory from the list of modules.
-	3. add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL - to add a student to a module
-	4. add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME - to add a lesson
-	5. add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME - to add an assignment
-	6. set deadline /a ASSIGNMENT_NAME /d DEADLINE - to set deadline for an assignment
-	7. autograde /a ASSIGNMENT_NAME - to auto-grade all student scripts for assignment
-	8. set assignment comments /a ASSIGNMENT_NAME /c COMMENT - to set feedback for an assignment
-	9. remove module MODULE_NAME - to remove a module off the list
-	10. bye - to exit the program and save all your information
+	1. Adding a Module: add module MODULE_NAME
+	2. Selecting a Module: select MODULE_NAME
+	3. Viewing Current Module: current
+	4. Adding a student: add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL
+	5. Adding a Lesson: add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME
+	6. Adding an Assignment: add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME
+	7. Setting Assignment Deadline: set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE
+	8. Auto-Grading Assignments: autograde /a ASSIGNMENT_NAME
+	9. Setting Assignment Comments: set assignment comments /a ASSIGNMENT_NAME /c COMMENT
+	10. Exiting ModMan: bye
 
     For the full list of commands, check out the User Guide at: https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html
 
@@ -582,16 +582,16 @@ Expected output:
 |----------------------|-------------------------------------|
 ***
 
-### 2.22 Listing Assignment Grades : `list grades` 
+### 2.22 Listing Assignment Grades : `list assignment grades` 
 
 Lists the students' grades for a particular assignment.
 The students listed are sorted by grades.
 
-Format: `list student assignment grades /a ASSIGNMENT_NAME`
+Format: `list assignment grades /a ASSIGNMENT_NAME`
 
 Examples of usage:
-* `list student assignment grades /a quiz1`
-* `list student assignment grades /a quiz3`
+* `list assignment grades /a quiz1`
+* `list assignment grades /a quiz3`
 
 Expected output:
 ```
@@ -812,21 +812,21 @@ select module | `select MODULE_NAME` <br> e.g. `select CS2113T`
 view current module | `current` <br>
 list module | `list module` <br>
 add student | `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL` <br> e.g. `add student /s John Doe /# A0123456Y /e e0123456@u.nus.edu`
-list student details | `list student details <br> e.g. `list student details`
+list student details | `list student details` <br>
 list student | `list student` <br> 
 add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `add timetable /t Lecture /v Zoom /d FRIDAY /s 1600 /e 1800`
 list timetable | `list timetable` <br> 
 delete timetable | `delete timetable LESSON_INDEX` <br> e.g. `delete timetable 1`
-edit timetbale | `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `edit timetable 1 /t - /v COM2 /d - /s 1600 /e 1800` 
+edit timetable | `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `edit timetable 1 /t - /v COM2 /d - /s 1600 /e 1800` 
 add assignment | `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME` <br> e.g. `add assignment /t mcq /a Magic Sequence`
-list assignments | `list assignment` <br>
+list assignments | `list assignments` <br>
 sort assignments | `sort assignments by deadline` <br>
 edit assignment | `edit assignment /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
 set assignment percentage | `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE` <br> e.g. `set assignment percentage /a Magic Sequence /p 15`
 set assignment comments | `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS` <br> e.g. `set assignment comments /a Magic Sequence /p This assignment is well done.`
 get assignment comments | `get assignment comments /a ASSIGNMENT_NAME` <br> e.g. `get assignment comments /a Magic Sequence`
 set deadline | `set deadline /a ASSIGNMENT_NAME /d DEADLINE` <br> e.g. `set deadline /a quiz1 /d 17 08 2021`
-list grades | `list student assignment grades /a ASSIGNMENT_NAME` <br> e.g. `list student assignment grades /a quiz1`
+list assignment grades | `list assignment grades /a ASSIGNMENT_NAME` <br> e.g. `list assignment grades /a quiz1`
 autograde | `autograde /a ASSIGNMENT_NAME` <br> e.g. `autograde /a quiz1`
 bye | `bye` <br>
 
