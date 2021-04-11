@@ -319,4 +319,18 @@ public class Ui {
             }
         }
     }
+
+    public void showUnrecognisedError() {
+        System.out.println("\t There is an unexpected error.");
+    }
+
+    public void showUnrecognisedSaveError() {
+        System.out.println("\t There is an error saving the file.");
+    }
+
+    public void showUnrecognisedLoadError() {
+        System.out.println("\t There is an error loading the file.");
+        System.out.println("\t You may have edited Database.txt. Please do not edit Database.txt.");
+        System.out.println("\t Please delete Database.txt and try again.");
+    }
 }
