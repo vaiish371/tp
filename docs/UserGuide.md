@@ -480,7 +480,7 @@ Expected output:
 
 ### 2.18 Setting Assignment Percentage: `set assignment percentage`
 
-Sets the assignment percentage of an existing assignment
+Sets the assignment percentage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer.
 
 Format: `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE`
 
@@ -500,10 +500,12 @@ Expected output:
 
 ### 2.19 Setting Assignment Comments: `set assignment comments`
 
-Sets the assignment comments of an existing assignment
+Sets the assignment comments of an existing assignment. The assignment comment must not exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on that feature!).
+
+| :bulb: |Although the edit and append features for assignment comments are still in production, you can recreate an edit by calling the "get assignment comments" (Section 2.20) command, copy-pasting the result onto your terminal and editing before calling this command.|
+|----------------------|-------------------------------------|
 
 Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
-
 Examples of usage:
 * `set assignment comments /a Magic Sequence /p This assignment is well done.`
 * `set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
@@ -521,7 +523,7 @@ Expected output:
 
 ### 2.20 Getting Assignment Comments: `get assignment comments`
 
-Gets the assignment comments of an existing assignment and prints it out for the user.
+Gets the assignment comments of an existing assignment and prints it out for the user. 
 
 Format: `get assignment comments /a ASSIGNMENT_NAME`
 
@@ -543,7 +545,7 @@ Expected output:
 ### 2.21 Setting Assignment Deadline : `set assignment deadline` 
 
 The `set assigment deadline` command allows you to set the date which you have to grade the assignment by.
-If a deadline had previously been set, it will be updated by the new deadline.
+If a deadline had previously been set, the deadline of the assignment will be updated with the new deadline.
 
 Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
