@@ -39,6 +39,7 @@ import seedu.duke.exception.InvalidPercentageException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.TimeFormatException;
+import seedu.duke.exception.SameNameEditException;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -241,7 +242,7 @@ public class Parser {
     }
 
     private static Command getEditAssignmentNameCommand(String line)
-            throws InsufficientParametersException, EmptyParameterException {
+            throws InsufficientParametersException, EmptyParameterException, SameNameEditException {
         Command command;
         try {
             logger.log(Level.INFO, "edit assignment name command entered");
