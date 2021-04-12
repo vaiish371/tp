@@ -17,7 +17,7 @@ A command line interface (CLI) is a text-based user interface used to view and m
 
 These include operating system CLIs like the Command Prompt on Windows, which can be used to run and interact with the ModMan application.
 
-***
+<hr style="border:2px solid black"> </hr>
 
 ## How to use the User Guide
 Welcome to the User Guide for ModMan!
@@ -37,7 +37,7 @@ Icon | Purpose
 | :warning: | Warnings on usage of ModMan |
 | :bulb: | Tips for Teaching Assistants |
 
-***
+<hr style="border:2px solid blackr"> </hr>
 
 ## Table of contents
 1. [Quick start](#1-quick-start) <br>
@@ -80,6 +80,8 @@ Icon | Purpose
 1. [Command summary](#4-command-summary)
 ***
 
+<hr style="border:2px solid black"> </hr>
+
 ## 1. Quick Start
 
 1. Ensure you have Java 11 installed on your computer or install it from [here](https://www.oracle.com/sg/java/technologies/javase-jdk11-downloads.html).
@@ -87,7 +89,8 @@ Icon | Purpose
 1. Open a command window in the folder containing the `.jar` file.
 1. Run the command `java -jar {filename}.jar` <br> If you haven't changed the filename, run the command `java -jar ModMan.jar`
 
-***
+<hr style="border:1px solid black"> </hr>
+
 ### 1.1 Input Formatting
 This section covers points to note about proper input formats for commands.
 
@@ -104,7 +107,9 @@ This section covers points to note about proper input formats for commands.
 | :warning: | Inputs that do not follow this format would be invalid. |
 |----------------------|-------------------------------------|
 
-***
+<hr style="border:1px solid black"> </hr>
+
+
 ### 1.2 Database File Tampering
 
 This section provides a warning for the handling of database for ModMan. 
@@ -117,18 +122,22 @@ If you delete the whole `Database.txt`, a new `Database.txt` would be created fo
 Although not recommended, edits may be made in `Database.txt` that effects changes in ModMan while still loading those changes in when starting up.
 * For example, changing student name of `Student` to another name that does not match any other `Student`.
 
-***
+<hr style="border:2px solid black"> </hr>
+
 ## 2. Features 
 
 | :information_source: | Inputs in `UPPER_CASE` are parameters to be supplied by the user. |
 |----------------------|-------------------------------------|
 
-***
+<hr style="border:1px solid black"> </hr>
+
 ### 2.1 Module
+
+<hr style="border:1px solid black"> </hr>
 
 ### 2.1.1 Adding a Module: `add module`
 
-Adds a new module to the list of modules.
+Adds a new module to the list of modules. If you are a TA for multiple modules, you can keep track of all of them!
 
 Format: `add module MODULE_NAME`
 
@@ -143,6 +152,7 @@ Expected output:
     I have added a new module: CS2113T
 -------------------------------------------------------------------------- 
 ````
+
 
 | :warning: | Input is case sensitive, ie. `CS2113T` and `cs2113T` would be considered two different modules |
 |----------------------|-------------------------------------|
@@ -189,12 +199,13 @@ Expected output:
 -------------------------------------------------------------------------- 
 ````
 
+
 | :information_source: | All commands onwards assumes we are working in the module CS2113T |
 |----------------------|-------------------------------------|
 ***
 ### 2.1.4 Viewing Current Module: `current`
 
-View the current module you are working in. Also obtain an overview of the current module.
+View the current module you are working in. Also obtain an overview of the module, namely the lessons, assignments, as well as number of students.
 
 Format: `current`
 
@@ -207,9 +218,9 @@ Expected output:
 	Here's an overview of CS2113T
 	    - You have not added any lessons yet.
 
-		- You currently have 0 students in your class
+	    - You currently have 0 students in your class
 
-		- You have not added any assignments to yet.
+	    - You have not added any assignments to yet.
 -------------------------------------------------------------------------- 
 ````
 ***
@@ -227,9 +238,11 @@ Expected output:
 	1. CS2113T (current)
 -------------------------------------------------------------------------- 
 ````
-***
+<hr style="border:1px solid black"> </hr>
 
-### 2.2 Student
+### 2.2 Student 
+
+<hr style="border:1px solid black"> </hr>
 
 ### 2.2.1 Adding a student: `add student`
 
@@ -255,13 +268,9 @@ Expected output:
 
 ### 2.2.2 Listing Students Details: `list student details`
 
-Lists the details of all students enrolled in a particular module.
+Lists the details of all students assigned to the current module you have selected.
 
 Format: `list student details`
-
-Example of usage:
-
-`list student details`
 
 Expected output:
 
@@ -274,13 +283,11 @@ Expected output:
 ***
 
 ### 2.2.3 Listing Students in Module: `list student`
-Lists the names of students assigned to the current module you have selected.
+
+Lists the names of students assigned to the current module you have selected. 
+This is slightly different from the `list student details` command, allowing you to view just the names of the students assigned to a module.
 
 Format: `list student`
-
-Example of usage:
-
-`list student`
 
 Expected output:
 ```
@@ -289,12 +296,16 @@ Expected output:
     1. Bryan
 ---------------------------------------------------------------------
 ```
-***
+<hr style="border:1px solid black"> </hr>
 
 ### 2.3 Timetable
 
+<hr style="border:1px solid black"> </hr>
+
 ### 2.3.1 Adding a Lesson: `add timetable`
-Adds a new lesson to the list (timetable) of lessons for the module you have selected.
+
+Adds a new lesson to the list (timetable) of lessons for the current module you have selected. You will be able
+to specify the type of lesson, venue, day and timing.
 
 Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
@@ -319,9 +330,13 @@ Expected output:
     Lecture: FRIDAY, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
+
+In the above example, the user has added a CS2113T Lecture that will occur on Friday from 4pm to 6pm over Zoom. Notice that
+you have to be careful in specifying the `Day` and 24-hr timing format.
 ***
 ### 2.3.2 Removing Timetable Lessons: `delete timetable`
-Deletes the lessons in the timetable corresponding to the index for the module you have selected.
+
+Deletes the lesson in the timetable corresponding to the index, for the current module you have selected.
 
 Format: `delete timetable LESSON_INDEX`
 
@@ -337,7 +352,8 @@ Expected output:
 ```
 ***
 ### 2.3.3 Editing Timetable Lessons: `edit timetable`
-Edits the lessons in the timetable corresponding to the index for the module you have selected.
+
+Edits the lesson in the timetable corresponding to the index, for the current module you have selected.
 
 Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
@@ -363,10 +379,14 @@ Expected output:
     Lecture: MONDAY, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
+
+In the example we have used till now, we had added a CS2113T Lecture that will occur on Friday from 4pm to 6pm over Zoom. 
+The above command can be used to change the day from `FRIDAY` to `MONDAY`.
 ***
 
 ### 2.3.4 Listing Timetable Lessons: `list timetable`
-Lists the lessons in the timetable for the module you have selected.
+
+Lists the lessons in the timetable for the current module you have selected. The index of each lesson is its numerical order in the list. 
 
 Format: `list timetable`
 
@@ -379,13 +399,15 @@ Expected output:
     1. Lecture: FRIDAY, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
-***
+<hr style="border:1px solid black"> </hr>
 
 ### 2.4 Assignment
 
+<hr style="border:1px solid black"> </hr>
+
 ### 2.4.1 Adding an Assignment: `add assignment`
 
-Adds an assignment to the module that is current selected by the user. 
+Adds an assignment to the current module you have selected.
 
 :warning: The parameter /t allows for only 3 types of assignment: "la" (which stands for Long Assignments), "sa" (which stands for Short Assignments) and "mcq" (which stands for Multiple Choice Question Assignments).
 
@@ -407,8 +429,8 @@ Expected output:
 
 ### 2.4.2 Setting Assignment Deadline : `set assignment deadline`
 
-The `set assigment deadline` command allows you to set the date which you have to grade the assignment by.
-If a deadline had previously been set, the deadline of the assignment will be updated with the new deadline.
+The `set assigment deadline` command allows you to set the date to grade the assignment by.
+If a deadline had been set previously, the deadline of the assignment will be updated.
 
 Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
@@ -443,8 +465,8 @@ Examples of usage:</br>
 
 ### 2.4.3 Setting Assignment Grade : `set assignment grade`
 
-The `set assigment grade` command allows you to set the grade of a student after you have graded his/her assignment.
-If a grade had previously been set, the grade for the student will be updated with the new grade.
+The `set assigment grade` command allows you to set the grade of a student after you have graded their assignment.
+If a grade had been set previously, the grade for the student will be updated.
 
 Format: `set assignment grade /a ASSIGNMENT_NAME /s STUDENT_NAME /g GRADE`
 
@@ -475,7 +497,7 @@ Examples of usage:</br>
 
 ### 2.4.4 Setting Assignment Percentage: `set assignment percentage`
 
-Sets the assignment percentage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer.
+Sets the assignment weightage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer.
 
 Format: `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE`
 
@@ -495,12 +517,13 @@ Expected output:
 
 ### 2.4.5 Setting Assignment Comments: `set assignment comments`
 
-Sets the assignment comments of an existing assignment. The assignment comment must not exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on that feature!).
+Sets a comment for an existing assignment. The assignment comment cannot exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on this feature!).
 
-| :bulb: |Although the edit and append features for assignment comments are still in production, you can recreate an edit by calling the "get assignment comments" (Section 2.20) command, copy-pasting the result onto your terminal and editing before calling this command.|
+| :bulb: |The editing an assignment's comment feature is still in production. However, you can recreate an edit by calling the [`get assignment comments`](#246-getting-assignment-comments-get-assignment-comments) command, copy-pasting the result onto your terminal and editing before setting assignment comments again|
 |----------------------|-------------------------------------|
 
 Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
+
 Examples of usage:
 * `set assignment comments /a Magic Sequence /p This assignment is well done.`
 * `set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
@@ -518,7 +541,7 @@ Expected output:
 
 ### 2.4.6 Getting Assignment Comments: `get assignment comments`
 
-Gets the assignment comments of an existing assignment and prints it out for the user.
+Retrieves the assignment comments of an existing assignment and prints it out for the user.
 
 Format: `get assignment comments /a ASSIGNMENT_NAME`
 
@@ -560,8 +583,8 @@ Expected output:
 
 ### 2.4.8 Listing Module Assignments : `list assignments` 
 
-This command lists out all the assignments in the current module you are working in. It also shows you information on the type of assignment 
-and the due date for grading if you have set a deadline for the assignment.
+This command lists out all the assignments in the current module you have selected. It also shows you information on the type of assignment 
+and the due date for grading, if you have set a deadline for the assignment.
 
 If you have executed the `sort assignments by deadline` command, the assignments will be listed in order from the most to least urgent deadline.
 Otherwise, the assignments will be listed in the order it was added. (more details of sorting assignments will be provided in section 2.4.9 `sort assignments by deadline`)
@@ -587,7 +610,7 @@ Expected output:
 ***
 ### 2.4.9 Sorting Module Assignments : `sort assignments by deadline` 
 
-Sorting the assignments in the module by deadline allows you to easily keep track of which assignments have to be graded soon. 
+Sorts and lists the assignments in the module by deadline, allowing you to easily keep track of which assignments have to be graded soon. 
 The assignments are sorted based on the urgency of the grading from the most urgent to the least urgent. </br>
 
 Here are some special cases to consider when sorting assignments:
@@ -601,8 +624,6 @@ Here are some special cases to consider when sorting assignments:
 
 
 Format: `sort assignments by deadline`
-
-Example of usage:
 
 Here is an example of the before and after of sorting assignments by deadline
 
@@ -632,7 +653,6 @@ After sorting:
 ### 2.4.10 Listing Assignment Grades : `list assignment grades` 
 
 Lists the students' grades for a particular assignment.
-The students listed are sorted by grades.
 
 Format: `list assignment grades /a ASSIGNMENT_NAME`
 
@@ -816,12 +836,16 @@ Expected output:
 
 | :information_source: | Answers for MCQ assignments are limited to the options A to E or 1 to 5</br>Answers fpr Short Answer Assignments are limited to 100 characters.|
 |----------------------|-------------------------------------|
-***
+
+<hr style="border:1px solid black"> </hr>
 
 
 ### 2.5 Help and Exit
 
+<hr style="border:1px solid black"> </hr>
+
 ### 2.5.1 Listing Basic Commands: `help`
+
 This command is available for you to get a quick reference of all the basic commands available in ModMan, and their usages.
 You can invoke `help` any time you are unsure of the basic commands and their formats.
 
@@ -851,6 +875,7 @@ Expected output:
 Please note that it does not display the full list of commands (due to there being so many!).
 You may open this User Guide for a comprehensive list.
 
+***
 
 ### 2.5.2 Exiting ModMan : `bye`
 
@@ -864,7 +889,7 @@ Expected output:
     Bye. Hope to see you again soon!
 ---------------------------------------------------------------------
 ```
-***
+<hr style="border:2px solid black"> </hr>
 
 ## 3. FAQ
 
@@ -880,33 +905,69 @@ Expected output:
 
 **A**: You can simply copy and paste the answer key and student scripts into the respective folders in the working directory of ModMan named `answers` and `scripts` respectively.
 
-## 4. Command Summary
+<hr style="border:2px solid black"> </hr>
 
-Action | Format, Examples
+## 4. Command Summary
+<br>
+
+**Module Commands:**
+
+| Action | Format, Examples |
 ------ | ----------------
-help | `help` <br>
 add module | `add module MODULE_NAME` <br> e.g. `add module CS2113T`
 remove module | `remove module MODULE_NAME` <br> e.g. `remove module CS2113T`
 select module | `select MODULE_NAME` <br> e.g. `select CS2113T`
 view current module | `current` <br>
 list module | `list module` <br>
+
+<br>
+
+**Student Commands:**
+
+
+| Action | Format, Examples |
+------ | ----------------
 add student | `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL` <br> e.g. `add student /s John Doe /# A0123456Y /e e0123456@u.nus.edu`
 list student details | `list student details` <br>
 list student | `list student` <br> 
+
+<br>
+
+**Timetable Commands:**
+
+| Action | Format, Examples |
+------ | ----------------
 add timetable | `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `add timetable /t Lecture /v Zoom /d FRIDAY /s 1600 /e 1800`
-list timetable | `list timetable` <br> 
 delete timetable | `delete timetable LESSON_INDEX` <br> e.g. `delete timetable 1`
-edit timetable | `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `edit timetable 1 /t - /v COM2 /d - /s 1600 /e 1800` 
+edit timetable | `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME` <br> e.g. `edit timetable 1 /t - /v COM2 /d - /s 1600 /e 1800`
+list timetable | `list timetable` <br> 
+
+<br>
+
+**Assignment Commands:**
+
+| Action | Format, Examples |
+------ | ----------------
 add assignment | `add assignment /t TYPE_OF_ASSIGNMENT /a ASSIGNMENT_NAME` <br> e.g. `add assignment /t mcq /a Magic Sequence`
-list assignments | `list assignments` <br>
-sort assignments by deadline | `sort assignments by deadline` <br>
-edit assignment | `edit assignment /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
+set assignment deadline | `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE` <br> e.g. `set assignment deadline /a quiz1 /d 17 08 2021`
+set assignment grade | `set assignment grade /a ASSIGNMENT_NAME /s STUDENT_NAME /g GRADE` <br> e.g. `set assignment grade /a quiz1 /s Jianning /g 100`
 set assignment percentage | `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE` <br> e.g. `set assignment percentage /a Magic Sequence /p 15`
 set assignment comments | `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS` <br> e.g. `set assignment comments /a Magic Sequence /p This assignment is well done.`
 get assignment comments | `get assignment comments /a ASSIGNMENT_NAME` <br> e.g. `get assignment comments /a Magic Sequence`
-set assignment deadline | `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE` <br> e.g. `set assignment deadline /a quiz1 /d 17 08 2021`
+edit assignment name | `edit assignment name /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME` <br> e.g. `edit assignment /t mcq /a Magic Sequence /n Forest Fruits`
+list assignments | `list assignments` <br>
+sort assignments by deadline | `sort assignments by deadline` <br>
 list assignment grades | `list assignment grades /a ASSIGNMENT_NAME` <br> e.g. `list assignment grades /a quiz1`
-autograde assignment | `autograde assignment /a ASSIGNMENT_NAME` <br> e.g. `autograde assignment /a quiz1`
-bye | `bye` <br>
 view assignment answer | `view assignment answer /a ASSIGNMENT_NAME` <br> e.g. `view assignment answer /a quiz1`
 view student script | `view student script /a ASSIGNMENT_NAME /s STUDENT_NAME` <br> e.g. `view assignment answer /a quiz1 /s Jianning`
+autograde assignment | `autograde assignment /a ASSIGNMENT_NAME` <br> e.g. `autograde assignment /a quiz1`
+
+<br>
+
+**Help and Exit Commands:**
+
+
+| Action | Format|
+------ | ----------------
+help | `help` <br>
+bye | `bye` <br>
