@@ -434,7 +434,7 @@ If a deadline had been set previously, the deadline of the assignment will be up
 
 Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
-| :warning: | The deadline must be in the format `dd MM yyyy` e.g. 16 08 2021 </br> You are also restricted to dates from the years 2021 to 2030 |
+| :warning: | The deadline must be in the format `dd MM yyyy` e.g. 16 08 2021. You are also restricted to dates between year 2021 and 2030 </br> |
 |----------------------|-------------------------------------|
 
 
@@ -470,7 +470,7 @@ If a grade had been set previously, the grade for the student will be updated.
 
 Format: `set assignment grade /a ASSIGNMENT_NAME /s STUDENT_NAME /g GRADE`
 
-| :warning: | The grade must be a percentage in the range from 0 to 100</br> It can also be a floating point number|
+| :warning: | The grade must be a percentage within the range 0 to 100. It can also be a decimal number.</br>|
 |----------------------|-------------------------------------|
 
 
@@ -483,7 +483,7 @@ Examples of usage:</br>
     I have set Jianning's grade to 100 for assignment quiz1 in CS2113T
 ---------------------------------------------------------------------
 ```
-2. `set assignment grade /a quiz1 /s Jianning /g 101`
+2. `set assignment grade /a quiz1 /s Jianning /g 101
 
 ```
 ---------------------------------------------------------------------
@@ -495,15 +495,15 @@ Examples of usage:</br>
 |----------------------|-------------------------------------|
 ***
 
-### 2.4.4 Setting Assignment Percentage: `set assignment percentage`
+### 2.4.4 Setting Assignment Percentage: `set assignment percentage` 
 
-Sets the assignment weightage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer.
+Sets the assignment weightage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer. 
 
-Format: `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE`
+Format: `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE` 
 
 Examples of usage:
-* `set assignment percentage /a Magic Sequence /p 15`
-* `set assignment percentage /a Forest Fruits /p 25.0`
+* `set assignment percentage /a Magic Sequence /p 15` 
+* `set assignment percentage /a Forest Fruits /p 25.0` 
 
 Expected output:
 
@@ -515,18 +515,18 @@ Expected output:
 
 ***
 
-### 2.4.5 Setting Assignment Comments: `set assignment comments`
-
-Sets a comment for an existing assignment. The assignment comment cannot exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on this feature!).
-
-| :bulb: |The editing an assignment's comment feature is still in production. However, you can recreate an edit by calling the [`get assignment comments`](#246-getting-assignment-comments-get-assignment-comments) command, copy-pasting the result onto your terminal and editing before setting assignment comments again|
-|----------------------|-------------------------------------|
-
-Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
+### 2.4.5 Setting Assignment Comments: `set assignment comments` 
+ 
+Sets a comment for an existing assignment. The assignment comment cannot exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on this feature!). 
+ 
+| :bulb: |The editing an assignment's comment feature is still in production. However, you can recreate an edit by calling the [`get assignment comments`](#246-getting-assignment-comments-get-assignment-comments) command, copy-pasting the result onto your terminal and editing before setting assignment comments again| 
+|----------------------|-------------------------------------| 
+ 
+Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS` 
 
 Examples of usage:
-* `set assignment comments /a Magic Sequence /p This assignment is well done.`
-* `set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
+* `set assignment comments /a Magic Sequence /c This assignment is well done.`
+* `set assignment comments /a Forest Fruits /c Most people did not solve this assignment in full.`
 
 Expected output:
 

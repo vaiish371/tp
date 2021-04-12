@@ -40,6 +40,7 @@ import seedu.duke.exception.ModManException;
 import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.TimeFormatException;
 import seedu.duke.exception.SameNameEditException;
+import seedu.duke.exception.IllegalCharacterException;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -78,6 +79,12 @@ public class Parser {
         logger.log(Level.FINE, "parsing user command");
         Command command;
         line = line.trim() + " ";
+        for (int i = 0; i < line.length(); i++) {
+            char character = line.charAt(i);
+            if (character == '|') {
+                throw new IllegalCharacterException();
+            }
+        }
         if (line.equals("bye ")) {
             logger.log(Level.INFO, "bye command entered");
             command = new ExitCommand();
