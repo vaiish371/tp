@@ -204,7 +204,7 @@ The deadline can then be used to sort the assignments based on the urgency of th
 
 Given below is the sequence diagram for the `SetAssignmentDeadlineCommand`:
 
-![DeadlineCommand](uml/SetDeadlineF.png)
+![DeadlineCommand](uml/SetDeadline.png)
 
 | :information_source: |  deadline passed into the setDeadline() function is of type `LocalDate` |
 |----------------------|-------------------------------------|
@@ -260,7 +260,7 @@ The code snippet for the compareTo() function which allows `Assignment` to imple
 
 Given below is the sequence diagram for the `SortAssignmentsByDeadlineCommand`:
 
-![sortCommand](uml/SortAssignmentByDeadlineCommandF.png)
+![sortCommand](uml/SortAssignmentByDeadlineCommand.png)
 
 
 
@@ -286,7 +286,7 @@ The sequence in which Autograding is carried out is as follows:
 
 The aforementioned sequence of events is also shown in the following sequence diagrams:
 
-![AutogradeCommand](uml/AutogradeDraft.png)
+![AutogradeCommand](uml/Autograde.png)
 
 :information_source: Reference frames for the `AutogradeAssignmentCommand` sequence diagram:
 * The `getCommand` reference frame can be found in the `Logic Component` section.
@@ -296,7 +296,7 @@ The aforementioned sequence of events is also shown in the following sequence di
 
 Reference frame for `autogradeMcq`:
 
-![AutogradeMcq](uml/SdMcqDraft.png)
+![AutogradeMcq](uml/SdMcq.png)
 
 Implementation Considerations in Autograding:
 
@@ -381,7 +381,7 @@ With the help of ModMan, users will be able to add, edit, and store all informat
    with `Java 11` installed.
 1. The application should be responsive - users should not face any sluggish performance.
 1. Users who have above average typing speeds (in English) should be able to easily issue commands faster than using a mouse.
-1. The application should not depend on any remote servers. This means it can be accessed anywhere, without a need for an Internet connection. 
+1. The application should not depend on any remote servers. This means it can be accessed anywhere, without the need for an Internet connection. 
 
 
 ## Glossary
@@ -393,7 +393,16 @@ With the help of ModMan, users will be able to add, edit, and store all informat
 
 ## Instructions for manual testing
 
+This section provides instructions for testing ModMan manually. You may wish to refer to ModMan's 
+[User Guide](https://ay2021s2-cs2113t-f08-1.github.io/tp/UserGuide.html) to find out about
+the various commands, and their input format.
+
 ### Initial launch
+
+1. Ensure you have Java 11 installed on your computer or install it from [here](https://www.oracle.com/sg/java/technologies/javase-jdk11-downloads.html).
+1. Download the latest `ModMan.jar` release from [here](https://github.com/AY2021S2-CS2113T-F08-1/tp/releases/tag/v2.0).
+1. Open a command window in the folder containing the `.jar` file.
+1. Run the command `java -jar {filename}.jar` <br> If you haven't changed the filename, run the command `java -jar ModMan.jar`
 
 ### Sorting Assignments
 

@@ -1,5 +1,7 @@
 @startuml
 
+hide footbox
+
 group sd autogradeMcq
 
 participant ":McqAssignment" as McqAssignment

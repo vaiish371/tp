@@ -1,6 +1,8 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
+hide footbox
+
 loop over scanner.hasNext()
 
 [-> Storage: loadAnswer()
