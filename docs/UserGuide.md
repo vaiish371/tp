@@ -114,7 +114,7 @@ This section provides a warning for the handling of database for ModMan.
 
 If you delete the whole `Database.txt`, a new `Database.txt` would be created for you.
 
-Edits may be made in `Database.txt` that effects changes in ModMan while still loading those changes in when starting up.
+Even though we do not recommend it, edits may be made in `Database.txt` that effects changes in ModMan while still loading those changes in when starting up.
 * For example, changing student name of `Student` to another name that does not match any other `Student`.
 
 ***
