@@ -35,6 +35,19 @@ public class EditModuleTimetableCommand extends Command {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHmm");
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
 
+    /**
+     * Constructor for EditModuleTimetableCommand Class.
+     *
+     * @param lessonIndex int specifying index of lesson to be edited.
+     * @param moduleCode current module.
+     * @param lessonType String specifying lesson type.
+     * @param venue String specifying venue.
+     * @param day String specifying day of the week.
+     * @param startTime String specifying start time.
+     * @param endTime String specifying end time.
+     * @throws NumberFormatException Thrown when lesson index cannot be converted into an int.
+     * @throws ModuleNotSelectedException Thrown when user is not currently working in any module.
+     */
     public EditModuleTimetableCommand(String lessonIndex, String moduleCode, String lessonType, String venue,
                                String day, String startTime, String endTime) throws NumberFormatException,
             ModuleNotSelectedException {
@@ -50,6 +63,22 @@ public class EditModuleTimetableCommand extends Command {
         this.lessonType = lessonType.trim();
     }
 
+    /**
+     * Edits a lesson from the current module.
+     * Prints output confirming change to user.
+     *
+     * @param data keeps track of module information.
+     * @param ui prints messages to the console.
+     * @param storage saves and retrieves information from database.
+     * @throws IndexNotFoundException Thrown when no lesson found at lesson index.
+     * @throws DateTimeFormatException Thrown when an error parsing the start time and end time.
+     * @throws ModuleNotFoundException Thrown when module is not found.
+     * @throws EmptyParameterException Thrown when Thrown when any of the parameters in user input are empty.
+     * @throws DayFormatException Thrown when day format is invalid.
+     * @throws InvalidStartTimeException Thrown when start time is not before end time.
+     * @throws TimeFormatException Thrown when start time and end time have invalid format.
+     * @throws DuplicateLessonException Thrown when another lesson with identical details already exists.
+     */
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws IndexNotFoundException, DateTimeFormatException,
             ModuleNotFoundException, EmptyParameterException, DayFormatException, InvalidStartTimeException,

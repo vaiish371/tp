@@ -1,6 +1,7 @@
 package seedu.duke.command;
 
 import seedu.duke.data.module.Module;
+import seedu.duke.exception.LessonNotFoundException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.assignment.Assignment;
 import seedu.duke.data.Data;
@@ -17,6 +18,15 @@ public class EditAssignmentNameCommand extends Command {
     private final String oldName;
     private final String newName;
 
+    /**
+     * Constructor for EditAssignmentNameCommand Class.
+     *
+     * @param moduleCode current module.
+     * @param oldName String specifying current name of the assignment.
+     * @param newName String specifying new name of the assignment.
+     * @throws EmptyParameterException Thrown when newName is an empty String.
+     * @throws SameNameEditException Thrown when newName is identical to oldName.
+     */
     public EditAssignmentNameCommand(String moduleCode, String oldName, String newName)
             throws EmptyParameterException, SameNameEditException {
         this.moduleCode = moduleCode;
@@ -30,6 +40,18 @@ public class EditAssignmentNameCommand extends Command {
         }
     }
 
+    /**
+     * Edits the name of an assignment from oldName to newName.
+     * Prints output confirming change to user.
+     *
+     * @param data keeps track of module information.
+     * @param ui prints messages to the console.
+     * @param storage saves and retrieves information from database.
+     * @throws ModuleNotFoundException Thrown when module is not found.
+     * @throws AssignmentNotFoundException Thrown when assignment is not found.
+     * @throws ModuleNotSelectedException Thrown when user is not currently working in any module.
+     * @throws AssignmentNameExistsException Thrown when an assignment with the same name as newName already exists.
+     */
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             AssignmentNotFoundException, ModuleNotSelectedException, AssignmentNameExistsException {
         if (moduleCode == null) {

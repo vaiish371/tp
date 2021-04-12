@@ -45,7 +45,9 @@ import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+/**
+ * Parser class deals with making sense of the user command.
+ */
 public class Parser {
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
     private static final int ADD_MODULE_LENGTH = 11;
@@ -64,6 +66,13 @@ public class Parser {
     private static final int SELECT_LENGTH = 7;
     private static String currentModule = null;
 
+    /**
+     * parse method takes in a String of user input and returns the corresponding Command object based on it.
+     *
+     * @param line String of user input.
+     * @return Command command object depending on user input.
+     * @throws ModManException Thrown when user input is not a valid command.
+     */
     public static Command parse(String line) throws ModManException {
         logger.setLevel(Level.INFO);
         logger.log(Level.FINE, "parsing user command");
@@ -132,6 +141,11 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Returns a HelpCommand object.
+     *
+     * @return Command HelpCommand object.
+     */
     private static Command getHelpModuleCommand() {
         logger.log(Level.INFO, "help command entered");
         Command command;
@@ -139,6 +153,13 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Parses through the user input and returns a ViewScriptCommand object.
+     *
+     * @param line String of user input.
+     * @return Command ViewScriptCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     */
     private static Command getViewScriptCommand(String line)
             throws InsufficientParametersException {
         Command command;
@@ -157,8 +178,15 @@ public class Parser {
         }
         return command;
     }
-  
 
+    /**
+     * Parses through the user input and returns an AutogradeAssignmentCommand object.
+     *
+     * @param line String of user input.
+     * @return Command AutogradeAssignmentCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     * @throws ModuleNotSelectedException Thrown when user is not currently working in any module.
+     */
     private static Command getAutogradeAssignentCommand(String line)
             throws InsufficientParametersException, ModuleNotSelectedException {
         Command command;
@@ -174,8 +202,14 @@ public class Parser {
         }
         return command;
     }
-    
-           
+
+    /**
+     * Parses through the user input and returns a ViewAnswersCommand object.
+     *
+     * @param line String of user input.
+     * @return Command ViewAnswersCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     */
     private static Command getViewAnswersCommand(String line)
             throws InsufficientParametersException {
         Command command;
@@ -198,6 +232,13 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Parses through the user input and returns a RemoveModuleCommand object.
+     *
+     * @param line String of user input.
+     * @return Command RemoveModuleCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     */
     private static Command getRemoveModuleCommand(String line) throws InsufficientParametersException {
         logger.log(Level.INFO, "remove module command entered");
         Command command;
@@ -210,6 +251,13 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Parses through the user input and returns a SelectModuleCommand object.
+     *
+     * @param line String of user input.
+     * @return Command SelectModuleCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     */
     private static Command getSelectModuleCommand(String line) throws InsufficientParametersException {
         logger.log(Level.INFO, "select module command entered");
         Command command;
@@ -229,10 +277,20 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Sets the current working module.
+     *
+     * @param currentModule String specifying the module code of current working module.
+     */
     public static void setCurrentModule(String currentModule) {
         Parser.currentModule = currentModule;
     }
 
+    /**
+     * Get the current working module.
+     *
+     * @return String specifying the module code of current working module.
+     */
     public static String getCurrentModule() {
         if (currentModule == null) {
             return null;
@@ -241,6 +299,15 @@ public class Parser {
         }
     }
 
+    /**
+     * Parses through the user input and returns an EditAssignmentNameCommand object.
+     *
+     * @param line String of user input.
+     * @return Command EditAssignmentNameCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     * @throws EmptyParameterException Thrown when any of the parameters in user input are empty.
+     * @throws SameNameEditException Thrown when editing an assignment name to be the same as another assignment.
+     */
     private static Command getEditAssignmentNameCommand(String line)
             throws InsufficientParametersException, EmptyParameterException, SameNameEditException {
         Command command;
@@ -260,7 +327,6 @@ public class Parser {
         return command;
     }
 
-
     private static Command getSortAssignmentByDeadlineCommand() throws ModuleNotSelectedException {
         Command command;
         logger.log(Level.INFO, "sort assignments by deadline command entered");
@@ -269,6 +335,15 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Parses through the user input and returns a SetAssignmentDeadlineCommand object.
+     *
+     * @param line String of user input.
+     * @return Command SetAssignmentDeadlineCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     * @throws DateTimeFormatException Thrown when given deadline format is wrong or invalid.
+     * @throws ModuleNotSelectedException Thrown when user is not currently working in any module.
+     */
     private static Command getSetAssignmentDeadlineCommand(String line) throws InsufficientParametersException,
             DateTimeFormatException, ModuleNotSelectedException {
         Command command;
@@ -310,6 +385,14 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Parses through the user input and returns a GetAssignmentCommentsCommand object.
+     *
+     * @param line String of user input.
+     * @return Command GetAssignmentCommentsCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     * @throws ModuleNotSelectedException Thrown when user is not currently working in any module.
+     */
     private static Command getGetAssignmentCommentsCommand(String line)
             throws InsufficientParametersException, ModuleNotSelectedException {
         Command command;
@@ -427,6 +510,15 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Parses through the user input and returns an EditModuleTimetableCommand object.
+     *
+     * @param line String of user input.
+     * @return Command EditModuleTimetableCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     * @throws IndexNotFoundException Thrown when no lesson exists at specified index.
+     * @throws ModuleNotSelectedException Thrown when user is not currently working in any module.
+     */
     private static Command getEditModuleTimetableCommand(String line) throws InsufficientParametersException,
             IndexNotFoundException, ModuleNotSelectedException {
         Command command;
@@ -481,6 +573,15 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Parses through the user input and returns an AddStudentCommand object.
+     *
+     * @param line String of user input.
+     * @return Command AddStudentCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     * @throws ModuleNotSelectedException Thrown when user is not currently working in any module.
+     * @throws EmptyParameterException Thrown when any of the parameters in user input are empty.
+     */
     private static Command getAddStudentCommand(String line) throws InsufficientParametersException,
             ModuleNotSelectedException, EmptyParameterException {
         Command command;
@@ -515,6 +616,15 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Parses through the user input and returns an AddAssignmentCommand object.
+     *
+     * @param line String of user input.
+     * @return Command AddAssignmentCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     * @throws ModuleNotSelectedException Thrown when user is not currently working in any module.
+     * @throws EmptyParameterException Thrown when any of the parameters in user input are empty.
+     */
     private static Command getAddAssignmentCommand(String line) throws InsufficientParametersException,
             ModuleNotSelectedException, EmptyParameterException {
         Command command;
@@ -534,6 +644,14 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Parses through the user input and returns a ListStudentGradesForAssignmentCommand object.
+     *
+     * @param line String of user input.
+     * @return Command ListStudentGradesForAssignmentCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     * @throws ModuleNotSelectedException Thrown when user is not currently working in any module.
+     */
     private static Command getListStudentAssignmentGradesCommand(String line)
             throws InsufficientParametersException, ModuleNotSelectedException {
         Command command;
@@ -550,6 +668,14 @@ public class Parser {
         return command;
     }
 
+    /**
+     * Parses through the user input and returns an AddModuleCommand object.
+     *
+     * @param line String of user input.
+     * @return Command AddModuleCommand object.
+     * @throws InsufficientParametersException Thrown when not enough parameters given in user input.
+     * @throws EmptyModuleException Thrown when user's input module code is empty.
+     */
     private static Command getAddModuleCommand(String line) throws InsufficientParametersException,
             EmptyModuleException {
         Command command;
