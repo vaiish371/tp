@@ -35,7 +35,7 @@ Given below are my contributions to the project.
 
 - **Documentation**:
     - User Guide:
-        - Added documentation for listing basic commands: `help`: #87
+        - Added documentation for listing basic commands: `help`: 
         - Added documentation for listing module: `list module`:
         - Added documentation for listing students in a module and their details: `list student` and `list student details`
     - Developer Guide:
