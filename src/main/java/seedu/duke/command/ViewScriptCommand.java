@@ -26,7 +26,7 @@ public class ViewScriptCommand extends Command {
     private static Logger logger = Logger.getLogger(ViewScriptCommand.class.getName());
 
     /**
-     * Constructor for ViewScriptCommand Class
+     * Constructor for ViewScriptCommand Class.
      *
      * @param moduleCode current module
      * @param assignmentName name of the assignment
@@ -39,7 +39,7 @@ public class ViewScriptCommand extends Command {
     }
 
     /**
-     * Retrieves a student's script from the scripts directory and displays the student's answer on the console
+     * Retrieves a student's script from the scripts directory and displays the student's answer on the console.
      *
      * @param data keeps track of module information
      * @param ui prints messages to the console

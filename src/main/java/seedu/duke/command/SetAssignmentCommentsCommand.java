@@ -17,7 +17,7 @@ public class SetAssignmentCommentsCommand extends Command {
     private String comments;
 
     /**
-     * Constructor for SetAssignmentCommentsCommand Class
+     * Constructor for SetAssignmentCommentsCommand Class.
      *
      * @param moduleCode current module
      * @param assignmentName name of assignemnt
@@ -39,7 +39,7 @@ public class SetAssignmentCommentsCommand extends Command {
     }
 
     /**
-     * Sets the comments for the assignment
+     * Sets the comments for the assignment.
      *
      * @param data keeps track of module information
      * @param ui prints messages to the console

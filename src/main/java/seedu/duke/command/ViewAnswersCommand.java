@@ -28,7 +28,7 @@ public class ViewAnswersCommand extends Command {
     private static Logger logger = Logger.getLogger(ViewAnswersCommand.class.getName());
 
     /**
-     * Constructor for ViewAnswersCommand Class
+     * Constructor for ViewAnswersCommand Class.
      *
      * @param moduleCode current module
      * @param assignmentName name of assignment
@@ -39,7 +39,7 @@ public class ViewAnswersCommand extends Command {
     }
 
     /**
-     * Retrieves answer key from the answers directory and displays it on the console
+     * Retrieves answer key from the answers directory and displays it on the console.
      *
      * @param data keeps track of module information
      * @param ui prints messages to the console

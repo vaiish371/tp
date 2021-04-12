@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public interface Autogradable {
 
     /**
-     * Grades all the students' scripts found in the scripts directory and sets the grade of each student
+     * Grades all the students' scripts found in the scripts directory and sets the grade of each student.
      *
      * @param students ArrayList<Student> of students enrolled in the module
      * @param moduleCode String current module

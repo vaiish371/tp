@@ -25,7 +25,7 @@ public class SetAssignmentDeadlineCommand extends Command {
     private static Logger logger = Logger.getLogger(SetAssignmentDeadlineCommand.class.getName());
 
     /**
-     * Constructor for SetAssignmentDeadlineCommand Class
+     * Constructor for SetAssignmentDeadlineCommand Class.
      *
      * @param moduleCode current module
      * @param assignmentName name of assignment
@@ -50,7 +50,7 @@ public class SetAssignmentDeadlineCommand extends Command {
     }
 
     /**
-     * Sets the deadline for an assignment
+     * Sets the deadline for an assignment.
      *
      * @param data keeps track of module information
      * @param ui prints messages to the console

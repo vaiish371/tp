@@ -19,7 +19,7 @@ public class SetAssignmentPercentageCommand extends Command {
     private float percentage;
 
     /**
-     * Constructor for SetAssignmentPercentageCommand Class
+     * Constructor for SetAssignmentPercentageCommand Class.
      *
      * @param moduleCode current module
      * @param assignmentName name of assignment
@@ -42,7 +42,7 @@ public class SetAssignmentPercentageCommand extends Command {
     }
 
     /**
-     * Sets the percentage of overall grade the assignment contributes to
+     * Sets the percentage of overall grade the assignment contributes to.
      *
      * @param data keeps track of module information
      * @param ui prints messages to the console

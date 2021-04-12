@@ -20,7 +20,7 @@ public class SetAssignmentGradeCommand extends Command {
     public String grade;
 
     /**
-     * Constructor for SetAssignmentGradeCommand Class
+     * Constructor for SetAssignmentGradeCommand Class.
      *
      * @param moduleCode current module
      * @param assignmentName name of assignment
@@ -44,7 +44,7 @@ public class SetAssignmentGradeCommand extends Command {
     }
 
     /**
-     * Sets the grade a student received for an assigment
+     * Sets the grade a student received for an assigment.
      *
      * @param data keeps track of module information
      * @param ui prints messages to the console

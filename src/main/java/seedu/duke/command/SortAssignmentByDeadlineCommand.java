@@ -11,7 +11,7 @@ public class SortAssignmentByDeadlineCommand extends Command {
     private String moduleCode;
 
     /**
-     * Constructor for SortAssignmentByDeadlineCommand
+     * Constructor for SortAssignmentByDeadlineCommand.
      *
      * @param moduleCode current module
      * @throws ModuleNotSelectedException not working in any module
@@ -25,7 +25,7 @@ public class SortAssignmentByDeadlineCommand extends Command {
     }
 
     /**
-     * Sorts all assignments in module by deadline from most to least urgent
+     * Sorts all assignments in module by deadline from most to least urgent.
      *
      * @param data keeps track of module information
      * @param ui prints messages to the console

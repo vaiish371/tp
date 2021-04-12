@@ -15,7 +15,7 @@ public class LongAnswerAssignment extends Assignment {
     }
 
     /**
-     * Sets the answer for the assignment
+     * Sets the answer for the assignment.
      *
      * @param answer answer key
      */
@@ -25,7 +25,7 @@ public class LongAnswerAssignment extends Assignment {
     }
 
     /**
-     * Returns answer key for assignment
+     * Returns answer key for assignment.
      *
      * @return answer key for assignment
      */

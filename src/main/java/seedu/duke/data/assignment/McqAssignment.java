@@ -17,7 +17,7 @@ public class McqAssignment extends Assignment implements Autogradable {
     private Answer answer;
 
     /**
-     * Constructor for McqAssignment Class
+     * Constructor for McqAssignment Class.
      *
      * @param name name of assignment
      */
@@ -27,7 +27,7 @@ public class McqAssignment extends Assignment implements Autogradable {
     }
 
     /**
-     * Sets the answer for the assignment
+     * Sets the answer for the assignment.
      *
      * @param answer answer for the assignment
      *
@@ -47,7 +47,7 @@ public class McqAssignment extends Assignment implements Autogradable {
     }
 
     /**
-     * Returns the answer key for the assignment
+     * Returns the answer key for the assignment.
      *
      * @return answer key for the assignment
      */
@@ -56,7 +56,7 @@ public class McqAssignment extends Assignment implements Autogradable {
     }
 
     /**
-     * Returns the maximum attainable score for the assignment
+     * Returns the maximum attainable score for the assignment.
      *
      * @return maximum score for assignment
      */
@@ -70,7 +70,7 @@ public class McqAssignment extends Assignment implements Autogradable {
     }
 
     /**
-     * Grades all the students' scripts found in the scripts directory and sets the grade of each student
+     * Grades all the students' scripts found in the scripts directory and sets the grade of each student.
      *
      * @param students ArrayList<Student> of students enrolled in the module
      * @param moduleCode String current module

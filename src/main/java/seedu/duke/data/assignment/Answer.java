@@ -9,7 +9,7 @@ public class Answer {
     private int numberOfQuestions;
 
     /**
-     * Constructor for Answer Class
+     * Constructor for Answer Class.
      *
      * @param answers ArrayList<String> of the answers for each question
      * @param marks ArrayList<Integer> of the marks for each question
@@ -22,7 +22,7 @@ public class Answer {
     }
 
     /**
-     * Returns the ArrayList<String> of the answers for each question
+     * Returns the ArrayList<String> of the answers for each question.
      *
      * @return answers for each question
      */
@@ -31,7 +31,7 @@ public class Answer {
     }
 
     /**
-     * Returns the ArrayList<Integer> of the marks for each question
+     * Returns the ArrayList<Integer> of the marks for each question.
      *
      * @return marks for each question
      */
@@ -40,7 +40,7 @@ public class Answer {
     }
 
     /**
-     * Returns the number of questions in the answer key
+     * Returns the number of questions in the answer key.
      *
      * @return number of questions in the answer key
      */
@@ -49,7 +49,7 @@ public class Answer {
     }
 
     /**
-     * Compares a student script with the answer key for the assignment
+     * Compares a student script with the answer key for the assignment.
      *
      * @param script student script
      * @return raw score the student got for the assignment
