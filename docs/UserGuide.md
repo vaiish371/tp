@@ -27,8 +27,8 @@ Welcome to the User Guide for ModMan!
 Regardless if you are a teaching assistant, student or lecturer, this guide would be helpful for you in picking up and using ModMan.
 
 * You may navigate to any subsection from the [Table of contents](#table-of-contents).
-* Scroll down or click [here](#1-quick-start) for the Quick Start guide to get started now.
-* [FAQ](#3-faq) and [Command Summary](#4-command-summary) are available for quick queries or reference.
+* Scroll down or click [here](#quick-start) for the Quick Start guide to get started now.
+* [FAQ](#faq) and [Command Summary](#command-summary) are available for quick queries or reference.
 
 <div style="page-break-after: always;"></div>
 
@@ -45,43 +45,43 @@ Icon | Purpose
 
 ## Table of contents
 1. [Quick start](#quick-start) <br>
-    1.1 [Input Formatting](#11-input-formatting)<br>
-    1.2 [Database File Tampering](#12-database-file-tampering)<br>
-1. [Features](#2-features) <br>
-   2.1 [Module](#21-module) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#211-adding-a-module-add-module) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.2 [`remove module` - Removing a Module](#212-removing-a-module-remove-module) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.3 [`select` - Selecting a Module](#213-selecting-a-module-select) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.4 [`current` - Viewing Current Module](#214-viewing-current-module-current) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.5 [`list module` - Listing Modules](#215-listing-modules-list-module) <br>
-   2.2 [Student](#22-student) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.1 [`add student` - Adding a Student](#221-adding-a-student-add-student) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.2 [`list student details` - Listing Students Details](#222-listing-students-details-list-student-details) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.3 [`list student` - Listing Students in Module](#223-listing-students-in-module-list-student) <br>
-   2.3 [Timetable](#23-timetable) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.1 [`add timetable` - Adding a Lesson](#231-adding-a-lesson-add-timetable) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.2 [`delete timetable` - Removing Timetable Lessons](#232-removing-timetable-lessons-delete-timetable) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.3 [`edit timetable` - Editing a Timetable Lesson](#233-editing-timetable-lessons-edit-timetable) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.4 [`list timetable` - Listing Timetable Lessons](#234-listing-timetable-lessons-list-timetable) <br>
-   2.4 [Assignment](#24-assignment) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.1 [`add assignment` - Adding an Assignment](#241-adding-an-assignment-add-assignment) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.2 [`set assignment deadline` - Setting Assignment Deadline](#242-setting-assignment-deadline--set-assignment-deadline) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.3 [`set assignment grade` - Setting Assignment Grade](#243-setting-assignment-grade--set-assignment-grade) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.4 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#244-setting-assignment-percentage-set-assignment-percentage) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.5 [`set assignment comments` - Setting Assignment Comments](#245-setting-assignment-comments-set-assignment-comments) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.6 [`get assignment comments` - Getting Assignment Percentage](#246-getting-assignment-comments-get-assignment-comments) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.7 [`edit assignment name` - Editing an Assignment Name](#247-editing-an-assignment-name-edit-assignment-name) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.8 [`list assignments` - Listing Module Assignments](#248-listing-module-assignments--list-assignments) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.9 [`sort assignments by deadline` - Sorting Module Assignments](#249-sorting-module-assignments--sort-assignments-by-deadline) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.10 [`list assignment grades` - Listing Assignment Grades](#2410-listing-assignment-grades--list-assignment-grades) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.11 [`view assignment answer` - Viewing Assignment Answers](#2411-viewing-assignment-answer--view-assignment-answer) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.12 [`view student script` - Viewing Student Script](#2412-viewing-student-script--view-student-script) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.13 [`autograde assignment` - Auto-Grading Assignments](#2413-autograding-assignments--autograde-assignment) <br>
-   2.5 [Help and Exit](#25-help-and-exit) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.5.1 [`help` - Listing Basic Commands](#251-listing-basic-commands-help) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.5.2 [`bye` - Exiting ModMan](#252-exiting-modman--bye) <br>
-1. [FAQ](#3-faq)
-1. [Command summary](#4-command-summary)
+    1.1 [Input Formatting](#input-formatting)<br>
+    1.2 [Database File Tampering](#database-file-tampering)<br>
+1. [Features](#features) <br>
+   2.1 [Module](#module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#adding-a-module-add-module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.2 [`remove module` - Removing a Module](#removing-a-module-remove-module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.3 [`select` - Selecting a Module](#selecting-a-module-select) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.4 [`current` - Viewing Current Module](#viewing-current-module-current) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.5 [`list module` - Listing Modules](#listing-modules-list-module) <br>
+   2.2 [Student](#student) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.1 [`add student` - Adding a Student](#adding-a-student-add-student) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.2 [`list student details` - Listing Students Details](#listing-students-details-list-student-details) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.3 [`list student` - Listing Students in Module](#listing-students-in-module-list-student) <br>
+   2.3 [Timetable](#timetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.1 [`add timetable` - Adding a Lesson](#adding-a-lesson-add-timetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.2 [`delete timetable` - Removing Timetable Lessons](#removing-timetable-lessons-delete-timetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.3 [`edit timetable` - Editing a Timetable Lesson](#editing-timetable-lessons-edit-timetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.4 [`list timetable` - Listing Timetable Lessons](#listing-timetable-lessons-list-timetable) <br>
+   2.4 [Assignment](#assignment) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.1 [`add assignment` - Adding an Assignment](#adding-an-assignment-add-assignment) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.2 [`set assignment deadline` - Setting Assignment Deadline](#setting-assignment-deadline--set-assignment-deadline) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.3 [`set assignment grade` - Setting Assignment Grade](#setting-assignment-grade--set-assignment-grade) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.4 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#setting-assignment-percentage-set-assignment-percentage) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.5 [`set assignment comments` - Setting Assignment Comments](#setting-assignment-comments-set-assignment-comments) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.6 [`get assignment comments` - Getting Assignment Percentage](#getting-assignment-comments-get-assignment-comments) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.7 [`edit assignment name` - Editing an Assignment Name](#editing-an-assignment-name-edit-assignment-name) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.8 [`list assignments` - Listing Module Assignments](#listing-module-assignments--list-assignments) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.9 [`sort assignments by deadline` - Sorting Module Assignments](#sorting-module-assignments--sort-assignments-by-deadline) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.10 [`list assignment grades` - Listing Assignment Grades](#listing-assignment-grades--list-assignment-grades) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.11 [`view assignment answer` - Viewing Assignment Answers](#viewing-assignment-answer--view-assignment-answer) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.12 [`view student script` - Viewing Student Script](#viewing-student-script--view-student-script) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.13 [`autograde assignment` - Auto-Grading Assignments](#autograding-assignments--autograde-assignment) <br>
+   2.5 [Help and Exit](#help-and-exit) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.5.1 [`help` - Listing Basic Commands](#listing-basic-commands-help) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.5.2 [`bye` - Exiting ModMan](#exiting-modman--bye) <br>
+1. [FAQ](#faq)
+1. [Command summary](#command-summary)
 
 <div style="page-break-after: always;"></div>
 
@@ -538,7 +538,7 @@ Expected output:
  
 Sets a comment for an existing assignment. The assignment comment cannot exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on this feature!). 
  
-| :bulb: |The editing an assignment's comment feature is still in production. However, you can recreate an edit by calling the [`get assignment comments`](#246-getting-assignment-comments-get-assignment-comments) command, copy-pasting the result onto your terminal and editing before setting assignment comments again| 
+| :bulb: |The editing an assignment's comment feature is still in production. However, you can recreate an edit by calling the [`get assignment comments`](#getting-assignment-comments-get-assignment-comments) command, copy-pasting the result onto your terminal and editing before setting assignment comments again| 
 |----------------------|-------------------------------------| 
  
 Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS` 
