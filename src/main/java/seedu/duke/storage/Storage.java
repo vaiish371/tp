@@ -34,6 +34,9 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Storage class which interfaces with the database .txt files of the program.
+ */
 public class Storage {
 
     private static final String ROOT = System.getProperty("user.dir");
@@ -47,6 +50,10 @@ public class Storage {
     private static final String TXTFILE = ".txt";
     private static Logger logger = Logger.getLogger(Storage.class.getName());
 
+    /**
+     * Constructor method for storage.
+     * Makes a Database.txt file if one is not found in the project directory.
+     */
     public Storage() {
         logger.setLevel(Level.INFO);
         logger.log(Level.INFO, "current directory: " + ROOT);
@@ -64,6 +71,11 @@ public class Storage {
         }
     }
 
+    /**
+     * Saves the user's existing data for the current session into the database.
+     * @param data object from the user's existing session
+     * @throws FileNotSavedException if an error is encountered during the saving process
+     */
     public void saveData(Data data) throws FileNotSavedException {
         try {
             logger.log(Level.INFO, "current directory: " + ROOT);
@@ -87,7 +99,13 @@ public class Storage {
         }
     }
 
-    private Module loadModule(Scanner scanner, int numberOfModules) throws DataFileCorruptedException {
+    /**
+     * Loads a module from database.
+     * @param scanner to be scanned for a module
+     * @return a module that was previously stored in the database
+     * @throws DataFileCorruptedException if the data file is not being loaded successfully
+     */
+    private Module loadModule(Scanner scanner) throws DataFileCorruptedException {
         String moduleLine = scanner.nextLine();
         Scanner moduleScan = new Scanner(moduleLine);
         moduleScan.useDelimiter("\\s*\\|\\s*");
@@ -131,6 +149,12 @@ public class Storage {
         return module;
     }
 
+    /**
+     * Loads an assignment from database.
+     * @param scanner to be scanned for a module
+     * @return an assignment that was previously stored in the database
+     * @throws DataFileCorruptedException if the data file is not being loaded successfully
+     */
     private Assignment loadAssignment(Scanner scanner) throws DataFileCorruptedException {
         String assignmentLine = scanner.nextLine();
         Scanner assignmentScan = new Scanner(assignmentLine);
@@ -185,6 +209,12 @@ public class Storage {
         return assignment;
     }
 
+    /**
+     * Loads a lesson from database.
+     * @param scanner to be scanned for a module
+     * @return a lesson that was previously stored in the database
+     * @throws DataFileCorruptedException if the data file is not being loaded successfully
+     */
     private Lesson loadLesson(Scanner scanner) {
         String lessonLine = scanner.nextLine();
         Scanner lessonScan = new Scanner(lessonLine);
@@ -200,6 +230,11 @@ public class Storage {
         return lesson;
     }
 
+    /**
+     * Loads a student from the database.
+     * @param scanner to be scanned for a module
+     * @return a student that was previously stored in the database
+     */
     private Student loadStudent(Scanner scanner) {
         String studentLine = scanner.nextLine();
         Scanner studentScan = new Scanner(studentLine);
@@ -211,6 +246,13 @@ public class Storage {
         return student;
     }
 
+    /**
+     * Loads all data from a database.
+     * @return Data object containing all data saved from the previous session
+     * @throws DataFileNotFoundException if the data file cannot be found
+     * @throws FileFormatException if there are issues with loading the file format
+     * @throws DataFileCorruptedException if the data file is corrupted with unexpected inputs or formatting
+     */
     public Data loadData() throws DataFileNotFoundException, FileFormatException, DataFileCorruptedException {
         try {
             logger.log(Level.INFO, "current directory: " + ROOT);
@@ -222,7 +264,7 @@ public class Storage {
             int numberOfModules = scanner.nextInt();
             scanner.nextLine();
             for (int i = 0; i < numberOfModules; i++) {
-                Module module = loadModule(scanner, numberOfModules);
+                Module module = loadModule(scanner);
                 for (Module checkModule : modules) {
                     if (module.getModuleCode().equals(checkModule.getModuleCode())) {
                         throw new DataFileCorruptedException();
@@ -239,6 +281,20 @@ public class Storage {
         }
     }
 
+    /**
+     * Loads answer for a particular assignment from the database.
+     * @param assignmentName name of the assignment
+     * @param moduleCode module code of the module with this assignment
+     * @return Answer object containing information of answers to an assignment
+     * @throws DataFileNotFoundException if the data file cannot be found
+     * @throws NumbersMisalignException if the numbers misalign is found
+     * @throws FileFormatException if an error is encountered when loading the file
+     * @throws InvalidQuestionNumberException if the question number is invalid
+     * @throws MarkTooLargeException if the marks for a student is larger than the threshold
+     * @throws MissingMarksException if there are missing marks for an assignment
+     * @throws MissingAnswerException if there are missing answers for an assignment
+     * @throws AnswerTooLongException if the answer set is too long
+     */
     public Answer loadAnswer(String assignmentName, String moduleCode) throws DataFileNotFoundException,
             NumbersMisalignException, FileFormatException, InvalidQuestionNumberException,
             MarkTooLargeException, MissingMarksException, MissingAnswerException, AnswerTooLongException {
@@ -294,6 +350,18 @@ public class Storage {
         return answerKey;
     }
 
+    /**
+     * Loads a student's script from the project directory.
+     * @param assignmentName name of assignment for student's script to be loaded
+     * @param moduleCode module code of the module for assignment to be graded
+     * @param studentNumber student number of the student whose script is to be loaded
+     * @return an arraylist of answers
+     * @throws DataFileNotFoundException if the data file cannot be found
+     * @throws NumbersMisalignException if the numbers misalign is found
+     * @throws FileFormatException if an error is encountered when loading the file
+     * @throws InvalidQuestionNumberException if the question number is invalid
+     * @throws AnswerTooLongException if the answer set is too long
+     */
     public ArrayList<String> loadScript(String assignmentName, String moduleCode, String studentNumber) throws
             DataFileNotFoundException, NumbersMisalignException, FileFormatException, InvalidQuestionNumberException,
             AnswerTooLongException {
@@ -328,6 +396,13 @@ public class Storage {
         return answersArray;
     }
 
+    /**
+     * Finds the student's script for the project's directory.
+     * @param assignmentName name of assignment
+     * @param moduleCode module code of module containing the assignment
+     * @param studentNumber student number of student whose script is to be loaded
+     * @return a boolean indicating whether the student's script has been found or not
+     */
     public boolean findStudentScript(String assignmentName, String moduleCode, String studentNumber) {
         String fileName = moduleCode + UNDERSCORE + assignmentName + UNDERSCORE + studentNumber + TXTFILE;
         Path filePath = Paths.get(ROOT, "scripts", fileName);
