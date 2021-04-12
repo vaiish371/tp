@@ -173,7 +173,7 @@ Similarly to `loadAnswer()` as shown in the above Sequence Diagram, the `loadScr
 
 #### Database Failure:
 
-The database should not be tampered with by the user. If the user opens up Database.txt and edits its contents, the data will likely be corrupted. In such cases, the program will fail upon starting, prompting the user to delete Database.txt before running the program again. 
+The database should not be tampered with by the user. If the user opens up `Database.txt` and edits its contents, the data will likely be corrupted. In such cases, the program will fail upon starting, prompting the user to delete `Database.txt` before running the program again. 
 
 ### Data Component
 The figure below shows the classes in ModMan that tracks module information data.
