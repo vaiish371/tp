@@ -26,7 +26,7 @@ Given below are my contributions to the project.
     - Check for duplicate parameters in `add student`: #247, #267
     - Check for duplicate parameters in `add timetable` and `edit timetable`: #267
     - Implemented input validation for empty or whitespace parameters across commands in `Parser` class: #241, #245, #248
-
+    - Implemented check when loading data from `Database.txt` for duplicates. #283
 
 - **Project management**:
     - Managed releases v1.0 - v2.1 (3 releases) on GitHub
