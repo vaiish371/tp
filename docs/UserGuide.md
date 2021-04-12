@@ -112,6 +112,8 @@ This section provides a warning for the handling of database for ModMan.
 | :warning: | The database of ModMan is stored in the `Database.txt` file. **You should not tamper with the file**.<br>If you delete or edit the contents of the `Database.txt` file such that there are duplicate `Module`, `Student`,`Lesson` or `Assignment` or introduce any invalid attributes or formatting, the data will likely be corrupted.<br>In such cases, the program will create a new database upon starting. |
 |----------------------|-------------------------------------|
 
+If you delete the whole `Database.txt`, a new `Database.txt` would be created for you.
+
 Edits may be made in `Database.txt` that effects changes in ModMan while still loading those changes in when starting up.
 * For example, changing student name of `Student` to another name that does not match any other `Student`.
 
