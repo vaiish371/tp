@@ -132,7 +132,7 @@ This section provides a warning for the handling of database for ModMan.
 
 ### 2.1.1 Adding a Module: `add module`
 
-Adds a new module to the list of modules. If you are a TA for multiple modules, you can keep track of all of them.
+Adds a new module to the list of modules. If you are a TA for multiple modules, you can keep track of all of them!
 
 Format: `add module MODULE_NAME`
 
