@@ -132,8 +132,7 @@ This section provides a warning for the handling of database for ModMan.
 
 ### 2.1.1 Adding a Module: `add module`
 
-This command allows you to add modules into the module manager. If the module
-has already been added, Modman will display a message to inform you that.
+Adds a new module to the list of modules. If you are a TA for multiple modules, you can keep track of all of them.
 
 Format: `add module MODULE_NAME`
 
@@ -157,8 +156,7 @@ Expected output:
 
 ### 2.1.2 Removing a Module: `remove module`
 
-This commands allows you to remove a module from the list and will 
-display an error message if you try to repeatedly remove the same module or a non-existent module.
+Removes a module from the list of modules.
 
 Format: `remove module MODULE_NAME`
 
@@ -180,8 +178,7 @@ Expected output:
 ***
 ### 2.1.3 Selecting a Module: `select`
 
-This command allows you to select the module directory you want to currently work in and prevents the need to specify
-the module name every time you want to access a feature.
+Select the module you want to currently work in.
 
 Format: `select MODULE_NAME`
 
@@ -198,14 +195,12 @@ Expected output:
 ````
 
 
-| :information_source: | After selecting, all commands you pass will be pertaining to CS2113T such as adding an assignment or student.|
+| :information_source: | All commands onwards assumes we are working in the module CS2113T |
 |----------------------|-------------------------------------|
 ***
 ### 2.1.4 Viewing Current Module: `current`
 
-This command allows you to view the current module directory you are working in and a
-also provides an overview of the module such as the number of lessons, students and assignments. If you have not
-yet chosen a module directory, this command will result in an error message.
+View the current module you are working in. Also obtain an overview of the module, namely the lessons, assignments, as well as number of students.
 
 Format: `current`
 
@@ -218,16 +213,15 @@ Expected output:
 	Here's an overview of CS2113T
 	    - You have not added any lessons yet.
 
-		- You currently have 0 students in your class
+	    - You currently have 0 students in your class
 
-		- You have not added any assignments to yet.
+	    - You have not added any assignments to yet.
 -------------------------------------------------------------------------- 
 ````
 ***
 ### 2.1.5 Listing Modules: `list module`
 
-This command lists all the modules you have added, and specifies the current module (if any). If there are
-no modules in the database, it will display an error message.
+Lists all the modules you have added, and specifies the current module (if any).
 
 Format: `list module`
 
@@ -247,7 +241,7 @@ Expected output:
 
 ### 2.2.1 Adding a student: `add student`
 
-This command allows you to assign a new student to the current module you have selected.
+Assigns a new student to the current module you have selected.
 
 Format: `add student /s STUDENT_NAME /# STUDENT_NUMBER /e STUDENT_EMAIL`
 
@@ -269,7 +263,7 @@ Expected output:
 
 ### 2.2.2 Listing Students Details: `list student details`
 
-This command lists the details of all students enrolled in a particular module.
+Lists the details of all students assigned to the current module you have selected.
 
 Format: `list student details`
 
@@ -288,9 +282,9 @@ Expected output:
 ***
 
 ### 2.2.3 Listing Students in Module: `list student`
-This command lists the names of students assigned to the current module you have selected. This is slightly different
-from the `list student details` command as sometimes we would just want to view a list of the students enrolled
-in a module without needing their personal details. 
+
+Lists the names of students assigned to the current module you have selected. 
+This is slightly different from the `list student details` command, allowing you to view just the names of the students assigned to a module.
 
 Format: `list student`
 
@@ -312,8 +306,9 @@ Expected output:
 <hr style="border:1px solid black"> </hr>
 
 ### 2.3.1 Adding a Lesson: `add timetable`
-This command allows you to add a new lesson to the list (timetable) of lessons for the module you have selected. You will be able
-to specify the type of lecture, venue, day and timings.
+
+Adds a new lesson to the list (timetable) of lessons for the current module you have selected. You will be able
+to specify the type of lesson, venue, day and timing.
 
 Format: `add timetable /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
@@ -343,7 +338,8 @@ In the above example, the user has added a CS2113T Lecture that will occur on Fr
 you have to be careful in specifying the `Day` and 24-hr timing format.
 ***
 ### 2.3.2 Removing Timetable Lessons: `delete timetable`
-This command allows you to delete a particular lesson in the timetable corresponding to the index, for the module you have selected.
+
+Deletes the lesson in the timetable corresponding to the index, for the current module you have selected.
 
 Format: `delete timetable LESSON_INDEX`
 
@@ -359,7 +355,8 @@ Expected output:
 ```
 ***
 ### 2.3.3 Editing Timetable Lessons: `edit timetable`
-This command allows you to edit the lessons in the timetable corresponding to the index, for the module you have selected.
+
+Edits the lesson in the timetable corresponding to the index, for the current module you have selected.
 
 Format: `edit timetable LESSON_INDEX /t TYPE /v VENUE /d DAY /s START_TIME /e END_TIME`
 
@@ -391,7 +388,8 @@ The above command can be used to change the day from `FRIDAY` to `MONDAY`.
 ***
 
 ### 2.3.4 Listing Timetable Lessons: `list timetable`
-This command allows you to list all the lessons in the timetable for the module you have selected.
+
+Lists the lessons in the timetable for the current module you have selected. The index of each lesson is its numerical order in the list. 
 
 Format: `list timetable`
 
@@ -412,7 +410,7 @@ Expected output:
 
 ### 2.4.1 Adding an Assignment: `add assignment`
 
-This command allows you to add an assignment to the module that is currently selected by the user. 
+Adds an assignment to the current module you have selected.
 
 :warning: The parameter /t allows for only 3 types of assignment: "la" (which stands for Long Assignments), "sa" (which stands for Short Assignments) and "mcq" (which stands for Multiple Choice Question Assignments).
 
@@ -434,8 +432,8 @@ Expected output:
 
 ### 2.4.2 Setting Assignment Deadline : `set assignment deadline`
 
-This command allows you to set the date which you have to grade the assignment by.
-If a deadline had previously been set, the deadline of the assignment will be updated with the new deadline.
+The `set assigment deadline` command allows you to set the date to grade the assignment by.
+If a deadline had been set previously, the deadline of the assignment will be updated.
 
 Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
@@ -470,8 +468,8 @@ Examples of usage:</br>
 
 ### 2.4.3 Setting Assignment Grade : `set assignment grade`
 
-This command allows you to set the grade of a student after you have graded his/her assignment.
-If a grade had previously been set, the grade for the student will be updated with the new grade.
+The `set assigment grade` command allows you to set the grade of a student after you have graded their assignment.
+If a grade had been set previously, the grade for the student will be updated.
 
 Format: `set assignment grade /a ASSIGNMENT_NAME /s STUDENT_NAME /g GRADE`
 
@@ -502,7 +500,7 @@ Examples of usage:</br>
 
 ### 2.4.4 Setting Assignment Percentage: `set assignment percentage`
 
-This command allows you to set the assignment percentage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer.
+Sets the assignment weightage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer.
 
 Format: `set assignment percentage /a ASSIGNMENT_NAME /p PERCENTAGE`
 
@@ -522,9 +520,9 @@ Expected output:
 
 ### 2.4.5 Setting Assignment Comments: `set assignment comments`
 
-This command allows you to set the assignment comments of an existing assignment. The assignment comment must not exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on that feature!).
+Sets a comment for an existing assignment. The assignment comment cannot exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on this feature!).
 
-| :bulb: |Although the edit and append features for assignment comments are still in production, you can recreate an edit by calling the "get assignment comments" (Section 2.20) command, copy-pasting the result onto your terminal and editing before calling this command.|
+| :bulb: |The editing an assignment's comment feature is still in production. However, you can recreate an edit by calling the [`get assignment comments`](#246-getting-assignment-comments-get-assignment-comments) command, copy-pasting the result onto your terminal and editing before setting assignment comments again|
 |----------------------|-------------------------------------|
 
 Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
@@ -545,8 +543,7 @@ Expected output:
 
 ### 2.4.6 Getting Assignment Comments: `get assignment comments`
 
-This command allows you to retrieve the assignment comments of an existing assignment and prints it out for the user. You
-can use this command to recreate an existing comment by copy-pasting it onto your terminal and editing before calling this command.
+Retrieves the assignment comments of an existing assignment and prints it out for the user.
 
 Format: `get assignment comments /a ASSIGNMENT_NAME`
 
@@ -567,7 +564,7 @@ Expected output:
 
 ### 2.4.7 Editing an Assignment Name: `edit assignment name`
 
-This command allows you to edit the assignment name of an existing assignment
+Edits the assignment name of an existing assignment
 
 Format: `edit assignment name /a OLD_ASSIGNMENT_NAME /n NEW_ASSIGNMENT_NAME`
 
@@ -588,8 +585,8 @@ Expected output:
 
 ### 2.4.8 Listing Module Assignments : `list assignments` 
 
-This command lists out all the assignments in the current module you are working in. It also shows you information on the type of assignment 
-and the due date for grading if you have set a deadline for the assignment.
+This command lists out all the assignments in the current module you have selected. It also shows you information on the type of assignment 
+and the due date for grading, if you have set a deadline for the assignment.
 
 If you have executed the `sort assignments by deadline` command, the assignments will be listed in order from the most to least urgent deadline.
 Otherwise, the assignments will be listed in the order it was added. (more details of sorting assignments will be provided in section 2.4.9 `sort assignments by deadline`)
@@ -615,7 +612,7 @@ Expected output:
 ***
 ### 2.4.9 Sorting Module Assignments : `sort assignments by deadline` 
 
-This command allows you to sort the assignments in the module by deadline and helps you to easily keep track of which assignments have to be graded soon. 
+Sorts and lists the assignments in the module by deadline, allowing you to easily keep track of which assignments have to be graded soon. 
 The assignments are sorted based on the urgency of the grading from the most urgent to the least urgent. </br>
 
 Here are some special cases to consider when sorting assignments:
@@ -659,7 +656,7 @@ After sorting:
 
 ### 2.4.10 Listing Assignment Grades : `list assignment grades` 
 
-This command lists the students' grades for a particular assignment with the students list sorted by grades.
+Lists the students' grades for a particular assignment.
 
 Format: `list assignment grades /a ASSIGNMENT_NAME`
 
@@ -678,7 +675,7 @@ Expected output:
 ***
 ### 2.4.11 Viewing Assignment Answer : `view assignment answer`
 
-This command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment.</br>
+The `view assignment answer` command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment.</br>
 
 Answers are stored as text files in the `answers` folder which can be found in the same working directory as the ModMan app.</br>
 
@@ -738,7 +735,7 @@ Expected output:
 
 ### 2.4.12 Viewing Student Script : `view student script`
 
-This command allows you to easily search and retrieve the student's script for an assignment just by entering the name of the assignment and the student.</br>
+The `view student script` command allows you to easily search and retrieve the student's script for an assignment just by entering the name of the assignment and the student.</br>
 
 Scripts are stored as text files in the `scripts` folder which can be found in the same working directory as the ModMan app.</br>
 
@@ -795,7 +792,7 @@ Expected output:
 
 ### 2.4.13 Autograding Assignments : `autograde assignment`
 
-This command allows you to autograde assignments. ModMan has an integrated autograder to help you grade digital assignment submissions easily and efficiently!</br>
+ModMan has an integrated autograder to help you grade digital assignment submissions easily and efficiently!</br>
 
 The key features of autograding are as follows:</br>
 
@@ -852,6 +849,7 @@ Expected output:
 <hr style="border:1px solid black"> </hr>
 
 ### 2.5.1 Listing Basic Commands: `help`
+
 This command is available for you to get a quick reference of all the basic commands available in ModMan, and their usages.
 You can invoke `help` any time you are unsure of the basic commands and their formats.
 
@@ -885,7 +883,7 @@ You may open this User Guide for a comprehensive list.
 
 ### 2.5.2 Exiting ModMan : `bye`
 
-This command will help you auto-save all your changes and exits the program. ModMan will have all your data ready the next time you load it.
+Auto-saves all your changes and exits the program. ModMan will have all your data ready the next time you load it.
 
 Format: `bye`
 
