@@ -17,7 +17,7 @@ A command line interface (CLI) is a text-based user interface used to view and m
 
 These include operating system CLIs like the Command Prompt on Windows, which can be used to run and interact with the ModMan application.
 
-<hr style="border:2px solid orange"> </hr>
+<hr style="border:2px solid orange; background-color: orange"> </hr>
 
 ## How to use the User Guide
 Welcome to the User Guide for ModMan!
@@ -39,7 +39,7 @@ Icon | Purpose
 | :warning: | Warnings on usage of ModMan |
 | :bulb: | Tips for Teaching Assistants |
 
-<hr style="border:2px solid orange"> </hr>
+<hr style="border:2px solid orange; background-color: orange"> </hr>
 
 <div style="page-break-after: always;"></div>
 
@@ -83,7 +83,7 @@ Icon | Purpose
 1. [FAQ](#3-faq)
 1. [Command summary](#4-command-summary)
 
-<hr style="border:2px solid orange"> </hr>
+<hr style="border:2px solid orange; background-color: orange"> </hr>
 <div style="page-break-after: always;"></div>
 
 ## 1. Quick Start
@@ -93,7 +93,7 @@ Icon | Purpose
 1. Open a command window in the folder containing the `.jar` file.
 1. Run the command `java -jar {filename}.jar` <br> If you haven't changed the filename, run the command `java -jar ModMan.jar`
 
-<hr style="border:1px solid darkorange"> </hr>
+<hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
 ### 1.1 Input Formatting
 This section covers points to note about proper input formats for commands.
@@ -111,8 +111,7 @@ This section covers points to note about proper input formats for commands.
 | :warning: | Inputs that do not follow this format would be invalid. |
 |----------------------|-------------------------------------|
 
-<hr style="border:1px solid darkorange"> </hr>
-
+<hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
 ### 1.2 Database File Tampering
 
@@ -126,18 +125,17 @@ If you delete the whole `Database.txt`, a new `Database.txt` would be created fo
 Although not recommended, edits may be made in `Database.txt` that effects changes in ModMan while still loading those changes in when starting up.
 * For example, changing student name of `Student` to another name that does not match any other `Student`.
 
-<hr style="border:2px solid black"> </hr>
+<hr style="border:2px solid orange; background-color: orange"> </hr>
 
 ## 2. Features 
 
 | :information_source: | Inputs in `UPPER_CASE` are parameters to be supplied by the user. |
 |----------------------|-------------------------------------|
 
-<hr style="border:1px solid black"> </hr>
 
 ### 2.1 Module
 
-<hr style="border:1px solid black"> </hr>
+<hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.1.1 Adding a Module: `add module`
 
@@ -242,11 +240,12 @@ Expected output:
 	1. CS2113T (current)
 -------------------------------------------------------------------------- 
 ````
-<hr style="border:1px solid black"> </hr>
+
+<div style="page-break-after: always;"></div>
 
 ### 2.2 Student 
 
-<hr style="border:1px solid black"> </hr>
+<hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.2.1 Adding a student: `add student`
 
@@ -300,11 +299,12 @@ Expected output:
     1. Bryan
 ---------------------------------------------------------------------
 ```
-<hr style="border:1px solid black"> </hr>
+
+<div style="page-break-after: always;"></div>
 
 ### 2.3 Timetable
 
-<hr style="border:1px solid black"> </hr>
+<hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.3.1 Adding a Lesson: `add timetable`
 
@@ -403,11 +403,12 @@ Expected output:
     1. Lecture: FRIDAY, 16:00-18:00 (Zoom)
 ---------------------------------------------------------------------
 ```
-<hr style="border:1px solid black"> </hr>
+
+<div style="page-break-after: always;"></div>
 
 ### 2.4 Assignment
 
-<hr style="border:1px solid black"> </hr>
+<hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.1 Adding an Assignment: `add assignment`
 
@@ -836,12 +837,11 @@ Expected output:
 | :information_source: | Answers for MCQ assignments are limited to the options A to E or 1 to 5</br>Answers fpr Short Answer Assignments are limited to 100 characters.|
 |----------------------|-------------------------------------|
 
-<hr style="border:1px solid black"> </hr>
-
+<div style="page-break-after: always;"></div>
 
 ### 2.5 Help and Exit
 
-<hr style="border:1px solid black"> </hr>
+<hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.5.1 Listing Basic Commands: `help`
 
@@ -888,7 +888,8 @@ Expected output:
     Bye. Hope to see you again soon!
 ---------------------------------------------------------------------
 ```
-<hr style="border:2px solid black"> </hr>
+
+<hr style="border:2px solid orange; background-color: orange"> </hr>
 
 ## 3. FAQ
 
@@ -904,7 +905,7 @@ Expected output:
 
 **A**: You can simply copy and paste the answer key and student scripts into the respective folders in the working directory of ModMan named `answers` and `scripts` respectively.
 
-<hr style="border:2px solid black"> </hr>
+<hr style="border:2px solid orange; background-color: orange"> </hr>
 
 ## 4. Command Summary
 <br>
