@@ -49,8 +49,8 @@ Icon | Purpose
     1.2 [Database File Tampering](#database-file-tampering)<br>
 1. [Features](#features) <br>
    2.1 [Module](#module) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#adding-a-module) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.2 [`remove module` - Removing a Module](#removing-a-module-remove-module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#adding-a-module---add-module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.2 [`remove module` - Removing a Module](#removing-a-module---remove-module) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.3 [`select` - Selecting a Module](#selecting-a-module-select) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.4 [`current` - Viewing Current Module](#viewing-current-module-current) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.5 [`list module` - Listing Modules](#listing-modules-list-module) <br>
@@ -136,7 +136,7 @@ Although not recommended, edits may be made in `Database.txt` that effects chang
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.1 Adding a Module: `add module`
+### 2.1.1 Adding a Module - `add module`
 
 Adds a new module to the list of modules. If you are a TA for multiple modules, you can keep track of all of them!
 
@@ -160,7 +160,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.2 Removing a Module: `remove module`
+### 2.1.2 Removing a Module - `remove module`
 
 Removes a module from the list of modules.
 
@@ -183,7 +183,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.3 Selecting a Module: `select`
+### 2.1.3 Selecting a Module - `select`
 
 Select the module you want to currently work in.
 
@@ -207,7 +207,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.4 Viewing Current Module: `current`
+### 2.1.4 Viewing Current Module - `current`
 
 View the current module you are working in. Also obtain an overview of the module, namely the lessons, assignments, as well as number of students.
 
@@ -230,7 +230,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.5 Listing Modules: `list module`
+### 2.1.5 Listing Modules - `list module`
 
 Lists all the modules you have added, and specifies the current module (if any).
 
@@ -251,7 +251,7 @@ Expected output:
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.2.1 Adding a student: `add student`
+### 2.2.1 Adding a student - `add student`
 
 Assigns a new student to the current module you have selected.
 
@@ -274,7 +274,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.2.2 Listing Students Details: `list student details`
+### 2.2.2 Listing Students Details - `list student details`
 
 Lists the details of all students assigned to the current module you have selected.
 
@@ -291,7 +291,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.2.3 Listing Students in Module: `list student`
+### 2.2.3 Listing Students in Module - `list student`
 
 Lists the names of students assigned to the current module you have selected. 
 This is slightly different from the `list student details` command, allowing you to view just the names of the students assigned to a module.
@@ -312,7 +312,7 @@ Expected output:
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.3.1 Adding a Lesson: `add timetable`
+### 2.3.1 Adding a Lesson - `add timetable`
 
 Adds a new lesson to the list (timetable) of lessons for the current module you have selected. You will be able
 to specify the type of lesson, venue, day and timing.
@@ -346,7 +346,7 @@ you have to be careful in specifying the `Day` and 24-hr timing format.
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.3.2 Removing Timetable Lessons: `delete timetable`
+### 2.3.2 Removing Timetable Lessons - `delete timetable`
 
 Deletes the lesson in the timetable corresponding to the index, for the current module you have selected.
 
@@ -365,7 +365,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.3.3 Editing Timetable Lessons: `edit timetable`
+### 2.3.3 Editing Timetable Lessons - `edit timetable`
 
 Edits the lesson in the timetable corresponding to the index, for the current module you have selected.
 
@@ -399,7 +399,7 @@ The above command can be used to change the day from `FRIDAY` to `MONDAY`.
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.3.4 Listing Timetable Lessons: `list timetable`
+### 2.3.4 Listing Timetable Lessons - `list timetable`
 
 Lists the lessons in the timetable for the current module you have selected. The index of each lesson is its numerical order in the list. 
 
@@ -421,7 +421,7 @@ Expected output:
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.1 Adding an Assignment: `add assignment`
+### 2.4.1 Adding an Assignment - `add assignment`
 
 Adds an assignment to the current module you have selected.
 
@@ -444,7 +444,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.2 Setting Assignment Deadline : `set assignment deadline`
+### 2.4.2 Setting Assignment Deadline - `set assignment deadline`
 
 The `set assigment deadline` command allows you to set the date to grade the assignment by.
 If a deadline had been set previously, the deadline of the assignment will be updated.
@@ -481,7 +481,7 @@ Examples of usage:</br>
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.3 Setting Assignment Grade : `set assignment grade`
+### 2.4.3 Setting Assignment Grade - `set assignment grade`
 
 The `set assigment grade` command allows you to set the grade of a student after you have graded their assignment.
 If a grade had been set previously, the grade for the student will be updated.
@@ -514,7 +514,7 @@ Examples of usage:</br>
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.4 Setting Assignment Percentage: `set assignment percentage` 
+### 2.4.4 Setting Assignment Percentage - `set assignment percentage` 
 
 Sets the assignment weightage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer. 
 
@@ -534,7 +534,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.5 Setting Assignment Comments: `set assignment comments` 
+### 2.4.5 Setting Assignment Comments - `set assignment comments` 
  
 Sets a comment for an existing assignment. The assignment comment cannot exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on this feature!). 
  
@@ -558,7 +558,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.6 Getting Assignment Comments: `get assignment comments`
+### 2.4.6 Getting Assignment Comments - `get assignment comments`
 
 Retrieves the assignment comments of an existing assignment and prints it out for the user.
 
@@ -579,7 +579,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.7 Editing an Assignment Name: `edit assignment name`
+### 2.4.7 Editing an Assignment Name - `edit assignment name`
 
 Edits the assignment name of an existing assignment
 
@@ -600,7 +600,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.8 Listing Module Assignments : `list assignments` 
+### 2.4.8 Listing Module Assignments - `list assignments` 
 
 The `list assignments` command lists out all the assignments in the current module you are working in. It also shows you information on the type of assignment 
 and the due date for grading, if you have set a deadline for the assignment.
@@ -629,7 +629,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.9 Sorting Module Assignments : `sort assignments by deadline` 
+### 2.4.9 Sorting Module Assignments - `sort assignments by deadline` 
 
 The `sort assignment by deadline` command sorts and lists the assignments in your current module by deadline, allowing you to easily keep track of which assignments have to be graded soon. 
 The assignments are sorted based on the urgency of the grading from the most urgent to the least urgent. </br>
@@ -667,7 +667,7 @@ After sorting:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.10 Listing Assignment Grades : `list assignment grades` 
+### 2.4.10 Listing Assignment Grades - `list assignment grades` 
 
 Lists the students' grades for a particular assignment.
 
@@ -688,7 +688,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.11 Viewing Assignment Answer : `view assignment answer`
+### 2.4.11 Viewing Assignment Answer - `view assignment answer`
 
 The `view assignment answer` command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment. </br>
 
@@ -749,7 +749,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.12 Viewing Student Script : `view student script`
+### 2.4.12 Viewing Student Script - `view student script`
 
 The `view student script` command allows you to easily search and retrieve the student's script for an assignment just by entering the name of the assignment and the student.</br> 
 
@@ -806,7 +806,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.13 Autograding Assignments : `autograde assignment`
+### 2.4.13 Autograding Assignments - `autograde assignment`
 
 ModMan has an integrated autograder to help you grade digital assignment submissions easily and efficiently!</br> 
 
@@ -863,7 +863,7 @@ Expected output:
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.5.1 Listing Basic Commands: `help`
+### 2.5.1 Listing Basic Commands - `help`
 
 This command is available for you to get a quick reference of all the basic commands available in ModMan, and their usages.
 You can invoke `help` any time you are unsure of the basic commands and their formats.
@@ -896,7 +896,7 @@ You may open this User Guide for a comprehensive list.
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.5.2 Exiting ModMan : `bye`
+### 2.5.2 Exiting ModMan - `bye`
 
 Auto-saves all your changes and exits the program. ModMan will have all your data ready the next time you load it.
 
