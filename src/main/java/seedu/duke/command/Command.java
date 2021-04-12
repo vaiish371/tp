@@ -20,7 +20,7 @@ public abstract class Command {
      * @param data keeps track of module information
      * @param ui prints messages to the console
      * @param storage saves and retrieves information from database
-     * @throws ModManException
+     * @throws ModManException which is a superclass of all exceptions that can be expected from ModMan
      */
     public abstract void execute(Data data, Ui ui, Storage storage) throws ModManException;
 

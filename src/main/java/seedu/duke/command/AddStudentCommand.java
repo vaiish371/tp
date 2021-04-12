@@ -11,7 +11,7 @@ import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.ui.Ui;
 
 /**
- * Class for adding a student into the database
+ * Class for adding a student into the database.
  */
 public class AddStudentCommand extends Command {
     public String moduleCode;

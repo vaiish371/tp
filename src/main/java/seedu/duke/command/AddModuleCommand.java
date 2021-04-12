@@ -16,7 +16,7 @@ public class AddModuleCommand extends Command {
     /**
      * Constructor for AddModuleCommand.
      * @param moduleCode module code of the module to be appended into the database
-     * @throws EmptyModuleException
+     * @throws EmptyModuleException if the module code is empty
      */
     public AddModuleCommand(String moduleCode) throws EmptyModuleException {
         this.moduleCode = moduleCode.trim();
