@@ -628,7 +628,6 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 ***
-
 ### 2.4.11 Viewing Assignment Answer : `view assignment answer`
 
 The `view assignment answer` command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment.</br>
@@ -652,8 +651,7 @@ On the right, we have the answer key for a Short Answer assignment quiz2.
 :warning: Here are some things to look out for when editing the answer text file:
 * Question numbers should be in sequential order starting from 1
 * Answers for MCQ assignments should only include options A to E or 1 to 5
-* Answers for Short Answer assignments should not exceed 50 characters long
-* Answers for Long Answer assignments should not exceed 100 characters long
+* Answers for Short Answer and Long Answer assignments should not exceed 100 characters long
 * Marks should have non-negative integer values
 * Ensure that the delimiter `|` is not used in the answer
 
@@ -747,14 +745,14 @@ Expected output:
 ***
 
 
-### 2.4.13 Autograding Assignments : `autograde assignment` 
+### 2.4.13 Autograding Assignments : `autograde assignment`
 
 ModMan has an integrated autograder to help you grade digital assignment submissions easily and efficiently!</br>
 
 The key features of autograding are as follows:</br>
 
-* All the students' scripts for that assignment found in the `scripts` folder will be graded. 
-* The grades for each student will be listed out for you and automatically saved in the database. 
+* All the students' scripts for that assignment found in the `scripts` folder will be graded.
+* The grades for each student will be listed out for you and automatically saved in the database.
 * Keeps track of which of your students have not submitted their work.
 
 | :warning: | Currently, only MCQ and Short Answer assignments can be autograded |
@@ -764,7 +762,7 @@ Format: `autograde assignment /a ASSIGNMENT_NAME`
 
 Example of usage:
 
-Let's say you are currently teaching 10 students in CS2113T and the deadline for students to submit their quiz1 MCQ assignment was yesterday. 
+Let's say you are currently teaching 10 students in CS2113T and the deadline for students to submit their quiz1 MCQ assignment was yesterday.
 The following 3 steps are all you need to autograde all your students'assignments:
 
 1. Copy and Paste the answer key for quiz1 into the `answers` folder found in the same working directory as the ModMan app.
@@ -798,6 +796,7 @@ Expected output:
 | :information_source: | Answers for MCQ assignments are limited to the options A to E or 1 to 5</br>Answers fpr Short Answer Assignments are limited to 100 characters.|
 |----------------------|-------------------------------------|
 ***
+
 
 ### 2.5 Help and Exit
 

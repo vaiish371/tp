@@ -10,6 +10,12 @@ import seedu.duke.ui.Ui;
 public class SortAssignmentByDeadlineCommand extends Command {
     private String moduleCode;
 
+    /**
+     * Constructor for SortAssignmentByDeadlineCommand.
+     *
+     * @param moduleCode current module
+     * @throws ModuleNotSelectedException not working in any module
+     */
     public SortAssignmentByDeadlineCommand(String moduleCode) throws ModuleNotSelectedException {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
@@ -18,6 +24,14 @@ public class SortAssignmentByDeadlineCommand extends Command {
 
     }
 
+    /**
+     * Sorts all assignments in module by deadline from most to least urgent.
+     *
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModuleNotFoundException module not found
+     */
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
         Module module = data.find(moduleCode);
