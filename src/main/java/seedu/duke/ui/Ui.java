@@ -197,7 +197,7 @@ public class Ui {
     }
 
     /**
-     * Prints out all existing comments for an assignment
+     * Prints out all existing comments for an assignment.
      *
      * @param assignmentName String specifying name of the assignment.
      * @param comments ArrayList of String containing the comments added to the assignment.
