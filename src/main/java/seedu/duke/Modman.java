@@ -11,12 +11,19 @@ import seedu.duke.ui.Ui;
 
 import java.util.logging.LogManager;
 
+/**
+ * Main class of the program.
+ */
 public class Modman {
 
     private Storage storage;
     private Data data;
     private Ui ui;
 
+    /**
+     * Main method of the program.
+     * @throws FileNotSavedException if ModMan fails to save the data file
+     */
     public Modman() throws FileNotSavedException {
         ui = new Ui();
         storage = new Storage();
@@ -36,6 +43,9 @@ public class Modman {
         }
     }
 
+    /**
+     * Run method of the program that runs constantly in a while loop.
+     */
     public void run() {
         ui.showWelcomeMessage();
         ui.printModules(data.getModules());
