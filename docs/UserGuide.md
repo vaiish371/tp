@@ -49,7 +49,7 @@ Icon | Purpose
     1.2 [Database File Tampering](#database-file-tampering)<br>
 1. [Features](#features) <br>
    2.1 [Module](#module) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#adding-a-module-add-module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#adding-a-module) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.2 [`remove module` - Removing a Module](#removing-a-module-remove-module) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.3 [`select` - Selecting a Module](#selecting-a-module-select) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.4 [`current` - Viewing Current Module](#viewing-current-module-current) <br>
