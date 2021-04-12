@@ -1,5 +1,7 @@
 @startuml
 
+hide footbox
+
 Actor User as user #000000
 Participant ":UI" as ui #83E769
 Participant ":Logic" as logic #C8C8FA

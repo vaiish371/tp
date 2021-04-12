@@ -1,5 +1,7 @@
 @startuml
 
+hide footbox
+
 participant ":Storage" as Storage
 participant ":Scanner" as Scanner
 participant ":Module" as Module

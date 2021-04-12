@@ -1,5 +1,7 @@
 @startuml
 
+hide footbox
+
 group sd getCommand
 participant ":Parser" as Parser
 participant ":XYZCommand" as Command
