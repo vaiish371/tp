@@ -1,4 +1,4 @@
-# Jianning Zhuang's Project Portfolio Page
+# Zhuang Jianning's Project Portfolio Page
 
 ### Project: ModMan
 Short for Module Manager, ModMan is a desktop app designed to help teaching assistants manage their module(s).
