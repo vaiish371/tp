@@ -267,10 +267,6 @@ Lists the details of all students assigned to the current module you have select
 
 Format: `list student details`
 
-Example of usage:
-
-`list student details`
-
 Expected output:
 
 ```` 
@@ -287,10 +283,6 @@ Lists the names of students assigned to the current module you have selected.
 This is slightly different from the `list student details` command, allowing you to view just the names of the students assigned to a module.
 
 Format: `list student`
-
-Example of usage:
-
-`list student`
 
 Expected output:
 ```
@@ -526,6 +518,7 @@ Sets a comment for an existing assignment. The assignment comment cannot exceed 
 |----------------------|-------------------------------------|
 
 Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
+
 Examples of usage:
 * `set assignment comments /a Magic Sequence /p This assignment is well done.`
 * `set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
@@ -626,8 +619,6 @@ Here are some special cases to consider when sorting assignments:
 
 
 Format: `sort assignments by deadline`
-
-Example of usage:
 
 Here is an example of the before and after of sorting assignments by deadline
 
