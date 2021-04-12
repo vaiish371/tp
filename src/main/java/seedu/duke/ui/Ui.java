@@ -192,7 +192,7 @@ public class Ui {
      * @param comment String of the comment that has been added.
      */
     public void printSetAssignmentComments(String moduleCode, String assignmentName, String comment) {
-        System.out.println("\t " + "I have set the comments to  " + assignmentName + ":\n\t\t"
+        System.out.println("\t " + "I have set the comments to " + assignmentName + ":\n\t\t"
                 + comment);
     }
 
@@ -207,7 +207,7 @@ public class Ui {
             System.out.println("\tYou do not have any comments for this assignment previously!");
         } else {
             System.out.println("\t " + "Your previous comments for " + assignmentName + " is as follows:\n");
-            System.out.println(comments);
+            System.out.println("\t " + comments);
         }
     }
 
