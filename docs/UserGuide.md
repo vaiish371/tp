@@ -17,6 +17,8 @@ A command line interface (CLI) is a text-based user interface used to view and m
 
 These include operating system CLIs like the Command Prompt on Windows, which can be used to run and interact with the ModMan application.
 
+***
+
 ## How to use the User Guide
 Welcome to the User Guide for ModMan!
 
@@ -35,9 +37,12 @@ Icon | Purpose
 | :warning: | Warnings on usage of ModMan |
 | :bulb: | Tips for Teaching Assistants |
 
+***
+
 ## Table of contents
 1. [Quick start](#1-quick-start) <br>
     1.1 [Input Formatting](#11-input-formatting)<br>
+    1.2 [Database File Tampering](#12-database-file-tampering)<br>
 1. [Features](#2-features) <br>
    2.1 [Module](#21-module) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#211-adding-a-module-add-module) <br>
@@ -73,6 +78,7 @@ Icon | Purpose
    &nbsp;&nbsp;&nbsp;&nbsp; 2.5.2 [`bye` - Exiting ModMan](#252-exiting-modman--bye) <br>
 1. [FAQ](#3-faq)
 1. [Command summary](#4-command-summary)
+***
 
 ## 1. Quick Start
 
@@ -81,6 +87,7 @@ Icon | Purpose
 1. Open a command window in the folder containing the `.jar` file.
 1. Run the command `java -jar {filename}.jar` <br> If you haven't changed the filename, run the command `java -jar ModMan.jar`
 
+***
 ### 1.1 Input Formatting
 This section covers points to note about proper input formats for commands.
 
@@ -97,13 +104,15 @@ This section covers points to note about proper input formats for commands.
 | :warning: | Inputs that do not follow this format would be invalid. |
 |----------------------|-------------------------------------|
 
+***
 ### 1.2 Database File Tampering
 
-This section provides a warning for the handling of database for this application. 
+This section provides a warning for the handling of database for ModMan. 
 
-| :warning: | The database of the program is stored in the Database.txt file. You should not tamper with the file. If you open up the Database.txt file and edit its contents, the data will likely be corrupted. In such cases, the program will fail upon starting, prompting the user to delete Database.txt before running the program again. |
+| :warning: | The database of ModMan is stored in the `Database.txt` file. **You should not tamper with the file**.<br>If you edit the contents of the`Database.txt` file, the data will likely be corrupted.<br>In such cases, the program will fail upon starting, prompting the user to delete `Database.txt` before running the program again. |
 |----------------------|-------------------------------------|
 
+***
 ## 2. Features 
 
 | :information_source: | Inputs in `UPPER_CASE` are parameters to be supplied by the user. |
