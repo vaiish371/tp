@@ -98,9 +98,9 @@ This section covers points to note about proper input formats for commands.
 2. For commands with flags (ie. `/t`, `/s`):
     * All flags must be entered completely in the order specified in command format.
     * There is one whitespace before and after each flag eg. `/t<space>TYPE<space>/v<space>...`; Input would be truncated if spaces are not present.</br>
-        * `/t<space>/v...`: One space between flags, second flag would not be recognised. Incorrect number of parameter error may be thrown.
-        * `/t<space><space>/v...`: Two spaces between flags, input for flag `/t` would be parsed as empty. Empty parameter error may be thrown.
-        * `.../s 1600/e 1800`: `START_TIME` will be parsed as `160` and wrong time format error may be thrown.
+        * `/t<space>/v...`: One space between flags, second flag would not be recognised.
+        * `/t<space><space>/v...`: Two spaces between flags, input for flag `/t` would be parsed as empty.
+        * `.../s 1600/e 1800`: `START_TIME` will be parsed as `160`.
     * Any inputs within the space between the flags would be trimmed for whitespaces.
         * `/t<space><space>Lecture<space><space><space>/v ...`: Input for `/t` will be trimmed to `Lecture`.
     
@@ -114,8 +114,13 @@ This section covers points to note about proper input formats for commands.
 
 This section provides a warning for the handling of database for ModMan. 
 
-| :warning: | The database of ModMan is stored in the `Database.txt` file. **You should not tamper with the file**.<br>If you edit the contents of the`Database.txt` file, the data will likely be corrupted.<br>In such cases, the program will fail upon starting, prompting the user to delete `Database.txt` before running the program again. |
+| :warning: | The database of ModMan is stored in the `Database.txt` file. **You should not tamper with the file**.<br>If you delete or edit the contents of the `Database.txt` file such that there are duplicate `Module`, `Student`,`Lesson` or `Assignment` or introduce any invalid attributes or formatting, the data will likely be corrupted.<br>In such cases, the program will create a new database upon starting. |
 |----------------------|-------------------------------------|
+
+If you delete the whole `Database.txt`, a new `Database.txt` would be created for you.
+
+Although not recommended, edits may be made in `Database.txt` that effects changes in ModMan while still loading those changes in when starting up.
+* For example, changing student name of `Student` to another name that does not match any other `Student`.
 
 <hr style="border:2px solid black"> </hr>
 

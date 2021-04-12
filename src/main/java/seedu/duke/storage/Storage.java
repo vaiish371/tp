@@ -101,14 +101,31 @@ public class Storage {
         int numberOfStudents = Integer.parseInt(rawNumberOfStudents);
         for (int j = 0; j < numberOfAssignments; j++) {
             Assignment assignment = loadAssignment(scanner);
+            for (Assignment checkAssignment: module.getAssignments()) {
+                if (assignment.getName().equals(checkAssignment.getName())) {
+                    throw new DataFileCorruptedException();
+                }
+            }
             module.addAssignment(assignment);
         }
         for (int j = 0; j < numberOfLessons; j++) {
             Lesson lesson = loadLesson(scanner);
+            for (Lesson checkLesson : module.getLessons()) {
+                if (lesson.equals(checkLesson)) {
+                    throw new DataFileCorruptedException();
+                }
+            }
             module.addLesson(lesson);
         }
         for (int j = 0; j < numberOfStudents; j++) {
             Student student = loadStudent(scanner);
+            for (Student checkStudent : module.getStudents()) {
+                if (student.getName().equals(checkStudent.getName())
+                        || student.getStudentNumber().equals(checkStudent.getStudentNumber())
+                        || student.getEmail().equals(checkStudent.getEmail())) {
+                    throw new DataFileCorruptedException();
+                }
+            }
             module.addStudent(student);
         }
         return module;
@@ -206,6 +223,11 @@ public class Storage {
             scanner.nextLine();
             for (int i = 0; i < numberOfModules; i++) {
                 Module module = loadModule(scanner, numberOfModules);
+                for (Module checkModule : modules) {
+                    if (module.getModuleCode().equals(checkModule.getModuleCode())) {
+                        throw new DataFileCorruptedException();
+                    }
+                }
                 modules.add(module);
             }
             Data data = new Data(modules);

@@ -18,12 +18,23 @@ import seedu.duke.ui.Ui;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Command used for adding an assignment onto a particular module stored within our data.
+ */
 public class AddAssignmentCommand extends Command {
     public String moduleCode;
     public String assignmentName;
     public String assignmentType;
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
 
+    /**
+     * Constructor for AddAssignmentCommand.
+     * @param assignmentType type of assignment
+     * @param moduleCode module code of the module that the assignment belongs to
+     * @param assignmentName name of the assignment
+     * @throws ModuleNotSelectedException if the user has not selected any modules yet.
+     * @throws EmptyParameterException if any of the parameters remain empty (null or 0) upon construction
+     */
     public AddAssignmentCommand(String assignmentType, String moduleCode, String assignmentName)
             throws ModuleNotSelectedException, EmptyParameterException {
         this.assignmentType = assignmentType.trim();
@@ -41,6 +52,15 @@ public class AddAssignmentCommand extends Command {
         assert this.assignmentName != null : "assignment name cannot be null";
     }
 
+    /**
+     * Execute function to be run.
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModuleNotFoundException if the module does not exist in the user's data yet
+     * @throws InvalidAssignmentException if the user did not input la, sa or mcq for the assignment type
+     * @throws DuplicateAssignmentException if the assignment name already exists for that particular module
+     */
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             InvalidAssignmentException, DuplicateAssignmentException {

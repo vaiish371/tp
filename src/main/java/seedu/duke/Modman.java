@@ -2,6 +2,7 @@ package seedu.duke;
 
 import seedu.duke.command.Command;
 import seedu.duke.data.Data;
+import seedu.duke.exception.DataFileNotFoundException;
 import seedu.duke.exception.FileNotSavedException;
 import seedu.duke.exception.ModManException;
 import seedu.duke.parser.Parser;
@@ -16,16 +17,22 @@ public class Modman {
     private Data data;
     private Ui ui;
 
-    public Modman() {
+    public Modman() throws FileNotSavedException {
         ui = new Ui();
         storage = new Storage();
         try {
             data = storage.loadData();
+        } catch (DataFileNotFoundException e) {
+            data = new Data();
+            storage.saveData(data);
         } catch (ModManException e) {
             data = new Data();
-        } catch (Exception e) {
+            storage.saveData(data);
             ui.showUnrecognisedLoadError();
-            System.exit(0);
+        } catch (Exception e) {
+            data = new Data();
+            storage.saveData(data);
+            ui.showUnrecognisedLoadError();
         }
     }
 
@@ -57,7 +64,7 @@ public class Modman {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotSavedException {
         LogManager.getLogManager().reset();
         new Modman().run();
     }

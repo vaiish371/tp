@@ -1,5 +1,7 @@
 @startuml
 
+hide footbox
+
 participant ":Parser" as Parser
 participant ":SortAssignmentByDeadlineCommand" as Command
 participant ":Data" as Data

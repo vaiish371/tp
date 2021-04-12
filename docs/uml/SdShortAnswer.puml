@@ -1,5 +1,7 @@
 @startuml
 
+hide footbox
+
 group sd autogradeShortAnswer
 
 participant ":ShortAnswerAssignment" as Assignment
