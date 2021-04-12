@@ -5,7 +5,7 @@ public class LongAnswerAssignment extends Assignment {
     private Answer answer;
 
     /**
-     * Constructor for LongAnswerAssignment Class
+     * Constructor for LongAnswerAssignment Class.
      *
      * @param name name of the assignment
      */

@@ -11,8 +11,8 @@ public class Answer {
     /**
      * Constructor for Answer Class.
      *
-     * @param answers ArrayList<String> of the answers for each question
-     * @param marks ArrayList<Integer> of the marks for each question
+     * @param answers ArrayList of the answers for each question
+     * @param marks ArrayList of the marks for each question
      * @param numberOfQuestions number of questions in the answer key
      */
     public Answer(ArrayList<String> answers, ArrayList<Integer> marks, int numberOfQuestions) {
@@ -22,7 +22,7 @@ public class Answer {
     }
 
     /**
-     * Returns the ArrayList<String> of the answers for each question.
+     * Returns the ArrayList of the answers for each question.
      *
      * @return answers for each question
      */
@@ -31,7 +31,7 @@ public class Answer {
     }
 
     /**
-     * Returns the ArrayList<Integer> of the marks for each question.
+     * Returns the ArrayList of the marks for each question.
      *
      * @return marks for each question
      */

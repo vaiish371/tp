@@ -72,7 +72,7 @@ public class McqAssignment extends Assignment implements Autogradable {
     /**
      * Grades all the students' scripts found in the scripts directory and sets the grade of each student.
      *
-     * @param students ArrayList<Student> of students enrolled in the module
+     * @param students ArrayList of students enrolled in the module
      * @param moduleCode String current module
      * @param storage Storage object to retrieve students' scripts
      *
