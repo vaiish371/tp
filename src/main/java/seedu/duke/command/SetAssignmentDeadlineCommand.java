@@ -24,6 +24,16 @@ public class SetAssignmentDeadlineCommand extends Command {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
     private static Logger logger = Logger.getLogger(SetAssignmentDeadlineCommand.class.getName());
 
+    /**
+     * Constructor for SetAssignmentDeadlineCommand Class
+     *
+     * @param moduleCode current module
+     * @param assignmentName name of assignment
+     * @param deadline deadline for assignment
+     * @throws ModuleNotSelectedException not working in any module
+     * @throws DateTimeParseException invalid date
+     * @throws DateTimeFormatException invalid date format
+     */
     public SetAssignmentDeadlineCommand(String moduleCode, String assignmentName, String deadline)
             throws ModuleNotSelectedException, DateTimeParseException, DateTimeFormatException {
         if (moduleCode == null) {
@@ -39,6 +49,15 @@ public class SetAssignmentDeadlineCommand extends Command {
 
     }
 
+    /**
+     * Sets the deadline for an assignment
+     *
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModuleNotFoundException module not found
+     * @throws AssignmentNotFoundException assignment not found
+     */
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             AssignmentNotFoundException {

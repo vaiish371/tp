@@ -27,11 +27,35 @@ public class ViewAnswersCommand extends Command {
     private String assignmentName;
     private static Logger logger = Logger.getLogger(ViewAnswersCommand.class.getName());
 
+    /**
+     * Constructor for ViewAnswersCommand Class
+     *
+     * @param moduleCode current module
+     * @param assignmentName name of assignment
+     */
     public ViewAnswersCommand(String moduleCode, String assignmentName) {
         this.moduleCode = moduleCode;
         this.assignmentName = assignmentName.trim();
     }
 
+    /**
+     * Retrieves answer key from the answers directory and displays it on the console
+     *
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModuleNotFoundException module not found
+     * @throws AssignmentNotFoundException assignment not found
+     * @throws DataFileNotFoundException answer key not found
+     * @throws NumbersMisalignException question numbers do not match
+     * @throws FileFormatException wrong format in answer key
+     * @throws InvalidMcqOption mcq assignment has invalid options
+     * @throws InvalidQuestionNumberException question number not integer
+     * @throws MarkTooLargeException marks too large
+     * @throws MissingAnswerException answer missing
+     * @throws AnswerTooLongException answer more than 100 characters
+     * @throws MissingMarksException marks missing
+     */
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException, FileFormatException,

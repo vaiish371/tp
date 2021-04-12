@@ -18,6 +18,16 @@ public class SetAssignmentPercentageCommand extends Command {
     private String assignmentName;
     private float percentage;
 
+    /**
+     * Constructor for SetAssignmentPercentageCommand Class
+     *
+     * @param moduleCode current module
+     * @param assignmentName name of assignment
+     * @param percentage percentage of overall grade
+     * @throws NumberFormatException invalid number
+     * @throws InvalidPercentageException invalid percentage
+     * @throws ModuleNotSelectedException not working in any module
+     */
     public SetAssignmentPercentageCommand(String moduleCode, String assignmentName, String percentage)
             throws NumberFormatException, InvalidPercentageException, ModuleNotSelectedException {
         if (moduleCode == null) {
@@ -31,6 +41,14 @@ public class SetAssignmentPercentageCommand extends Command {
         }
     }
 
+    /**
+     * Sets the percentage of overall grade the assignment contributes to
+     *
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModManException general exception
+     */
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModManException {
         Module module = data.find(moduleCode);
