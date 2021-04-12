@@ -434,7 +434,7 @@ If a deadline had been set previously, the deadline of the assignment will be up
 
 Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
-| :warning: | The deadline must be in the format `dd MM yyyy` e.g. 16 08 2021 </br> You are also restricted to dates from the years 2021 to 2030 |
+| :warning: | The deadline must be in the format `dd MM yyyy` e.g. 16 08 2021. You are also restricted to dates between year 2021 and 2030 </br> |
 |----------------------|-------------------------------------|
 
 
@@ -470,7 +470,7 @@ If a grade had been set previously, the grade for the student will be updated.
 
 Format: `set assignment grade /a ASSIGNMENT_NAME /s STUDENT_NAME /g GRADE`
 
-| :warning: | The grade must be a percentage in the range from 0 to 100</br> It can also be a floating point number|
+| :warning: | The grade must be a percentage within the range 0 to 100. It can also be a decimal number.</br>|
 |----------------------|-------------------------------------|
 
 
@@ -525,8 +525,8 @@ Sets a comment for an existing assignment. The assignment comment cannot exceed 
 Format: `set assignment comments /a ASSIGNMENT_NAME /c COMMENTS`
 
 Examples of usage:
-* `set assignment comments /a Magic Sequence /p This assignment is well done.`
-* `set assignment comments /a Forest Fruits /p Most people did not solve this assignment in full.`
+* `set assignment comments /a Magic Sequence /c This assignment is well done.`
+* `set assignment comments /a Forest Fruits /c Most people did not solve this assignment in full.`
 
 Expected output:
 
