@@ -6,17 +6,17 @@ import seedu.duke.exception.ModManException;
 import seedu.duke.ui.Ui;
 
 /**
- * Abstract command class to be inherited from all commands
+ * Abstract command class to be inherited from all commands.
  */
 public abstract class Command {
 
     /**
-     * Set to true only if the exit command is called
+     * Set to true only if the exit command is called.
      */
     private boolean isExit = false;
 
     /**
-     * Execute function to be run by all commands
+     * Execute function to be run by all commands.
      * @param data keeps track of module information
      * @param ui prints messages to the console
      * @param storage saves and retrieves information from database

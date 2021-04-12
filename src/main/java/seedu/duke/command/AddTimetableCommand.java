@@ -18,7 +18,7 @@ import java.time.format.DateTimeParseException;
 import java.util.logging.Logger;
 
 /**
- * Command for adding timetable to a module
+ * Command for adding timetable to a module.
  */
 public class AddTimetableCommand extends Command {
     private final String moduleCode;
@@ -31,7 +31,7 @@ public class AddTimetableCommand extends Command {
     private static final Logger logger = Logger.getLogger("AddTimetableCommand");
 
     /**
-     * Constructor for adding timetable to a module
+     * Constructor for adding timetable to a module.
      * @param moduleCode module code of the module that the timetable belongs to
      * @param lessonType type of lesson
      * @param venue venue of lesson
@@ -72,7 +72,7 @@ public class AddTimetableCommand extends Command {
     }
 
     /**
-     * Execute function for add timetable command
+     * Execute function for add timetable command.
      * @param data keeps track of module information
      * @param ui prints messages to the console
      * @param storage saves and retrieves information from database

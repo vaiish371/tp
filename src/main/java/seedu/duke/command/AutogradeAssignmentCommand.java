@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
- * Command for autograding assignment
+ * Command for autograding assignment.
  */
 public class AutogradeAssignmentCommand extends Command {
 
@@ -37,7 +37,7 @@ public class AutogradeAssignmentCommand extends Command {
     private static Logger logger = Logger.getLogger(ViewAnswersCommand.class.getName());
 
     /**
-     * Constructor for autograding assignment
+     * Constructor for autograding assignment.
      * @param moduleCode module code of module where an assignment has to be autograded
      * @param assignmentName name of assignment to be autograded
      * @throws ModuleNotSelectedException when a module has not been selected by the user
@@ -52,7 +52,7 @@ public class AutogradeAssignmentCommand extends Command {
     }
 
     /**
-     * Execute function for autograde assignment command
+     * Execute function for autograde assignment command.
      * @param data keeps track of module information
      * @param ui prints messages to the console
      * @param storage saves and retrieves information from database

@@ -19,7 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Command used for adding an assignment onto a particular module stored within our data
+ * Command used for adding an assignment onto a particular module stored within our data.
  */
 public class AddAssignmentCommand extends Command {
     public String moduleCode;
@@ -28,7 +28,7 @@ public class AddAssignmentCommand extends Command {
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
 
     /**
-     * Constructor for AddAssignmentCommand
+     * Constructor for AddAssignmentCommand.
      * @param assignmentType type of assignment
      * @param moduleCode module code of the module that the assignment belongs to
      * @param assignmentName name of the assignment
@@ -53,7 +53,7 @@ public class AddAssignmentCommand extends Command {
     }
 
     /**
-     *
+     * Execute function to be run.
      * @param data keeps track of module information
      * @param ui prints messages to the console
      * @param storage saves and retrieves information from database

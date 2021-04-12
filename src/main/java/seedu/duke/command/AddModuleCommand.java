@@ -8,13 +8,13 @@ import seedu.duke.exception.DuplicateModuleException;
 import seedu.duke.ui.Ui;
 
 /**
- * Class for adding a module into the database
+ * Class for adding a module into the database.
  */
 public class AddModuleCommand extends Command {
     public String moduleCode;
 
     /**
-     * Constructor for AddModuleCommand
+     * Constructor for AddModuleCommand.
      * @param moduleCode module code of the module to be appended into the database
      * @throws EmptyModuleException
      */
@@ -26,7 +26,7 @@ public class AddModuleCommand extends Command {
     }
 
     /**
-     * Execute function for the command
+     * Execute function for the command.
      * @param data keeps track of module information
      * @param ui prints messages to the console
      * @param storage saves and retrieves information from database

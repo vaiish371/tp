@@ -20,7 +20,7 @@ public class AddStudentCommand extends Command {
     public String email;
 
     /**
-     * Constructor for adding a student into the database
+     * Constructor for adding a student into the database.
      * @param moduleCode module code of the module the student belongs to
      * @param studentName name of the student
      * @param studentNumber student number of the student
@@ -49,6 +49,14 @@ public class AddStudentCommand extends Command {
         }
     }
 
+    /**
+     * Execute function to be run.
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModuleNotFoundException if the module for the student to be added to cannot be found
+     * @throws DuplicateStudentException if the student name already exists in the database
+     */
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException, DuplicateStudentException {
         Module module = data.find(moduleCode);
         if (module == null) {
