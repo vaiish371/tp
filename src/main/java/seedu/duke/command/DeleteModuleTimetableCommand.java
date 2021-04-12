@@ -2,6 +2,13 @@ package seedu.duke.command;
 
 import seedu.duke.data.lesson.Lesson;
 import seedu.duke.data.module.Module;
+import seedu.duke.exception.AnswerTooLongException;
+import seedu.duke.exception.AssignmentNotFoundException;
+import seedu.duke.exception.DataFileNotFoundException;
+import seedu.duke.exception.FileFormatException;
+import seedu.duke.exception.InvalidQuestionNumberException;
+import seedu.duke.exception.NumbersMisalignException;
+import seedu.duke.exception.StudentNotFoundException;
 import seedu.duke.storage.Storage;
 import seedu.duke.data.Data;
 import seedu.duke.exception.LessonNotFoundException;
@@ -18,6 +25,13 @@ public class DeleteModuleTimetableCommand extends Command {
     private final String moduleCode;
     private static final Logger logger = Logger.getLogger(Parser.class.getName());
 
+    /**
+     * Constructor for DeleteModuleTimetableCommand Class.
+     *
+     * @param lessonIndex int specifying index of lesson to be removed.
+     * @param moduleCode current module.
+     * @throws ModuleNotSelectedException Thrown when user is not currently working in any module.
+     */
     public DeleteModuleTimetableCommand(int lessonIndex, String moduleCode) throws ModuleNotSelectedException {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
@@ -26,6 +40,16 @@ public class DeleteModuleTimetableCommand extends Command {
         this.moduleCode = moduleCode;
     }
 
+    /**
+     * Deletes a lesson from the current module.
+     * Prints output confirming deletion to user.
+     *
+     * @param data keeps track of module information.
+     * @param ui prints messages to the console.
+     * @param storage saves and retrieves information from database.
+     * @throws ModuleNotFoundException Thrown when module is not found.
+     * @throws LessonNotFoundException Thrown when lesson is not found.
+     */
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException, LessonNotFoundException {
         Module module = data.find(moduleCode);
