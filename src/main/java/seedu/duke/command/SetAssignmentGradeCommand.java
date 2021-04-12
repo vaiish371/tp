@@ -19,6 +19,16 @@ public class SetAssignmentGradeCommand extends Command {
     public String studentName;
     public String grade;
 
+    /**
+     * Constructor for SetAssignmentGradeCommand Class.
+     *
+     * @param moduleCode current module
+     * @param assignmentName name of assignment
+     * @param studentName name of student
+     * @param grade grade for that assignment
+     * @throws ModuleNotSelectedException not working in any module
+     * @throws EmptyParameterException insufficient parameters
+     */
     public SetAssignmentGradeCommand(String moduleCode, String assignmentName, String studentName,
                                      String grade) throws ModuleNotSelectedException, EmptyParameterException {
         this.moduleCode = moduleCode;
@@ -33,6 +43,17 @@ public class SetAssignmentGradeCommand extends Command {
         }
     }
 
+    /**
+     * Sets the grade a student received for an assigment.
+     *
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModuleNotFoundException module not found
+     * @throws AssignmentNotFoundException assignment not found
+     * @throws StudentNotFoundException student not found
+     * @throws InvalidPercentageException invalid grade percentage
+     */
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             AssignmentNotFoundException, StudentNotFoundException, InvalidPercentageException {
         Module module = data.find(moduleCode);

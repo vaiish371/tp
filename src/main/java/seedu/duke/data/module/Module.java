@@ -14,6 +14,11 @@ public class Module implements Storable {
     private ArrayList<Lesson> lessons;
     private ArrayList<Student> students;
 
+    /**
+     * Constructor for Module object.
+     *
+     * @param moduleCode Module code of module
+     */
     public Module(String moduleCode) {
         this.moduleCode = moduleCode;
         this.assignments = new ArrayList<>();
@@ -53,6 +58,12 @@ public class Module implements Storable {
         return lessons;
     }
 
+    /**
+     * Find and return assignment in module.
+     *
+     * @param assignmentName name of assignment
+     * @return Assignment object; null if assignment not found
+     */
     public Assignment findAssignment(String assignmentName) {
         Assignment assignmentToBeQueried = null;
         for (Assignment assignment : assignments) {
@@ -64,6 +75,12 @@ public class Module implements Storable {
         return assignmentToBeQueried;
     }
 
+    /**
+     * Find and return student in module.
+     *
+     * @param studentName name of student
+     * @return Student object; null if student not found
+     */
     public Student findStudent(String studentName) {
         Student studentToBeFound = null;
         for (Student student : students) {
@@ -80,6 +97,9 @@ public class Module implements Storable {
         return students.get(index);
     }
 
+    /**
+     * Sort assignments by deadline.
+     */
     public void sortAssignments() {
         Collections.sort(assignments);
     }

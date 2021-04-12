@@ -42,6 +42,7 @@ Icon | Purpose
 ## Table of contents
 1. [Quick start](#1-quick-start) <br>
     1.1 [Input Formatting](#11-input-formatting)<br>
+    1.2 [Database File Tampering](#12-database-file-tampering)<br>
 1. [Features](#2-features) <br>
    2.1 [Module](#21-module) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#211-adding-a-module-add-module) <br>
@@ -77,6 +78,7 @@ Icon | Purpose
    &nbsp;&nbsp;&nbsp;&nbsp; 2.5.2 [`bye` - Exiting ModMan](#252-exiting-modman--bye) <br>
 1. [FAQ](#3-faq)
 1. [Command summary](#4-command-summary)
+***
 
 <hr style="border:2px solid black"> </hr>
 
@@ -103,6 +105,16 @@ This section covers points to note about proper input formats for commands.
         * `/t<space><space>Lecture<space><space><space>/v ...`: Input for `/t` will be trimmed to `Lecture`.
     
 | :warning: | Inputs that do not follow this format would be invalid. |
+|----------------------|-------------------------------------|
+
+<hr style="border:1px solid black"> </hr>
+
+
+### 1.2 Database File Tampering
+
+This section provides a warning for the handling of database for ModMan. 
+
+| :warning: | The database of ModMan is stored in the `Database.txt` file. **You should not tamper with the file**.<br>If you edit the contents of the`Database.txt` file, the data will likely be corrupted.<br>In such cases, the program will fail upon starting, prompting the user to delete `Database.txt` before running the program again. |
 |----------------------|-------------------------------------|
 
 <hr style="border:2px solid black"> </hr>
@@ -664,7 +676,6 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 ***
-
 ### 2.4.11 Viewing Assignment Answer : `view assignment answer`
 
 This command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment.</br>
@@ -688,8 +699,7 @@ On the right, we have the answer key for a Short Answer assignment quiz2.
 :warning: Here are some things to look out for when editing the answer text file:
 * Question numbers should be in sequential order starting from 1
 * Answers for MCQ assignments should only include options A to E or 1 to 5
-* Answers for Short Answer assignments should not exceed 50 characters long
-* Answers for Long Answer assignments should not exceed 100 characters long
+* Answers for Short Answer and Long Answer assignments should not exceed 100 characters long
 * Marks should have non-negative integer values
 * Ensure that the delimiter `|` is not used in the answer
 
@@ -783,14 +793,14 @@ Expected output:
 ***
 
 
-### 2.4.13 Autograding Assignments : `autograde assignment` 
+### 2.4.13 Autograding Assignments : `autograde assignment`
 
 This command allows you to autograde assignments. ModMan has an integrated autograder to help you grade digital assignment submissions easily and efficiently!</br>
 
 The key features of autograding are as follows:</br>
 
-* All the students' scripts for that assignment found in the `scripts` folder will be graded. 
-* The grades for each student will be listed out for you and automatically saved in the database. 
+* All the students' scripts for that assignment found in the `scripts` folder will be graded.
+* The grades for each student will be listed out for you and automatically saved in the database.
 * Keeps track of which of your students have not submitted their work.
 
 | :warning: | Currently, only MCQ and Short Answer assignments can be autograded |
@@ -800,7 +810,7 @@ Format: `autograde assignment /a ASSIGNMENT_NAME`
 
 Example of usage:
 
-Let's say you are currently teaching 10 students in CS2113T and the deadline for students to submit their quiz1 MCQ assignment was yesterday. 
+Let's say you are currently teaching 10 students in CS2113T and the deadline for students to submit their quiz1 MCQ assignment was yesterday.
 The following 3 steps are all you need to autograde all your students'assignments:
 
 1. Copy and Paste the answer key for quiz1 into the `answers` folder found in the same working directory as the ModMan app.
@@ -835,6 +845,7 @@ Expected output:
 |----------------------|-------------------------------------|
 
 <hr style="border:1px solid black"> </hr>
+
 
 ### 2.5 Help and Exit
 

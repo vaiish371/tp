@@ -12,6 +12,13 @@ public class ListStudentGradesForAssignmentCommand extends Command {
     public String moduleCode;
     public String assignmentName;
 
+    /**
+     * Constructor for ListStudentGradesForAssignmentCommand Class.
+     *
+     * @param moduleCode current module
+     * @param assignmentName name of assignment
+     * @throws ModuleNotSelectedException not working in any module
+     */
     public ListStudentGradesForAssignmentCommand(String moduleCode, String assignmentName)
             throws ModuleNotSelectedException {
         this.moduleCode = moduleCode;
@@ -21,6 +28,14 @@ public class ListStudentGradesForAssignmentCommand extends Command {
         }
     }
 
+    /**
+     * Lists the student grades for specified assignment.
+     *
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModuleNotFoundException module not found
+     */
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
         Module module = data.find(moduleCode);
         if (module == null) {

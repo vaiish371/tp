@@ -47,6 +47,9 @@ Given below are my contributions to the project.
         - Added implementation details and sequence diagram for `AddTimetableCommand`: #260
         - Added user stories: #198
         - Added glossary: #254
+    - Javadoc:
+        - Added Javadoc for List commands: #279
+        - Added Javadoc for `Data`, `Module`, `Student` and `Lesson` classes: #279
 
 
 - **Code contributed**: [*RepoSense* Link](https://nus-cs2113-ay2021s2.github.io/tp-dashboard/?search=zihan9485).
