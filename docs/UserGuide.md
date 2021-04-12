@@ -434,7 +434,7 @@ If a deadline had been set previously, the deadline of the assignment will be up
 
 Format: `set assignment deadline /a ASSIGNMENT_NAME /d DEADLINE`
 
-| :warning: | The deadline must be in the format `dd MM yyyy` e.g. 16 08 2021. You are also restricted to dates between year 2021 and 2030 </br> |
+| :warning: | The deadline must be in the format `dd MM yyyy` e.g. 16 08 2021. <br> You are also restricted to dates between year 2021 and 2030 </br> |
 |----------------------|-------------------------------------|
 
 
@@ -470,7 +470,7 @@ If a grade had been set previously, the grade for the student will be updated.
 
 Format: `set assignment grade /a ASSIGNMENT_NAME /s STUDENT_NAME /g GRADE`
 
-| :warning: | The grade must be a percentage within the range 0 to 100. It can also be a decimal number.</br>|
+| :warning: | The grade must be a percentage within the range 0 to 100. <br> It can also be a decimal number.</br>|
 |----------------------|-------------------------------------|
 
 
