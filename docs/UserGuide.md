@@ -44,7 +44,7 @@ Icon | Purpose
 <div style="page-break-after: always;"></div>
 
 ## Table of contents
-1. [Quick start](#1.-quick-start) <br>
+1. [Quick start](#quick-start) <br>
     1.1 [Input Formatting](#11-input-formatting)<br>
     1.2 [Database File Tampering](#12-database-file-tampering)<br>
 1. [Features](#2-features) <br>
