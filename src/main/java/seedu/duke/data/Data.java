@@ -23,6 +23,12 @@ public class Data {
         return modules;
     }
 
+    /**
+     * Finds the module with the specified moduleCode in ModMan data.
+     *
+     * @param moduleCode module to find
+     * @return Module object that matches moduleCode; null if module not found
+     */
     public Module find(String moduleCode) {
         for (Module module : modules) {
             if (module.getModuleCode().equals(moduleCode)) {
@@ -32,6 +38,11 @@ public class Data {
         return null;
     }
 
+    /**
+     * Removes the module with the specified moduleCode in ModMan data.
+     *
+     * @param moduleCode module to remove
+     */
     public void remove(String moduleCode) {
         for (Module module : modules) {
             if (module.getModuleCode().equals(moduleCode)) {

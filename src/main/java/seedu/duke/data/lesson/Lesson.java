@@ -12,6 +12,15 @@ public class Lesson implements Storable {
     private String venue;
     private String lessonType;
 
+    /**
+     * Constructor for Lesson object.
+     *
+     * @param day Lesson day
+     * @param startTime Lesson start time
+     * @param endTime Lesson end time
+     * @param venue Lesson venue
+     * @param lessonType Lesson type
+     */
     public Lesson(String day, LocalTime startTime, LocalTime endTime, String venue, String lessonType) {
         this.day = Day.valueOf(day);
         this.startTime = startTime;
@@ -20,6 +29,11 @@ public class Lesson implements Storable {
         this.lessonType = lessonType;
     }
 
+    /**
+     * Copy constructor for Lesson object.
+     *
+     * @param another Another lesson object to copy attributes from
+     */
     public Lesson(Lesson another) {
         this.day = another.day;
         this.startTime = another.startTime;
@@ -79,6 +93,12 @@ public class Lesson implements Storable {
         return day + ", " + startTime.toString() + "-" + endTime.toString();
     }
 
+    /**
+     * Equality check for all attributes between two Lesson objects.
+     *
+     * @param o Lesson object to compare with
+     * @return true if all attributes match, false otherwise
+     */
     @Override
     public boolean equals(Object o) {
         if (o == this) {

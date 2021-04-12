@@ -19,6 +19,13 @@ public class Student implements Storable {
         return email;
     }
 
+    /**
+     * Constructor for Student object.
+     *
+     * @param name name of student
+     * @param studentNumber student number of student
+     * @param email email of student
+     */
     public Student(String name, String studentNumber, String email) {
         this.name = name;
         this.studentNumber = studentNumber;

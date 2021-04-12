@@ -13,6 +13,13 @@ public class ListModuleCommand extends Command {
     public ListModuleCommand() {
     }
 
+    /**
+     * Lists the modules stored.
+     *
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     */
     public void execute(Data data, Ui ui, Storage storage) {
         String currentModuleCode = Parser.getCurrentModule();
         ArrayList<Module> modules = data.getModules();

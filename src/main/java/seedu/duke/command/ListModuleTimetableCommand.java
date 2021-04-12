@@ -11,6 +11,12 @@ public class ListModuleTimetableCommand extends Command {
 
     private String moduleCode;
 
+    /**
+     * Constructor for ListModuleTimetableCommand Class.
+     *
+     * @param moduleCode current module
+     * @throws ModuleNotSelectedException not working in any module
+     */
     public ListModuleTimetableCommand(String moduleCode) throws ModuleNotSelectedException {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
@@ -18,6 +24,14 @@ public class ListModuleTimetableCommand extends Command {
         this.moduleCode = moduleCode;
     }
 
+    /**
+     * Lists the lessons stored in module.
+     *
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModuleNotFoundException module not found
+     */
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException {
         Module module = data.find(moduleCode);
