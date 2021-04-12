@@ -105,10 +105,22 @@ public class Storage {
         }
         for (int j = 0; j < numberOfLessons; j++) {
             Lesson lesson = loadLesson(scanner);
+            for (Lesson checkLesson : module.getLessons()) {
+                if (lesson.equals(checkLesson)) {
+                    throw new DataFileCorruptedException();
+                }
+            }
             module.addLesson(lesson);
         }
         for (int j = 0; j < numberOfStudents; j++) {
             Student student = loadStudent(scanner);
+            for (Student checkStudent : module.getStudents()) {
+                if (student.getName().equals(checkStudent.getName())
+                        || student.getStudentNumber().equals(checkStudent.getStudentNumber())
+                        || student.getEmail().equals(checkStudent.getEmail())) {
+                    throw new DataFileCorruptedException();
+                }
+            }
             module.addStudent(student);
         }
         return module;

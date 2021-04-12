@@ -331,6 +331,6 @@ public class Ui {
     public void showUnrecognisedLoadError() {
         System.out.println("\t There is an error loading the file.");
         System.out.println("\t You may have edited Database.txt. Please do not edit Database.txt.");
-        System.out.println("\t Please delete Database.txt and try again.");
+        System.out.println("\t A new database has been created.");
     }
 }
