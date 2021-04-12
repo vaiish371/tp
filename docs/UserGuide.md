@@ -17,7 +17,7 @@ A command line interface (CLI) is a text-based user interface used to view and m
 
 These include operating system CLIs like the Command Prompt on Windows, which can be used to run and interact with the ModMan application.
 
-<hr style="border:2px solid black"> </hr>
+<hr style="border:2px solid orange"> </hr>
 
 ## How to use the User Guide
 Welcome to the User Guide for ModMan!
@@ -28,6 +28,8 @@ Regardless if you are a teaching assistant, student or lecturer, this guide woul
 * Scroll down or click [here](#1-quick-start) for the Quick Start guide to get started now.
 * [FAQ](#3-faq) and [Command Summary](#4-command-summary) are available for quick queries or reference.
 
+<div style="page-break-after: always;"></div>
+
 ### Legend
 A short description of the icons that are used in this User Guide.
 
@@ -37,7 +39,9 @@ Icon | Purpose
 | :warning: | Warnings on usage of ModMan |
 | :bulb: | Tips for Teaching Assistants |
 
-<hr style="border:2px solid blackr"> </hr>
+<hr style="border:2px solid orange"> </hr>
+
+<div style="page-break-after: always;"></div>
 
 ## Table of contents
 1. [Quick start](#1-quick-start) <br>
@@ -78,9 +82,9 @@ Icon | Purpose
    &nbsp;&nbsp;&nbsp;&nbsp; 2.5.2 [`bye` - Exiting ModMan](#252-exiting-modman--bye) <br>
 1. [FAQ](#3-faq)
 1. [Command summary](#4-command-summary)
-***
 
-<hr style="border:2px solid black"> </hr>
+<hr style="border:2px solid orange"> </hr>
+<div style="page-break-after: always;"></div>
 
 ## 1. Quick Start
 
@@ -89,7 +93,7 @@ Icon | Purpose
 1. Open a command window in the folder containing the `.jar` file.
 1. Run the command `java -jar {filename}.jar` <br> If you haven't changed the filename, run the command `java -jar ModMan.jar`
 
-<hr style="border:1px solid black"> </hr>
+<hr style="border:1px solid darkorange"> </hr>
 
 ### 1.1 Input Formatting
 This section covers points to note about proper input formats for commands.
@@ -107,7 +111,7 @@ This section covers points to note about proper input formats for commands.
 | :warning: | Inputs that do not follow this format would be invalid. |
 |----------------------|-------------------------------------|
 
-<hr style="border:1px solid black"> </hr>
+<hr style="border:1px solid darkorange"> </hr>
 
 
 ### 1.2 Database File Tampering
