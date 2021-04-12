@@ -536,7 +536,7 @@ Expected output:
 
 ### 2.4.5 Setting Assignment Comments: `set assignment comments` 
  
-Sets a comment for an existing assignment. The assignment comment cannot exceed 100 words. This feature will eventually support comments of unlimited length (we are still working on this feature!). 
+Sets a comment for an existing assignment. The assignment comment cannot exceed 100 characters. ModMan will eventually support comments of unlimited length (we are still working on this feature!). 
  
 | :bulb: |The editing an assignment's comment feature is still in production. However, you can recreate an edit by calling the [`get assignment comments`](#246-getting-assignment-comments-get-assignment-comments) command, copy-pasting the result onto your terminal and editing before setting assignment comments again| 
 |----------------------|-------------------------------------| 
