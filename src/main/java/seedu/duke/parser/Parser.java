@@ -41,6 +41,7 @@ import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.exception.TimeFormatException;
 import seedu.duke.exception.SameNameEditException;
 import seedu.duke.exception.IllegalCharacterException;
+import seedu.duke.exception.CommentsTooLongException;
 
 import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
@@ -374,7 +375,8 @@ public class Parser {
     }
 
     private static Command getSetAssignmentCommentsCommand(String line)
-            throws InsufficientParametersException, ModuleNotSelectedException, EmptyParameterException {
+            throws InsufficientParametersException, ModuleNotSelectedException,
+            EmptyParameterException, CommentsTooLongException {
         Command command;
         try {
             logger.log(Level.INFO, "set comments command entered");
