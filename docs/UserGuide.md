@@ -1,5 +1,7 @@
 # ModMan User Guide
 
+<hr style="border:2px solid orange; background-color: orange"> </hr>
+
 ## Introduction
 ````
  __  __           _   __  __ 
@@ -38,8 +40,6 @@ Icon | Purpose
 | :information_source: | Explainers on how to use and interpret the User Guide |
 | :warning: | Warnings on usage of ModMan |
 | :bulb: | Tips for Teaching Assistants |
-
-<hr style="border:2px solid orange; background-color: orange"> </hr>
 
 <div style="page-break-after: always;"></div>
 
@@ -83,7 +83,6 @@ Icon | Purpose
 1. [FAQ](#3-faq)
 1. [Command summary](#4-command-summary)
 
-<hr style="border:2px solid orange; background-color: orange"> </hr>
 <div style="page-break-after: always;"></div>
 
 ## 1. Quick Start
@@ -125,7 +124,7 @@ If you delete the whole `Database.txt`, a new `Database.txt` would be created fo
 Although not recommended, edits may be made in `Database.txt` that effects changes in ModMan while still loading those changes in when starting up.
 * For example, changing student name of `Student` to another name that does not match any other `Student`.
 
-<hr style="border:2px solid orange; background-color: orange"> </hr>
+<div style="page-break-after: always;"></div>
 
 ## 2. Features 
 
@@ -159,7 +158,7 @@ Expected output:
 | :warning: | Input is case sensitive, ie. `CS2113T` and `cs2113T` would be considered two different modules |
 |----------------------|-------------------------------------|
 
-***
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.1.2 Removing a Module: `remove module`
 
@@ -182,7 +181,8 @@ Expected output:
 | :warning: | You can remove the current `Module` you are working in |
 |----------------------|-------------------------------------|
 
-***
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
+
 ### 2.1.3 Selecting a Module: `select`
 
 Select the module you want to currently work in.
@@ -204,7 +204,9 @@ Expected output:
 
 | :information_source: | All commands onwards assumes we are working in the module CS2113T |
 |----------------------|-------------------------------------|
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
+
 ### 2.1.4 Viewing Current Module: `current`
 
 View the current module you are working in. Also obtain an overview of the module, namely the lessons, assignments, as well as number of students.
@@ -225,7 +227,9 @@ Expected output:
 	    - You have not added any assignments to yet.
 -------------------------------------------------------------------------- 
 ````
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
+
 ### 2.1.5 Listing Modules: `list module`
 
 Lists all the modules you have added, and specifies the current module (if any).
@@ -267,7 +271,8 @@ Expected output:
     Bryan Wong, A0123456Y, e0123456@u.nus.edu
 ---------------------------------------------------------------------
 ```
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.2.2 Listing Students Details: `list student details`
 
@@ -283,7 +288,8 @@ Expected output:
     1. Bryan Wong, A0123456Y, e0123456@u.nus.edu
 -------------------------------------------------------------------------- 
 ````
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.2.3 Listing Students in Module: `list student`
 
@@ -337,7 +343,9 @@ Expected output:
 
 In the above example, the user has added a CS2113T Lecture that will occur on Friday from 4pm to 6pm over Zoom. Notice that
 you have to be careful in specifying the `Day` and 24-hr timing format.
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
+
 ### 2.3.2 Removing Timetable Lessons: `delete timetable`
 
 Deletes the lesson in the timetable corresponding to the index, for the current module you have selected.
@@ -354,7 +362,9 @@ Expected output:
     You have successfully removed lesson: FRIDAY, 16:00-18:00 from CS2113T
 ---------------------------------------------------------------------
 ```
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
+
 ### 2.3.3 Editing Timetable Lessons: `edit timetable`
 
 Edits the lesson in the timetable corresponding to the index, for the current module you have selected.
@@ -386,7 +396,8 @@ Expected output:
 
 In the example we have used till now, we had added a CS2113T Lecture that will occur on Friday from 4pm to 6pm over Zoom. 
 The above command can be used to change the day from `FRIDAY` to `MONDAY`.
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.3.4 Listing Timetable Lessons: `list timetable`
 
@@ -430,7 +441,8 @@ Expected output:
     Magic Sequence
 ---------------------------------------------------------------------
 ```
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.2 Setting Assignment Deadline : `set assignment deadline`
 
@@ -466,7 +478,8 @@ Examples of usage:</br>
 
 | :bulb: | You can set your own deadlines to be earlier than the actual deadline for grading to help plan your time more wisely!|
 |----------------------|-------------------------------------|
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.3 Setting Assignment Grade : `set assignment grade`
 
@@ -498,7 +511,8 @@ Examples of usage:</br>
 
 | :bulb: | You can manually set the grades of your students if you prefer a more personal touch compared to autograding|
 |----------------------|-------------------------------------|
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.4 Setting Assignment Percentage: `set assignment percentage` 
 
@@ -518,7 +532,7 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 
-***
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.5 Setting Assignment Comments: `set assignment comments` 
  
@@ -542,7 +556,7 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 
-***
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.6 Getting Assignment Comments: `get assignment comments`
 
@@ -563,7 +577,7 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 
-***
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.7 Editing an Assignment Name: `edit assignment name`
 
@@ -584,7 +598,7 @@ Expected output:
 ---------------------------------------------------------------------
 ```
 
-***
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.8 Listing Module Assignments : `list assignments` 
 
@@ -612,7 +626,9 @@ Expected output:
 
 | :information_source: | Assignments with no deadline set will output `due date not specified` |
 |----------------------|-------------------------------------|
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
+
 ### 2.4.9 Sorting Module Assignments : `sort assignments by deadline` 
 
 The `sort assignment by deadline` command sorts and lists the assignments in your current module by deadline, allowing you to easily keep track of which assignments have to be graded soon. 
@@ -648,7 +664,8 @@ After sorting:
     3. quiz1 (McqAssignment) - due date not specified.
 ---------------------------------------------------------------------
 ```
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.10 Listing Assignment Grades : `list assignment grades` 
 
@@ -668,7 +685,9 @@ Expected output:
     2. A0215114X - 101.0
 ---------------------------------------------------------------------
 ```
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
+
 ### 2.4.11 Viewing Assignment Answer : `view assignment answer`
 
 The `view assignment answer` command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment. </br>
@@ -727,7 +746,8 @@ Expected output:
 ```
 | :bulb: | You can open up the student script in another terminal so that you can view both the answer key and student script side by side! |
 |----------------------|-------------------------------------|
-***
+
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.12 Viewing Student Script : `view student script`
 
@@ -783,8 +803,8 @@ Expected output:
 ```
 | :bulb: | You can open up the answer key in another terminal so that you can view both the answer key and student script side by side!|
 |----------------------|-------------------------------------|
-***
 
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.4.13 Autograding Assignments : `autograde assignment`
 
@@ -874,7 +894,7 @@ Expected output:
 Please note that it does not display the full list of commands (due to there being so many!).
 You may open this User Guide for a comprehensive list.
 
-***
+<hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
 ### 2.5.2 Exiting ModMan : `bye`
 
