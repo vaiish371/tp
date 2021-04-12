@@ -16,6 +16,15 @@ public class SetAssignmentCommentsCommand extends Command {
     private String assignmentName;
     private String comments;
 
+    /**
+     * Constructor for SetAssignmentCommentsCommand Class.
+     *
+     * @param moduleCode current module
+     * @param assignmentName name of assignemnt
+     * @param comments comments for the assignment
+     * @throws ModuleNotSelectedException not working in any module
+     * @throws EmptyParameterException insufficient parameters
+     */
     public SetAssignmentCommentsCommand(String moduleCode, String assignmentName, String comments)
             throws ModuleNotSelectedException, EmptyParameterException {
         if (moduleCode == null) {
@@ -29,6 +38,14 @@ public class SetAssignmentCommentsCommand extends Command {
         }
     }
 
+    /**
+     * Sets the comments for the assignment.
+     *
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModManException general exception
+     */
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModManException {
         Module module = data.find(moduleCode);
