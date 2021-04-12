@@ -160,7 +160,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.2 Removing a Module - `remove module`
+### 2.1.2 Removing a Module `remove module`
 
 Removes a module from the list of modules.
 
