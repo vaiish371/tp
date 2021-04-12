@@ -10,12 +10,24 @@ import seedu.duke.exception.ModuleNotFoundException;
 import seedu.duke.exception.ModuleNotSelectedException;
 import seedu.duke.ui.Ui;
 
+/**
+ * Class for adding a student into the database.
+ */
 public class AddStudentCommand extends Command {
     public String moduleCode;
     public String studentName;
     public String studentNumber;
     public String email;
 
+    /**
+     * Constructor for adding a student into the database.
+     * @param moduleCode module code of the module the student belongs to
+     * @param studentName name of the student
+     * @param studentNumber student number of the student
+     * @param email email address of the student
+     * @throws ModuleNotSelectedException if the user has not selected any module yet
+     * @throws EmptyParameterException if any of the parameters are empty (null or 0)
+     */
     public AddStudentCommand(String moduleCode, String studentName,
                              String studentNumber, String email) throws ModuleNotSelectedException,
             EmptyParameterException {
@@ -37,6 +49,14 @@ public class AddStudentCommand extends Command {
         }
     }
 
+    /**
+     * Execute function to be run.
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModuleNotFoundException if the module for the student to be added to cannot be found
+     * @throws DuplicateStudentException if the student name already exists in the database
+     */
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException, DuplicateStudentException {
         Module module = data.find(moduleCode);
         if (module == null) {

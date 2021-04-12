@@ -27,12 +27,21 @@ import seedu.duke.ui.Ui;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+/**
+ * Command for autograding assignment.
+ */
 public class AutogradeAssignmentCommand extends Command {
 
     private String moduleCode;
     private String assignmentName;
     private static Logger logger = Logger.getLogger(ViewAnswersCommand.class.getName());
 
+    /**
+     * Constructor for autograding assignment.
+     * @param moduleCode module code of module where an assignment has to be autograded
+     * @param assignmentName name of assignment to be autograded
+     * @throws ModuleNotSelectedException when a module has not been selected by the user
+     */
     public AutogradeAssignmentCommand(String moduleCode, String assignmentName) throws ModuleNotSelectedException {
         if (moduleCode == null) {
             throw new ModuleNotSelectedException();
@@ -42,6 +51,25 @@ public class AutogradeAssignmentCommand extends Command {
         this.assignmentName = assignmentName.trim();
     }
 
+    /**
+     * Execute function for autograde assignment command.
+     * @param data keeps track of module information
+     * @param ui prints messages to the console
+     * @param storage saves and retrieves information from database
+     * @throws ModuleNotFoundException if module of assignment to be autograded is not found in data
+     * @throws AssignmentNotFoundException if assignment to be autograded is not found in module
+     * @throws DataFileNotFoundException if the autograding files are not found within the directory specified
+     * @throws NumbersMisalignException if the numbers are misaligned
+     * @throws NotAutogradableException if the assignment to be graded is a LongAnswerAssignment
+     * @throws FileFormatException if the file format specified is wrong
+     * @throws InvalidMcqOption if the Mcq option laoded from the answer script is invalid
+     * @throws InvalidPercentageException if the percentage format is invalid
+     * @throws InvalidQuestionNumberException if the question number is invalid
+     * @throws MarkTooLargeException if the marks obtained by a student is larger than expected
+     * @throws MissingAnswerException if an answer is missing from the answer script
+     * @throws AnswerTooLongException if the answer provided is longer than the threshold set
+     * @throws MissingMarksException if the marks of a student is missing
+     */
     @Override
     public void execute(Data data, Ui ui, Storage storage) throws ModuleNotFoundException,
             AssignmentNotFoundException, DataFileNotFoundException, NumbersMisalignException,
