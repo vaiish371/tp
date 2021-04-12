@@ -109,7 +109,7 @@ This section covers points to note about proper input formats for commands.
 
 This section provides a warning for the handling of database for ModMan. 
 
-| :warning: | The database of ModMan is stored in the `Database.txt` file. **You should not tamper with the file**.<br>If you delete or edit the contents of the`Database.txt` file such that there are duplicate `Student` or `Lesson` or introduce any invalid attributes or formatting, the data will likely be corrupted.<br>In such cases, the program will create a new database upon starting. |
+| :warning: | The database of ModMan is stored in the `Database.txt` file. **You should not tamper with the file**.<br>If you delete or edit the contents of the `Database.txt` file such that there are duplicate `Module`, `Student`,`Lesson` or `Assignment` or introduce any invalid attributes or formatting, the data will likely be corrupted.<br>In such cases, the program will create a new database upon starting. |
 |----------------------|-------------------------------------|
 
 ***

@@ -1,4 +1,1 @@
-1
-CS1010 | 0 | 2 | 0
-FRIDAY | 16:00 | 18:00 | Zoom | Lecture
-FRIDAY | 16:00 | 20:00 | Zoom | Lecture
+0
