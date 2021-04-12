@@ -44,7 +44,7 @@ Icon | Purpose
 <div style="page-break-after: always;"></div>
 
 ## Table of contents
-1. [Quick start](#1-quick-start) <br>
+1. [Quick start](#1.-quick-start) <br>
     1.1 [Input Formatting](#11-input-formatting)<br>
     1.2 [Database File Tampering](#12-database-file-tampering)<br>
 1. [Features](#2-features) <br>
@@ -85,7 +85,7 @@ Icon | Purpose
 
 <div style="page-break-after: always;"></div>
 
-## 1 Quick Start
+## 1. Quick Start
 
 1. Ensure you have Java 11 installed on your computer or install it from [here](https://www.oracle.com/sg/java/technologies/javase-jdk11-downloads.html).
 1. Download the latest `ModMan.jar` release from [here](https://github.com/AY2021S2-CS2113T-F08-1/tp/releases/tag/v2.1).
