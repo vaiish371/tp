@@ -28,6 +28,8 @@ Given below are my contributions to the project.
     - Implemented input validation for empty or whitespace parameters across commands in `Parser` class: #241, #245, #248
     - Implemented check when loading data from `Database.txt` for duplicates. #283
 
+<div style="page-break-after: always;"></div>
+
 - **Project management**:
     - Managed releases v1.0 - v2.1 (3 releases) on GitHub
     - Created and assigned issues to relevant members on the team to ensure we meet deadlines
