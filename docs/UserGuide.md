@@ -136,7 +136,7 @@ Although not recommended, edits may be made in `Database.txt` that effects chang
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.1 Adding a Module `add module`
+### 2.1.1 Adding a Module - `add module`
 
 Adds a new module to the list of modules. If you are a TA for multiple modules, you can keep track of all of them!
 
@@ -160,7 +160,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.2 Removing a Module `remove module`
+### 2.1.2 Removing a Module - `remove module`
 
 Removes a module from the list of modules.
 
