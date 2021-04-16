@@ -221,6 +221,8 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
+<div style="page-break-after: always;"></div>
+
 ### 2.1.4 Viewing Current Module - `current` <a name="current"></a>
 
 View the current module you are working in. Also obtain an overview of the module, namely the lessons, assignments, as well as number of students.
@@ -307,6 +309,8 @@ Expected output:
 ````
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
+
+<div style="page-break-after: always;"></div>
 
 ### 2.2.3 Listing Students in Module - `list student` <a name="liststudent"></a>
 
@@ -623,6 +627,8 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
+<div style="page-break-after: always;"></div>
+
 ### 2.4.8 Listing Module Assignments - `list assignments` <a name="listassignments"></a>
 
 The `list assignments` command lists out all the assignments in the current module you are working in. It also shows you information on the type of assignment 
@@ -710,6 +716,8 @@ Expected output:
 ```
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
+
+<div style="page-break-after: always;"></div>
 
 ### 2.4.11 Viewing Assignment Answer - `view assignment answer` <a name="viewassignmentanswer"></a>
 
@@ -966,6 +974,7 @@ You can refer to sections `2.4.11` and `2.4.12` for more details on the format o
 **A**: You are welcome to raise a new issue [*here*](https://github.com/AY2021S2-CS2113T-F08-1/tp/issues) on our project repository.
 Do include as much detail as you can on the bug along with any screenshots on how you came across the problem. We also look forward to hearing from you if you have any suggestions to improve our app!
 
+<div style="page-break-after: always;"></div>
 
 ## 4. Command Summary
 <br>
@@ -1023,6 +1032,8 @@ view student script | `view student script /a ASSIGNMENT_NAME /s STUDENT_NAME` <
 autograde assignment | `autograde assignment /a ASSIGNMENT_NAME` <br> e.g. `autograde assignment /a quiz1`
 
 <br>
+
+<div style="page-break-after: always;"></div>
 
 **Help and Exit Commands:**
 
