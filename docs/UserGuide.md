@@ -26,6 +26,8 @@ Welcome to the User Guide for ModMan!
 
 This user guide helps you to get started with ModMan by providing you with extensive information about the application. In this user guide, we explain all the commands and functionalities that ModMan supports, allowing you to get familiar with the application.  
 
+<div style="page-break-after: always;"></div>
+
 ## How to use the User Guide
 
 Here are four main features of the User Guide:
@@ -33,8 +35,6 @@ Here are four main features of the User Guide:
 * Scroll down or click [here](#quick-start) for the Quick Start guide to get started with ModMan.
 * The [Features](#2-features) section will run you through all the commands that are available in ModMan. 
 * [FAQ](#faq) and [Command Summary](#command-summary) are available for quick queries or reference.
-
-<div style="page-break-after: always;"></div>
 
 ### Legend
 A short description of the icons that are used in this User Guide.
@@ -729,7 +729,7 @@ Shown below are examples of what the answer text file for an assignment should l
 On the left, we have the answer key for an MCQ assignment quiz1.</br> 
 On the right, we have the answer key for a Short Answer assignment quiz2. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![MCQ](UGPics/answersFormat.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswer](UGPics/shortAnswer.PNG)
+![MCQ](UGPics/answersFormat.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswer](UGPics/shortAnswer.PNG)
 
 :warning: Here are some things to look out for when editing the answer text file:
 * Question numbers should be in sequential order starting from 1
@@ -789,7 +789,7 @@ Shown below are examples of what a student's script text file for an assignment 
 On the left, we have the script for an MCQ assignment quiz1.</br> 
 On the right, we have the script for a Short Answer assignment quiz2. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![MCQS](UGPics/MCQS.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswerS](UGPics/SAS.PNG)
+![MCQS](UGPics/MCQS.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswerS](UGPics/SAS.PNG)
 
 :warning: Here are some things to look out for when formatting the script text file: 
 * Question numbers should be in sequential order starting from 1 
