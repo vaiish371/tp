@@ -17,17 +17,22 @@ It is optimized for use via a Command Line Interface (CLI). ModMan helps to trac
 ### What is a CLI?
 A command line interface (CLI) is a text-based user interface used to view and manage computer files.
 
-These include operating system CLIs like the Command Prompt on Windows, which can be used to run and interact with the ModMan application.
+Examples of CLIs include operating system CLIs like the Command Prompt on Windows and the Terminal on macOS. CLIs can be used to run and interact with the ModMan application easily.
 
 <hr style="border:2px solid orange; background-color: orange"> </hr>
 
+## About the User Guide
+
+Welcome to the User Guide for ModMan! 
+
+This user guide helps you to get started with ModMan by providing you with extensive information about the application. In this user guide, we explain all the commands and functionalities that ModMan supports, allowing you to get familiar with the application.  
+
 ## How to use the User Guide
-Welcome to the User Guide for ModMan!
 
-Regardless if you are a teaching assistant, student or lecturer, this guide would be helpful for you in picking up and using ModMan.
-
-* You may navigate to any subsection from the [Table of contents](#table-of-contents).
-* Scroll down or click [here](#quick-start) for the Quick Start guide to get started now.
+Here are four main features of the User Guide:
+* You may navigate to any subsection from the [Table of Contents](#table-of-contents).
+* Scroll down or click [here](#quick-start) for the Quick Start guide to get started with ModMan.
+* The [Features](#2-features) section will run you through all the commands that are available in ModMan. 
 * [FAQ](#faq) and [Command Summary](#command-summary) are available for quick queries or reference.
 
 <div style="page-break-after: always;"></div>
