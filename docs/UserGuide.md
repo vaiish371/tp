@@ -11,8 +11,7 @@
 | |  | | (_) | (_| | | |  | | (_| | | | |
 |_|  |_|\___/ \__'_| |_|  |_|\__'_|_| |_|
 ````
-ModMan, short for Module Manager, is a desktop app designed to help Teaching Assistants (TAs) manage their module(s).
-It is optimized for use via a Command Line Interface (CLI). ModMan helps to track module details as well as students’ progress and data, all in one platform. It can also perform autograding for MCQ assignments.
+ModMan, short for Module Manager, is an all in one platform to help Teaching Assistants (TAs) like yourself manage their modules. Optimized for use via a Command Line Interface (CLI), ModMan allows you to keep track of all your students, assignments and lessons anytime, anywhere! Take advantage of unique features such as autograding and storing comments for assignments, so that you can focus on the more enjoyable parts of being a TA. 
 
 ### What is a CLI?
 A command line interface (CLI) is a text-based user interface used to view and manage computer files.
