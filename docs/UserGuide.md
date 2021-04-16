@@ -1033,8 +1033,6 @@ autograde assignment | `autograde assignment /a ASSIGNMENT_NAME` <br> e.g. `auto
 
 <br>
 
-<div style="page-break-after: always;"></div>
-
 **Help and Exit Commands:**
 
 
