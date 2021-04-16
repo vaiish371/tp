@@ -134,11 +134,15 @@ Although not recommended, edits may be made in `Database.txt` that effects chang
 
 ## 2. Features 
 
+This section provides a comprehensive list of all the features and commands in ModMan. This includes the function of each command, its format, and example of usage.
+
 | :information_source: | Inputs in `UPPER_CASE` are parameters to be supplied by the user. |
 |----------------------|-------------------------------------|
 
 
 ### 2.1 Module
+
+ModMan allows you to keep track of the modules you are teaching. The commands below allow you to easily add, remove and select a module to work in!
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
@@ -168,7 +172,7 @@ Expected output:
 
 ### 2.1.2 Removing a Module - `remove module`
 
-Removes a module from the list of modules.
+Removes a module from the list of modules so that you can clear your database when the semester ends!
 
 Format: `remove module MODULE_NAME`
 
@@ -191,7 +195,7 @@ Expected output:
 
 ### 2.1.3 Selecting a Module - `select`
 
-Select the module you want to currently work in.
+Select the module you want to currently work in. Subsequent commands will edit the details of this selected module.
 
 Format: `select MODULE_NAME`
 
@@ -216,6 +220,7 @@ Expected output:
 ### 2.1.4 Viewing Current Module - `current`
 
 View the current module you are working in. Also obtain an overview of the module, namely the lessons, assignments, as well as number of students.
+With this command, you can easily identify which module you are working in!
 
 Format: `current`
 
@@ -254,6 +259,8 @@ Expected output:
 <div style="page-break-after: always;"></div>
 
 ### 2.2 Student 
+
+As a TA, you would be tasked with assisting and guiding multiple students. ModMan allows you to track their details so that you could easily identify and contact them if needed!
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
@@ -315,6 +322,8 @@ Expected output:
 <div style="page-break-after: always;"></div>
 
 ### 2.3 Timetable
+
+For each module, there would be lesson timings. ModMan helps you to store and manage your timetable so that you would never miss your class!
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
@@ -424,6 +433,10 @@ Expected output:
 <div style="page-break-after: always;"></div>
 
 ### 2.4 Assignment
+
+As a TA, you may be in charge with grading and keeping track of assignments in the module.
+ModMan not only lets you manage these assignments, but also lets you autograde them automatically!
+
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
