@@ -52,36 +52,36 @@ Icon | Purpose
 2. [Features](#features) <br>
    2.1 [Module](#module) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#addmodule) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.2 [`remove module` - Removing a Module](#removing-a-module) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.3 [`select` - Selecting a Module](#selecting-a-module-select) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.4 [`current` - Viewing Current Module](#viewing-current-module-current) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.5 [`list module` - Listing Modules](#listing-modules-list-module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.2 [`remove module` - Removing a Module](#removemodule) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.3 [`select` - Selecting a Module](#select) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.4 [`current` - Viewing Current Module](#current) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.5 [`list module` - Listing Modules](#listmodule) <br>
    2.2 [Student](#student) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.1 [`add student` - Adding a Student](#adding-a-student-add-student) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.2 [`list student details` - Listing Students Details](#listing-students-details-list-student-details) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.3 [`list student` - Listing Students in Module](#listing-students-in-module-list-student) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.1 [`add student` - Adding a Student](#addstudent) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.2 [`list student details` - Listing Students Details](#liststudentdetails) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.2.3 [`list student` - Listing Students in Module](#liststudent) <br>
    2.3 [Timetable](#timetable) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.1 [`add timetable` - Adding a Lesson](#adding-a-lesson-add-timetable) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.2 [`delete timetable` - Removing Timetable Lessons](#removing-timetable-lessons-delete-timetable) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.3 [`edit timetable` - Editing a Timetable Lesson](#editing-timetable-lessons-edit-timetable) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.4 [`list timetable` - Listing Timetable Lessons](#listing-timetable-lessons-list-timetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.1 [`add timetable` - Adding a Lesson](#addtimetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.2 [`delete timetable` - Removing Timetable Lessons](#deletetimetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.3 [`edit timetable` - Editing a Timetable Lesson](#edittimetable) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.3.4 [`list timetable` - Listing Timetable Lessons](#listtimetable) <br>
    2.4 [Assignment](#assignment) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.1 [`add assignment` - Adding an Assignment](#adding-an-assignment-add-assignment) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.2 [`set assignment deadline` - Setting Assignment Deadline](#setting-assignment-deadline--set-assignment-deadline) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.3 [`set assignment grade` - Setting Assignment Grade](#setting-assignment-grade--set-assignment-grade) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.4 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#setting-assignment-percentage-set-assignment-percentage) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.5 [`set assignment comments` - Setting Assignment Comments](#setting-assignment-comments-set-assignment-comments) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.6 [`get assignment comments` - Getting Assignment Percentage](#getting-assignment-comments-get-assignment-comments) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.7 [`edit assignment name` - Editing an Assignment Name](#editing-an-assignment-name-edit-assignment-name) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.8 [`list assignments` - Listing Module Assignments](#listing-module-assignments--list-assignments) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.9 [`sort assignments by deadline` - Sorting Module Assignments](#sorting-module-assignments--sort-assignments-by-deadline) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.10 [`list assignment grades` - Listing Assignment Grades](#listing-assignment-grades--list-assignment-grades) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.11 [`view assignment answer` - Viewing Assignment Answers](#viewing-assignment-answer--view-assignment-answer) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.12 [`view student script` - Viewing Student Script](#viewing-student-script--view-student-script) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.13 [`autograde assignment` - Auto-Grading Assignments](#autograding-assignments--autograde-assignment) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.1 [`add assignment` - Adding an Assignment](#addassignment) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.2 [`set assignment deadline` - Setting Assignment Deadline](#setassignmentdeadline) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.3 [`set assignment grade` - Setting Assignment Grade](#setassignmentgrade) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.4 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#setassignmentpercentage) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.5 [`set assignment comments` - Setting Assignment Comments](#setassignmentcomments) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.6 [`get assignment comments` - Getting Assignment Percentage](#getassignmentcomments) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.7 [`edit assignment name` - Editing an Assignment Name](#editassignmentname) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.8 [`list assignments` - Listing Module Assignments](#listassignments) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.9 [`sort assignments by deadline` - Sorting Module Assignments](#sortassignmentsbydeadline) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.10 [`list assignment grades` - Listing Assignment Grades](#listassignmentgrades) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.11 [`view assignment answer` - Viewing Assignment Answers](#viewassignmentanswer) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.12 [`view student script` - Viewing Student Script](#viewstudentscript) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.13 [`autograde assignment` - Auto-Grading Assignments](#autogradeassignment) <br>
    2.5 [Help and Exit](#help-and-exit) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.5.1 [`help` - Listing Basic Commands](#listing-basic-commands-help) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.5.2 [`bye` - Exiting ModMan](#exiting-modman--bye) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.5.1 [`help` - Listing Basic Commands](#help) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.5.2 [`bye` - Exiting ModMan](#bye) <br>
    
 
 3. [FAQ](#faq)
@@ -166,7 +166,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.2 Removing a Module - `remove module`
+### 2.1.2 Removing a Module - `remove module` <a name="removemodule"></a>
 
 Removes a module from the list of modules.
 
@@ -189,7 +189,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.3 Selecting a Module - `select`
+### 2.1.3 Selecting a Module - `select` <a name="select"></a>
 
 Select the module you want to currently work in.
 
@@ -213,7 +213,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.4 Viewing Current Module - `current`
+### 2.1.4 Viewing Current Module - `current` <a name="current"></a>
 
 View the current module you are working in. Also obtain an overview of the module, namely the lessons, assignments, as well as number of students.
 
@@ -236,7 +236,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.5 Listing Modules - `list module`
+### 2.1.5 Listing Modules - `list module` <a name="listmodule"></a>
 
 Lists all the modules you have added, and specifies the current module (if any).
 
@@ -257,7 +257,7 @@ Expected output:
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.2.1 Adding a student - `add student`
+### 2.2.1 Adding a student - `add student` <a name="addstudent"></a>
 
 Assigns a new student to the current module you have selected.
 
@@ -280,7 +280,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.2.2 Listing Students Details - `list student details`
+### 2.2.2 Listing Students Details - `list student details` <a name="liststudentdetails"></a>
 
 Lists the details of all students assigned to the current module you have selected.
 
@@ -297,7 +297,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.2.3 Listing Students in Module - `list student`
+### 2.2.3 Listing Students in Module - `list student` <a name="liststudent"></a>
 
 Lists the names of students assigned to the current module you have selected. 
 This is slightly different from the `list student details` command, allowing you to view just the names of the students assigned to a module.
@@ -318,7 +318,7 @@ Expected output:
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.3.1 Adding a Lesson - `add timetable`
+### 2.3.1 Adding a Lesson - `add timetable` <a name="addtimetable"></a>
 
 Adds a new lesson to the list (timetable) of lessons for the current module you have selected. You will be able
 to specify the type of lesson, venue, day and timing.
@@ -352,7 +352,7 @@ you have to be careful in specifying the `Day` and 24-hr timing format.
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.3.2 Removing Timetable Lessons - `delete timetable`
+### 2.3.2 Removing Timetable Lessons - `delete timetable` <a name="deletetimetable"></a>
 
 Deletes the lesson in the timetable corresponding to the index, for the current module you have selected.
 
@@ -371,7 +371,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.3.3 Editing Timetable Lessons - `edit timetable`
+### 2.3.3 Editing Timetable Lessons - `edit timetable` <a name="edittimetable"></a>
 
 Edits the lesson in the timetable corresponding to the index, for the current module you have selected.
 
@@ -405,7 +405,7 @@ The above command can be used to change the day from `FRIDAY` to `MONDAY`.
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.3.4 Listing Timetable Lessons - `list timetable`
+### 2.3.4 Listing Timetable Lessons - `list timetable` <a name="listtimetable"></a>
 
 Lists the lessons in the timetable for the current module you have selected. The index of each lesson is its numerical order in the list. 
 
@@ -427,7 +427,7 @@ Expected output:
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.1 Adding an Assignment - `add assignment`
+### 2.4.1 Adding an Assignment - `add assignment` <a name="addassignment"></a>
 
 Adds an assignment to the current module you have selected.
 
@@ -450,7 +450,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.2 Setting Assignment Deadline - `set assignment deadline`
+### 2.4.2 Setting Assignment Deadline - `set assignment deadline` <a name="setassignmentdeadline"></a>
 
 The `set assigment deadline` command allows you to set the date to grade the assignment by.
 If a deadline had been set previously, the deadline of the assignment will be updated.
@@ -487,7 +487,7 @@ Examples of usage:</br>
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.3 Setting Assignment Grade - `set assignment grade`
+### 2.4.3 Setting Assignment Grade - `set assignment grade` <a name="setassignmentgrade"></a>
 
 The `set assigment grade` command allows you to set the grade of a student after you have graded their assignment.
 If a grade had been set previously, the grade for the student will be updated.
@@ -520,7 +520,7 @@ Examples of usage:</br>
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.4 Setting Assignment Percentage - `set assignment percentage` 
+### 2.4.4 Setting Assignment Percentage - `set assignment percentage` <a name="setassignmentpercentage"></a>
 
 Sets the assignment weightage of an existing assignment. The percentage can be entered as either a 2-decimal number, 1-decimal number or an integer. 
 
@@ -540,7 +540,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.5 Setting Assignment Comments - `set assignment comments` 
+### 2.4.5 Setting Assignment Comments - `set assignment comments` <a name="setassignmentcomments"></a>
  
 Sets a comment for an existing assignment. The assignment comment cannot exceed 100 characters. ModMan will eventually support comments of unlimited length (we are still working on this feature!). 
  
@@ -564,7 +564,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.6 Getting Assignment Comments - `get assignment comments`
+### 2.4.6 Getting Assignment Comments - `get assignment comments` <a name="getassignmentcomments"></a>
 
 Retrieves the assignment comments of an existing assignment and prints it out for the user.
 
@@ -585,7 +585,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.7 Editing an Assignment Name - `edit assignment name`
+### 2.4.7 Editing an Assignment Name - `edit assignment name` <a name="editassignmentname"></a>
 
 Edits the assignment name of an existing assignment
 
@@ -606,7 +606,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.8 Listing Module Assignments - `list assignments` 
+### 2.4.8 Listing Module Assignments - `list assignments` <a name="listassignments"></a>
 
 The `list assignments` command lists out all the assignments in the current module you are working in. It also shows you information on the type of assignment 
 and the due date for grading, if you have set a deadline for the assignment.
@@ -635,7 +635,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.9 Sorting Module Assignments - `sort assignments by deadline` 
+### 2.4.9 Sorting Module Assignments - `sort assignments by deadline` <a name="sortassignmentsbydeadline"></a>
 
 The `sort assignment by deadline` command sorts and lists the assignments in your current module by deadline, allowing you to easily keep track of which assignments have to be graded soon. 
 The assignments are sorted based on the urgency of the grading from the most urgent to the least urgent. </br>
@@ -673,7 +673,7 @@ After sorting:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.10 Listing Assignment Grades - `list assignment grades` 
+### 2.4.10 Listing Assignment Grades - `list assignment grades` <a name="listassignmentgrades"></a>
 
 Lists the students' grades for a particular assignment.
 
@@ -694,7 +694,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.11 Viewing Assignment Answer - `view assignment answer`
+### 2.4.11 Viewing Assignment Answer - `view assignment answer` <a name="viewassignmentanswer"></a>
 
 The `view assignment answer` command allows you to easily search and retrieve the answer key for an assignment just by entering the name of the assignment. </br>
 
@@ -755,7 +755,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.12 Viewing Student Script - `view student script`
+### 2.4.12 Viewing Student Script - `view student script` <a name="viewstudentscript"></a>
 
 The `view student script` command allows you to easily search and retrieve the student's script for an assignment just by entering the name of the assignment and the student.</br> 
 
@@ -812,7 +812,7 @@ Expected output:
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.4.13 Autograding Assignments - `autograde assignment`
+### 2.4.13 Autograding Assignments - `autograde assignment` <a name="autogradeassignment"></a>
 
 ModMan has an integrated autograder to help you grade digital assignment submissions easily and efficiently!</br> 
 
@@ -869,7 +869,7 @@ Expected output:
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.5.1 Listing Basic Commands - `help`
+### 2.5.1 Listing Basic Commands - `help` <a name="help"></a>
 
 This command is available for you to get a quick reference of all the basic commands available in ModMan, and their usages.
 You can invoke `help` any time you are unsure of the basic commands and their formats.
@@ -902,7 +902,7 @@ You may open this User Guide for a comprehensive list.
 
 <hr style="border:0.5px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.5.2 Exiting ModMan - `bye`
+### 2.5.2 Exiting ModMan - `bye` <a name="bye"></a>
 
 Auto-saves all your changes and exits the program. ModMan will have all your data ready the next time you load it.
 
