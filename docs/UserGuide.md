@@ -47,9 +47,11 @@ Icon | Purpose
 1. [Quick start](#quick-start) <br>
     1.1 [Input Formatting](#input-formatting)<br>
     1.2 [Database File Tampering](#database-file-tampering)<br>
-1. [Features](#features) <br>
+   
+
+2. [Features](#features) <br>
    2.1 [Module](#module) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#adding-a-module-add-module) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.1.1 [`add module` - Adding a Module](#addmodule) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.2 [`remove module` - Removing a Module](#removing-a-module) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.3 [`select` - Selecting a Module](#selecting-a-module-select) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.1.4 [`current` - Viewing Current Module](#viewing-current-module-current) <br>
@@ -80,8 +82,12 @@ Icon | Purpose
    2.5 [Help and Exit](#help-and-exit) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.5.1 [`help` - Listing Basic Commands](#listing-basic-commands-help) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.5.2 [`bye` - Exiting ModMan](#exiting-modman--bye) <br>
-1. [FAQ](#faq)
-1. [Command summary](#command-summary)
+   
+
+3. [FAQ](#faq)
+   
+
+4. [Command summary](#command-summary)
 
 <div style="page-break-after: always;"></div>
 
@@ -136,7 +142,7 @@ Although not recommended, edits may be made in `Database.txt` that effects chang
 
 <hr style="border:1px solid darkorange; background-color: darkorange"> </hr>
 
-### 2.1.1 Adding a Module - `add module`
+### 2.1.1 Adding a Module - `add module` <a name="addmodule"></a>
 
 Adds a new module to the list of modules. If you are a TA for multiple modules, you can keep track of all of them!
 
@@ -501,7 +507,7 @@ Examples of usage:</br>
     I have set Jianning's grade to 100 for assignment quiz1 in CS2113T
 ---------------------------------------------------------------------
 ```
-2. `set assignment grade /a quiz1 /s Jianning /g 101
+2. `set assignment grade /a quiz1 /s Jianning /g 101`
 
 ```
 ---------------------------------------------------------------------
@@ -979,7 +985,7 @@ list assignments | `list assignments` <br>
 sort assignments by deadline | `sort assignments by deadline` <br>
 list assignment grades | `list assignment grades /a ASSIGNMENT_NAME` <br> e.g. `list assignment grades /a quiz1`
 view assignment answer | `view assignment answer /a ASSIGNMENT_NAME` <br> e.g. `view assignment answer /a quiz1`
-view student script | `view student script /a ASSIGNMENT_NAME /s STUDENT_NAME` <br> e.g. `view assignment answer /a quiz1 /s Jianning`
+view student script | `view student script /a ASSIGNMENT_NAME /s STUDENT_NAME` <br> e.g. `view student script /a quiz1 /s Jianning`
 autograde assignment | `autograde assignment /a ASSIGNMENT_NAME` <br> e.g. `autograde assignment /a quiz1`
 
 <br>
