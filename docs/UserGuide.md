@@ -789,7 +789,7 @@ Shown below are examples of what a student's script text file for an assignment 
 On the left, we have the script for an MCQ assignment quiz1.</br> 
 On the right, we have the script for a Short Answer assignment quiz2. 
 
-![MCQS](UGPics/MCQS.PNG) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![ShortAnswerS](UGPics/SAS.PNG)
+![MCQS](UGPics/MCQS.PNG) &nbsp;&nbsp; ![ShortAnswerS](UGPics/SAS.PNG)
 
 :warning: Here are some things to look out for when formatting the script text file: 
 * Question numbers should be in sequential order starting from 1 
