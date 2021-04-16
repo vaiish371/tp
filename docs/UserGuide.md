@@ -71,7 +71,7 @@ Icon | Purpose
    &nbsp;&nbsp;&nbsp;&nbsp; 2.4.3 [`set assignment grade` - Setting Assignment Grade](#setassignmentgrade) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.4.4 [`set assignment percentage` - Setting Assignment Percentage of Overall Grade](#setassignmentpercentage) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.4.5 [`set assignment comments` - Setting Assignment Comments](#setassignmentcomments) <br>
-   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.6 [`get assignment comments` - Getting Assignment Percentage](#getassignmentcomments) <br>
+   &nbsp;&nbsp;&nbsp;&nbsp; 2.4.6 [`get assignment comments` - Getting Assignment Comments](#getassignmentcomments) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.4.7 [`edit assignment name` - Editing an Assignment Name](#editassignmentname) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.4.8 [`list assignments` - Listing Module Assignments](#listassignments) <br>
    &nbsp;&nbsp;&nbsp;&nbsp; 2.4.9 [`sort assignments by deadline` - Sorting Module Assignments](#sortassignmentsbydeadline) <br>
